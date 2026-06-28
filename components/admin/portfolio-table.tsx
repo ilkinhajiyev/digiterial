@@ -3,7 +3,7 @@ import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { addPortfolio, editPortfolio, removePortfolio } from '@/lib/actions/portfolio';
 
-type Item = { id: string; title: string; category: 'web' | 'smm'; client?: string; description?: string; url?: string; image_url?: string; tags?: string; metric?: string; featured?: boolean; position?: number };
+type Item = { id: string; title: string; category: 'web' | 'smm'; slug?: string; client?: string; description?: string; body?: string; url?: string; image_url?: string; gallery?: string[]; tags?: string; metric?: string; featured?: boolean; position?: number };
 const CATN: Record<string, string> = { web: 'Veb sayt', smm: 'SMM' };
 
 export default function PortfolioTable({ rows }: { rows: Item[] }) {
@@ -77,8 +77,11 @@ export default function PortfolioTable({ rows }: { rows: Item[] }) {
               <div><label className={lbl}>Kateqoriya</label><select name="category" defaultValue={edit?.category || 'web'} className={inp}><option value="web">Veb sayt</option><option value="smm">SMM</option></select></div>
               <div><label className={lbl}>Müştəri</label><input name="client" defaultValue={edit?.client} className={inp} /></div>
               <div className="col-span-2"><label className={lbl}>Təsvir</label><textarea name="description" defaultValue={edit?.description} rows={2} className={inp} /></div>
+              <div><label className={lbl}>Slug (URL, boş→avtomatik)</label><input name="slug" defaultValue={edit?.slug} className={inp} placeholder="restobaku" /></div>
+              <div><label className={lbl}>Əsas şəkil URL</label><input name="image_url" defaultValue={edit?.image_url} className={inp} placeholder="https://...jpg" /></div>
+              <div className="col-span-2"><label className={lbl}>Layihə mətni (abzaslar yeni sətirlə)</label><textarea name="body" defaultValue={edit?.body} rows={3} className={inp} placeholder="Layihə haqqında ətraflı..." /></div>
+              <div className="col-span-2"><label className={lbl}>Qalereya şəkilləri (hər sətirdə bir URL)</label><textarea name="gallery" defaultValue={edit?.gallery?.join('\n')} rows={3} className={inp} placeholder={"https://...1.jpg\nhttps://...2.jpg"} /></div>
               <div><label className={lbl}>Sayt / link</label><input name="url" defaultValue={edit?.url} className={inp} placeholder="https://" /></div>
-              <div><label className={lbl}>Şəkil URL</label><input name="image_url" defaultValue={edit?.image_url} className={inp} placeholder="https://...jpg" /></div>
               <div><label className={lbl}>Teqlər (vergüllə)</label><input name="tags" defaultValue={edit?.tags} className={inp} placeholder="WordPress, SEO" /></div>
               <div><label className={lbl}>Metrik / nəticə</label><input name="metric" defaultValue={edit?.metric} className={inp} placeholder="+214% sifariş" /></div>
               <div><label className={lbl}>Sıra (position)</label><input name="position" type="number" defaultValue={edit?.position ?? 0} className={inp} /></div>

@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { BakuClock } from '@/components/site/interactive';
 
 export default function SiteFooter() {
   const t = useTranslations('footer');
@@ -12,7 +13,7 @@ export default function SiteFooter() {
             <p className="text-mut-d mt-3 text-sm">{t('tagline')} Strategiya, dizayn, inkişaf və marketinq bir komandadan.</p>
           </div>
           <div className="font-mono text-sm text-mut-d text-right leading-loose">
-            <b className="text-white font-medium">Bakı, Azərbaycan</b><br />40.4093° N · 49.8671° E<br />B.e – C · 10:00–18:00
+            <b className="text-white font-medium">Bakı, Azərbaycan</b><br />40.4093° N · 49.8671° E<br />B.e – C · <BakuClock />
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

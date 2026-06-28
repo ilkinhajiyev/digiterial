@@ -19,6 +19,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   setRequestLocale(locale);
   const page = await getPage('home', locale);
-  const blocks = (page?.blocks as any[])?.length ? page!.blocks : homeBlocks;
+  const dbBlocks = (page?.blocks as any[]) || [];
+  const blocks = dbBlocks.length > 1 ? dbBlocks : homeBlocks;
   return (<><JsonLd data={orgLd} /><BlockRenderer blocks={blocks as any} /></>);
 }
