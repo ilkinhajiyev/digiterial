@@ -42,3 +42,11 @@ body { -webkit-font-smoothing: antialiased; }
 .anim-slide { animation: slidein .5s cubic-bezier(.2,.7,.2,1); }
 @keyframes slidein { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
 @media (prefers-reduced-motion: reduce) { .anim-slide { animation: none } }
+
+/* ===== WhatsApp float ===== */
+.wa-btn{position:fixed;bottom:24px;right:24px;z-index:99;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .25s,box-shadow .25s;cursor:pointer;text-decoration:none}
+.wa-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.6)}
+.wa-btn svg{width:30px;height:30px;fill:#fff}
+.wa-pulse{position:absolute;inset:0;border-radius:50%;background:#25D366;animation:wa-p 2s ease-out infinite;opacity:0}
+@keyframes wa-p{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.65);opacity:0}}
+@media(prefers-reduced-motion:reduce){.wa-pulse{animation:none}}

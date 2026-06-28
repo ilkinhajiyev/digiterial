@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { locales } from '@/i18n/routing';
 import SiteHeader from '@/components/site/header';
+import WhatsApp from '@/components/site/whatsapp';
 import SiteFooter from '@/components/site/footer';
 
 export function generateStaticParams() {
@@ -20,6 +21,7 @@ export default async function LocaleLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <WhatsApp phone="994604996340" />
       </div>
     </NextIntlClientProvider>
   );
