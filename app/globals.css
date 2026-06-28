@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .wrap { @apply max-w-[1280px] mx-auto px-7; }
+  .elbl { @apply font-mono text-xs tracking-[0.16em] uppercase text-mut-d inline-flex items-center gap-2.5; }
+  .elbl::before { content: ""; @apply w-6 h-px bg-current opacity-60; }
+  .hbtn { @apply inline-flex items-center gap-2.5 font-semibold rounded-full px-7 py-3.5 transition-transform duration-300 hover:-translate-y-0.5; }
+  .hbtn-y { @apply bg-brand text-ink; }
+  .hbtn-o { @apply border border-white/35 text-white hover:bg-white hover:text-ink; }
+  .hbtn-d { @apply bg-ink text-white; }
+}
+
+/* ===== Interaktivlik / animasiyalar ===== */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; will-change: transform; animation: marquee 26s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.wreveal span { display: inline-block; opacity: 0; transform: translateY(.5em); animation: wr .6s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes wr { to { opacity: 1; transform: none; } }
+
+.hero-panel-icon svg { width: 100%; height: 100%; }
+.scrollcue { animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+  .wreveal span { opacity: 1; transform: none; animation: none; }
+  .scrollcue { animation: none; }
+}
+
+@keyframes fillbar { from { width: 0 } to { width: 100% } }
+.anim-slide { animation: slidein .5s cubic-bezier(.2,.7,.2,1); }
+@keyframes slidein { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+@media (prefers-reduced-motion: reduce) { .anim-slide { animation: none } }

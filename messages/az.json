@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "services": "Xidmətlər",
+    "work": "İşlər",
+    "cases": "Case-lər",
+    "about": "Haqqımızda",
+    "blog": "Bloq",
+    "contact": "Əlaqə",
+    "cta": "Layihə başlat"
+  },
+  "common": {
+    "services": "Xidmətlər",
+    "work": "İşlər",
+    "contact": "Əlaqə",
+    "audit": "Pulsuz audit",
+    "start": "Başla",
+    "details": "Detallar",
+    "allServices": "Bütün xidmətlər",
+    "freeConsult": "Pulsuz konsultasiya",
+    "viewSite": "Saytda bax",
+    "more": "Ətraflı"
+  },
+  "hero": {
+    "eyebrow": "360° rəqəmsal agentlik",
+    "h1": "Müasir brendlər üçün rəqəmsal təcrübələr.",
+    "lead": "Strategiyadan icraya — veb, marketinq və brendinq bir komandadan. Ölçülə bilən nəticələr.",
+    "b1": "Xidmətlərimiz",
+    "b2": "İşlərimizə bax",
+    "whatWeDo": "Nə edirik"
+  },
+  "home": {
+    "band": {
+      "label": "Nə edirik",
+      "big": "Aydınlıqdan momentuma.",
+      "h3": "Strategiya, dizayn, inkişaf və marketinqi vahid sistem kimi işlədirik.",
+      "p": "Bir komanda, bir ürək döyüntüsü — hiss edə biləcəyiniz irəliləyiş və sübut edə biləcəyiniz nəticələr."
+    },
+    "servicesHead": {
+      "label": "Xidmətlər",
+      "heading": "Hər şey bir dam altında."
+    },
+    "stats": {
+      "label": "Formula",
+      "statement": "Bir komanda. Bir ürək döyüntüsü. Sıfır bəhanə.",
+      "receipt": "0 şablon / 240+ məmnun müştəri.",
+      "l1": "Layihə",
+      "l2": "Trafik",
+      "l3": "PageSpeed",
+      "l4": "Reytinq"
+    },
+    "testimonials": {
+      "label": "Müştərilər deyir",
+      "q1": "İşlədiyimiz istənilən agentlikdən bizi daha tez başa düşdülər.",
+      "by1": "Murad Q. · RestoBaku",
+      "q2": "Hər təxminimizdən üç həftə əvvəl təhvil verirlər.",
+      "by2": "Nigar P. · Aztravel"
+    },
+    "clients": {
+      "label": "Bizə etibar edənlər"
+    },
+    "cta": {
+      "h2": "Real rəqəmsal təkana hazırsınız?",
+      "p": "30 dəqiqəlik pulsuz konsultasiyada layihənizi danışaq.",
+      "b1": "Layihə başlat"
+    }
+  },
+  "footer": {
+    "tagline": "Bakı əsaslı 360° rəqəmsal agentlik. Strategiya, dizayn, inkişaf və marketinq bir komandadan.",
+    "hq": "Bakı, Azərbaycan",
+    "hours": "B.e – C ·",
+    "discover": "Kəşf et",
+    "contact": "Əlaqə",
+    "follow": "İzlə",
+    "legal": "Hüquqi",
+    "rights": "Bütün hüquqlar qorunur.",
+    "privacy": "Məxfilik",
+    "terms": "Şərtlər",
+    "social": "Sosial media"
+  },
+  "pages": {
+    "services": {
+      "eyebrow": "Xidmətlərimiz",
+      "h1": "Hər şey bir dam altında.",
+      "lead": "Strategiyadan icraya — biznesinizin rəqəmsal mövcudluğunun hər mərhələsi bir komandadan."
+    },
+    "work": {
+      "eyebrow": "Portfolio",
+      "h1a": "Sözdən çox —",
+      "h1b": "nəticə.",
+      "lead": "Veb sayt və SMM üzrə seçilmiş layihələr. Hər birinə klikləyib detallara və qalereyaya baxın."
+    },
+    "cases": {
+      "eyebrow": "Case Studies",
+      "h1a": "Case yoxdursa —",
+      "h1b": "olmayıb.",
+      "lead": "Real layihələr, real rəqəmlər."
+    },
+    "about": {
+      "eyebrow": "Haqqımızda",
+      "h1a": "Həqiqətən nəticə verən",
+      "h1b": "agentlik.",
+      "lead": "2018-dən bəri Bakıda. Etibarlı kreativ-texnoloji partnyorunuz."
+    },
+    "blog": {
+      "eyebrow": "Bloq",
+      "h1a": "Fikirlər, taktikalar,",
+      "h1b": "nəticələr.",
+      "lead": "Buzzword yox — işləyən şeylər."
+    },
+    "contact": {
+      "eyebrow": "Əlaqə",
+      "h1a": "Gəlin",
+      "h1b": "danışaq.",
+      "lead": "Layihəniz və ya ideya — yazın. 24 saat içində cavab veririk. Pulsuz audit də daxil.",
+      "name": "Ad Soyad",
+      "email": "Email",
+      "company": "Şirkət",
+      "message": "Layihə haqqında",
+      "send": "Müraciəti göndər",
+      "sending": "Göndərilir…",
+      "ok": "Təşəkkürlər! 24 saat içində cavab verəcəyik.",
+      "iEmail": "Email",
+      "iPhone": "Telefon",
+      "iAddr": "Ünvan",
+      "iHours": "İş saatı",
+      "addr": "Bakı, Azərbaycan",
+      "hours": "B.e – Cümə · 10:00–18:00"
+    }
+  },
+  "svcDetail": {
+    "allServices": "Bütün xidmətlər",
+    "overview": "Ümumi baxış",
+    "included": "Daxildir",
+    "includedHead": "Nə təklif edirik.",
+    "process": "Necə işləyirik",
+    "processHead": "Proses.",
+    "deliverables": "Təhvil verilənlər",
+    "ctaTail": "layihənizi danışaq.",
+    "ctaP": "Pulsuz audit və konsultasiya ilə başlayaq.",
+    "start": "Başla",
+    "other": "Digər xidmətlər",
+    "s1h": "Kəşf",
+    "s1p": "Biznes, məqsəd və auditoriyanı anlayırıq.",
+    "s2h": "Strategiya",
+    "s2p": "Aydın plan və ölçülə bilən KPI-lar.",
+    "s3h": "İcra",
+    "s3p": "Dizayn, inkişaf və ya kampaniya qurulması.",
+    "s4h": "Optimizasiya",
+    "s4p": "Data əsaslı davamlı yaxşılaşdırma."
+  },
+  "svc": {
+    "veb-saytlar": {
+      "title": "Veb & E-ticarət",
+      "tag": "Veb",
+      "short": "Sürətli, konvertasiya yönümlü saytlar və onlayn mağazalar."
+    },
+    "seo": {
+      "title": "SEO & Texniki SEO",
+      "tag": "SEO",
+      "short": "Üzvi trafik üçün açar söz, texniki audit və kontent strategiyası."
+    },
+    "reklam": {
+      "title": "Google & Meta Ads",
+      "tag": "Reklam",
+      "short": "ROAS yönümlü performans reklamı: Google, Meta, TikTok."
+    },
+    "brendinq": {
+      "title": "Brendinq & Dizayn",
+      "tag": "Brendinq",
+      "short": "Loqo, vizual kimlik və UI/UX — yadda qalan brendlər."
+    },
+    "smm": {
+      "title": "SMM & Sosial Media",
+      "tag": "SMM",
+      "short": "Kontent plan, icma idarəçiliyi və böyümə strategiyası."
+    },
+    "ai-avtomatlasdirma": {
+      "title": "AI & Avtomatlaşdırma",
+      "tag": "AI",
+      "short": "CRM, lead axını və biznes proseslərinin avtomatlaşdırılması."
+    }
+  },
+  "portfolio": {
+    "web": "Veb saytlar",
+    "webHead": "Veb & E-ticarət",
+    "smm": "SMM xidmətləri",
+    "smmHead": "Sosial media & Reklam",
+    "detail": "Detallar",
+    "ctaH": "Növbəti uğur sizin olsun.",
+    "ctaP": "Pulsuz audit alın.",
+    "about": "Layihə haqqında",
+    "gallery": "Qalereya",
+    "visit": "Saytı ziyarət et",
+    "back": "Bütün işlər",
+    "similar": "Bənzər nəticə istəyirsiniz?"
+  }
+}
