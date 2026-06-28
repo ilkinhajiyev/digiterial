@@ -124,7 +124,8 @@
       "iAddr": "Ünvan",
       "iHours": "İş saatı",
       "addr": "Bakı, Azərbaycan",
-      "hours": "B.e – Cümə · 10:00–18:00"
+      "hours": "B.e – Cümə · 10:00–18:00",
+      "service": "Xidmət"
     }
   },
   "svcDetail": {
