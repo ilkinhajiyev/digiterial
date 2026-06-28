@@ -1,6 +1,7 @@
 'use client';
 import { useRef, useState, useTransition } from 'react';
 import { savePage } from '@/lib/actions/pages';
+import { saveSettings } from '@/lib/actions/settings';
 
 /* ---- contentEditable (mount-only init → kursor tullanmır) ---- */
 function Editable({ value, onChange, className, tag = 'div', edit }: { value: string; onChange: (v: string) => void; className?: string; tag?: any; edit: boolean }) {
@@ -29,7 +30,7 @@ const DEFAULTS: Record<string, any> = {
 };
 const PALETTE: [string, string][] = [['hero', 'Hero'], ['band', 'Editorial band'], ['services', 'Xidmət sıraları'], ['stats', 'Statistika'], ['cards', 'Kartlar'], ['testimonials', 'Rəylər'], ['faq', 'FAQ'], ['cta', 'CTA band'], ['marquee', 'Marquee zolaq'], ['clients', 'Müştəri marquee'], ['richtext', 'Mətn bloku']];
 
-export default function VisualBuilder({ initial }: { initial: { seo_title: string; slug: string; meta_desc: string; blocks: any[] } }) {
+export default function VisualBuilder({ initial, settings }: { initial: { seo_title: string; slug: string; meta_desc: string; blocks: any[] }; settings: any }) {
   const [blocks, setBlocks] = useState<any[]>(() => initial.blocks.map((b, i) => ({ _id: 'b' + i + Date.now(), ...b })));
   const [seo, setSeo] = useState({ seo_title: initial.seo_title, slug: initial.slug, meta_desc: initial.meta_desc });
   const [accent, setAccent] = useState('#F1E500');
@@ -38,6 +39,11 @@ export default function VisualBuilder({ initial }: { initial: { seo_title: strin
   const [palette, setPalette] = useState(false);
   const [msg, setMsg] = useState('');
   const [pending, start] = useTransition();
+  const [set, setSet] = useState<any>(settings || {});
+  const [smsg, setSmsg] = useState('');
+  const sIn = (k: string, v: string) => setSet((p: any) => ({ ...p, [k]: v }));
+  const sSoc = (k: string, v: string) => setSet((p: any) => ({ ...p, social: { ...(p.social || {}), [k]: v } }));
+  function saveSet() { start(async () => { const r = await saveSettings(set); setSmsg(r.ok ? '✓' : '⚠'); setTimeout(() => setSmsg(''), 2000); }); }
 
   const setP = (i: number, k: string, v: any) => setBlocks((bs) => bs.map((b, idx) => idx === i ? { ...b, props: { ...b.props, [k]: v } } : b));
   const setItem = (i: number, ii: number, k: string, v: any) => setBlocks((bs) => bs.map((b, idx) => { if (idx !== i) return b; const items = b.props.items.map((it: any, j: number) => j === ii ? { ...it, [k]: v } : it); return { ...b, props: { ...b.props, items } }; }));
@@ -53,6 +59,7 @@ export default function VisualBuilder({ initial }: { initial: { seo_title: strin
 
   const seg = 'text-sm px-3 py-1.5 rounded-lg';
   const dw = device === 'full' ? '100%' : device === 'tablet' ? '820px' : '390px';
+  const si = 'w-full bg-[#161616] border border-white/15 rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-brand';
 
   const Tools = (i: number) => edit && (
     <div className="absolute top-2 right-2 hidden group-hover:flex gap-1 z-20">
@@ -120,6 +127,17 @@ export default function VisualBuilder({ initial }: { initial: { seo_title: strin
         <div className="font-mono text-[.66rem] uppercase text-mut mt-6 mb-3">Tema</div>
         <div className="flex items-center gap-3"><input type="color" value={accent} onChange={(e) => setAccent(e.target.value)} className="h-9 w-14 bg-[#161616] border border-white/15 rounded-lg" /><span className="text-sm text-mut">Aksent rəng</span></div>
         <p className="text-mut text-xs mt-5 leading-relaxed">Mətnə klikləyib yazın. Blok üstündə <b className="text-white">↑↓⧉✕</b>. Dəyişikliklər <b className="text-brand">Yadda saxla</b> ilə canlı sayta çıxır.</p>
+        <div className="font-mono text-[.66rem] uppercase text-mut mt-6 mb-3 border-t border-white/10 pt-4">Sayt parametrləri (footer)</div>
+        <div className="space-y-2.5">
+          <input value={set.brand || ''} onChange={(e) => sIn('brand', e.target.value)} placeholder="Brend adı" className={si} />
+          <input value={set.email || ''} onChange={(e) => sIn('email', e.target.value)} placeholder="Email" className={si} />
+          <input value={set.phone || ''} onChange={(e) => sIn('phone', e.target.value)} placeholder="Telefon" className={si} />
+          <input value={set.social?.instagram || ''} onChange={(e) => sSoc('instagram', e.target.value)} placeholder="Instagram URL" className={si} />
+          <input value={set.social?.linkedin || ''} onChange={(e) => sSoc('linkedin', e.target.value)} placeholder="LinkedIn URL" className={si} />
+          <input value={set.social?.tiktok || ''} onChange={(e) => sSoc('tiktok', e.target.value)} placeholder="TikTok URL" className={si} />
+          <input value={set.social?.facebook || ''} onChange={(e) => sSoc('facebook', e.target.value)} placeholder="Facebook URL" className={si} />
+          <button onClick={saveSet} disabled={pending} className="w-full bg-brand text-ink font-semibold text-sm rounded-lg py-2 mt-1 disabled:opacity-60">💾 Footer / Sosial saxla {smsg}</button>
+        </div>
       </aside>
     </div>
   );

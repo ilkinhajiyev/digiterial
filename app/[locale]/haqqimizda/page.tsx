@@ -1,18 +1,16 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { BlockRenderer } from '@/components/site/blocks';
-
-export const metadata: Metadata = { title: 'Haqqımızda — Digiterial', description: '2018-dən bəri Bakıda 360° rəqəmsal agentlik.', alternates: { canonical: '/haqqimizda' } };
-
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.about' });
+  return { title: `${t('h1a')} ${t('h1b')}`, description: t('lead'), alternates: { canonical: '/haqqimizda' } };
+}
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params; setRequestLocale(locale);
-  return <BlockRenderer blocks={[
-  { type:'hero', props:{ eyebrow:'Haqqımızda', h1:'Həqiqətən nəticə verən agentlik.', lead:'2018-dən bəri Bakıda. Etibarlı kreativ-texnoloji partnyorunuz.', b1:'Komandamız', b2:'Əlaqə' } },
-  { type:'cards', props:{ label:'Dəyərlərimiz', heading:'Bizi fərqləndirən.', items:[
-    {h:'Nəticə > söz',p:'Slayd deyil, rəqəm.'},
-    {h:'Bir komanda',p:'Eyni masada.'},
-    {h:'Şəffaflıq',p:'Sabit qiymət.'} ] } },
-  { type:'stats', props:{ label:'Rəqəmlərlə', statement:'Kiçik, fokuslu komanda.', items:[
-    {v:'2018',l:'Təsis'},{v:'240+',l:'Layihə'},{v:'18',l:'Müştəri'},{v:'9',l:'Üzv'} ], receipt:'Qonşuluqdan dünyaya.' } },
-  { type:'cta', props:{ h2:'Bizimlə işləyin.', p:'Növbəti layihəniz buradan.', b1:'Əlaqə' } } ] as any} />;
+  const t = await getTranslations('pages.about'); const c = await getTranslations('common'); const h = await getTranslations('home');
+  const blocks = [
+    { type: 'hero', props: { eyebrow: t('eyebrow'), h1: t('h1a') + ' ' + t('h1b'), lead: t('lead'), b1: c('services'), b2: c('contact') } },
+    { type: 'cta', props: { h2: h('cta.h2'), p: h('cta.p'), b1: h('cta.b1') } },
+  ];
+  return <BlockRenderer blocks={blocks as any} />;
 }

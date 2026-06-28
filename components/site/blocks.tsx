@@ -3,6 +3,7 @@ import Hero from '@/components/site/hero';
 import { CountUp, Marquee, Reveal } from '@/components/site/interactive';
 import { ServiceIcon } from '@/components/site/service-icons';
 import { services } from '@/lib/data/services';
+import ServicesList from '@/components/site/services-list';
 
 type Block = { type: string; props: any };
 
@@ -20,25 +21,7 @@ function Band({ p }: { p: any }) {
 }
 
 function Services({ p }: { p: any }) {
-  return (
-    <section className={p.light ? 'py-20 md:py-28 bg-paper text-ink' : 'py-20 md:py-28'}><div className="wrap">
-      <div className="elbl">{p.label}</div>
-      <h2 className="font-display font-bold text-[clamp(1.9rem,5vw,3.6rem)] mt-4 max-w-[16ch]">{p.heading}</h2>
-      <div className="mt-8 border-t border-neutral-500/25">
-        {services.map((s, idx) => (
-          <Link key={s.slug} href={`/xidmetler/${s.slug}`}
-            className="group grid grid-cols-[44px_1fr_auto] sm:grid-cols-[70px_1fr_auto] gap-4 sm:gap-6 items-center py-5 sm:py-7 border-b border-neutral-500/25 hover:px-2 transition-all">
-            <span className="font-mono text-brand text-sm sm:text-base">{String(idx + 1).padStart(2, '0')}</span>
-            <div className="flex items-center gap-4">
-              <span className={`${p.light ? 'text-ink' : 'text-white'} opacity-40 group-hover:opacity-100 group-hover:text-brand transition hidden sm:block`}><ServiceIcon slug={s.slug} className="w-7 h-7" /></span>
-              <h3 className="font-display font-bold text-[clamp(1.3rem,3.4vw,2.4rem)] group-hover:text-brand transition">{s.title}</h3>
-            </div>
-            <span className="font-mono text-sm text-mut-d group-hover:text-brand transition flex items-center gap-2"><span className="hidden md:inline">{s.tag}</span><span className="group-hover:translate-x-1 transition-transform">→</span></span>
-          </Link>
-        ))}
-      </div>
-    </div></section>
-  );
+  return <ServicesList label={p.label} heading={p.heading} />;
 }
 
 function Stats({ p }: { p: any }) {

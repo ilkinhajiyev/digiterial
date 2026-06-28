@@ -1,18 +1,17 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { BlockRenderer } from '@/components/site/blocks';
-
-export const metadata: Metadata = {
-  title: 'Xidmətlər — Veb, SEO, Reklam, SMM, Brendinq, AI', description: 'Hər şey bir dam altında: veb, SEO, reklam, SMM, brendinq və AI avtomatlaşdırma.', alternates: { canonical: '/xidmetler' },
-};
-
-export default async function XidmetlerPage({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.services' });
+  return { title: t('h1'), description: t('lead'), alternates: { canonical: '/xidmetler' } };
+}
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params; setRequestLocale(locale);
+  const t = await getTranslations('pages.services'); const c = await getTranslations('common'); const h = await getTranslations('home');
   const blocks = [
-    { type: 'hero', props: { eyebrow: 'Xidmətlərimiz', h1: 'Hər şey bir dam altında.', lead: 'Strategiyadan icraya — biznesinizin rəqəmsal mövcudluğunun hər mərhələsi bir komandadan.', b1: 'Pulsuz audit', b2: 'İşlərimiz' } },
-    { type: 'services', props: { label: 'Nə təklif edirik', heading: 'Altı istiqamət, bir məqsəd.' } },
-    { type: 'faq', props: { label: 'FAQ', items: [{ q: 'Layihə nə qədər çəkir?', a: 'Landing 1–2 həftə, korporativ sayt 3–5 həftə, SEO/Ads davamlı.' }, { q: 'Qiymətlər necədir?', a: 'Hər layihə fərqlidir — pulsuz auditdən sonra şəffaf təklif veririk.' }, { q: 'Müqavilə bağlanır?', a: 'Bəli, hər layihə üçün aydın şərtlərlə müqavilə imzalanır.' }] } },
-    { type: 'cta', props: { h2: 'Layihənizi danışaq.', p: 'Pulsuz audit də daxil.', b1: 'Başla' } },
+    { type: 'hero', props: { eyebrow: t('eyebrow'), h1: t('h1'), lead: t('lead'), b1: c('audit'), b2: c('work') } },
+    { type: 'services', props: { label: h('servicesHead.label'), heading: t('h1') } },
+    { type: 'cta', props: { h2: h('cta.h2'), p: h('cta.p'), b1: h('cta.b1') } },
   ];
   return <BlockRenderer blocks={blocks as any} />;
 }

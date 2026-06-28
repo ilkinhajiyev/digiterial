@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { BlockRenderer } from '@/components/site/blocks';
-
-export const metadata: Metadata = { title: 'Case Studies — Uğur Hekayələri', description: 'Problem, həll və ölçülə bilən nəticələr.', alternates: { canonical: '/case-studies' } };
-
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.cases' });
+  return { title: `${t('h1a')} ${t('h1b')}`, description: t('lead'), alternates: { canonical: '/case-studies' } };
+}
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params; setRequestLocale(locale);
-  return <BlockRenderer blocks={[
-  { type:'hero', props:{ eyebrow:'Case Studies', h1:'Case yoxdursa — olmayıb.', lead:'Real layihələr, real rəqəmlər.', b1:'Xidmətlər', b2:'Əlaqə' } },
-  { type:'cards', props:{ label:'Nəticələr', heading:'Sübut.', items:[
-    {h:'RestoBaku',p:'Onlayn sifariş 3 ayda 3 dəfə artdı.'},
-    {h:'Aztravel',p:'Lead dəyəri 38% aşağı, ROAS 3.2x.'},
-    {h:'NovaFinance',p:'Üzvi trafik 6 ayda iki dəfədən çox.'} ] } },
-  { type:'cta', props:{ h2:'Sizin case-iniz buradan başlasın.', p:'Danışaq.', b1:'Əlaqə' } } ] as any} />;
+  const t = await getTranslations('pages.cases'); const c = await getTranslations('common'); const h = await getTranslations('home');
+  const blocks = [
+    { type: 'hero', props: { eyebrow: t('eyebrow'), h1: t('h1a') + ' ' + t('h1b'), lead: t('lead'), b1: c('services'), b2: c('contact') } },
+    { type: 'cta', props: { h2: h('cta.h2'), p: h('cta.p'), b1: h('cta.b1') } },
+  ];
+  return <BlockRenderer blocks={blocks as any} />;
 }

@@ -1,12 +1,15 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { services } from '@/lib/data/services';
 import { ServiceIcon } from '@/components/site/service-icons';
 
 const slides = services.slice(0, 6);
 
 export default function Hero({ p }: { p: any }) {
+  const t = useTranslations('svc');
+  const th = useTranslations('hero');
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const reduced = useRef(false);
@@ -49,7 +52,7 @@ export default function Hero({ p }: { p: any }) {
         <div className="relative" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
           <div className="relative rounded-3xl border border-white/15 bg-gradient-to-b from-[#161616] to-[#0c0c0c] p-6 sm:p-8 overflow-hidden">
             <div className="flex items-center justify-between mb-6">
-              <span className="font-mono text-[.7rem] uppercase tracking-widest text-mut">Nə edirik</span>
+              <span className="font-mono text-[.7rem] uppercase tracking-widest text-mut">{th('whatWeDo')}</span>
               <span className="font-mono text-[.7rem] text-mut">{String(i + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span>
             </div>
             {/* böyük ikon + məzmun (key ilə re-mount → keçid animasiyası) */}
@@ -57,9 +60,9 @@ export default function Hero({ p }: { p: any }) {
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-brand text-ink grid place-items-center mb-5">
                 <ServiceIcon slug={cur.slug} className="w-10 h-10 sm:w-12 sm:h-12" />
               </div>
-              <div className="font-mono text-[.72rem] uppercase tracking-widest text-brand mb-2">{cur.tag}</div>
-              <h3 className="font-display font-bold text-2xl sm:text-3xl leading-tight">{cur.title}</h3>
-              <p className="text-mut-d text-sm sm:text-base mt-3 min-h-[3rem]">{cur.short}</p>
+              <div className="font-mono text-[.72rem] uppercase tracking-widest text-brand mb-2">{t(`${cur.slug}.tag`)}</div>
+              <h3 className="font-display font-bold text-2xl sm:text-3xl leading-tight">{t(`${cur.slug}.title`)}</h3>
+              <p className="text-mut-d text-sm sm:text-base mt-3 min-h-[3rem]">{t(`${cur.slug}.short`)}</p>
               <Link href={`/xidmetler/${cur.slug}`} className="inline-flex items-center gap-2 mt-4 text-brand text-sm font-medium hover:gap-3 transition-all">Ətraflı <span>→</span></Link>
             </div>
             {/* progress */}
