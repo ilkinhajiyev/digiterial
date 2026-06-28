@@ -7,6 +7,7 @@ const nav = [
   { href: '/admin', label: 'İdarə paneli' },
   { href: '/admin/crm', label: 'CRM / Lead-lər' },
   { href: '/admin/clients', label: 'Müştərilər' },
+  { href: '/admin/portfolio', label: 'Portfolio' },
   { href: '/admin/projects', label: 'Layihələr' },
   { href: '/admin/invoices', label: 'Fakturalar' },
   { href: '/admin/builder', label: 'Vizual Builder' },
