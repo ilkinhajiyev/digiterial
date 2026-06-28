@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .wrap { @apply max-w-[1280px] mx-auto px-7; }
+  .elbl { @apply font-mono text-xs tracking-[0.16em] uppercase text-mut-d inline-flex items-center gap-2.5; }
+  .elbl::before { content: ""; @apply w-6 h-px bg-current opacity-60; }
+  .hbtn { @apply inline-flex items-center gap-2.5 font-semibold rounded-full px-7 py-3.5 transition-transform duration-300 hover:-translate-y-0.5; }
+  .hbtn-y { @apply bg-brand text-ink; }
+  .hbtn-o { @apply border border-white/35 text-white hover:bg-white hover:text-ink; }
+  .hbtn-d { @apply bg-ink text-white; }
+}

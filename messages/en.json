@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "services": "Services",
+    "work": "Work",
+    "cases": "Cases",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Start a project"
+  },
+  "hero": {
+    "eyebrow": "A 360° digital agency",
+    "h1": "We craft digital experiences for modern brands.",
+    "lead": "Strategiyadan icraya — biznesinizə uyğun rəqəmsal həllər. Ölçülə bilən nəticələr.",
+    "b1": "Our services",
+    "b2": "See our work"
+  },
+  "footer": {
+    "tagline": "Bakı əsaslı 360° rəqəmsal agentlik.",
+    "rights": "Bütün hüquqlar qorunur."
+  },
+  "contact": {
+    "title": "Let's talk.",
+    "name": "Ad Soyad",
+    "email": "Email",
+    "company": "Şirkət",
+    "message": "Layihə haqqında",
+    "send": "Send message",
+    "ok": "Təşəkkürlər! 24 saat içində cavab verəcəyik."
+  }
+}

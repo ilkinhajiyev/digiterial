@@ -1,0 +1,8 @@
+export const homeBlocks = [
+  { type: 'hero', props: { eyebrow: '360° rəqəmsal agentlik', h1: 'Müasir brendlər üçün rəqəmsal təcrübələr yaradırıq.', lead: 'Strategiyadan icraya — biznesinizə uyğun rəqəmsal həllər. Ölçülə bilən nəticələr.', b1: 'Xidmətlərimiz', b2: 'İşlərimizə bax' } },
+  { type: 'band', props: { label: 'Nə edirik', big: 'Aydınlıqdan momentuma.', h3: 'Strategiya, Dizayn, İnkişaf və Marketinqi vahid sistem kimi işlədirik.', p: 'Bir komanda, bir ürək döyüntüsü — hiss edə biləcəyiniz irəliləyiş və sübut edə biləcəyiniz nəticələr.' } },
+  { type: 'services', props: { label: 'Xidmətlər', heading: 'Hər şey bir dam altında.', light: true, rows: [ { no: '01', title: 'Veb & E-ticarət', tags: 'WordPress · WooCommerce' }, { no: '02', title: 'SEO & Texniki SEO', tags: 'üzvi trafik' }, { no: '03', title: 'Google & Meta Ads', tags: 'ROAS' }, { no: '04', title: 'Brendinq & Dizayn', tags: 'UI/UX' }, { no: '05', title: 'AI & Avtomatlaşdırma', tags: 'CRM' } ] } },
+  { type: 'stats', props: { label: 'Formula', statement: 'Bir komanda. Bir ürək döyüntüsü. Sıfır bəhanə.', items: [ { v: '240+', l: 'Layihə' }, { v: '+312%', l: 'Trafik' }, { v: '98', l: 'PageSpeed' }, { v: '4.9', l: 'Reytinq' } ], receipt: '0 şablon / 240+ məmnun müştəri.' } },
+  { type: 'testimonials', props: { label: 'Müştərilər deyir', items: [ { q: '"İşlədiyimiz istənilən agentlikdən bizi daha tez başa düşdülər."', by: 'Murad Q. · RestoBaku' }, { q: '"Hər təxminimizdən üç həftə əvvəl təhvil verirlər."', by: 'Nigar P. · Aztravel' } ] } },
+  { type: 'cta', props: { h2: 'Real rəqəmsal təkana hazırsınız?', p: '30 dəqiqəlik pulsuz konsultasiyada layihənizi danışaq.', b1: 'Layihə başlat' } },
+];
