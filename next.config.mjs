@@ -8,6 +8,12 @@ const nextConfig = {
   experimental: {
     serverActions: { bodySizeLimit: '2mb' },
   },
+  // Google Fonts üçün Hostinger-də timeout problemi olmasın
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'picsum.photos' },
+    ],
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -11,9 +11,9 @@ const config: Config = {
         'mut-d': '#9A9A93',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'sans-serif'],
-        body: ['var(--font-body)', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
+        display: ["'Space Grotesk'", 'sans-serif'],
+        body:    ["'Inter'",         'sans-serif'],
+        mono:    ["'JetBrains Mono'", 'monospace'],
       },
     },
   },
