@@ -1,6 +1,6 @@
 'use server';
 import { z } from 'zod';
-import { createServiceClient } from '@/lib/supabase/service';
+import { createClient as createSb } from '@supabase/supabase-js';
 
 const schema = z.object({
   name:    z.string().min(2, 'Ad ən az 2 hərf olmalıdır'),
@@ -21,39 +21,42 @@ export async function submitContact(formData: FormData) {
 
   const parsed = schema.safeParse(raw);
   if (!parsed.success) {
-    const msg = parsed.error.errors[0]?.message || 'Məlumatları yoxlayın.';
-    return { ok: false, error: msg };
+    return { ok: false, error: parsed.error.errors[0]?.message || 'Məlumatları yoxlayın.' };
   }
 
   const d = parsed.data;
+  const url  = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const svcKey  = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !anonKey) {
+    return { ok: false, error: 'Konfiqurasiya xətası. Bilavasitə salam@digiterial.com-a yazın.' };
+  }
+
+  // Əvvəlcə service key ilə cəhd et, yoxdursa anon key ilə
+  const key = svcKey || anonKey;
+  const sb = createSb(url, key, { auth: { persistSession: false } });
 
   try {
-    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
-      console.warn('SUPABASE_SERVICE_ROLE_KEY yoxdur — lead saxlanılmadı');
-      return { ok: true }; // dev mühitdə form işləsin
-    }
-
-    const sb = createServiceClient();
     const { error } = await sb.from('leads').insert({
       name:    d.name,
       email:   d.email,
-      company: d.company || null,
-      service: d.service || null,
+      company: d.company  || null,
+      service: d.service  || null,
+      message: d.message  || null,
       stage:   'new',
       source:  'organic',
-      // message sütunu leads-də yoxdursa, ayrı cədvələ ya notes kimi saxla
+      value:   0,
     });
 
     if (error) {
-      console.error('Lead insert error:', error);
-      // Sütun yoxdursa yenə də uğurlu say (UX üçün)
-      if (error.code === '42703') return { ok: true };
-      return { ok: false, error: 'Xəta baş verdi. Bilavasitə emailə yazın.' };
+      console.error('[contact] error:', error.code, error.message);
+      return { ok: false, error: `Xəta (${error.code}): ${error.message}` };
     }
 
     return { ok: true };
-  } catch (ex) {
-    console.error('submitContact exception:', ex);
-    return { ok: false, error: 'Göndərilmədi. Yenidən cəhd edin.' };
+  } catch (ex: any) {
+    console.error('[contact] exception:', ex?.message);
+    return { ok: false, error: `Sistem xətası: ${ex?.message}` };
   }
 }

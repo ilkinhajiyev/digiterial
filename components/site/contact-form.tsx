@@ -23,42 +23,45 @@ export default function ContactForm() {
       } else {
         setErr(r.error || 'Xəta baş verdi.');
       }
-    } catch {
-      setErr('Göndərilmədi. Yenidən cəhd edin.');
+    } catch (ex: any) {
+      setErr(`Göndərilmədi: ${ex?.message || 'Yenidən cəhd edin.'}`);
     } finally {
       setLoading(false);
     }
   }
 
-  const inp = 'w-full bg-[#0f0f0f] border border-white/15 rounded-xl px-4 py-3.5 text-white outline-none focus:border-brand disabled:opacity-50';
+  const inp = 'w-full bg-[#0f0f0f] border border-white/15 rounded-xl px-4 py-3.5 text-white outline-none focus:border-brand disabled:opacity-50 transition';
   const lbl = 'font-mono text-xs uppercase tracking-wide text-mut-d block mb-2';
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} noValidate>
       {ok && (
         <div className="bg-brand/10 border border-brand rounded-xl px-4 py-3.5 text-brand text-sm mb-5">
           ✓ {t('ok')}
         </div>
       )}
       {err && (
-        <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-xl px-4 py-3.5 mb-5">
-          {err}
+        <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-xl px-4 py-3.5 mb-5 break-words">
+          ⚠ {err}
         </div>
       )}
+
       <div className="grid sm:grid-cols-2 gap-3.5 mb-4">
         <div>
           <label className={lbl}>{t('name')}</label>
-          <input name="name" required disabled={loading} className={inp} />
+          <input name="name" required minLength={2} disabled={loading} className={inp} placeholder="Adınız" />
         </div>
         <div>
           <label className={lbl}>{t('email')}</label>
-          <input name="email" type="email" required disabled={loading} className={inp} />
+          <input name="email" type="email" required disabled={loading} className={inp} placeholder="email@nümunə.az" />
         </div>
       </div>
+
       <div className="mb-4">
         <label className={lbl}>{t('company')}</label>
-        <input name="company" disabled={loading} className={inp} />
+        <input name="company" disabled={loading} className={inp} placeholder="Şirkət adı (istəyə görə)" />
       </div>
+
       <div className="mb-4">
         <label className={lbl}>{t('service')}</label>
         <select name="service" disabled={loading} className={inp}>
@@ -66,16 +69,19 @@ export default function ContactForm() {
           <option value="Veb sayt">Veb sayt</option>
           <option value="SEO">SEO</option>
           <option value="Google & Meta Ads">Google & Meta Ads</option>
-          <option value="Brendinq">Brendinq & Dizayn</option>
+          <option value="Brendinq & Dizayn">Brendinq & Dizayn</option>
           <option value="SMM">SMM</option>
-          <option value="AI">AI & Avtomatlaşdırma</option>
+          <option value="AI & Avtomatlaşdırma">AI & Avtomatlaşdırma</option>
           <option value="Digər">Digər</option>
         </select>
       </div>
-      <div className="mb-4">
+
+      <div className="mb-6">
         <label className={lbl}>{t('message')}</label>
-        <textarea name="message" rows={4} disabled={loading} className={inp} />
+        <textarea name="message" rows={4} disabled={loading} className={inp}
+          placeholder="Layihəniz haqqında qısa məlumat..." />
       </div>
+
       <button type="submit" disabled={loading}
         className="hbtn hbtn-y disabled:opacity-60 flex items-center gap-2">
         {loading ? (
