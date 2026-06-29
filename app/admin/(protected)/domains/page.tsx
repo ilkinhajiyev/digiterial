@@ -1,10 +1,12 @@
 import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/service';
 import CrudTable from '@/components/admin/crud-table';
 import { upsertDomain, destroyDomain } from '@/lib/actions/admin';
 
 export default async function Page() {
-  const sb = await createClient();
-  const { data } = await sb.from('domains').select('*').order('created_at', { ascending: false });
+  await (await createClient()).auth.getUser(); // auth yoxla
+  const svc = createServiceClient();
+  const { data } = await svc.from('domains').select('*').order('created_at', { ascending: false });
   return (
     <CrudTable
       title="Hostinq / Domenlər" rows={data ?? []}

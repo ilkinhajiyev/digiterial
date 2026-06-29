@@ -1,10 +1,12 @@
 import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/service';
 import CrudTable from '@/components/admin/crud-table';
 import { upsertProject, destroyProject } from '@/lib/actions/admin';
 
 export default async function Page() {
-  const sb = await createClient();
-  const { data } = await sb.from('projects').select('*').order('created_at', { ascending: false });
+  await (await createClient()).auth.getUser(); // auth yoxla
+  const svc = createServiceClient();
+  const { data } = await svc.from('projects').select('*').order('created_at', { ascending: false });
   return (
     <CrudTable
       title="Layihələr" rows={data ?? []}
