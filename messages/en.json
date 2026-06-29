@@ -75,7 +75,10 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms",
-    "social": "Social media"
+    "social": "Social media",
+    "services": "Services",
+    "work": "Work",
+    "blog": "Blog"
   },
   "pages": {
     "services": {
