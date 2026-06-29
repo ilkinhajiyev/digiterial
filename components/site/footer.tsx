@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { BakuClock } from '@/components/site/interactive';
-import { getSettings } from '@/lib/data/settings';
+import { getSettings, defaultSettings } from '@/lib/data/settings';
 
 const ICONS: Record<string, string> = {
   instagram: 'M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.5-.1 4.8c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.5 2.2 15.2 2.2 12s0-3.5.1-4.8C2.4 4 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 3.2a6.6 6.6 0 100 13.2 6.6 6.6 0 000-13.2zm0 10.9a4.3 4.3 0 110-8.6 4.3 4.3 0 010 8.6zm6.8-11.1a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z',
@@ -12,7 +12,7 @@ const ICONS: Record<string, string> = {
 
 export default async function SiteFooter() {
   const t = await getTranslations('footer');
-  const st = await getSettings();
+  const st = await getSettings().catch(() => defaultSettings);
   const socials = (['instagram', 'linkedin', 'tiktok', 'facebook'] as const).filter((k) => st.social[k]).map((k) => ({ n: k[0].toUpperCase() + k.slice(1), u: st.social[k]!, d: ICONS[k] }));
   return (
     <footer className="pt-20 pb-9 border-t border-white/15">

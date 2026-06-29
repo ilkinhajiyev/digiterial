@@ -3,12 +3,12 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: { ignoreDuringBuilds: true },
+  eslint:     { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
+  output: 'standalone',
   experimental: {
     serverActions: { bodySizeLimit: '2mb' },
   },
-  // Google Fonts üçün Hostinger-də timeout problemi olmasın
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'picsum.photos' },

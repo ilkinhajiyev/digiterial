@@ -10,9 +10,16 @@ export const fallbackPortfolio: PItem[] = [
 
 export async function getPortfolio(): Promise<PItem[]> {
   try {
-    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) return [];
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    if (!key || !url) return [];
     const sb = createServiceClient();
-    const { data } = await sb.from('portfolio_items').select('*').order('position', { ascending: true }).order('created_at', { ascending: false });
+    const { data, error } = await sb
+      .from('portfolio_items')
+      .select('*')
+      .order('position', { ascending: true })
+      .order('created_at', { ascending: false });
+    if (error) return [];
     return (data as any) || [];
   } catch { return []; }
 }
