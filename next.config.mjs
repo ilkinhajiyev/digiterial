@@ -5,7 +5,6 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 const nextConfig = {
   eslint:     { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-  output: 'standalone',
   experimental: {
     serverActions: { bodySizeLimit: '2mb' },
   },
