@@ -37,7 +37,7 @@ export default function SiteHeader() {
           <div className="flex items-center gap-3 md:gap-4">
             <nav className="hidden lg:flex gap-1">
               {items.map((i) => (
-                <Link key={i.key} href={i.href} className="text-sm text-neutral-300 px-3 py-2 rounded-full hover:text-brand transition">
+                <Link key={i.key} href={i.href} className="text-sm text-neutral-300 px-3 py-2 hover:text-brand transition ulink">
                   <span className="font-mono text-[.66rem] text-mut mr-1.5">{i.n}</span>{t(i.key)}
                 </Link>
               ))}

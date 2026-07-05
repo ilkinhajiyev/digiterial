@@ -29,18 +29,18 @@ export default async function SiteFooter() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div><h5 className="font-mono text-[.7rem] tracking-widest uppercase text-mut-d mb-4">{t('discover')}</h5>
-            <Link className="block py-1 text-neutral-300 hover:text-brand text-sm" href="/xidmetler">{t('services')}</Link>
-            <Link className="block py-1 text-neutral-300 hover:text-brand text-sm" href="/isler">{t('work')}</Link>
-            <Link className="block py-1 text-neutral-300 hover:text-brand text-sm" href="/bloq">{t('blog')}</Link>
-            <Link className="block py-1 text-neutral-300 hover:text-brand text-sm" href="/elaqe">{t('contact')}</Link></div>
+            <Link className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href="/xidmetler">{t('services')}</Link>
+            <Link className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href="/isler">{t('work')}</Link>
+            <Link className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href="/bloq">{t('blog')}</Link>
+            <Link className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href="/elaqe">{t('contact')}</Link></div>
           <div><h5 className="font-mono text-[.7rem] tracking-widest uppercase text-mut-d mb-4">{t('contact')}</h5>
-            <a className="block py-1 text-neutral-300 hover:text-brand text-sm" href={`mailto:${st.email}`}>{st.email}</a>
-            <a className="block py-1 text-neutral-300 hover:text-brand text-sm" href={`tel:${st.phone.replace(/\s/g, '')}`}>{st.phone}</a></div>
+            <a className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href={`mailto:${st.email}`}>{st.email}</a>
+            <a className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href={`tel:${st.phone.replace(/\s/g, '')}`}>{st.phone}</a></div>
           <div><h5 className="font-mono text-[.7rem] tracking-widest uppercase text-mut-d mb-4">{t('social')}</h5>
-            {socials.map((s) => <a key={s.n} className="block py-1 text-neutral-300 hover:text-brand text-sm" href={s.u} target="_blank">{s.n}</a>)}</div>
+            {socials.map((s) => <a key={s.n} className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href={s.u} target="_blank">{s.n}</a>)}</div>
           <div><h5 className="font-mono text-[.7rem] tracking-widest uppercase text-mut-d mb-4">{t('legal')}</h5>
-            <a className="block py-1 text-neutral-300 hover:text-brand text-sm" href="#">{t('privacy')}</a>
-            <a className="block py-1 text-neutral-300 hover:text-brand text-sm" href="#">{t('terms')}</a></div>
+            <a className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href="#">{t('privacy')}</a>
+            <a className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href="#">{t('terms')}</a></div>
         </div>
         <div className="font-display font-bold text-[clamp(3rem,14vw,10rem)] tracking-tighter leading-none mt-14 flex items-end">{(st.brand || 'digiterial').toLowerCase()}<span className="w-3.5 h-3.5 rounded-full bg-brand ml-1.5" /></div>
         <div className="mt-10 pt-6 border-t border-white/15 text-mut-d text-sm">© 2018–2026 {st.brand}. {t('rights')}</div>

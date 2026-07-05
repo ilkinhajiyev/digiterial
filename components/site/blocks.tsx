@@ -31,7 +31,7 @@ function Stats({ p }: { p: any }) {
       <div className="font-display font-bold text-[clamp(1.9rem,6vw,4.6rem)] leading-[.98] tracking-tight my-6 max-w-[18ch]">{p.statement}</div>
       <div className="grid grid-cols-2 md:grid-cols-4 border-y border-white/15">
         {p.items?.map((s: any, i: number) => (
-          <div key={i} className="p-6 md:p-9 border-r border-b md:border-b-0 border-white/15 last:border-r-0 odd:border-r [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r">
+          <div key={i} className="p-6 md:p-9 border-r border-b md:border-b-0 border-white/15 last:border-r-0 odd:border-r [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r hover:bg-brand/[.04] transition-colors">
             <b className="font-display font-bold text-[clamp(2.2rem,5vw,3.8rem)] text-brand block leading-none"><CountUp value={s.v} /></b>
             <span className="text-mut-d text-xs sm:text-sm mt-2 block">{s.l}</span>
           </div>
@@ -48,9 +48,10 @@ function Testimonials({ p }: { p: any }) {
       <div className="elbl">{p.label}</div>
       <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 mt-8">
         {p.items?.map((q: any, i: number) => (
-          <div key={i} className="border-t border-white/15 pt-6">
-            <p className="font-display font-medium text-[clamp(1.2rem,2.6vw,2rem)] leading-tight">{q.q}</p>
-            <div className="font-mono text-sm text-mut-d mt-4">— {q.by}</div>
+          <div key={i} className="relative border-t border-white/15 pt-8 group">
+            <span aria-hidden className="absolute -top-1 left-0 font-display text-6xl text-brand/25 leading-none select-none group-hover:text-brand/50 transition-colors">"</span>
+            <p className="font-display font-medium text-[clamp(1.2rem,2.6vw,2rem)] leading-tight pl-1">{q.q}</p>
+            <div className="font-mono text-sm text-mut-d mt-4 flex items-center gap-2"><span className="w-5 h-px bg-brand inline-block" />{q.by}</div>
           </div>
         ))}
       </div>
@@ -65,10 +66,10 @@ function Cards({ p }: { p: any }) {
       <h2 className="font-display font-bold text-[clamp(1.9rem,5vw,3.4rem)] mt-4">{p.heading}</h2>
       <div className="grid md:grid-cols-3 gap-4 mt-8">
         {p.items?.map((c: any, i: number) => (
-          <div key={i} className="border border-white/15 rounded-[18px] p-6 bg-[#0f0f0f] hover:border-brand hover:-translate-y-1 transition duration-300">
-            <div className="font-mono text-xs text-mut-d">DƏYƏR</div>
-            <h3 className="font-display font-bold text-xl mt-3 mb-2">{c.h}</h3>
-            <p className="text-mut-d text-sm">{c.p}</p>
+          <div key={i} className="card-glow p-6 group">
+            <div className="font-mono text-xs text-brand/70">{String(i + 1).padStart(2, '0')}</div>
+            <h3 className="font-display font-bold text-xl mt-3 mb-2 group-hover:text-brand transition-colors">{c.h}</h3>
+            <p className="text-mut-d text-sm leading-relaxed">{c.p}</p>
           </div>
         ))}
       </div>
@@ -83,7 +84,7 @@ function Faq({ p }: { p: any }) {
       <div className="mt-8 border-t border-white/15">
         {p.items?.map((f: any, i: number) => (
           <details key={i} className="border-b border-white/15 py-5 md:py-6 group">
-            <summary className="font-display font-bold text-lg md:text-xl cursor-pointer list-none flex justify-between gap-4">{f.q}<span className="text-brand transition-transform group-open:rotate-45">+</span></summary>
+            <summary className="font-display font-bold text-lg md:text-xl cursor-pointer list-none flex justify-between gap-4 hover:text-brand transition-colors">{f.q}<span className="text-brand transition-transform duration-300 group-open:rotate-45">+</span></summary>
             <p className="text-mut-d mt-4 max-w-[70ch]">{f.a}</p>
           </details>
         ))}

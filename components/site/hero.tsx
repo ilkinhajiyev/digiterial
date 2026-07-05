@@ -27,13 +27,14 @@ export default function Hero({ p }: { p: any }) {
     <section className="pt-32 md:pt-40 pb-16 md:pb-24 border-b border-white/15 relative overflow-hidden">
       {/* arxa fon ləkəsi */}
       <div aria-hidden className="pointer-events-none absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full blur-3xl opacity-20" style={{ background: 'radial-gradient(circle,#F1E500,transparent 70%)' }} />
+      <div aria-hidden className="pointer-events-none absolute -bottom-60 -left-52 w-[460px] h-[460px] rounded-full blur-3xl opacity-[.07]" style={{ background: 'radial-gradient(circle,#F1E500,transparent 70%)' }} />
       <div className="wrap relative grid lg:grid-cols-[1.05fr_.95fr] gap-12 lg:gap-10 items-center">
         {/* SOL: mətn */}
         <div>
           <div className="font-mono text-xs sm:text-sm tracking-[.2em] uppercase text-brand mb-5 flex items-center gap-2.5 before:content-[''] before:w-7 before:h-px before:bg-brand">{p.eyebrow}</div>
           <h1 className="wreveal font-display font-bold text-[clamp(2.3rem,7vw,5.2rem)] leading-[.96] tracking-tight">
             {words.map((w, idx) => (
-              <span key={idx} style={{ animationDelay: `${idx * 0.05}s` }}>{w}&nbsp;</span>
+              <span key={idx} style={{ animationDelay: `${idx * 0.05}s` }} className={idx >= words.length - 1 ? 'grad-text' : ''}>{w}&nbsp;</span>
             ))}
           </h1>
           {p.lead && <p className="mt-6 max-w-[52ch] text-neutral-300 text-base sm:text-lg">{p.lead}</p>}

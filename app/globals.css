@@ -1,4 +1,3 @@
-
 :root {
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -10,20 +9,38 @@ body { font-family: var(--font-body); }
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
-body { -webkit-font-smoothing: antialiased; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: #F1E500; color: #0B0B0B; }
 
-@layer components {
-  .wrap { @apply max-w-[1280px] mx-auto px-7; }
-  .elbl { @apply font-mono text-xs tracking-[0.16em] uppercase text-mut-d inline-flex items-center gap-2.5; }
-  .elbl::before { content: ""; @apply w-6 h-px bg-current opacity-60; }
-  .hbtn { @apply inline-flex items-center gap-2.5 font-semibold rounded-full px-7 py-3.5 transition-transform duration-300 hover:-translate-y-0.5; }
-  .hbtn-y { @apply bg-brand text-ink; }
-  .hbtn-o { @apply border border-white/35 text-white hover:bg-white hover:text-ink; }
-  .hbtn-d { @apply bg-ink text-white; }
+/* İncə grain teksturası — premium hiss */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ===== Interaktivlik / animasiyalar ===== */
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+@layer components {
+  .wrap { @apply max-w-[1280px] mx-auto px-6 sm:px-8; }
+  .elbl { @apply font-mono text-xs tracking-[0.18em] uppercase text-mut-d inline-flex items-center gap-2.5; }
+  .elbl::before { content: ""; @apply w-7 h-px bg-brand; }
+  .hbtn { @apply relative inline-flex items-center gap-2.5 font-semibold rounded-full px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[.98]; }
+  .hbtn-y { @apply bg-brand text-ink shadow-[0_0_0_0_rgba(241,229,0,0)] hover:shadow-[0_8px_30px_-6px_rgba(241,229,0,.45)]; }
+  .hbtn-o { @apply border border-white/30 text-white backdrop-blur-sm hover:bg-white hover:text-ink hover:border-white; }
+  .hbtn-d { @apply bg-ink text-white hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,.6)]; }
+  .card-glow { @apply relative border border-white/10 rounded-2xl bg-[#101010] transition-all duration-300; }
+  .card-glow:hover { @apply border-brand/40 -translate-y-1; box-shadow: 0 12px 40px -12px rgba(241,229,0,.15); }
+}
+
+/* Gradient başlıq vurğusu */
+.grad-text {
+  background: linear-gradient(120deg, #fff 30%, #F1E500 70%, #fff 110%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: gradshift 6s ease infinite;
+}
+@keyframes gradshift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+/* ===== Animasiyalar ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.in { opacity: 1; transform: none; }
 
 .marquee { overflow: hidden; white-space: nowrap; }
@@ -31,24 +48,39 @@ body { -webkit-font-smoothing: antialiased; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-.wreveal span { display: inline-block; opacity: 0; transform: translateY(.5em); animation: wr .6s cubic-bezier(.2,.7,.2,1) forwards; }
+.wreveal span { display: inline-block; opacity: 0; transform: translateY(.55em) rotate(1.5deg); animation: wr .7s cubic-bezier(.2,.7,.2,1) forwards; }
 @keyframes wr { to { opacity: 1; transform: none; } }
 
 .hero-panel-icon svg { width: 100%; height: 100%; }
 .scrollcue { animation: bob 1.8s ease-in-out infinite; }
 @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .marquee-track { animation: none; }
-  .wreveal span { opacity: 1; transform: none; animation: none; }
-  .scrollcue { animation: none; }
-}
+/* Sayğac blink */
+.tick { animation: tick 1s steps(1) infinite; }
+@keyframes tick { 50% { opacity: 0; } }
 
 @keyframes fillbar { from { width: 0 } to { width: 100% } }
 .anim-slide { animation: slidein .5s cubic-bezier(.2,.7,.2,1); }
 @keyframes slidein { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
-@media (prefers-reduced-motion: reduce) { .anim-slide { animation: none } }
+
+/* Şəkil hover zoom */
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.img-zoom:hover img { transform: scale(1.06); }
+
+/* Sarı underline hover linki */
+.ulink { position: relative; }
+.ulink::after { content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:#F1E500; transition: width .3s cubic-bezier(.2,.7,.2,1); }
+.ulink:hover::after { width:100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+  .wreveal span { opacity: 1; transform: none; animation: none; }
+  .scrollcue, .tick { animation: none; }
+  .anim-slide { animation: none; }
+  .grad-text { animation: none; }
+}
 
 /* ===== WhatsApp float ===== */
 .wa-btn{position:fixed;bottom:24px;right:24px;z-index:99;width:58px;height:58px;border-radius:50%;background:#0B0B0B;border:2px solid #F1E500;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(241,229,0,.25);transition:transform .25s,box-shadow .25s;cursor:pointer;text-decoration:none}

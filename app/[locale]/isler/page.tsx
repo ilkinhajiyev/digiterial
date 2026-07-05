@@ -12,8 +12,8 @@ function Grid({ items, more }: { items: PItem[]; more: string }) {
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
       {items.map((it) => (
         <Reveal key={it.id}>
-          <Link href={`/isler/${it.slug || it.id}`} className="block border border-white/15 rounded-2xl overflow-hidden bg-[#0f0f0f] hover:border-brand hover:-translate-y-1 transition duration-300 group h-full">
-            <div className="aspect-[16/10] bg-white/5 overflow-hidden">{it.image_url ? <img src={it.image_url} alt={it.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" /> : <div className="w-full h-full grid place-items-center text-mut font-display text-2xl">{it.title}</div>}</div>
+          <Link href={`/isler/${it.slug || it.id}`} className="card-glow block overflow-hidden group h-full">
+            <div className="aspect-[16/10] bg-white/5 img-zoom">{it.image_url ? <img src={it.image_url} alt={it.title} loading="lazy" className="w-full h-full object-cover" /> : <div className="w-full h-full grid place-items-center text-mut font-display text-2xl">{it.title}</div>}</div>
             <div className="p-5">
               <div className="flex justify-between items-start gap-2"><h3 className="font-display font-bold text-xl group-hover:text-brand transition">{it.title}</h3>{it.metric && <span className="font-mono text-xs text-brand whitespace-nowrap">{it.metric}</span>}</div>
               {it.client && <div className="font-mono text-[.7rem] uppercase text-mut mt-1">{it.client}</div>}
