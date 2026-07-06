@@ -1,11 +1,12 @@
 'use client';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { ImageField, GalleryField } from '@/components/admin/image-upload';
 
 export type Col = { key: string; label: string; fmt?: 'badge' | 'money' | 'bool' };
 export type Field = {
   name: string; label: string;
-  type?: 'text' | 'number' | 'select' | 'textarea' | 'date' | 'checkbox';
+  type?: 'text' | 'number' | 'select' | 'textarea' | 'date' | 'checkbox' | 'image' | 'gallery';
   options?: string[]; required?: boolean; span2?: boolean; placeholder?: string;
 };
 
@@ -219,6 +220,12 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
                           className="w-4 h-4 accent-brand rounded cursor-pointer" />
                         <span className="text-sm text-white/60">bəli</span>
                       </label>
+
+                    ) : f.type === 'image' ? (
+                      <ImageField name={f.name} defaultValue={edit?.[f.name]} />
+
+                    ) : f.type === 'gallery' ? (
+                      <GalleryField name={f.name} defaultValue={edit?.[f.name]} />
 
                     ) : (
                       <input
