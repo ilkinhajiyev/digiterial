@@ -23,7 +23,7 @@ export default function Gallery({ images }: { images: string[] }) {
           <button key={i} onClick={() => setOpen(i)}
             className={`relative overflow-hidden rounded-2xl group ${i % 5 === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}>
             <img src={src} alt={`Şəkil ${i + 1}`} loading="lazy"
-              className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition duration-500" />
+              className="w-full h-full object-cover aspect-square group-hover:scale-105 transition duration-500" />
             <span className="absolute inset-0 bg-ink/0 group-hover:bg-ink/20 transition flex items-center justify-center text-brand opacity-0 group-hover:opacity-100">⤢</span>
           </button>
         ))}

@@ -27,7 +27,7 @@ export default async function Page() {
         { name: 'body', label: 'Ətraflı mətn (abzaslar yeni sətirdə)', type: 'textarea', span2: true },
         { name: 'metric', label: 'Metrik / nəticə', placeholder: '+214% sifariş' },
         { name: 'tags', label: 'Teqlər (vergüllə)', placeholder: 'WordPress, SEO' },
-        { name: 'image_url', label: 'Əsas şəkil URL', placeholder: 'https://...jpg' },
+        { name: 'image_url', label: 'Əsas şəkil URL (kvadrat 1:1 tövsiyə olunur, min 800×800px)', placeholder: 'https://...jpg' },
         { name: 'url', label: 'Sayt linki', placeholder: 'https://' },
         { name: 'gallery', label: 'Qalereya (hər sətirdə bir URL)', type: 'textarea', span2: true, placeholder: 'https://...1.jpg\nhttps://...2.jpg' },
         { name: 'position', label: 'Sıra', type: 'number' },
