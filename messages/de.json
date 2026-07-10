@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "services": "Leistungen",
+    "work": "Projekte",
+    "cases": "Fallstudien",
+    "about": "Über uns",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "cta": "Projekt starten"
+  },
+  "common": {
+    "services": "Leistungen",
+    "work": "Projekte",
+    "contact": "Kontakt",
+    "audit": "Kostenloses Audit",
+    "start": "Starten",
+    "details": "Details",
+    "allServices": "Alle Leistungen",
+    "freeConsult": "Kostenlose Beratung",
+    "viewSite": "Website ansehen",
+    "more": "Mehr erfahren"
+  },
+  "hero": {
+    "eyebrow": "Eine 360°-Digitalagentur",
+    "h1": "Digitale Erlebnisse für moderne Marken.",
+    "lead": "Von der Strategie bis zur Umsetzung — Web, Marketing und Branding aus einem Team. Messbare Ergebnisse.",
+    "b1": "Unsere Leistungen",
+    "b2": "Unsere Projekte",
+    "whatWeDo": "Was wir tun"
+  },
+  "home": {
+    "band": {
+      "label": "Was wir tun",
+      "big": "Von Klarheit zu Dynamik.",
+      "h3": "Wir vereinen Strategie, Design, Entwicklung und Marketing in einem System.",
+      "p": "Ein Team, ein Herzschlag — spürbarer Fortschritt und beweisbare Ergebnisse."
+    },
+    "servicesHead": {
+      "label": "Leistungen",
+      "heading": "Alles unter einem Dach."
+    },
+    "stats": {
+      "label": "Formel",
+      "statement": "Ein Team. Ein Herzschlag. Keine Ausreden.",
+      "receipt": "0 Vorlagen / 240+ zufriedene Kunden.",
+      "l1": "Projekte",
+      "l2": "Traffic",
+      "l3": "PageSpeed",
+      "l4": "Bewertung"
+    },
+    "testimonials": {
+      "label": "Kundenstimmen",
+      "q1": "Sie haben uns schneller verstanden als jede andere Agentur.",
+      "by1": "Murad Q. · RestoBaku",
+      "q2": "Sie liefern drei Wochen vor jedem Zeitplan.",
+      "by2": "Nigar P. · Aztravel"
+    },
+    "clients": {
+      "label": "Vertraut von"
+    },
+    "cta": {
+      "h2": "Bereit für echte digitale Dynamik?",
+      "p": "Sprechen wir über Ihr Projekt in einer kostenlosen 30-minütigen Beratung.",
+      "b1": "Projekt starten"
+    }
+  },
+  "footer": {
+    "tagline": "Eine 360°-Digitalagentur aus Baku. Strategie, Design, Entwicklung und Marketing aus einem Team.",
+    "hq": "Baku, Aserbaidschan",
+    "hours": "Mo – Fr ·",
+    "discover": "Entdecken",
+    "contact": "Kontakt",
+    "follow": "Folgen",
+    "legal": "Rechtliches",
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "social": "Soziale Medien",
+    "services": "Leistungen",
+    "work": "Projekte",
+    "blog": "Blog"
+  },
+  "pages": {
+    "services": {
+      "eyebrow": "Unsere Leistungen",
+      "h1": "Alles unter einem Dach.",
+      "lead": "Von der Strategie bis zur Umsetzung — jede Phase Ihrer digitalen Präsenz aus einem Team."
+    },
+    "work": {
+      "eyebrow": "Portfolio",
+      "h1a": "Mehr als Worte —",
+      "h1b": "Ergebnisse.",
+      "lead": "Ausgewählte Web- und SMM-Projekte. Klicken Sie auf ein Projekt für Details und die Galerie."
+    },
+    "cases": {
+      "eyebrow": "Fallstudien",
+      "h1a": "Keine Fallstudie —",
+      "h1b": "nicht passiert.",
+      "lead": "Echte Projekte, echte Zahlen."
+    },
+    "about": {
+      "eyebrow": "Über uns",
+      "h1a": "Eine Agentur, die wirklich",
+      "h1b": "liefert.",
+      "lead": "In Baku seit 2018. Ihr zuverlässiger Partner für Kreativität und Technologie."
+    },
+    "blog": {
+      "eyebrow": "Blog",
+      "h1a": "Ideen, Taktiken,",
+      "h1b": "Ergebnisse.",
+      "lead": "Keine Schlagwörter — nur, was funktioniert."
+    },
+    "contact": {
+      "eyebrow": "Kontakt",
+      "h1a": "Lassen Sie uns",
+      "h1b": "reden.",
+      "lead": "Ihr Projekt oder Ihre Idee — schreiben Sie uns. Wir antworten innerhalb von 24 Stunden. Kostenloses Audit inklusive.",
+      "name": "Vollständiger Name",
+      "email": "E-Mail",
+      "company": "Unternehmen",
+      "message": "Über das Projekt",
+      "send": "Nachricht senden",
+      "sending": "Wird gesendet…",
+      "ok": "Danke! Wir antworten innerhalb von 24 Stunden.",
+      "iEmail": "E-Mail",
+      "iPhone": "Telefon",
+      "iAddr": "Adresse",
+      "iHours": "Öffnungszeiten",
+      "addr": "Baku, Aserbaidschan",
+      "hours": "Mo – Fr · 10:00–18:00",
+      "service": "Leistung"
+    }
+  },
+  "svcDetail": {
+    "allServices": "Alle Leistungen",
+    "overview": "Überblick",
+    "included": "Inbegriffen",
+    "includedHead": "Was wir bieten.",
+    "process": "So arbeiten wir",
+    "processHead": "Ablauf.",
+    "deliverables": "Ergebnisse",
+    "ctaTail": "sprechen wir über Ihr Projekt.",
+    "ctaP": "Beginnen wir mit einem kostenlosen Audit und einer Beratung.",
+    "start": "Starten",
+    "other": "Weitere Leistungen",
+    "s1h": "Entdecken",
+    "s1p": "Wir verstehen Geschäft, Ziele und Zielgruppe.",
+    "s2h": "Strategie",
+    "s2p": "Ein klarer Plan und messbare KPIs.",
+    "s3h": "Umsetzung",
+    "s3p": "Design, Entwicklung oder Kampagnen-Setup.",
+    "s4h": "Optimierung",
+    "s4p": "Datenbasierte kontinuierliche Verbesserung."
+  },
+  "svc": {
+    "veb-saytlar": {
+      "title": "Web & E-Commerce",
+      "tag": "Web",
+      "short": "Schnelle, conversion-orientierte Websites und Onlineshops."
+    },
+    "seo": {
+      "title": "SEO & Technisches SEO",
+      "tag": "SEO",
+      "short": "Keywords, technisches Audit und Content-Strategie für organischen Traffic."
+    },
+    "reklam": {
+      "title": "Google & Meta Ads",
+      "tag": "Ads",
+      "short": "ROAS-orientierte Performance-Werbung: Google, Meta, TikTok."
+    },
+    "brendinq": {
+      "title": "Branding & Design",
+      "tag": "Branding",
+      "short": "Logo, visuelle Identität und UI/UX — einprägsame Marken."
+    },
+    "smm": {
+      "title": "SMM & Social Media",
+      "tag": "SMM",
+      "short": "Content-Plan, Community-Management und Wachstumsstrategie."
+    },
+    "ai-avtomatlasdirma": {
+      "title": "KI & Automatisierung",
+      "tag": "KI",
+      "short": "CRM, Lead-Flow und Automatisierung von Geschäftsprozessen."
+    }
+  },
+  "portfolio": {
+    "web": "Websites",
+    "webHead": "Web & E-Commerce",
+    "smm": "SMM-Leistungen",
+    "smmHead": "Social Media & Ads",
+    "detail": "Details",
+    "ctaH": "Machen Sie den nächsten Erfolg zu Ihrem.",
+    "ctaP": "Holen Sie sich ein kostenloses Audit.",
+    "about": "Über das Projekt",
+    "gallery": "Galerie",
+    "visit": "Website besuchen",
+    "back": "Alle Projekte",
+    "similar": "Möchten Sie ähnliche Ergebnisse?"
+  }
+}

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { createClient } from '@/lib/supabase/server';
 import { createServiceClient } from '@/lib/supabase/service';
 import CrudTable from '@/components/admin/crud-table';
@@ -14,6 +15,7 @@ export default async function Page() {
       cols={[
         { key: 'title', label: 'Başlıq' },
         { key: 'category', label: 'Kateqoriya', fmt: 'badge' },
+        { key: 'locale', label: 'Dil', fmt: 'badge' },
         { key: 'client', label: 'Müştəri' },
         { key: 'metric', label: 'Metrik' },
         { key: 'featured', label: '★', fmt: 'bool' },
@@ -21,6 +23,7 @@ export default async function Page() {
       fields={[
         { name: 'title', label: 'Başlıq', required: true, span2: true },
         { name: 'category', label: 'Kateqoriya', type: 'select', options: ['web', 'smm'] },
+        { name: 'locale', label: 'Dil', type: 'select', options: ['az', 'en', 'ru', 'de'] },
         { name: 'client', label: 'Müştəri' },
         { name: 'slug', label: 'Slug (boş = avtomatik)', placeholder: 'restobaku' },
         { name: 'description', label: 'Qısa təsvir', type: 'textarea', span2: true },

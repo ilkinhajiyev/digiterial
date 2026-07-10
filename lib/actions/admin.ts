@@ -137,7 +137,7 @@ export async function upsertPortfolio(id: string | null, fd: FormData) {
   const db = await sb();
   const title = String(fd.get('title'));
   const gallery = String(fd.get('gallery') || '').split('\n').map(x => x.trim()).filter(Boolean);
-  const data = { title, slug: slugify(String(fd.get('slug') || title)), category: String(fd.get('category') || 'web'), client: String(fd.get('client') || ''), description: String(fd.get('description') || ''), body: String(fd.get('body') || ''), url: String(fd.get('url') || ''), image_url: String(fd.get('image_url') || ''), gallery, tags: String(fd.get('tags') || ''), metric: String(fd.get('metric') || ''), featured: fd.get('featured') === 'on', position: Number(fd.get('position') || 0) };
+  const data = { title, slug: slugify(String(fd.get('slug') || title)), category: String(fd.get('category') || 'web'), client: String(fd.get('client') || ''), description: String(fd.get('description') || ''), body: String(fd.get('body') || ''), url: String(fd.get('url') || ''), image_url: String(fd.get('image_url') || ''), gallery, tags: String(fd.get('tags') || ''), metric: String(fd.get('metric') || ''), featured: fd.get('featured') === 'on', position: Number(fd.get('position') || 0), locale: String(fd.get('locale') || 'az') };
   const { error } = id ? await db.from('portfolio_items').update(data).eq('id', id) : await db.from('portfolio_items').insert(data);
   revalidatePath('/admin/portfolio'); revalidatePath('/[locale]/isler', 'page'); revalidatePath('/', 'layout');
   return { ok: !error, error: error?.message };

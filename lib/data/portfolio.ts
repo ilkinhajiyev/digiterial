@@ -1,5 +1,5 @@
 import { createServiceClient } from '@/lib/supabase/service';
-export type PItem = { id: string; title: string; category: 'web' | 'smm'; slug?: string; client?: string; description?: string; body?: string; url?: string; image_url?: string; gallery?: string[]; tags?: string; metric?: string; featured?: boolean; position?: number };
+export type PItem = { id: string; title: string; category: 'web' | 'smm'; slug?: string; client?: string; description?: string; body?: string; url?: string; image_url?: string; gallery?: string[]; tags?: string; metric?: string; featured?: boolean; position?: number; locale?: string };
 
 export const fallbackPortfolio: PItem[] = [
   { id: '1', slug: 'restobaku', title: 'RestoBaku', category: 'web', client: 'Restoran şəbəkəsi', description: 'Onlayn sifariş sistemi ilə korporativ sayt.', body: 'RestoBaku üçün sıfırdan korporativ sayt və onlayn sifariş sistemi qurduq. Məqsəd masaüstü və mobil istifadəçilər üçün sürətli, intuitiv sifariş təcrübəsi idi.\nNəticədə onlayn sifarişlər üç ay ərzində üç dəfə artdı, səhifə yüklənmə sürəti 1.6s-ə düşdü.', url: '#', metric: '+214% sifariş', tags: 'WordPress, WooCommerce, UI/UX', image_url: 'https://picsum.photos/seed/resto1/1200/800', gallery: ['https://picsum.photos/seed/resto1/1200/800', 'https://picsum.photos/seed/resto2/1200/800', 'https://picsum.photos/seed/resto3/1200/800', 'https://picsum.photos/seed/resto4/1200/800'] },
@@ -8,20 +8,20 @@ export const fallbackPortfolio: PItem[] = [
   { id: '4', slug: 'mediclinic-smm', title: 'MediClinic SMM', category: 'smm', client: 'Tibb klinikası', description: 'Kontent plan + icma idarəçiliyi.', body: 'MediClinic üçün aylıq kontent təqvimi, dizayn və icma idarəçiliyi həyata keçirdik.\nİzləyici sayı kampaniya boyunca 58 mindən çox artdı.', url: '#', metric: '+58k izləyici', tags: 'Content, TikTok, Community', image_url: 'https://picsum.photos/seed/medic1/1200/800', gallery: ['https://picsum.photos/seed/medic1/1200/800', 'https://picsum.photos/seed/medic2/1200/800', 'https://picsum.photos/seed/medic3/1200/800'] },
 ];
 
-export async function getPortfolio(): Promise<PItem[]> {
+export async function getPortfolio(locale?: string): Promise<PItem[]> {
   try {
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    if (!key || !url) return [];
+    if (!key || !url) { console.warn('[portfolio] env yoxdur'); return []; }
     const sb = createServiceClient();
-    const { data, error } = await sb
-      .from('portfolio_items')
-      .select('*')
+    let q = sb.from('portfolio_items').select('*');
+    if (locale) q = q.eq('locale', locale);
+    const { data, error } = await q
       .order('position', { ascending: true })
       .order('created_at', { ascending: false });
-    if (error) return [];
+    if (error) { console.error('[portfolio] DB xəta:', error.message); return []; }
     return (data as any) || [];
-  } catch { return []; }
+  } catch (e: any) { console.error('[portfolio] exception:', e?.message); return []; }
 }
 
 export async function getPortfolioItem(key: string): Promise<PItem | null> {
