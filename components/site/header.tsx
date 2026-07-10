@@ -12,7 +12,7 @@ const items = [
   { key: 'blog', href: '/bloq', n: '05' },
 ] as const;
 
-export default function SiteHeader() {
+export default function SiteHeader({ logoUrl, brand = 'Digiterial' }: { logoUrl?: string; brand?: string }) {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -28,7 +28,9 @@ export default function SiteHeader() {
           {/* SOL: logo (mobil böyük) + flaqlar */}
           <div className="flex items-center gap-3 md:gap-4 z-50">
             <Link href="/" className="font-display font-bold text-2xl md:text-xl tracking-tight flex items-center">
-              Digiterial<span className="w-2.5 h-2.5 md:w-2 md:h-2 rounded-full bg-brand ml-1" />
+              {logoUrl
+                ? <img src={logoUrl} alt={brand} className="h-8 md:h-9 w-auto object-contain" />
+                : <>{brand}<span className="w-2.5 h-2.5 md:w-2 md:h-2 rounded-full bg-brand ml-1" /></>}
             </Link>
             <span className="hidden md:block w-px h-5 bg-white/15" />
             <LangSwitcher size="sm" />

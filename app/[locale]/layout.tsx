@@ -4,6 +4,7 @@ import { locales } from '@/i18n/routing';
 import SiteHeader from '@/components/site/header';
 import SiteFooter from '@/components/site/footer';
 import WhatsApp from '@/components/site/whatsapp';
+import Analytics, { GtmNoScript } from '@/components/site/analytics';
 import { getSettings, defaultSettings } from '@/lib/data/settings';
 
 export function generateStaticParams() {
@@ -20,7 +21,6 @@ export default async function LocaleLayout({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  // Paralel yüklə — biri uğursuz olsa digəri gözləmir
   const [messages, settings] = await Promise.allSettled([
     getMessages(),
     getSettings(),
@@ -31,8 +31,12 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={msgs}>
+      {/* Analitika izləmə kodları */}
+      <Analytics a={st.analytics} />
+      <GtmNoScript gtm={st.analytics?.gtm} />
+
       <div className="bg-ink text-white min-h-screen overflow-x-hidden">
-        <SiteHeader />
+        <SiteHeader logoUrl={st.logoUrl} brand={st.brand} />
         <main>{children}</main>
         <SiteFooter />
         <WhatsApp phone={st.whatsapp || '994604996340'} />

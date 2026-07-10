@@ -1,10 +1,20 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { getSettings } from '@/lib/data/settings';
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://digiterial.com'),
-  title: { default: 'Digiterial', template: '%s | Digiterial' },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const s = await getSettings().catch(() => null);
+  const meta: Metadata = {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://digiterial.com'),
+    title: { default: 'Digiterial', template: '%s | Digiterial' },
+  };
+  // Search Console / Yandex Webmaster təsdiq kodları
+  const v: any = {};
+  if (s?.analytics?.googleVerification) v.google = s.analytics.googleVerification;
+  if (s?.analytics?.yandexVerification) v.yandex = s.analytics.yandexVerification;
+  if (Object.keys(v).length) meta.verification = v;
+  return meta;
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

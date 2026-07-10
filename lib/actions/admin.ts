@@ -1,8 +1,11 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/service';
 
-async function sb() { return createClient(); }
+// Yazma əməliyyatları üçün service client (RLS bypass — admin paneldə güvənli).
+// Auth-u layout onsuz da yoxlayır; burada rol boşluğu problemə səbəb olmasın.
+async function sb() { return createServiceClient(); }
 
 // ── CLIENTS ──────────────────────────────────────────────────────────────
 export async function upsertClient(id: string | null, fd: FormData) {
@@ -136,10 +139,10 @@ export async function upsertPortfolio(id: string | null, fd: FormData) {
   const gallery = String(fd.get('gallery') || '').split('\n').map(x => x.trim()).filter(Boolean);
   const data = { title, slug: slugify(String(fd.get('slug') || title)), category: String(fd.get('category') || 'web'), client: String(fd.get('client') || ''), description: String(fd.get('description') || ''), body: String(fd.get('body') || ''), url: String(fd.get('url') || ''), image_url: String(fd.get('image_url') || ''), gallery, tags: String(fd.get('tags') || ''), metric: String(fd.get('metric') || ''), featured: fd.get('featured') === 'on', position: Number(fd.get('position') || 0) };
   const { error } = id ? await db.from('portfolio_items').update(data).eq('id', id) : await db.from('portfolio_items').insert(data);
-  revalidatePath('/admin/portfolio'); revalidatePath('/isler');
+  revalidatePath('/admin/portfolio'); revalidatePath('/[locale]/isler', 'page'); revalidatePath('/', 'layout');
   return { ok: !error, error: error?.message };
 }
 export async function destroyPortfolio(id: string) {
   const db = await sb(); await db.from('portfolio_items').delete().eq('id', id);
-  revalidatePath('/admin/portfolio'); revalidatePath('/isler'); return { ok: true };
+  revalidatePath('/admin/portfolio'); revalidatePath('/[locale]/isler', 'page'); revalidatePath('/', 'layout'); return { ok: true };
 }
