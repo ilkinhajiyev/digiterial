@@ -2,6 +2,7 @@ export const dynamic = 'force-dynamic';
 import { createServiceClient } from '@/lib/supabase/service';
 import { getGa4Data } from '@/lib/actions/ga4';
 import { getYandexData } from '@/lib/actions/yandex';
+import { getSearchConsoleData } from '@/lib/actions/search-console';
 import RealAnalytics from '@/components/admin/real-analytics';
 
 async function count(table: string) {
@@ -13,12 +14,13 @@ async function count(table: string) {
 }
 
 export default async function Page() {
-  const [ga4, yandex, leads, clients] = await Promise.all([
+  const [ga4, yandex, searchConsole, leads, clients] = await Promise.all([
     getGa4Data(28),
     getYandexData(28),
+    getSearchConsoleData(28),
     count('leads'),
     count('clients'),
   ]);
 
-  return <RealAnalytics ga4={ga4} yandex={yandex} leads={leads} clients={clients} />;
+  return <RealAnalytics ga4={ga4} yandex={yandex} searchConsole={searchConsole} leads={leads} clients={clients} />;
 }
