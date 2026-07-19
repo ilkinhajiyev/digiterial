@@ -4,6 +4,7 @@ import { CountUp, Marquee, Reveal, Tilt } from '@/components/site/interactive';
 import { ServiceIcon } from '@/components/site/service-icons';
 import { services } from '@/lib/data/services';
 import ServicesList from '@/components/site/services-list';
+import { getPortfolio, fallbackPortfolio, type PItem } from '@/lib/data/portfolio';
 
 type Block = { type: string; props: any };
 
@@ -22,6 +23,49 @@ function Band({ p }: { p: any }) {
 
 function Services({ p }: { p: any }) {
   return <ServicesList label={p.label} heading={p.heading} />;
+}
+
+async function Portfolio({ p }: { p: any }) {
+  let items: PItem[] = await getPortfolio(p.locale);
+  if (items.length === 0) items = await getPortfolio();
+  if (items.length === 0) items = fallbackPortfolio;
+  const pool = items.filter((i) => i.featured).length ? items.filter((i) => i.featured) : items;
+  const featured = pool.slice(0, 3);
+  if (featured.length === 0) return null;
+  return (
+    <section className="py-20 md:py-28 border-b border-white/15"><div className="wrap">
+      <div className="flex items-end justify-between gap-6 flex-wrap">
+        <div>
+          <div className="elbl">{p.label}</div>
+          <h2 className="font-display font-bold text-[clamp(1.9rem,5vw,3.6rem)] mt-4 max-w-[16ch]">{p.heading}</h2>
+        </div>
+        <Link href="/isler" className="hbtn hbtn-o hidden sm:inline-flex">{p.viewAll} →</Link>
+      </div>
+      <div className="grid md:grid-cols-3 gap-4 mt-10">
+        {featured.map((it, i) => (
+          <Reveal key={it.id} delay={i * 100}>
+            <Tilt max={5}>
+              <Link href={`/isler/${it.slug || it.id}`} className="card-glow block overflow-hidden group h-full">
+                <div className="aspect-[4/3] bg-white/5 img-zoom">
+                  {it.image_url
+                    ? <img src={it.image_url} alt={it.title} loading="lazy" className="w-full h-full object-cover" />
+                    : <div className="w-full h-full grid place-items-center text-mut font-display text-2xl">{it.title}</div>}
+                </div>
+                <div className="p-5">
+                  <div className="flex justify-between items-start gap-2">
+                    <h3 className="font-display font-bold text-xl group-hover:text-brand transition">{it.title}</h3>
+                    {it.metric && <span className="font-mono text-xs text-brand whitespace-nowrap">{it.metric}</span>}
+                  </div>
+                  {it.client && <div className="font-mono text-[.7rem] uppercase text-mut mt-1">{it.client}</div>}
+                </div>
+              </Link>
+            </Tilt>
+          </Reveal>
+        ))}
+      </div>
+      <Link href="/isler" className="hbtn hbtn-o sm:hidden inline-flex mt-8 w-full justify-center">{p.viewAll} →</Link>
+    </div></section>
+  );
 }
 
 function Stats({ p }: { p: any }) {
@@ -136,7 +180,7 @@ function RichText({ p }: { p: any }) {
   </div></section>);
 }
 
-const MAP: Record<string, any> = { band: Band, services: Services, stats: Stats, testimonials: Testimonials, cards: Cards, faq: Faq, cta: Cta, clients: Clients, marquee: MarqueeBand, richtext: RichText };
+const MAP: Record<string, any> = { band: Band, services: Services, portfolio: Portfolio, stats: Stats, testimonials: Testimonials, cards: Cards, faq: Faq, cta: Cta, clients: Clients, marquee: MarqueeBand, richtext: RichText };
 
 export function BlockRenderer({ blocks }: { blocks: Block[] }) {
   return (

@@ -39,6 +39,11 @@
       "label": "Xidmətlər",
       "heading": "Hər şey bir dam altında."
     },
+    "portfolioHead": {
+      "label": "İşlərimiz",
+      "heading": "Nəticələr danışır.",
+      "viewAll": "Bütün işlərə bax"
+    },
     "stats": {
       "label": "Formula",
       "statement": "Bir komanda. Bir ürək döyüntüsü. Sıfır bəhanə.",

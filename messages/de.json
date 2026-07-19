@@ -39,6 +39,11 @@
       "label": "Leistungen",
       "heading": "Alles unter einem Dach."
     },
+    "portfolioHead": {
+      "label": "Unsere Arbeiten",
+      "heading": "Ergebnisse, die sprechen.",
+      "viewAll": "Alle Arbeiten ansehen"
+    },
     "stats": {
       "label": "Formel",
       "statement": "Ein Team. Ein Herzschlag. Keine Ausreden.",

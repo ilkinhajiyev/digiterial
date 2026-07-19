@@ -39,6 +39,11 @@
       "label": "Services",
       "heading": "Everything under one roof."
     },
+    "portfolioHead": {
+      "label": "Our work",
+      "heading": "Results that speak.",
+      "viewAll": "View all work"
+    },
     "stats": {
       "label": "Formula",
       "statement": "One team. One heartbeat. Zero excuses.",

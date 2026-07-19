@@ -18,6 +18,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { type: 'marquee', props: { items: ['VEB', 'SEO', 'GOOGLE ADS', 'META ADS', 'BRENDİNQ', 'SMM', 'UI/UX', 'AI'] } },
     { type: 'band', props: { label: t('band.label'), big: t('band.big'), h3: t('band.h3'), p: t('band.p') } },
     { type: 'services', props: { label: t('servicesHead.label'), heading: t('servicesHead.heading'), light: true } },
+    { type: 'portfolio', props: { label: t('portfolioHead.label'), heading: t('portfolioHead.heading'), viewAll: t('portfolioHead.viewAll'), locale } },
     { type: 'stats', props: { label: t('stats.label'), statement: t('stats.statement'), items: [{ v: '240+', l: t('stats.l1') }, { v: '+312%', l: t('stats.l2') }, { v: '98', l: t('stats.l3') }, { v: '4.9', l: t('stats.l4') }], receipt: t('stats.receipt') } },
     { type: 'testimonials', props: { label: t('testimonials.label'), items: [{ q: `"${t('testimonials.q1')}"`, by: t('testimonials.by1') }, { q: `"${t('testimonials.q2')}"`, by: t('testimonials.by2') }] } },
     { type: 'clients', props: { label: t('clients.label'), items: ['RestoBaku', 'Aztravel', 'NovaFinance', 'MediClinic', 'UrbanFit', 'GreenMart', 'TechnoAz'] } },

@@ -17,6 +17,7 @@ const BLOCK_TYPES = [
   ['hero', 'Hero'],
   ['band', 'Editorial band'],
   ['services', 'Xidmət sıraları'],
+  ['portfolio', 'Portfolio (işlər)'],
   ['stats', 'Statistika'],
   ['cards', 'Kartlar'],
   ['testimonials', 'Rəylər'],
@@ -31,6 +32,7 @@ const DEF: Record<string, any> = {
   hero:         { eyebrow: 'Etiket', h1: 'Başlıq.', lead: 'Alt mətn.', b1: 'Düymə 1', b2: 'Düymə 2' },
   band:         { label: 'Etiket', big: 'Böyük ifadə.', h3: 'Alt başlıq.', p: 'Mətn.' },
   services:     { label: 'Xidmətlər', heading: 'Hər şey bir dam altında.' },
+  portfolio:    { label: 'İşlərimiz', heading: 'Nəticələr danışır.', viewAll: 'Bütün işlərə bax' },
   stats:        { label: 'Statistika', statement: 'İfadə.', items: [{ v: '100+', l: 'Etiket' }], receipt: '' },
   cards:        { label: 'Etiket', heading: 'Başlıq.', items: [{ h: 'Kart', p: 'Mətn.' }] },
   testimonials: { label: 'Rəylər', items: [{ q: 'Rəy mətni.', by: 'Ad · Şirkət' }] },
@@ -149,6 +151,7 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
         {b.type === 'band' && <>{E('label','Etiket')}{E('big','Böyük mətn',true)}{E('h3','H3')}{E('p','Mətn',true)}</>}
         {/* Services */}
         {b.type === 'services' && <>{E('label','Etiket')}{E('heading','Başlıq')}</>}
+        {b.type === 'portfolio' && <>{E('label','Etiket')}{E('heading','Başlıq')}{E('viewAll','"Hamısına bax" düyməsi')}</>}
         {/* Stats */}
         {b.type === 'stats' && <>
           {E('label','Etiket')}{E('statement','İfadə',true)}{E('receipt','Qeyd')}
