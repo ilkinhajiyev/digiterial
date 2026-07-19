@@ -43,10 +43,29 @@ export async function getGa4Data(days = 28): Promise<Ga4Data> {
   ) {
     privateKey = privateKey.slice(1, -1).trim();
   }
-  // Hostinger env-də \n hərfi mətn kimi gəlir — real sətir keçidinə çevir
+  // Windows-dan kopyalananda gələn CR simvollarını təmizlə
+  privateKey = privateKey.replace(/\r/g, '');
+  // Hostinger env-də \n hərfi mətn kimi gəlir (bəzən iki dəfə escape olunub) — real sətir keçidinə çevir.
+  // Əvvəlcə iki qat escape olunmuş "\\\\n" (iki backslash + n) formasını, sonra tək qat "\\n" formasını çevir —
+  // sıra vacibdir, əks halda tək backslash qalıb PEM-i pozur.
+  privateKey = privateKey.replace(/\\\\n/g, '\n');
   privateKey = privateKey.replace(/\\n/g, '\n');
   // Açar artıq real sətir keçidləri ilə gəlibsə belə problem olmasın deyə yenidən trim et
   privateKey = privateKey.trim() + '\n';
+
+  // PEM strukturunu yoxla — korlanmış açarı Google-a göndərməzdən əvvəl aydın xəta ver
+  const looksLikePem =
+    /^-----BEGIN (RSA )?PRIVATE KEY-----\n/.test(privateKey) &&
+    /\n-----END (RSA )?PRIVATE KEY-----\n?$/.test(privateKey);
+  if (!looksLikePem) {
+    return {
+      ok: false,
+      configured: true,
+      error:
+        'GA4_PRIVATE_KEY PEM formatında deyil (BEGIN/END PRIVATE KEY sətirləri tapılmadı və ya sətir keçidləri korlanıb). ' +
+        'Service account JSON faylındakı "private_key" dəyərini olduğu kimi (başında/sonunda dırnaq olmadan) yenidən yapışdırın.',
+    };
+  }
 
   try {
     const { BetaAnalyticsDataClient } = await import('@google-analytics/data');
