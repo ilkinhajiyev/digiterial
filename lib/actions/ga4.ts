@@ -35,8 +35,18 @@ export async function getGa4Data(days = 28): Promise<Ga4Data> {
     return { ok: false, configured: false, error: 'GA4 hələ qurulmayıb' };
   }
 
+  // Env dəyişəni bəzən əlavə boşluq/tırnaqla saxlanır — təmizlə
+  privateKey = privateKey.trim();
+  if (
+    (privateKey.startsWith('"') && privateKey.endsWith('"')) ||
+    (privateKey.startsWith("'") && privateKey.endsWith("'"))
+  ) {
+    privateKey = privateKey.slice(1, -1).trim();
+  }
   // Hostinger env-də \n hərfi mətn kimi gəlir — real sətir keçidinə çevir
   privateKey = privateKey.replace(/\\n/g, '\n');
+  // Açar artıq real sətir keçidləri ilə gəlibsə belə problem olmasın deyə yenidən trim et
+  privateKey = privateKey.trim() + '\n';
 
   try {
     const { BetaAnalyticsDataClient } = await import('@google-analytics/data');
