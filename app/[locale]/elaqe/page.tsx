@@ -2,15 +2,17 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import ContactForm from '@/components/site/contact-form';
 import { JsonLd } from '@/components/site/jsonld';
+import { getSettings, defaultSettings } from '@/lib/data/settings';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.contact' });
   return { title: `${t('h1a')} ${t('h1b')}`, description: t('lead'), alternates: { canonical: '/elaqe' } };
 }
-const ld = { '@context': 'https://schema.org', '@type': 'ContactPage', mainEntity: { '@type': 'Organization', name: 'Digiterial', email: 'salam@digiterial.com', telephone: '+994604996340' } };
 export default async function Contact({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params; setRequestLocale(locale);
   const t = await getTranslations('pages.contact');
-  const info: [string, string][] = [[t('iEmail'), 'salam@digiterial.com'], [t('iPhone'), '+994 60 499 63 40'], [t('iAddr'), t('addr')], [t('iHours'), t('hours')]];
+  const st = await getSettings().catch(() => defaultSettings);
+  const ld = { '@context': 'https://schema.org', '@type': 'ContactPage', mainEntity: { '@type': 'Organization', name: st.brand, email: st.email, telephone: st.phone } };
+  const info: [string, string][] = [[t('iEmail'), st.email], [t('iPhone'), st.phone], [t('iAddr'), st.address || t('addr')], [t('iHours'), t('hours')]];
   return (
     <>
       <JsonLd data={ld} />

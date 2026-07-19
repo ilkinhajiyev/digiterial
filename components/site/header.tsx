@@ -12,7 +12,7 @@ const items = [
   { key: 'blog', href: '/bloq', n: '05' },
 ] as const;
 
-export default function SiteHeader({ logoUrl, brand = 'Digiterial' }: { logoUrl?: string; brand?: string }) {
+export default function SiteHeader({ logoUrl, brand = 'Digiterial', email = 'salam@digiterial.com', phone = '+994 60 499 63 40' }: { logoUrl?: string; brand?: string; email?: string; phone?: string }) {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -69,8 +69,8 @@ export default function SiteHeader({ logoUrl, brand = 'Digiterial' }: { logoUrl?
           <div className="space-y-5">
             <Link href="/elaqe" className="hbtn hbtn-y w-full justify-center text-lg py-4">{t('cta')} ↗</Link>
             <div className="flex items-center justify-between font-mono text-xs text-mut pt-4 border-t border-white/10">
-              <a href="mailto:salam@digiterial.com" className="hover:text-brand">salam@digiterial.com</a>
-              <a href="tel:+994604996340" className="hover:text-brand">+994 60 499 63 40</a>
+              <a href={`mailto:${email}`} className="hover:text-brand">{email}</a>
+              <a href={`tel:${phone.replace(/\s/g, '')}`} className="hover:text-brand">{phone}</a>
             </div>
           </div>
         </div>

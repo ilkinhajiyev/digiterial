@@ -38,7 +38,7 @@ export default async function LocaleLayout({
 
       <div className="bg-ink text-white min-h-screen overflow-x-hidden">
         <CursorGlow />
-        <SiteHeader logoUrl={st.logoUrl} brand={st.brand} />
+        <SiteHeader logoUrl={st.logoUrl} brand={st.brand} email={st.email} phone={st.phone} />
         <main><PageTransition>{children}</PageTransition></main>
         <SiteFooter />
         <WhatsApp phone={st.whatsapp || '994604996340'} />
