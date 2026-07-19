@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { services } from '@/lib/data/services';
 import { ServiceIcon } from '@/components/site/service-icons';
+import { Tilt } from '@/components/site/interactive';
 
 const slides = services.slice(0, 6);
 
@@ -51,7 +52,7 @@ export default function Hero({ p }: { p: any }) {
 
         {/* SAĞ: animativ slayder */}
         <div className="relative" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-          <div className="relative rounded-3xl border border-white/15 bg-gradient-to-b from-[#161616] to-[#0c0c0c] p-6 sm:p-8 overflow-hidden">
+          <Tilt max={4} className="relative rounded-3xl border border-white/15 bg-gradient-to-b from-[#161616] to-[#0c0c0c] p-6 sm:p-8 overflow-hidden">
             <div className="flex items-center justify-between mb-6">
               <span className="font-mono text-[.7rem] uppercase tracking-widest text-mut">{th('whatWeDo')}</span>
               <span className="font-mono text-[.7rem] text-mut">{String(i + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span>
@@ -77,7 +78,7 @@ export default function Hero({ p }: { p: any }) {
                   className={`h-2 rounded-full transition-all ${idx === i ? 'w-7 bg-brand' : 'w-2 bg-white/20 hover:bg-white/40'}`} />
               ))}
             </div>
-          </div>
+          </Tilt>
         </div>
       </div>
 

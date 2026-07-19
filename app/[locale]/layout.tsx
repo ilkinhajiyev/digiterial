@@ -5,6 +5,7 @@ import SiteHeader from '@/components/site/header';
 import SiteFooter from '@/components/site/footer';
 import WhatsApp from '@/components/site/whatsapp';
 import Analytics, { GtmNoScript } from '@/components/site/analytics';
+import { CursorGlow, PageTransition } from '@/components/site/interactive';
 import { getSettings, defaultSettings } from '@/lib/data/settings';
 
 export function generateStaticParams() {
@@ -36,8 +37,9 @@ export default async function LocaleLayout({
       <GtmNoScript gtm={st.analytics?.gtm} />
 
       <div className="bg-ink text-white min-h-screen overflow-x-hidden">
+        <CursorGlow />
         <SiteHeader logoUrl={st.logoUrl} brand={st.brand} />
-        <main>{children}</main>
+        <main><PageTransition>{children}</PageTransition></main>
         <SiteFooter />
         <WhatsApp phone={st.whatsapp || '994604996340'} />
       </div>

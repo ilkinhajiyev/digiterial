@@ -27,10 +27,10 @@ export default function SiteHeader({ logoUrl, brand = 'Digiterial' }: { logoUrl?
         <div className="wrap flex items-center justify-between h-[66px] md:h-[74px]">
           {/* SOL: logo (mobil böyük) + flaqlar */}
           <div className="flex items-center gap-3 md:gap-4 z-50">
-            <Link href="/" className="font-display font-bold text-2xl md:text-xl tracking-tight flex items-center">
+            <Link href="/" className="group font-display font-bold text-2xl md:text-xl tracking-tight flex items-center">
               {logoUrl
                 ? <img src={logoUrl} alt={brand} className="h-8 md:h-9 w-auto object-contain" />
-                : <>{brand}<span className="w-2.5 h-2.5 md:w-2 md:h-2 rounded-full bg-brand ml-1" /></>}
+                : <>{brand}<span className="w-2.5 h-2.5 md:w-2 md:h-2 rounded-full bg-brand ml-1 transition-transform duration-500 group-hover:scale-125 animate-pulse" /></>}
             </Link>
             <span className="hidden md:block w-px h-5 bg-white/15" />
             <LangSwitcher size="sm" />

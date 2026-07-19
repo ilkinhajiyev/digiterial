@@ -1,6 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import Hero from '@/components/site/hero';
-import { CountUp, Marquee, Reveal } from '@/components/site/interactive';
+import { CountUp, Marquee, Reveal, Tilt } from '@/components/site/interactive';
 import { ServiceIcon } from '@/components/site/service-icons';
 import { services } from '@/lib/data/services';
 import ServicesList from '@/components/site/services-list';
@@ -31,10 +31,10 @@ function Stats({ p }: { p: any }) {
       <div className="font-display font-bold text-[clamp(1.9rem,6vw,4.6rem)] leading-[.98] tracking-tight my-6 max-w-[18ch]">{p.statement}</div>
       <div className="grid grid-cols-2 md:grid-cols-4 border-y border-white/15">
         {p.items?.map((s: any, i: number) => (
-          <div key={i} className="p-6 md:p-9 border-r border-b md:border-b-0 border-white/15 last:border-r-0 odd:border-r [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r hover:bg-brand/[.04] transition-colors">
+          <Reveal key={i} delay={i * 90} className="p-6 md:p-9 border-r border-b md:border-b-0 border-white/15 last:border-r-0 odd:border-r [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r hover:bg-brand/[.04] transition-colors">
             <b className="font-display font-bold text-[clamp(2.2rem,5vw,3.8rem)] text-brand block leading-none"><CountUp value={s.v} /></b>
             <span className="text-mut-d text-xs sm:text-sm mt-2 block">{s.l}</span>
-          </div>
+          </Reveal>
         ))}
       </div>
       {p.receipt && <div className="font-display font-bold text-[clamp(1.3rem,3.5vw,2.2rem)] mt-10 max-w-[22ch]">{p.receipt}</div>}
@@ -48,11 +48,11 @@ function Testimonials({ p }: { p: any }) {
       <div className="elbl">{p.label}</div>
       <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 mt-8">
         {p.items?.map((q: any, i: number) => (
-          <div key={i} className="relative border-t border-white/15 pt-8 group">
+          <Reveal key={i} delay={i * 110} className="relative border-t border-white/15 pt-8 group transition-transform duration-300 hover:-translate-y-1">
             <span aria-hidden className="absolute -top-1 left-0 font-display text-6xl text-brand/25 leading-none select-none group-hover:text-brand/50 transition-colors">"</span>
             <p className="font-display font-medium text-[clamp(1.2rem,2.6vw,2rem)] leading-tight pl-1">{q.q}</p>
             <div className="font-mono text-sm text-mut-d mt-4 flex items-center gap-2"><span className="w-5 h-px bg-brand inline-block" />{q.by}</div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </div></section>
@@ -66,11 +66,15 @@ function Cards({ p }: { p: any }) {
       <h2 className="font-display font-bold text-[clamp(1.9rem,5vw,3.4rem)] mt-4">{p.heading}</h2>
       <div className="grid md:grid-cols-3 gap-4 mt-8">
         {p.items?.map((c: any, i: number) => (
-          <div key={i} className="card-glow p-6 group">
-            <div className="font-mono text-xs text-brand/70">{String(i + 1).padStart(2, '0')}</div>
-            <h3 className="font-display font-bold text-xl mt-3 mb-2 group-hover:text-brand transition-colors">{c.h}</h3>
-            <p className="text-mut-d text-sm leading-relaxed">{c.p}</p>
-          </div>
+          <Reveal key={i} delay={i * 100}>
+            <Tilt max={6}>
+              <div className="card-glow p-6 group">
+                <div className="font-mono text-xs text-brand/70">{String(i + 1).padStart(2, '0')}</div>
+                <h3 className="font-display font-bold text-xl mt-3 mb-2 group-hover:text-brand transition-colors">{c.h}</h3>
+                <p className="text-mut-d text-sm leading-relaxed">{c.p}</p>
+              </div>
+            </Tilt>
+          </Reveal>
         ))}
       </div>
     </div></section>

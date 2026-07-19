@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { BakuClock } from '@/components/site/interactive';
+import { BakuClock, Reveal } from '@/components/site/interactive';
 import { getSettings, defaultSettings } from '@/lib/data/settings';
 
 const ICONS: Record<string, string> = {
@@ -42,7 +42,7 @@ export default async function SiteFooter() {
             <a className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href="#">{t('privacy')}</a>
             <a className="block py-1 text-neutral-300 hover:text-brand text-sm w-fit ulink" href="#">{t('terms')}</a></div>
         </div>
-        <div className="font-display font-bold text-[clamp(3rem,14vw,10rem)] tracking-tighter leading-none mt-14 flex items-end">{(st.brand || 'digiterial').toLowerCase()}<span className="w-3.5 h-3.5 rounded-full bg-brand ml-1.5" /></div>
+        <Reveal className="font-display font-bold text-[clamp(3rem,14vw,10rem)] tracking-tighter leading-none mt-14 flex items-end transition-transform duration-700 hover:tracking-tight">{(st.brand || 'digiterial').toLowerCase()}<span className="w-3.5 h-3.5 rounded-full bg-brand ml-1.5 animate-pulse" /></Reveal>
         <div className="mt-10 pt-6 border-t border-white/15 text-mut-d text-sm">© 2018–2026 {st.brand}. {t('rights')}</div>
       </div>
     </footer>
