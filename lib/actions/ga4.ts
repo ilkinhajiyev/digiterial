@@ -67,10 +67,43 @@ export async function getGa4Data(days = 28): Promise<Ga4Data> {
     };
   }
 
+  const scopes = ['https://www.googleapis.com/auth/analytics.readonly'];
+
+  // Əvvəlcə ayrıca access token almağa çalış — bu, xətanın məhz autentifikasiya
+  // mərhələsində olduğunu aydın şəkildə göstərməyə imkan verir (Analytics Data API-nin
+  // özündən gələn ümumi "UNAUTHENTICATED" mesajı əvəzinə).
+  try {
+    const { GoogleAuth } = await import('google-auth-library');
+    const auth = new GoogleAuth({
+      credentials: { client_email: clientEmail, private_key: privateKey },
+      scopes,
+    });
+    const authClient = await auth.getClient();
+    const tokenResp = await authClient.getAccessToken();
+    if (!tokenResp?.token) {
+      return {
+        ok: false,
+        configured: true,
+        error:
+          'Google-dan access token alına bilmədi (boş token qaytarıldı). Service account-ın Google Cloud Console-da aktiv olduğunu ' +
+          'və "Google Analytics Data API"-nin layihədə (enable) edildiyini yoxlayın.',
+      };
+    }
+  } catch (authEx: any) {
+    return {
+      ok: false,
+      configured: true,
+      error:
+        `Google autentifikasiya xətası: ${authEx?.message || authEx}. Yoxlayın: (1) service account Google Cloud Console-da aktivdir, ` +
+        `(2) "Google Analytics Data API" layihədə enable edilib, (3) server saatı (sistem vaxtı) düzgündür.`,
+    };
+  }
+
   try {
     const { BetaAnalyticsDataClient } = await import('@google-analytics/data');
     const client = new BetaAnalyticsDataClient({
       credentials: { client_email: clientEmail, private_key: privateKey },
+      scopes,
     });
 
     const dateRanges = [{ startDate: `${days}daysAgo`, endDate: 'today' }];
@@ -129,6 +162,10 @@ export async function getGa4Data(days = 28): Promise<Ga4Data> {
       })),
     };
   } catch (ex: any) {
-    return { ok: false, configured: true, error: ex?.message || 'GA4 sorğu xətası' };
+    let msg = ex?.message || 'GA4 sorğu xətası';
+    if (/PERMISSION_DENIED/i.test(msg)) {
+      msg += ' — GA4 Admin → Property Access Management bölməsindən service account emailinə (Viewer) icazə verildiyini yoxlayın.';
+    }
+    return { ok: false, configured: true, error: msg };
   }
 }
