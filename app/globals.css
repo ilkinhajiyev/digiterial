@@ -1,0 +1,117 @@
+:root {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+body { font-family: var(--font-body); }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: #DDFB45; color: #080A09; }
+
+body {
+  color: #f5f6f1;
+  background:
+    radial-gradient(circle at 82% 4%, rgba(221,251,69,.08), transparent 26rem),
+    #080A09;
+}
+
+/* İncə grain teksturası — premium hiss */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  .wrap { @apply max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10; }
+  .elbl { @apply font-mono text-xs tracking-[0.18em] uppercase text-mut-d inline-flex items-center gap-2.5; }
+  .elbl::before { content: ""; @apply w-7 h-px bg-brand; }
+  .hbtn { @apply relative inline-flex items-center justify-center gap-2.5 font-semibold rounded-full px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[.98]; }
+  .hbtn-y { @apply bg-brand text-ink shadow-[0_0_0_0_rgba(221,251,69,0)] hover:shadow-[0_8px_30px_-6px_rgba(221,251,69,.4)]; }
+  .hbtn-o { @apply border border-white/30 text-white backdrop-blur-sm hover:bg-white hover:text-ink hover:border-white; }
+  .hbtn-d { @apply bg-ink text-white hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,.6)]; }
+  .card-glow { @apply relative border border-white/10 rounded-[1.5rem] bg-[#101310] transition-all duration-300 overflow-hidden; }
+  .card-glow:hover { @apply border-brand/40 -translate-y-1; box-shadow: 0 12px 40px -12px rgba(221,251,69,.15); }
+}
+
+.site-grid {
+  background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black 15%, transparent 95%);
+}
+.glass-panel { background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)); box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 30px 80px rgba(0,0,0,.28); }
+.hero-glow { background: radial-gradient(circle, rgba(221,251,69,.2), rgba(221,251,69,.04) 38%, transparent 70%); filter: blur(2px); }
+.signal-dot { box-shadow: 0 0 0 5px rgba(221,251,69,.12), 0 0 22px rgba(221,251,69,.45); }
+.hero-orbit { animation: orbit 18s linear infinite; }
+@keyframes orbit { to { transform: rotate(360deg); } }
+.hero-float { animation: hero-float 5s ease-in-out infinite; }
+@keyframes hero-float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-9px) } }
+
+/* Gradient başlıq vurğusu */
+.grad-text {
+  background: linear-gradient(120deg, #fff 18%, #DDFB45 64%, #fff 110%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: gradshift 6s ease infinite;
+}
+@keyframes gradshift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+/* ===== Animasiyalar ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; will-change: transform; animation: marquee 26s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.wreveal span { display: inline-block; opacity: 0; transform: translateY(.55em) rotate(1.5deg); animation: wr .7s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes wr { to { opacity: 1; transform: none; } }
+
+.hero-panel-icon svg { width: 100%; height: 100%; }
+.scrollcue { animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+/* Sayğac blink */
+.tick { animation: tick 1s steps(1) infinite; }
+@keyframes tick { 50% { opacity: 0; } }
+
+@keyframes fillbar { from { width: 0 } to { width: 100% } }
+.anim-slide { animation: slidein .5s cubic-bezier(.2,.7,.2,1); }
+@keyframes slidein { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+
+/* Şəkil hover zoom */
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.img-zoom:hover img { transform: scale(1.06); }
+
+/* Sarı underline hover linki */
+.ulink { position: relative; }
+.ulink::after { content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:#DDFB45; transition: width .3s cubic-bezier(.2,.7,.2,1); }
+.ulink:hover::after { width:100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+  .wreveal span { opacity: 1; transform: none; animation: none; }
+  .scrollcue, .tick { animation: none; }
+  .anim-slide { animation: none; }
+  .grad-text { animation: none; }
+  .hero-orbit, .hero-float { animation: none; }
+}
+
+@media (max-width: 639px) {
+  .site-grid { background-size: 44px 44px; }
+  .wa-btn { width: 52px; height: 52px; right: 16px; bottom: 16px; }
+}
+
+/* ===== WhatsApp float ===== */
+.wa-btn{position:fixed;bottom:24px;right:24px;z-index:99;width:58px;height:58px;border-radius:50%;background:#080A09;border:2px solid #DDFB45;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(221,251,69,.25);transition:transform .25s,box-shadow .25s;cursor:pointer;text-decoration:none}
+.wa-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(221,251,69,.45)}
+.wa-btn svg{width:30px;height:30px;fill:#DDFB45}
+.wa-pulse{position:absolute;inset:0;border-radius:50%;background:#DDFB45;animation:wa-p 2s ease-out infinite;opacity:0}
+@keyframes wa-p{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.65);opacity:0}}
+@media(prefers-reduced-motion:reduce){.wa-pulse{animation:none}}
