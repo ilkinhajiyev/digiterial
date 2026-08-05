@@ -21,12 +21,17 @@
     "more": "Ətraflı"
   },
   "hero": {
-    "eyebrow": "360° rəqəmsal agentlik",
-    "h1": "Müasir brendlər üçün rəqəmsal təcrübələr.",
-    "lead": "Strategiyadan icraya — veb, marketinq və brendinq bir komandadan. Ölçülə bilən nəticələr.",
-    "b1": "Xidmətlərimiz",
+    "eyebrow": "Bakıdan fəaliyyət göstərən rəqəmsal komanda",
+    "h1": "Biznesiniz üçün işləyən rəqəmsal sistemlər.",
+    "lead": "Veb sayt, reklam və brendi ayrı-ayrı xidmətlər kimi yox, eyni biznes məqsədinə işləyən vahid sistem kimi qururuq.",
+    "b1": "Layihəni müzakirə et",
     "b2": "İşlərimizə bax",
-    "whatWeDo": "Nə edirik",
+    "whatWeDo": "Əsas istiqamətlər",
+    "focus1": "Veb sayt və e-ticarət",
+    "focus2": "Performans marketinqi",
+    "focus3": "Brend və rəqəmsal dizayn",
+    "basedIn": "Ofis",
+    "available": "Yeni layihələrə açığıq",
     "projects": "Layihə",
     "rating": "Müştəri rəyi",
     "systemLine1": "Strategiya.",
@@ -35,23 +40,23 @@
     "channels": "Kanal",
     "analytics": "Analitika",
     "averageResult": "Orta nəticə",
-    "explore": "Aşağı sürüşdür"
+    "explore": "Davam et"
   },
   "home": {
     "band": {
-      "label": "Nə edirik",
-      "big": "Aydınlıqdan momentuma.",
-      "h3": "Strategiya, dizayn, inkişaf və marketinqi vahid sistem kimi işlədirik.",
-      "p": "Bir komanda, bir ürək döyüntüsü — hiss edə biləcəyiniz irəliləyiş və sübut edə biləcəyiniz nəticələr."
+      "label": "Yanaşma",
+      "big": "Əvvəl problemi anlayırıq.",
+      "h3": "Sonra biznesinizə uyğun plan qurub icra edirik.",
+      "p": "Hazır paket satmırıq. Məqsədinizə, komandanıza və büdcənizə uyğun prioritetləri müəyyənləşdirir, işi aydın mərhələlərə bölürük."
     },
     "servicesHead": {
       "label": "Xidmətlər",
-      "heading": "Hər şey bir dam altında."
+      "heading": "Lazım olan qədər. Artıq yox."
     },
     "process": {
       "label": "İş prosesi",
-      "heading": "Sadə proses. Güclü nəticə.",
-      "text": "Qarışıqlığı aradan qaldırır, hər mərhələni görünən və ölçülə bilən edirik.",
+      "heading": "Tanışlıqdan yayıma qədər.",
+      "text": "Hər mərhələdə nə etdiyimizi, nə üçün etdiyimizi və növbəti addımı bilirsiniz.",
       "h1": "Kəşf və istiqamət",
       "p1": "Biznesinizi, auditoriyanızı və real böyümə imkanlarını birlikdə müəyyənləşdiririk.",
       "h2": "Dizayn və icra",
@@ -79,9 +84,9 @@
       "label": "Bizə etibar edənlər"
     },
     "cta": {
-      "h2": "Real rəqəmsal təkana hazırsınız?",
-      "p": "30 dəqiqəlik pulsuz konsultasiyada layihənizi danışaq.",
-      "b1": "Layihə başlat"
+      "h2": "Layihəniz barədə danışaq.",
+      "p": "Ehtiyacınızı dinləyək, uyğun yanaşmanı və növbəti addımları birlikdə müəyyənləşdirək.",
+      "b1": "Bizə yazın"
     }
   },
   "footer": {

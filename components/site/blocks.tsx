@@ -44,9 +44,8 @@ function Stats({ p }: { p: any }) {
 
 function Process({ p }: { p: any }) {
   return (
-    <section className="py-24 md:py-32 border-y border-white/10 relative overflow-hidden">
-      <div aria-hidden className="absolute inset-0 site-grid opacity-30" />
-      <div className="wrap relative">
+    <section className="py-24 md:py-32 border-y border-white/10">
+      <div className="wrap">
         <div className="grid lg:grid-cols-[.8fr_1.2fr] gap-12 lg:gap-20">
           <div>
             <div className="elbl">{p.label}</div>
@@ -121,11 +120,11 @@ function Faq({ p }: { p: any }) {
 
 function Cta({ p }: { p: any }) {
   return (
-    <section className="bg-brand text-ink py-20 md:py-28 overflow-hidden">
-      <Marquee items={Array(6).fill('DIGITERIAL')} sep="—" className="text-[clamp(2rem,6vw,4rem)] font-display font-bold opacity-90 mb-12" />
+    <section className="bg-brand text-ink py-20 md:py-28">
       <div className="wrap">
-        <h2 className="font-display font-semibold tracking-[-.05em] text-[clamp(2.5rem,7vw,6rem)] max-w-[14ch] leading-[.9]">{p.h2}</h2>
-        <div className="flex justify-between items-end gap-6 flex-wrap mt-8">
+        <div className="font-mono text-[.68rem] tracking-[.18em] uppercase mb-10">Digiterial / Contact</div>
+        <h2 className="font-display font-medium tracking-[-.055em] text-[clamp(2.5rem,7vw,6rem)] max-w-[14ch] leading-[.9]">{p.h2}</h2>
+        <div className="flex justify-between items-end gap-6 flex-wrap mt-10 pt-8 border-t border-ink/20">
           <p className="max-w-[40ch] text-base md:text-lg">{p.p}</p>
           <Link href="/elaqe" className="hbtn hbtn-d">{p.b1} ↗</Link>
         </div>

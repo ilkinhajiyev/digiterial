@@ -23,8 +23,8 @@ export default function SiteHeader({ logoUrl, brand = 'Digiterial' }: { logoUrl?
 
   return (
     <>
-      <header className="fixed top-0 inset-x-0 z-50 pt-3 md:pt-4">
-        <div className={`wrap flex items-center justify-between h-[62px] md:h-[66px] transition-all duration-300 rounded-2xl ${scrolled || open ? 'bg-[#101310]/90 backdrop-blur-xl border border-white/10 shadow-2xl' : 'bg-transparent border border-transparent'}`}>
+      <header className={`fixed top-0 inset-x-0 z-50 border-b transition-all duration-300 ${scrolled || open ? 'bg-[#080a09]/95 backdrop-blur-md border-white/10' : 'bg-[#080a09]/70 border-transparent'}`}>
+        <div className="wrap flex items-center justify-between h-[72px] md:h-[78px]">
           {/* SOL: logo (mobil böyük) + flaqlar */}
           <div className="flex items-center gap-3 md:gap-4 z-50">
             <Link href="/" className="font-display font-semibold text-2xl md:text-[1.35rem] tracking-[-.04em] flex items-center">

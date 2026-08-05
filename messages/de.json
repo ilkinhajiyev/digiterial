@@ -21,12 +21,17 @@
     "more": "Mehr erfahren"
   },
   "hero": {
-    "eyebrow": "Eine 360°-Digitalagentur",
-    "h1": "Digitale Erlebnisse für moderne Marken.",
-    "lead": "Von der Strategie bis zur Umsetzung — Web, Marketing und Branding aus einem Team. Messbare Ergebnisse.",
-    "b1": "Unsere Leistungen",
+    "eyebrow": "Ein Digitalteam aus Baku",
+    "h1": "Digitale Systeme, die für Ihr Unternehmen arbeiten.",
+    "lead": "Wir verbinden Web, Marketing und Marke zu einem System mit einem gemeinsamen Geschäftsziel.",
+    "b1": "Projekt besprechen",
     "b2": "Unsere Projekte",
-    "whatWeDo": "Was wir tun",
+    "whatWeDo": "Kernbereiche",
+    "focus1": "Websites und E-Commerce",
+    "focus2": "Performance Marketing",
+    "focus3": "Marke und Digitaldesign",
+    "basedIn": "Standort",
+    "available": "Offen für neue Projekte",
     "projects": "Projekte",
     "rating": "Kundenbewertung",
     "systemLine1": "Strategie.",
@@ -35,23 +40,23 @@
     "channels": "Kanäle",
     "analytics": "Analytik",
     "averageResult": "Durchschnitt",
-    "explore": "Mehr entdecken"
+    "explore": "Weiter"
   },
   "home": {
     "band": {
-      "label": "Was wir tun",
-      "big": "Von Klarheit zu Dynamik.",
-      "h3": "Wir vereinen Strategie, Design, Entwicklung und Marketing in einem System.",
-      "p": "Ein Team, ein Herzschlag — spürbarer Fortschritt und beweisbare Ergebnisse."
+      "label": "Unser Ansatz",
+      "big": "Wir beginnen mit dem Problem.",
+      "h3": "Danach planen und liefern wir passend zu Ihrem Unternehmen.",
+      "p": "Wir verkaufen kein starres Paket. Gemeinsam setzen wir Prioritäten nach Zielen, Team und Budget und teilen die Arbeit in klare Phasen."
     },
     "servicesHead": {
       "label": "Leistungen",
-      "heading": "Alles unter einem Dach."
+      "heading": "Was Sie brauchen. Nicht mehr."
     },
     "process": {
       "label": "Unser Prozess",
-      "heading": "Klarer Prozess. Starke Ergebnisse.",
-      "text": "Wir reduzieren Komplexität und machen jede Phase sichtbar, fokussiert und messbar.",
+      "heading": "Vom ersten Gespräch bis zum Launch.",
+      "text": "In jeder Phase wissen Sie, was wir tun, warum es wichtig ist und was als Nächstes kommt.",
       "h1": "Verstehen und ausrichten",
       "p1": "Gemeinsam definieren wir Ihr Geschäft, Ihre Zielgruppe und die klarsten Wachstumschancen.",
       "h2": "Gestalten und umsetzen",
@@ -79,9 +84,9 @@
       "label": "Vertraut von"
     },
     "cta": {
-      "h2": "Bereit für echte digitale Dynamik?",
-      "p": "Sprechen wir über Ihr Projekt in einer kostenlosen 30-minütigen Beratung.",
-      "b1": "Projekt starten"
+      "h2": "Sprechen wir über Ihr Projekt.",
+      "p": "Wir hören zu und definieren gemeinsam einen sinnvollen Ansatz und die nächsten Schritte.",
+      "b1": "Kontakt aufnehmen"
     }
   },
   "footer": {

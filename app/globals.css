@@ -14,14 +14,12 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
 
 body {
   color: #f5f6f1;
-  background:
-    radial-gradient(circle at 82% 4%, rgba(221,251,69,.08), transparent 26rem),
-    #080A09;
+  background: #080A09;
 }
 
 /* İncə grain teksturası — premium hiss */
 body::before {
-  content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .035;
+  content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .018;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 

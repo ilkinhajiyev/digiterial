@@ -21,12 +21,17 @@
     "more": "Learn more"
   },
   "hero": {
-    "eyebrow": "A 360° digital agency",
-    "h1": "Digital experiences for modern brands.",
-    "lead": "From strategy to delivery — web, marketing and branding from one team. Measurable results.",
-    "b1": "Our services",
+    "eyebrow": "A digital team based in Baku",
+    "h1": "Digital systems that work for your business.",
+    "lead": "We build web, marketing and brand as one connected system focused on the same business goal.",
+    "b1": "Discuss your project",
     "b2": "See our work",
-    "whatWeDo": "What we do",
+    "whatWeDo": "Core capabilities",
+    "focus1": "Websites and e-commerce",
+    "focus2": "Performance marketing",
+    "focus3": "Brand and digital design",
+    "basedIn": "Based in",
+    "available": "Open for new projects",
     "projects": "Projects",
     "rating": "Client rating",
     "systemLine1": "Strategy.",
@@ -35,23 +40,23 @@
     "channels": "Channels",
     "analytics": "Analytics",
     "averageResult": "Average result",
-    "explore": "Scroll to explore"
+    "explore": "Continue"
   },
   "home": {
     "band": {
-      "label": "What we do",
-      "big": "From clarity to momentum.",
-      "h3": "We run strategy, design, development and marketing as one system.",
-      "p": "One team, one heartbeat — progress you can feel and results you can prove."
+      "label": "Our approach",
+      "big": "We start with the problem.",
+      "h3": "Then we plan and deliver around your business.",
+      "p": "We do not sell a fixed package. We set priorities around your goals, team and budget, then divide the work into clear stages."
     },
     "servicesHead": {
       "label": "Services",
-      "heading": "Everything under one roof."
+      "heading": "What you need. Nothing extra."
     },
     "process": {
       "label": "How we work",
-      "heading": "Simple process. Strong results.",
-      "text": "We remove the noise and make every stage visible, focused and measurable.",
+      "heading": "From first conversation to launch.",
+      "text": "At every stage, you know what we are doing, why it matters and what comes next.",
       "h1": "Discover and direct",
       "p1": "Together, we define your business, audience and the clearest opportunities for growth.",
       "h2": "Design and deliver",
@@ -79,9 +84,9 @@
       "label": "Trusted by"
     },
     "cta": {
-      "h2": "Ready for real digital momentum?",
-      "p": "Let's talk about your project in a free 30-minute consultation.",
-      "b1": "Start a project"
+      "h2": "Let’s talk about your project.",
+      "p": "We will listen to what you need and define a sensible approach and next steps together.",
+      "b1": "Get in touch"
     }
   },
   "footer": {
