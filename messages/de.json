@@ -62,6 +62,7 @@
       "h3": "Digitales Produkt", "p3": "Wir verbinden schnelle, mobile Websites mit den realen Abläufen Ihres Unternehmens.",
       "h4": "Wachstumszyklus", "p4": "Nach dem Launch lernen wir aus Daten, testen Ideen und verbessern weiter."
     },
+    "selectedWork": { "label": "Ausgewählte Arbeiten", "heading": "Die Arbeit spricht für sich.", "viewAll": "Alle Arbeiten" },
     "process": {
       "label": "Unser Prozess",
       "heading": "Vom ersten Gespräch bis zum Launch.",
@@ -72,6 +73,11 @@
       "p2": "Wir verwandeln Strategie in ein schnelles, markantes digitales Erlebnis mit Fokus auf Conversion.",
       "h3": "Messen und wachsen",
       "p3": "Wir messen Ergebnisse, lernen aus echten Daten und verbessern das System kontinuierlich."
+    },
+    "legacy": {
+      "label": "Erfahrung", "heading": "Plattformen ändern sich. Verantwortung bleibt.",
+      "text": "Seit 2018 helfen wir Marken, digital klarer aufzutreten, besser zu funktionieren und nachhaltig zu wachsen.",
+      "since": "Gegründet", "i1": "Strategisch geführte Projekte", "i2": "Umsetzung auf Senior-Niveau", "i3": "Langfristige Partnerschaften"
     },
     "toolkit": {
       "label": "Fähigkeiten statt Tools", "heading": "Das Team, das die Aufgabe braucht.",

@@ -62,6 +62,7 @@
       "h3": "Digital product", "p3": "We connect fast, mobile-friendly websites to the real way your business works.",
       "h4": "Growth cycle", "p4": "After launch, we learn from data, test ideas and keep improving."
     },
+    "selectedWork": { "label": "Selected work", "heading": "Let the work speak.", "viewAll": "View all work" },
     "process": {
       "label": "How we work",
       "heading": "From first conversation to launch.",
@@ -72,6 +73,11 @@
       "p2": "We turn strategy into a fast, distinctive digital experience built to convert.",
       "h3": "Measure and grow",
       "p3": "We track performance, learn from real data and keep improving the system."
+    },
+    "legacy": {
+      "label": "Experience", "heading": "Platforms change. Responsibility does not.",
+      "text": "Since 2018, we have helped brands become clearer, work better and grow consistently across digital channels.",
+      "since": "Founded", "i1": "Strategy-led engagements", "i2": "Senior-level delivery", "i3": "Long-term partnerships"
     },
     "toolkit": {
       "label": "Capabilities, not tools", "heading": "The team the work requires.",
