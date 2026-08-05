@@ -1,4 +1,4 @@
-import { createServiceClient } from '@/lib/supabase/service';
+import { createAdminServiceClient } from '@/lib/security/admin';
 import { getSettings } from '@/lib/data/settings';
 import FullBuilder from '@/components/admin/full-builder';
 import { getDefaultPageBlocks, resolvePageBlocks } from '@/lib/data/page-content';
@@ -14,7 +14,7 @@ const PAGE_KEYS = [
   { key: 'case-studies', label: 'Case Studies',  slug: '/case-studies' },
 ];
 export default async function BuilderPage() {
-  const sb = createServiceClient();
+  const sb = await createAdminServiceClient();
 
   // Bütün səhifə + dil kombinasiyalarını yüklə
   const { data: allPages } = await sb.from('pages').select('*');

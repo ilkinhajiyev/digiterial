@@ -1,13 +1,16 @@
 'use server';
 import { z } from 'zod';
-import { createServiceClient } from '@/lib/supabase/service';
+import { headers } from 'next/headers';
+import { createPublicClient } from '@/lib/supabase/service';
+import { checkRateLimit, requestIp } from '@/lib/security/rate-limit';
 
 const schema = z.object({
-  name:    z.string().min(2, 'Ad ən az 2 hərf olmalıdır'),
-  email:   z.string().email('Düzgün email daxil edin'),
-  company: z.string().optional(),
-  service: z.string().optional(),
-  message: z.string().optional(),
+  name:    z.string().trim().min(2, 'Ad ən az 2 hərf olmalıdır').max(100),
+  email:   z.string().trim().toLowerCase().email('Düzgün email daxil edin').max(254),
+  company: z.string().trim().max(160).optional(),
+  service: z.enum(['', 'Veb sayt', 'SEO', 'Google & Meta Ads', 'Brendinq & Dizayn', 'SMM', 'AI & Avtomatlaşdırma', 'Digər']).optional(),
+  message: z.string().trim().max(3000).optional(),
+  website: z.string().max(0),
 });
 
 export async function submitContact(formData: FormData) {
@@ -17,7 +20,13 @@ export async function submitContact(formData: FormData) {
     company: String(formData.get('company') || ''),
     service: String(formData.get('service') || ''),
     message: String(formData.get('message') || ''),
+    website: String(formData.get('_website') || ''),
   };
+
+  const ip = requestIp(await headers());
+  if (!checkRateLimit(`contact:${ip}`, 5, 10 * 60 * 1000)) {
+    return { ok: false, error: 'Çox sayda sorğu göndərilib. Bir qədər sonra yenidən cəhd edin.' };
+  }
 
   const parsed = schema.safeParse(raw);
   if (!parsed.success) {
@@ -27,7 +36,7 @@ export async function submitContact(formData: FormData) {
   const d = parsed.data;
 
   try {
-    const sb = createServiceClient(); // RLS bypass — service key
+    const sb = createPublicClient();
     const { error } = await sb.from('leads').insert({
       name:    d.name,
       email:   d.email,
@@ -40,8 +49,8 @@ export async function submitContact(formData: FormData) {
     });
 
     if (error) {
-      console.error('[contact]', error.code, error.message);
-      return { ok: false, error: `Xəta: ${error.message}` };
+      console.error('[contact]', error.code);
+      return { ok: false, error: 'Müraciət göndərilmədi. Yenidən cəhd edin.' };
     }
 
     return { ok: true };

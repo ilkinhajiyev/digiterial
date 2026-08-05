@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
 import { NextIntlClientProvider } from 'next-intl';
 import AdminShell from '@/components/admin/shell';
+import { requireAdmin } from '@/lib/security/admin';
 
 // Admin pages depend on the signed-in user and Supabase runtime credentials.
 // They must never be evaluated while producing the public static build.
@@ -13,9 +13,7 @@ export default async function ProtectedLayout({
   children: React.ReactNode;
 }) {
   try {
-    const sb = await createClient();
-    const { data: { user } } = await sb.auth.getUser();
-    if (!user) redirect('/admin/login');
+    await requireAdmin();
   } catch {
     redirect('/admin/login');
   }

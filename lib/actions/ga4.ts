@@ -1,4 +1,5 @@
 'use server';
+import { requireAdmin } from '@/lib/security/admin';
 
 // Google Analytics 4 Data API-dən real statistika çəkir.
 // Lazımi env dəyişənləri (Hostinger-də):
@@ -27,6 +28,8 @@ export type Ga4Data = {
 };
 
 export async function getGa4Data(days = 28): Promise<Ga4Data> {
+  await requireAdmin();
+  days = Math.min(Math.max(Math.trunc(days), 1), 365);
   const propertyId = process.env.GA4_PROPERTY_ID;
   const clientEmail = process.env.GA4_CLIENT_EMAIL;
   let privateKey = process.env.GA4_PRIVATE_KEY;

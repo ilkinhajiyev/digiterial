@@ -1,6 +1,9 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 import { createClient as sbServer } from '@/lib/supabase/server';
+import { requireAdmin } from '@/lib/security/admin';
+
+async function db() { await requireAdmin(); return sbServer(); }
 
 function slugify(s: string) {
   const map: Record<string, string> = { 'ə': 'e', 'ö': 'o', 'ü': 'u', 'ğ': 'g', 'ı': 'i', 'ş': 's', 'ç': 'c', 'İ': 'i' };
@@ -27,19 +30,19 @@ function payload(fd: FormData) {
   };
 }
 export async function addPortfolio(fd: FormData) {
-  const sb = await sbServer();
+  const sb = await db();
   const { error } = await sb.from('portfolio_items').insert(payload(fd));
   revalidatePath('/admin/portfolio'); revalidatePath('/isler');
   return { ok: !error, error: error?.message };
 }
 export async function editPortfolio(id: string, fd: FormData) {
-  const sb = await sbServer();
+  const sb = await db();
   const { error } = await sb.from('portfolio_items').update(payload(fd)).eq('id', id);
   revalidatePath('/admin/portfolio'); revalidatePath('/isler');
   return { ok: !error, error: error?.message };
 }
 export async function removePortfolio(id: string) {
-  const sb = await sbServer();
+  const sb = await db();
   await sb.from('portfolio_items').delete().eq('id', id);
   revalidatePath('/admin/portfolio'); revalidatePath('/isler');
   return { ok: true };

@@ -35,6 +35,9 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate>
+      <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
+        <label>Website<input name="_website" type="text" tabIndex={-1} autoComplete="off" /></label>
+      </div>
       {ok && (
         <div className="bg-brand/10 border border-brand rounded-xl px-4 py-3.5 text-brand text-sm mb-5">
           ✓ {t('ok')}

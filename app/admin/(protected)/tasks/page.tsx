@@ -1,11 +1,11 @@
 import { createClient } from '@/lib/supabase/server';
-import { createServiceClient } from '@/lib/supabase/service';
+import { createAdminServiceClient } from '@/lib/security/admin';
 import CrudTable from '@/components/admin/crud-table';
 import { upsertTask, destroyTask } from '@/lib/actions/admin';
 
 export default async function Page() {
   await (await createClient()).auth.getUser(); // auth yoxla
-  const svc = createServiceClient();
+  const svc = await createAdminServiceClient();
   const { data } = await svc.from('tasks').select('*').order('created_at', { ascending: false });
   return (
     <CrudTable
