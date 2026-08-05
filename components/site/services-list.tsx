@@ -13,7 +13,8 @@ export default function ServicesList({ label, heading }: { label: string; headin
       <div className="mt-10 border-t border-ink/20">
         {services.map((s, idx) => (
           <Link key={s.slug} href={`/xidmetler/${s.slug}`}
-            className="group grid grid-cols-[40px_1fr_auto] sm:grid-cols-[64px_1fr_auto] gap-4 sm:gap-6 items-center py-5 sm:py-8 border-b border-ink/20 transition-colors duration-300 hover:bg-ink/[.035]">
+            style={{ transitionDelay: `${idx * 55}ms` }}
+            className="stagger-item group grid grid-cols-[40px_1fr_auto] sm:grid-cols-[64px_1fr_auto] gap-4 sm:gap-6 items-center py-5 sm:py-8 border-b border-ink/20 transition-colors duration-300 hover:bg-ink/[.035]">
             <span className="font-mono text-brand text-sm sm:text-base transition-transform duration-300 group-hover:scale-110 origin-left">{String(idx + 1).padStart(2, '0')}</span>
             <div className="flex items-center gap-3 sm:gap-4 min-w-0">
               <span className="text-ink/35 group-hover:text-ink transition-colors hidden sm:block shrink-0"><ServiceIcon slug={s.slug} className="w-7 h-7" /></span>

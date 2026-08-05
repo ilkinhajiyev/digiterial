@@ -13,13 +13,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Digiterial',
       title: 'Digiterial — Biznesiniz üçün işləyən rəqəmsal sistemlər',
       description: 'Veb, marketinq və brendi eyni biznes məqsədinə işləyən vahid sistem kimi qururuq.',
-      images: [{ url: '/og-realistic.png', width: 1200, height: 630, alt: 'Digiterial — Bakı rəqəmsal agentliyi' }],
+      images: [{ url: '/og-kinetic.png', width: 1200, height: 630, alt: 'Digiterial — Bakı rəqəmsal agentliyi' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Digiterial — Biznesiniz üçün işləyən rəqəmsal sistemlər',
       description: 'Veb, marketinq və brendi eyni biznes məqsədinə işləyən vahid sistem kimi qururuq.',
-      images: ['/og-realistic.png'],
+      images: ['/og-kinetic.png'],
     },
   };
   // Search Console / Yandex Webmaster təsdiq kodları

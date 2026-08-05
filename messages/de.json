@@ -43,6 +43,7 @@
     "explore": "Weiter"
   },
   "home": {
+    "marquee": { "i1": "Strategie", "i2": "Design", "i3": "Code", "i4": "Kampagnen", "i5": "Analytik", "i6": "Verbesserung" },
     "band": {
       "label": "Unser Ansatz",
       "big": "Wir beginnen mit dem Problem.",
@@ -52,6 +53,14 @@
     "servicesHead": {
       "label": "Leistungen",
       "heading": "Was Sie brauchen. Nicht mehr."
+    },
+    "workbench": {
+      "label": "Die Werkbank", "heading": "Wir machen aus Ideen funktionierende Produkte.",
+      "text": "Wir denken vier Disziplinen gemeinsam, damit Design, Technologie und Wachstum nicht auseinanderdriften.",
+      "h1": "Bedeutung und Botschaft", "p1": "Wir klären in einem Satz, warum Menschen sich für Sie entscheiden sollten.",
+      "h2": "Visuelles System", "p2": "Nicht nur schöne Screens, sondern eine konsistente Sprache über alle Kanäle.",
+      "h3": "Digitales Produkt", "p3": "Wir verbinden schnelle, mobile Websites mit den realen Abläufen Ihres Unternehmens.",
+      "h4": "Wachstumszyklus", "p4": "Nach dem Launch lernen wir aus Daten, testen Ideen und verbessern weiter."
     },
     "process": {
       "label": "Unser Prozess",
@@ -63,6 +72,25 @@
       "p2": "Wir verwandeln Strategie in ein schnelles, markantes digitales Erlebnis mit Fokus auf Conversion.",
       "h3": "Messen und wachsen",
       "p3": "Wir messen Ergebnisse, lernen aus echten Daten und verbessern das System kontinuierlich."
+    },
+    "toolkit": {
+      "label": "Fähigkeiten statt Tools", "heading": "Das Team, das die Aufgabe braucht.",
+      "text": "Wir bringen die passenden Disziplinen zusammen, damit Sie nicht mehrere Dienstleister koordinieren müssen.",
+      "r1": "Web Experience", "r2": "E-Commerce", "r3": "Markensysteme", "r4": "Content",
+      "r5": "SEO", "r6": "Google Ads", "r7": "Meta Ads", "r8": "Automatisierung"
+    },
+    "principles": {
+      "label": "Arbeitsprinzipien", "heading": "Der Prozess ist so wichtig wie das Ergebnis.",
+      "h1": "Wir sprechen klar", "p1": "Wir verstecken uns nicht hinter Fachsprache. Entscheidungen und Gründe bleiben nachvollziehbar.",
+      "h2": "Wir zeigen die Arbeit", "p2": "Sie sehen Fortschritt, geben Feedback und setzen gemeinsam mit uns Prioritäten.",
+      "h3": "Wir bleiben nach dem Launch", "p3": "Der Launch ist nicht das Ende. Wir prüfen Ergebnisse und planen den nächsten sinnvollen Schritt."
+    },
+    "faq": {
+      "label": "Häufig gefragt",
+      "q1": "Wie beginnt ein Projekt?", "a1": "Im ersten Gespräch klären wir Ziele, Zielgruppe, aktuelle Probleme und den Budgetrahmen. Danach folgt ein Phasenplan.",
+      "q2": "Können wir nur eine Leistung buchen?", "a2": "Ja. Wir ergänzen Ihr Team und konzentrieren uns bei Bedarf nur auf Web, Werbung, Design oder SEO.",
+      "q3": "Wie wird der Preis berechnet?", "a3": "Der Preis richtet sich nach Umfang, Zeitplan und benötigtem Team. Alle Phasen werden im Angebot einzeln aufgeführt.",
+      "q4": "Gibt es Support nach dem Launch?", "a4": "Ja. Technischer Support, Analytik, Optimierung und neue Funktionen sind laufend möglich."
     },
     "stats": {
       "label": "Formel",

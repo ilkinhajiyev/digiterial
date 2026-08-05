@@ -43,6 +43,7 @@
     "explore": "Davam et"
   },
   "home": {
+    "marquee": { "i1": "Strategiya", "i2": "Dizayn", "i3": "Kod", "i4": "Kampaniya", "i5": "Analitika", "i6": "Təkmilləşdirmə" },
     "band": {
       "label": "Yanaşma",
       "big": "Əvvəl problemi anlayırıq.",
@@ -52,6 +53,15 @@
     "servicesHead": {
       "label": "Xidmətlər",
       "heading": "Lazım olan qədər. Artıq yox."
+    },
+    "workbench": {
+      "label": "İş masası",
+      "heading": "İdeyanı işləyən məhsula çeviririk.",
+      "text": "Hər layihədə dörd istiqaməti birlikdə düşünürük. Beləliklə görünüş, texnologiya və satış bir-birindən qopmur.",
+      "h1": "Məna və mesaj", "p1": "İnsanların sizi niyə seçməli olduğunu bir cümlədə aydınlaşdırırıq.",
+      "h2": "Vizual sistem", "p2": "Təkcə gözəl ekran yox, bütün kanallarda tanınan tutarlı dil qururuq.",
+      "h3": "Rəqəmsal məhsul", "p3": "Mobil, sürətli və istifadəsi rahat saytları real biznes axınına bağlayırıq.",
+      "h4": "Böyümə dövrü", "p4": "Yayımdan sonra data ilə öyrənir, test edir və davamlı təkmilləşdiririk."
     },
     "process": {
       "label": "İş prosesi",
@@ -63,6 +73,25 @@
       "p2": "Strategiyanı sürətli, fərqli və konversiya yönümlü rəqəmsal təcrübəyə çeviririk.",
       "h3": "Ölçmə və böyümə",
       "p3": "Nəticələri izləyir, öyrənir və sistemi davamlı olaraq daha effektiv edirik."
+    },
+    "toolkit": {
+      "label": "Alətlər yox, imkanlar", "heading": "İşin tələb etdiyi komanda.",
+      "text": "Layihəyə uyğun bacarıqları bir araya gətiririk; siz ayrı-ayrı icraçılar arasında koordinasiya etmirsiniz.",
+      "r1": "Veb təcrübə", "r2": "E-ticarət", "r3": "Brend sistemi", "r4": "Kontent",
+      "r5": "SEO", "r6": "Google Ads", "r7": "Meta Ads", "r8": "Avtomatlaşdırma"
+    },
+    "principles": {
+      "label": "İş prinsipləri", "heading": "Proses də nəticə qədər vacibdir.",
+      "h1": "Aydın danışırıq", "p1": "Texniki jarqonun arxasında gizlənmirik. Qərarları və səbəbləri açıq izah edirik.",
+      "h2": "İşi göstəririk", "p2": "Layihə boyunca real irəliləyişi görür, rəy verir və prioritetləri birlikdə müəyyənləşdirirsiniz.",
+      "h3": "Yayımdan sonra qalırıq", "p3": "Sayt və kampaniya yayımlananda iş bitmir; nəticələrə baxıb növbəti addımı planlayırıq."
+    },
+    "faq": {
+      "label": "Tez-tez soruşulanlar",
+      "q1": "Layihəyə necə başlayırıq?", "a1": "İlk görüşdə məqsəd, auditoriya, mövcud problemlər və büdcə çərçivəsini dəqiqləşdiririk. Sonra mərhələli iş planı təqdim edirik.",
+      "q2": "Yalnız bir xidmət sifariş etmək olar?", "a2": "Bəli. Mövcud komandanızı tamamlaya və yalnız veb, reklam, dizayn və ya SEO istiqamətində işləyə bilərik.",
+      "q3": "Qiymət necə hesablanır?", "a3": "Qiymət işin həcmi, vaxtı və tələb olunan komanda üzrə formalaşır. Təklifdə bütün mərhələlər ayrıca göstərilir.",
+      "q4": "Sayt yayımlandıqdan sonra dəstək verirsiniz?", "a4": "Bəli. Texniki dəstək, analitika, optimizasiya və yeni funksiyalar üçün davamlı əməkdaşlıq mümkündür."
     },
     "stats": {
       "label": "Formula",

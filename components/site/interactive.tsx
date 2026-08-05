@@ -7,12 +7,11 @@ export function Reveal({ children, className = '' }: { children: React.ReactNode
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current; if (!el || reduced()) return;
-    el.classList.add('reveal');
     const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { el.classList.add('in'); io.disconnect(); } }, { threshold: 0.12 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
-  return <div ref={ref} className={className}>{children}</div>;
+  return <div ref={ref} className={`reveal ${className}`}>{children}</div>;
 }
 
 export function CountUp({ value }: { value: string }) {

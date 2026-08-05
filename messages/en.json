@@ -43,6 +43,7 @@
     "explore": "Continue"
   },
   "home": {
+    "marquee": { "i1": "Strategy", "i2": "Design", "i3": "Code", "i4": "Campaigns", "i5": "Analytics", "i6": "Improvement" },
     "band": {
       "label": "Our approach",
       "big": "We start with the problem.",
@@ -52,6 +53,14 @@
     "servicesHead": {
       "label": "Services",
       "heading": "What you need. Nothing extra."
+    },
+    "workbench": {
+      "label": "The workbench", "heading": "We turn ideas into working products.",
+      "text": "We consider four disciplines together, so design, technology and growth never drift apart.",
+      "h1": "Meaning and message", "p1": "We clarify in one sentence why people should choose you.",
+      "h2": "Visual system", "p2": "Not just attractive screens, but a consistent language people recognize across channels.",
+      "h3": "Digital product", "p3": "We connect fast, mobile-friendly websites to the real way your business works.",
+      "h4": "Growth cycle", "p4": "After launch, we learn from data, test ideas and keep improving."
     },
     "process": {
       "label": "How we work",
@@ -63,6 +72,25 @@
       "p2": "We turn strategy into a fast, distinctive digital experience built to convert.",
       "h3": "Measure and grow",
       "p3": "We track performance, learn from real data and keep improving the system."
+    },
+    "toolkit": {
+      "label": "Capabilities, not tools", "heading": "The team the work requires.",
+      "text": "We bring the right disciplines together for the project, so you do not have to coordinate separate suppliers.",
+      "r1": "Web experience", "r2": "E-commerce", "r3": "Brand systems", "r4": "Content",
+      "r5": "SEO", "r6": "Google Ads", "r7": "Meta Ads", "r8": "Automation"
+    },
+    "principles": {
+      "label": "Working principles", "heading": "The process matters as much as the result.",
+      "h1": "We speak clearly", "p1": "We do not hide behind technical language. Decisions and their reasons stay visible.",
+      "h2": "We show the work", "p2": "You see real progress, give feedback and help set priorities throughout the project.",
+      "h3": "We stay after launch", "p3": "Launch is not the finish line. We review results and plan the next useful step."
+    },
+    "faq": {
+      "label": "Frequently asked",
+      "q1": "How does a project begin?", "a1": "The first conversation clarifies goals, audience, current problems and the budget range. We then share a phased plan.",
+      "q2": "Can we hire you for one service?", "a2": "Yes. We can complement your existing team and focus only on web, advertising, design or SEO.",
+      "q3": "How is pricing calculated?", "a3": "Pricing depends on scope, timing and the team required. Every stage is shown separately in the proposal.",
+      "q4": "Do you support the site after launch?", "a4": "Yes. Ongoing technical support, analytics, optimization and new feature work are available."
     },
     "stats": {
       "label": "Formula",
