@@ -4,8 +4,11 @@ import { CountUp, Marquee, Reveal } from '@/components/site/interactive';
 import { ServiceIcon } from '@/components/site/service-icons';
 import { services } from '@/lib/data/services';
 import ServicesList from '@/components/site/services-list';
+import { ArrowUpRight, Code2, Palette, Target, TrendingUp } from 'lucide-react';
 
 type Block = { type: string; props: any };
+
+const workbenchIcons = [Target, Palette, Code2, TrendingUp];
 
 function Band({ p }: { p: any }) {
   return (
@@ -68,28 +71,43 @@ function Process({ p }: { p: any }) {
 }
 
 function Workbench({ p }: { p: any }) {
+  const itemCount = p.items?.length || 0;
+
   return (
     <section className="workbench py-24 md:py-32 overflow-hidden">
       <div className="wrap">
-        <div className="grid lg:grid-cols-[.72fr_1.28fr] gap-12 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-[.62fr_1.38fr] gap-12 lg:gap-16 xl:gap-24 items-start">
           <div className="lg:sticky lg:top-28">
             <div className="elbl">{p.label}</div>
             <h2 className="font-display font-semibold text-[clamp(2.4rem,5.4vw,5rem)] leading-[.92] tracking-[-.05em] mt-6 max-w-[9ch]">{p.heading}</h2>
             <p className="text-mut-d mt-6 max-w-[38ch] leading-relaxed">{p.text}</p>
+            <div className="workbench-count mt-10 md:mt-14" aria-hidden>
+              <span className="font-mono text-xs">01</span>
+              <span className="workbench-count-line" />
+              <span className="font-mono text-xs">{String(itemCount).padStart(2, '0')}</span>
+            </div>
           </div>
-          <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
-            {p.items?.map((item: any, i: number) => (
-              <div key={i} className={`work-card stagger-item ${i === 1 ? 'sm:mt-16' : ''} ${i === 2 ? 'sm:-mt-16' : ''}`} style={{ transitionDelay: `${i * 90}ms` }}>
-                <div className="flex justify-between items-start gap-4">
-                  <span className="font-mono text-xs text-ink/45">0{i + 1}</span>
-                  <span className="work-card-dot" />
-                </div>
-                <div>
-                  <h3 className="font-display font-semibold text-2xl md:text-3xl tracking-tight">{item.h}</h3>
-                  <p className="text-ink/65 mt-3 leading-relaxed">{item.p}</p>
-                </div>
-              </div>
-            ))}
+          <div className="work-grid grid md:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-5">
+            {p.items?.map((item: any, i: number) => {
+              const Icon = workbenchIcons[i % workbenchIcons.length];
+              const span = i % 4 === 0 || i % 4 === 3 ? 'lg:col-span-7' : 'lg:col-span-5';
+
+              return (
+                <article key={i} className={`work-card stagger-item ${span}`} style={{ transitionDelay: `${i * 90}ms` }}>
+                  <div className="work-card-top">
+                    <span className="work-card-icon" aria-hidden><Icon strokeWidth={1.6} /></span>
+                    <span className="work-card-number font-mono text-xs">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                  <div className="work-card-content">
+                    <div className="flex items-end justify-between gap-5">
+                      <h3 className="font-display font-semibold text-[clamp(1.65rem,3vw,2.45rem)] leading-[.98] tracking-[-.035em] max-w-[12ch]">{item.h}</h3>
+                      <span className="work-card-arrow" aria-hidden><ArrowUpRight strokeWidth={1.7} /></span>
+                    </div>
+                    <p className="mt-4 leading-relaxed max-w-[46ch]">{item.p}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>
