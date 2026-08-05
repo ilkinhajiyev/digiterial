@@ -25,12 +25,12 @@ export async function submitContact(formData: FormData) {
 
   const ip = requestIp(await headers());
   if (!checkRateLimit(`contact:${ip}`, 5, 10 * 60 * 1000)) {
-    return { ok: false, error: 'Çox sayda sorğu göndərilib. Bir qədər sonra yenidən cəhd edin.' };
+    return { ok: false, code: 'RATE_LIMIT' as const };
   }
 
   const parsed = schema.safeParse(raw);
   if (!parsed.success) {
-    return { ok: false, error: parsed.error.errors[0]?.message || 'Məlumatları yoxlayın.' };
+    return { ok: false, code: 'INVALID' as const };
   }
 
   const d = parsed.data;
@@ -50,12 +50,12 @@ export async function submitContact(formData: FormData) {
 
     if (error) {
       console.error('[contact]', error.code);
-      return { ok: false, error: 'Müraciət göndərilmədi. Yenidən cəhd edin.' };
+      return { ok: false, code: 'SUBMIT_FAILED' as const };
     }
 
     return { ok: true };
   } catch (ex: any) {
     console.error('[contact] exception:', ex?.message);
-    return { ok: false, error: 'Göndərilmədi. Bilavasitə salam@digiterial.com-a yazın.' };
+    return { ok: false, code: 'SUBMIT_FAILED' as const };
   }
 }

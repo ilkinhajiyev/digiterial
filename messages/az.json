@@ -188,7 +188,23 @@
       "iHours": "İş saatı",
       "addr": "Bakı, Azərbaycan",
       "hours": "B.e – Cümə · 10:00–18:00",
-      "service": "Xidmət"
+      "service": "Xidmət",
+      "namePlaceholder": "Adınız və soyadınız",
+      "emailPlaceholder": "email@nümunə.az",
+      "companyPlaceholder": "Şirkət adı (istəyə görə)",
+      "selectService": "Xidmət seçin…",
+      "serviceWeb": "Veb sayt",
+      "serviceSeo": "SEO",
+      "serviceAds": "Google və Meta reklamları",
+      "serviceBrand": "Brendinq və dizayn",
+      "serviceSmm": "Sosial media",
+      "serviceAi": "AI və avtomatlaşdırma",
+      "serviceOther": "Digər",
+      "messagePlaceholder": "Layihəniz haqqında qısa məlumat…",
+      "errorRateLimit": "Çox sayda müraciət göndərilib. Bir qədər sonra yenidən cəhd edin.",
+      "errorInvalid": "Məlumatları yoxlayıb yenidən cəhd edin.",
+      "errorSubmit": "Müraciət göndərilmədi. salam@digiterial.com ünvanına yaza bilərsiniz.",
+      "errorGeneric": "Göndərilmədi. Yenidən cəhd edin."
     }
   },
   "svcDetail": {

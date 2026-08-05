@@ -187,7 +187,23 @@
       "iHours": "Öffnungszeiten",
       "addr": "Baku, Aserbaidschan",
       "hours": "Mo – Fr · 10:00–18:00",
-      "service": "Leistung"
+      "service": "Leistung",
+      "namePlaceholder": "Ihr vollständiger Name",
+      "emailPlaceholder": "email@beispiel.de",
+      "companyPlaceholder": "Unternehmen (optional)",
+      "selectService": "Leistung auswählen…",
+      "serviceWeb": "Website",
+      "serviceSeo": "SEO",
+      "serviceAds": "Google- und Meta-Anzeigen",
+      "serviceBrand": "Branding und Design",
+      "serviceSmm": "Social Media",
+      "serviceAi": "KI und Automatisierung",
+      "serviceOther": "Sonstiges",
+      "messagePlaceholder": "Erzählen Sie uns kurz von Ihrem Projekt…",
+      "errorRateLimit": "Es wurden zu viele Anfragen gesendet. Bitte versuchen Sie es später erneut.",
+      "errorInvalid": "Bitte prüfen Sie Ihre Angaben und versuchen Sie es erneut.",
+      "errorSubmit": "Ihre Nachricht konnte nicht gesendet werden. Schreiben Sie an salam@digiterial.com.",
+      "errorGeneric": "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
     }
   },
   "svcDetail": {

@@ -187,7 +187,23 @@
       "iHours": "Working hours",
       "addr": "Baku, Azerbaijan",
       "hours": "Mon – Fri · 10:00–18:00",
-      "service": "Service"
+      "service": "Service",
+      "namePlaceholder": "Your full name",
+      "emailPlaceholder": "email@example.com",
+      "companyPlaceholder": "Company name (optional)",
+      "selectService": "Choose a service…",
+      "serviceWeb": "Website",
+      "serviceSeo": "SEO",
+      "serviceAds": "Google & Meta Ads",
+      "serviceBrand": "Branding & design",
+      "serviceSmm": "Social media",
+      "serviceAi": "AI & automation",
+      "serviceOther": "Other",
+      "messagePlaceholder": "Tell us briefly about your project…",
+      "errorRateLimit": "Too many requests were sent. Please try again later.",
+      "errorInvalid": "Please check the information and try again.",
+      "errorSubmit": "Your message could not be sent. You can email salam@digiterial.com.",
+      "errorGeneric": "Could not send your message. Please try again."
     }
   },
   "svcDetail": {

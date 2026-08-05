@@ -187,7 +187,23 @@
       "iHours": "Часы работы",
       "addr": "Баку, Азербайджан",
       "hours": "Пн – Пт · 10:00–18:00",
-      "service": "Услуга"
+      "service": "Услуга",
+      "namePlaceholder": "Ваше имя и фамилия",
+      "emailPlaceholder": "email@example.com",
+      "companyPlaceholder": "Название компании (необязательно)",
+      "selectService": "Выберите услугу…",
+      "serviceWeb": "Веб-сайт",
+      "serviceSeo": "SEO",
+      "serviceAds": "Реклама Google и Meta",
+      "serviceBrand": "Брендинг и дизайн",
+      "serviceSmm": "Социальные сети",
+      "serviceAi": "ИИ и автоматизация",
+      "serviceOther": "Другое",
+      "messagePlaceholder": "Кратко расскажите о вашем проекте…",
+      "errorRateLimit": "Отправлено слишком много запросов. Повторите попытку позже.",
+      "errorInvalid": "Проверьте данные и повторите попытку.",
+      "errorSubmit": "Сообщение не отправлено. Напишите нам на salam@digiterial.com.",
+      "errorGeneric": "Не удалось отправить сообщение. Попробуйте ещё раз."
     }
   },
   "svcDetail": {

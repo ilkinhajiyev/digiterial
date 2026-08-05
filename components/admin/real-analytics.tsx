@@ -39,6 +39,7 @@ export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; l
                 <div>GA4_PRIVATE_KEY = <span className="text-brand">-----BEGIN PRIVATE KEY-----\n...</span></div>
               </div>
             </li>
+            <li><b className="text-white">Alternativ, daha rahat üsul:</b> email və private key əvəzinə bütün service-account JSON faylını Base64 formatında <b>GA4_SERVICE_ACCOUNT_JSON</b> dəyişəninə yaza bilərsiniz.</li>
           </ol>
           <p className="text-mut text-xs mt-4">Qoşulduqdan sonra bu səhifədə ölkələr, trafik mənbələri, ən çox baxılan səhifələr avtomatik görünəcək.</p>
         </div>
@@ -53,7 +54,7 @@ export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; l
         <h1 className="font-display text-2xl mb-1">Statistika</h1>
         <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-5 mt-4 max-w-xl">
           <p className="text-red-400 text-sm">GA4 bağlantı xətası: {ga4.error}</p>
-          <p className="text-mut text-xs mt-2">Env dəyişənlərini və service account icazələrini yoxlayın.</p>
+          <p className="text-mut text-xs mt-2 leading-relaxed">{ga4.hint || 'Env dəyişənlərini və service account icazələrini yoxlayın.'}</p>
         </div>
       </>
     );

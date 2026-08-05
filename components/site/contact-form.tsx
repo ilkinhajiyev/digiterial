@@ -21,10 +21,15 @@ export default function ContactForm() {
         setOk(true);
         (e.target as HTMLFormElement).reset();
       } else {
-        setErr(r.error || 'Xəta baş verdi.');
+        const errors: Record<string, string> = {
+          RATE_LIMIT: t('errorRateLimit'),
+          INVALID: t('errorInvalid'),
+          SUBMIT_FAILED: t('errorSubmit'),
+        };
+        setErr(errors[r.code || ''] || t('errorGeneric'));
       }
-    } catch (ex: any) {
-      setErr(`Göndərilmədi: ${ex?.message || 'Yenidən cəhd edin.'}`);
+    } catch {
+      setErr(t('errorGeneric'));
     } finally {
       setLoading(false);
     }
@@ -52,37 +57,37 @@ export default function ContactForm() {
       <div className="grid sm:grid-cols-2 gap-3.5 mb-4">
         <div>
           <label className={lbl}>{t('name')}</label>
-          <input name="name" required minLength={2} disabled={loading} className={inp} placeholder="Adınız" />
+          <input name="name" required minLength={2} maxLength={100} disabled={loading} className={inp} placeholder={t('namePlaceholder')} />
         </div>
         <div>
           <label className={lbl}>{t('email')}</label>
-          <input name="email" type="email" required disabled={loading} className={inp} placeholder="email@nümunə.az" />
+          <input name="email" type="email" required maxLength={254} disabled={loading} className={inp} placeholder={t('emailPlaceholder')} />
         </div>
       </div>
 
       <div className="mb-4">
         <label className={lbl}>{t('company')}</label>
-        <input name="company" disabled={loading} className={inp} placeholder="Şirkət adı (istəyə görə)" />
+        <input name="company" maxLength={160} disabled={loading} className={inp} placeholder={t('companyPlaceholder')} />
       </div>
 
       <div className="mb-4">
         <label className={lbl}>{t('service')}</label>
         <select name="service" disabled={loading} className={inp}>
-          <option value="">Seçin…</option>
-          <option value="Veb sayt">Veb sayt</option>
-          <option value="SEO">SEO</option>
-          <option value="Google & Meta Ads">Google & Meta Ads</option>
-          <option value="Brendinq & Dizayn">Brendinq & Dizayn</option>
-          <option value="SMM">SMM</option>
-          <option value="AI & Avtomatlaşdırma">AI & Avtomatlaşdırma</option>
-          <option value="Digər">Digər</option>
+          <option value="">{t('selectService')}</option>
+          <option value="Veb sayt">{t('serviceWeb')}</option>
+          <option value="SEO">{t('serviceSeo')}</option>
+          <option value="Google & Meta Ads">{t('serviceAds')}</option>
+          <option value="Brendinq & Dizayn">{t('serviceBrand')}</option>
+          <option value="SMM">{t('serviceSmm')}</option>
+          <option value="AI & Avtomatlaşdırma">{t('serviceAi')}</option>
+          <option value="Digər">{t('serviceOther')}</option>
         </select>
       </div>
 
       <div className="mb-6">
         <label className={lbl}>{t('message')}</label>
-        <textarea name="message" rows={4} disabled={loading} className={inp}
-          placeholder="Layihəniz haqqında qısa məlumat..." />
+        <textarea name="message" rows={4} maxLength={3000} disabled={loading} className={inp}
+          placeholder={t('messagePlaceholder')} />
       </div>
 
       <button type="submit" disabled={loading}
