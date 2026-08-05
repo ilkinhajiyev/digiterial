@@ -27,6 +27,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   ];
   const page = await getPage('home', locale);
   const dbBlocks = (page?.blocks as any[]) || [];
-  const blocks = dbBlocks.length > 1 ? dbBlocks : localized;
+  // Keep the complete designed homepage when the visual builder still has an older block list.
+  // Saved builder content overrides matching sections; newly designed sections stay visible.
+  const dbByType = new Map(dbBlocks.map((block) => [block.type, block]));
+  const blocks = localized.map((block) => {
+    const saved = dbByType.get(block.type);
+    return saved ? { ...block, props: { ...block.props, ...saved.props } } : block;
+  });
   return (<><JsonLd data={orgLd} /><BlockRenderer blocks={blocks as any} /></>);
 }
