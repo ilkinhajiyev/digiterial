@@ -44,20 +44,45 @@ function parseCredentialsJson(raw: string) {
 }
 
 function normalizePrivateKey(raw: string) {
-  let value = raw.trim();
-  if (value.startsWith('"') && value.endsWith('"')) {
-    try { value = JSON.parse(value); } catch {}
+  let value = raw.replace(/^\uFEFF/, '').trim();
+  value = value.replace(/^GA4_PRIVATE_KEY(?:_BASE64)?\s*=\s*/i, '').replace(/^base64:/i, '').trim();
+  if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    if (value.startsWith('"')) {
+      try { value = JSON.parse(value); } catch { value = value.slice(1, -1); }
+    } else {
+      value = value.slice(1, -1);
+    }
   }
 
   const embeddedJson = parseCredentialsJson(value);
   if (embeddedJson) value = embeddedJson.private_key;
-  value = value.replace(/\\n/g, '\n').replace(/\r/g, '').trim();
+  value = value
+    .replace(/\\+r\\+n/g, '\n')
+    .replace(/\\+n/g, '\n')
+    .replace(/\\+r/g, '\n')
+    .replace(/\\u000a/gi, '\n')
+    .replace(/\r/g, '')
+    .trim();
 
   if (!value.includes('-----BEGIN')) {
-    const decoded = Buffer.from(value, 'base64').toString('utf8').trim();
-    const decodedJson = parseCredentialsJson(decoded);
-    value = decodedJson?.private_key || decoded;
-    value = value.replace(/\\n/g, '\n').replace(/\r/g, '').trim();
+    const compact = value.replace(/\s/g, '');
+    if (/^MII[A-Za-z0-9+/=]+$/.test(compact)) {
+      value = `-----BEGIN PRIVATE KEY-----\n${compact}\n-----END PRIVATE KEY-----`;
+    } else {
+      const decoded = Buffer.from(compact, 'base64').toString('utf8').trim();
+      const decodedJson = parseCredentialsJson(decoded);
+      value = decodedJson?.private_key || decoded;
+      value = value
+        .replace(/\\+r\\+n/g, '\n')
+        .replace(/\\+n/g, '\n')
+        .replace(/\\u000a/gi, '\n')
+        .replace(/\r/g, '')
+        .trim();
+      const decodedBody = value.replace(/\s/g, '');
+      if (!value.includes('-----BEGIN') && /^MII[A-Za-z0-9+/=]+$/.test(decodedBody)) {
+        value = `-----BEGIN PRIVATE KEY-----\n${decodedBody}\n-----END PRIVATE KEY-----`;
+      }
+    }
   }
 
   const match = value.match(/-----BEGIN ([A-Z ]*PRIVATE KEY)-----([\s\S]*?)-----END \1-----/);
@@ -73,7 +98,7 @@ function normalizePrivateKey(raw: string) {
 function ga4Error(ex: any): Pick<Ga4Data, 'error' | 'hint'> {
   const message = String(ex?.message || '');
   if (message === 'GA4_PRIVATE_KEY_INVALID' || /DECODER routines|unsupported|PEM|private key/i.test(message)) {
-    return { error: 'Service account private key formatı oxunmadı.', hint: 'Hostinger-də GA4_PRIVATE_KEY sahəsinə JSON faylındakı private_key dəyərini tam daxil edin. Kod həm real sətir keçidini, həm \\n, həm də Base64 formatını qəbul edir.' };
+    return { error: 'Service account private key formatı oxunmadı.', hint: 'Ən etibarlı üsul: bütün service-account JSON faylını Base64 edin və Hostinger-də GA4_SERVICE_ACCOUNT_JSON_BASE64 dəyişəninə yazın. GA4_PRIVATE_KEY istifadə edirsinizsə, dəyər BEGIN PRIVATE KEY ilə başlayıb END PRIVATE KEY ilə bitməlidir.' };
   }
   if (/PERMISSION_DENIED|permission|does not have access|7 UNKNOWN/i.test(message)) {
     return { error: 'Service account bu GA4 property-yə giriş icazəsinə malik deyil.', hint: 'GA4 → Admin → Property access management bölməsində service account emailini Viewer rolu ilə əlavə edin.' };
@@ -92,11 +117,12 @@ export async function getGa4Data(days = 28): Promise<Ga4Data> {
   days = Math.min(Math.max(Math.trunc(days), 1), 365);
   const propertyId = process.env.GA4_PROPERTY_ID?.replace(/^properties\//, '').trim();
   let clientEmail = process.env.GA4_CLIENT_EMAIL?.trim();
-  let privateKeyRaw = process.env.GA4_PRIVATE_KEY;
-  const bundledCredentials = process.env.GA4_SERVICE_ACCOUNT_JSON ? parseCredentialsJson(process.env.GA4_SERVICE_ACCOUNT_JSON) : null;
+  let privateKeyRaw = process.env.GA4_PRIVATE_KEY || process.env.GA4_PRIVATE_KEY_BASE64;
+  const bundledRaw = process.env.GA4_SERVICE_ACCOUNT_JSON || process.env.GA4_SERVICE_ACCOUNT_JSON_BASE64;
+  const bundledCredentials = bundledRaw ? parseCredentialsJson(bundledRaw) : null;
   if (bundledCredentials) {
-    clientEmail ||= bundledCredentials.client_email?.trim();
-    privateKeyRaw ||= bundledCredentials.private_key;
+    clientEmail = bundledCredentials.client_email?.trim() || clientEmail;
+    privateKeyRaw = bundledCredentials.private_key;
   }
 
   if (!propertyId || !clientEmail || !privateKeyRaw) {

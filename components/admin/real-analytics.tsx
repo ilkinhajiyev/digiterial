@@ -39,7 +39,7 @@ export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; l
                 <div>GA4_PRIVATE_KEY = <span className="text-brand">-----BEGIN PRIVATE KEY-----\n...</span></div>
               </div>
             </li>
-            <li><b className="text-white">Alternativ, daha rahat üsul:</b> email və private key əvəzinə bütün service-account JSON faylını Base64 formatında <b>GA4_SERVICE_ACCOUNT_JSON</b> dəyişəninə yaza bilərsiniz.</li>
+            <li><b className="text-white">Alternativ, daha rahat üsul:</b> email və private key əvəzinə bütün service-account JSON faylını Base64 formatında <b>GA4_SERVICE_ACCOUNT_JSON_BASE64</b> dəyişəninə yaza bilərsiniz.</li>
           </ol>
           <p className="text-mut text-xs mt-4">Qoşulduqdan sonra bu səhifədə ölkələr, trafik mənbələri, ən çox baxılan səhifələr avtomatik görünəcək.</p>
         </div>
