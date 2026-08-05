@@ -36,7 +36,7 @@ export default async function LocaleLayout({
       <GtmNoScript gtm={st.analytics?.gtm} />
 
       <div className="bg-ink text-white min-h-screen overflow-x-hidden">
-        <SiteHeader logoUrl={st.logoUrl} brand={st.brand} />
+        <SiteHeader logoUrl={st.logoUrl} brand={st.brand} ctaLabel={st.headerCta?.[locale]} email={st.email} phone={st.phone} />
         <main>{children}</main>
         <SiteFooter />
         <WhatsApp phone={st.whatsapp || '994604996340'} />

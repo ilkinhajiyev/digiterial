@@ -264,7 +264,7 @@ function Cta({ p }: { p: any }) {
         <h2 className="font-display font-medium tracking-[-.055em] text-[clamp(2.5rem,7vw,6rem)] max-w-[14ch] leading-[.9]">{p.h2}</h2>
         <div className="flex justify-between items-end gap-6 flex-wrap mt-10 pt-8 border-t border-ink/20">
           <p className="max-w-[40ch] text-base md:text-lg">{p.p}</p>
-          <Link href="/elaqe" className="hbtn hbtn-d">{p.b1} ↗</Link>
+          <Link href={p.href || '/elaqe'} className="hbtn hbtn-d">{p.b1} ↗</Link>
         </div>
       </div>
     </section>

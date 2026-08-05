@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { BlockRenderer } from '@/components/site/blocks';
+import { getPage } from '@/lib/data/pages';
+import { getDefaultPageBlocks, resolvePageBlocks } from '@/lib/data/page-content';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.blog' });
-  return { title: `${t('h1a')} ${t('h1b')}`, description: t('lead'), alternates: { canonical: '/bloq' } };
+  const page = await getPage('blog', locale);
+  return { title: page?.seo_title || `${t('h1a')} ${t('h1b')}`, description: page?.meta_desc || t('lead'), alternates: { canonical: page?.slug || '/bloq' } };
 }
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params; setRequestLocale(locale);
-  const t = await getTranslations('pages.blog'); const c = await getTranslations('common'); const h = await getTranslations('home');
-  const blocks = [
-    { type: 'hero', props: { eyebrow: t('eyebrow'), h1: t('h1a') + ' ' + t('h1b'), lead: t('lead'), b1: c('services'), b2: c('contact') } },
-    { type: 'cta', props: { h2: h('cta.h2'), p: h('cta.p'), b1: h('cta.b1') } },
-  ];
+  const page = await getPage('blog', locale);
+  const blocks = resolvePageBlocks(getDefaultPageBlocks('blog', locale), page?.blocks as any[]);
   return <BlockRenderer blocks={blocks as any} />;
 }

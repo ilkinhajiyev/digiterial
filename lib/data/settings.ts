@@ -7,6 +7,8 @@ export type SiteSettings = {
   phone: string;
   whatsapp?: string;
   address?: string;
+  headerCta?: Record<string, string>;
+  footerTagline?: Record<string, string>;
   social: {
     instagram?: string;
     linkedin?: string;
@@ -33,6 +35,8 @@ export const defaultSettings: SiteSettings = {
   phone: '+994 60 499 63 40',
   whatsapp: '994604996340',
   address: 'Bakı & Gəncə, Azərbaycan',
+  headerCta: {},
+  footerTagline: {},
   social: {
     instagram: 'https://instagram.com',
     linkedin: 'https://linkedin.com',
@@ -68,12 +72,14 @@ export async function getSettings(): Promise<SiteSettings> {
 
     const d = (data.data || {}) as any;
     return {
-      brand:    d.brand    || defaultSettings.brand,
-      logoUrl:  d.logoUrl  || '',
-      email:    d.email    || defaultSettings.email,
-      phone:    d.phone    || defaultSettings.phone,
-      whatsapp: d.whatsapp || defaultSettings.whatsapp,
-      address:  d.address  || defaultSettings.address,
+      brand:    d.brand    ?? defaultSettings.brand,
+      logoUrl:  d.logoUrl  ?? '',
+      email:    d.email    ?? defaultSettings.email,
+      phone:    d.phone    ?? defaultSettings.phone,
+      whatsapp: d.whatsapp ?? defaultSettings.whatsapp,
+      address:  d.address  ?? defaultSettings.address,
+      headerCta: { ...(defaultSettings.headerCta || {}), ...(d.headerCta || {}) },
+      footerTagline: { ...(defaultSettings.footerTagline || {}), ...(d.footerTagline || {}) },
       social:   { ...defaultSettings.social,    ...(d.social || {}) },
       analytics:{ ...defaultSettings.analytics, ...(d.analytics || {}) },
     };

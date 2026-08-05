@@ -12,7 +12,7 @@ const items = [
   { key: 'blog', href: '/bloq', n: '05' },
 ] as const;
 
-export default function SiteHeader({ logoUrl, brand = 'Digiterial' }: { logoUrl?: string; brand?: string }) {
+export default function SiteHeader({ logoUrl, brand = 'Digiterial', ctaLabel, email = 'salam@digiterial.com', phone = '+994 60 499 63 40' }: { logoUrl?: string; brand?: string; ctaLabel?: string; email?: string; phone?: string }) {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function SiteHeader({ logoUrl, brand = 'Digiterial' }: { logoUrl?
                 </Link>
               ))}
             </nav>
-            <Link href="/elaqe" className="hidden lg:inline-flex hbtn hbtn-y text-sm py-2.5">{t('cta')}</Link>
+            <Link href="/elaqe" className="hidden lg:inline-flex hbtn hbtn-y text-sm py-2.5">{ctaLabel || t('cta')}</Link>
             <button aria-label="Menyu" onClick={() => setOpen(!open)}
               className="lg:hidden w-11 h-11 border border-white/15 rounded-xl flex flex-col items-center justify-center gap-[5px] z-50 active:scale-95 transition">
               <span className={`w-[18px] h-0.5 bg-white transition-all duration-300 ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
@@ -67,10 +67,10 @@ export default function SiteHeader({ logoUrl, brand = 'Digiterial' }: { logoUrl?
             ))}
           </nav>
           <div className="space-y-5">
-            <Link href="/elaqe" className="hbtn hbtn-y w-full justify-center text-lg py-4">{t('cta')} ↗</Link>
+            <Link href="/elaqe" className="hbtn hbtn-y w-full justify-center text-lg py-4">{ctaLabel || t('cta')} ↗</Link>
             <div className="flex items-center justify-between font-mono text-xs text-mut pt-4 border-t border-white/10">
-              <a href="mailto:salam@digiterial.com" className="hover:text-brand">salam@digiterial.com</a>
-              <a href="tel:+994604996340" className="hover:text-brand">+994 60 499 63 40</a>
+              <a href={`mailto:${email}`} className="hover:text-brand">{email}</a>
+              <a href={`tel:${phone.replace(/\D/g, '')}`} className="hover:text-brand">{phone}</a>
             </div>
           </div>
         </div>

@@ -44,7 +44,7 @@ const langs = [
   { code: 'en', label: 'English' },
   { code: 'ru', label: 'Русский' },
   { code: 'de', label: 'Deutsch' },
-];
+] as const;
 
 export default function LangSwitcher({ size = 'sm', onPick }: { size?: 'sm' | 'lg'; onPick?: () => void }) {
   const pathname = usePathname();

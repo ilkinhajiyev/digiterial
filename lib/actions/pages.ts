@@ -1,6 +1,7 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 import { createServiceClient } from '@/lib/supabase/service';
+import { preparePageBlocks } from '@/lib/data/page-content';
 
 export async function savePage(
   key: string,
@@ -11,13 +12,15 @@ export async function savePage(
   try {
     const sb = createServiceClient();
     const { error } = await sb.from('pages').upsert(
-      { key, locale, blocks, ...seo, status: 'published', updated_at: new Date().toISOString() },
+      { key, locale, blocks: preparePageBlocks(blocks), ...seo, status: 'published', updated_at: new Date().toISOString() },
       { onConflict: 'key,locale' }
     );
     if (error) return { ok: false, error: error.message };
     revalidatePath('/');
     revalidatePath(`/${locale}`);
-    revalidatePath(`/${locale === 'az' ? '' : locale}`);
+    const cleanSlug = (seo.slug || '').replace(/^\/+|\/+$/g, '');
+    const publicPath = [locale === 'az' ? '' : locale, cleanSlug].filter(Boolean).join('/');
+    revalidatePath(`/${publicPath}`);
     return { ok: true };
   } catch (ex: any) {
     return { ok: false, error: ex?.message };

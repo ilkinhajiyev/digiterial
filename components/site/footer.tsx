@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { BakuClock } from '@/components/site/interactive';
 import { getSettings, defaultSettings } from '@/lib/data/settings';
@@ -11,7 +11,7 @@ const ICONS: Record<string, string> = {
 };
 
 export default async function SiteFooter() {
-  const t = await getTranslations('footer');
+  const [t, locale] = await Promise.all([getTranslations('footer'), getLocale()]);
   const st = await getSettings().catch(() => defaultSettings);
   const socials = (['instagram', 'linkedin', 'tiktok', 'facebook'] as const).filter((k) => st.social[k]).map((k) => ({ n: k[0].toUpperCase() + k.slice(1), u: st.social[k]!, d: ICONS[k] }));
   return (
@@ -20,12 +20,12 @@ export default async function SiteFooter() {
         <div className="flex flex-wrap justify-between gap-10 pb-10 mb-10 border-b border-white/15">
           <div className="max-w-[36ch]">
             <div className="font-display font-bold text-2xl flex items-center">{st.brand}<span className="w-2 h-2 rounded-full bg-brand ml-1" /></div>
-            <p className="text-mut-d mt-3 text-sm">{t('tagline')}</p>
+            <p className="text-mut-d mt-3 text-sm">{st.footerTagline?.[locale] || t('tagline')}</p>
             <div className="flex gap-2.5 mt-5">
               {socials.map((s) => (<a key={s.n} href={s.u} target="_blank" aria-label={s.n} className="w-10 h-10 rounded-full border border-white/15 grid place-items-center text-neutral-300 hover:bg-brand hover:text-ink hover:border-brand transition"><svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="currentColor"><path d={s.d} /></svg></a>))}
             </div>
           </div>
-          <div className="font-mono text-sm text-mut-d text-right leading-loose"><b className="text-white font-medium">{t('hq')}</b><br />40.4093° N · 49.8671° E<br />{t('hours')} <BakuClock /></div>
+          <div className="font-mono text-sm text-mut-d text-right leading-loose"><b className="text-white font-medium">{st.address || t('hq')}</b><br />40.4093° N · 49.8671° E<br />{t('hours')} <BakuClock /></div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div><h5 className="font-mono text-[.7rem] tracking-widest uppercase text-mut-d mb-4">{t('discover')}</h5>

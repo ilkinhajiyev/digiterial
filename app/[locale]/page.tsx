@@ -4,11 +4,13 @@ import { BlockRenderer } from '@/components/site/blocks';
 import { JsonLd, orgLd } from '@/components/site/jsonld';
 import { getPage } from '@/lib/data/pages';
 import { getPortfolio } from '@/lib/data/portfolio';
+import { resolvePageBlocks } from '@/lib/data/page-content';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'hero' });
-  return { title: 'Digiterial', description: t('lead'), alternates: { canonical: '/', languages: { az: '/', en: '/en', ru: '/ru' } } };
+  const page = await getPage('home', locale);
+  return { title: page?.seo_title || 'Digiterial', description: page?.meta_desc || t('lead'), alternates: { canonical: page?.slug || '/', languages: { az: '/', en: '/en', ru: '/ru', de: '/de' } } };
 }
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -29,13 +31,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { type: 'faq', props: { label: t('faq.label'), items: [{ q: t('faq.q1'), a: t('faq.a1') }, { q: t('faq.q2'), a: t('faq.a2') }, { q: t('faq.q3'), a: t('faq.a3') }, { q: t('faq.q4'), a: t('faq.a4') }] } },
     { type: 'cta', props: { h2: t('cta.h2'), p: t('cta.p'), b1: t('cta.b1') } },
   ];
-  const dbBlocks = (page?.blocks as any[]) || [];
-  // Keep the complete designed homepage when the visual builder still has an older block list.
-  // Saved builder content overrides matching sections; newly designed sections stay visible.
-  const dbByType = new Map(dbBlocks.map((block) => [block.type, block]));
-  const blocks = localized.map((block) => {
-    const saved = dbByType.get(block.type);
-    return saved ? { ...block, props: { ...block.props, ...saved.props } } : block;
-  });
+  const blocks = resolvePageBlocks(localized, page?.blocks as any[]).map(block =>
+    block.type === 'selectedWork' ? { ...block, props: { ...block.props, items: portfolio.slice(0, 4) } } : block
+  );
   return (<><JsonLd data={orgLd} /><BlockRenderer blocks={blocks as any} /></>);
 }
