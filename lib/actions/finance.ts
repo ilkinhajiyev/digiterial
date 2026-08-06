@@ -63,3 +63,24 @@ export async function saveFinanceExpense(input: unknown) {
     return { ok: false, error: error instanceof Error ? error.message : 'Xərc saxlanmadı' };
   }
 }
+
+export async function deleteFinanceRecord(type: 'income' | 'expense', id: string) {
+  try {
+    const safeId = z.string().uuid().parse(id);
+    const table = type === 'income' ? 'finance_income' : 'finance_expenses';
+    const entity = type === 'income' ? 'Gəlir' : 'Xərc';
+    const svc = await createAdminServiceClient();
+    const { data: previous, error: readError } = await svc.from(table).select('*').eq('id', safeId).single();
+    if (readError) throw readError;
+    const { error } = await svc.from(table).delete().eq('id', safeId);
+    if (error) throw error;
+    const { user } = await requireAdmin();
+    await svc.from('finance_audit_log').insert({
+      actor_id: user.id, user_name: user.email ?? 'Admin', entity, action: 'Sildi', entity_id: safeId, old_data: previous,
+    });
+    revalidatePath('/admin/finance');
+    return { ok: true };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : 'Qeyd silinmədi' };
+  }
+}
