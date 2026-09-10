@@ -34,7 +34,7 @@ export default async function PortfolioDetail({ params }: { params: Promise<{ lo
         <h1 className="font-display font-bold text-[clamp(2.4rem,7vw,5rem)] leading-[.96] tracking-tight">{it.title}</h1>
         {it.client && <p className="mt-4 text-mut-d font-mono text-sm uppercase tracking-wide">{it.client}</p>}
         {it.tags && <div className="flex flex-wrap gap-2 mt-6">{it.tags.split(',').map((t, i) => <span key={i} className="font-mono text-xs text-mut border border-white/15 rounded-full px-3 py-1">{t.trim()}</span>)}</div>}
-        {it.url && it.url !== '#' && <a href={it.url} target="_blank" rel="noopener noreferrer" className="inline-flex hbtn hbtn-y mt-7">{tr('visit')} ↗</a>}
+        {it.url && it.url !== '#' && <a href={it.url} target="_blank" className="inline-flex hbtn hbtn-y mt-7">{tr('visit')} ↗</a>}
       </div></section>
 
       {it.body && (

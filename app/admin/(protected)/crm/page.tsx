@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { createAdminServiceClient } from '@/lib/security/admin';
+import { createServiceClient } from '@/lib/supabase/service';
 import CrudTable from '@/components/admin/crud-table';
 import { upsertLead, destroyLead } from '@/lib/actions/admin';
 
@@ -11,7 +11,7 @@ export default async function Page() {
   // Leads-i service client ilə oxu (RLS bypass — admin paneldə güvənlidir)
   let rows: any[] = [];
   try {
-    const svc = await createAdminServiceClient();
+    const svc = createServiceClient();
     const { data } = await svc
       .from('leads')
       .select('*')

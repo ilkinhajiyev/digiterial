@@ -1,9 +1,6 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 import { createClient as sbServer } from '@/lib/supabase/server';
-import { requireAdmin } from '@/lib/security/admin';
-
-async function db() { await requireAdmin(); return sbServer(); }
 
 function payload(fd: FormData) {
   return {
@@ -16,19 +13,19 @@ function payload(fd: FormData) {
   };
 }
 export async function addClient(fd: FormData) {
-  const sb = await db();
+  const sb = await sbServer();
   const { error } = await sb.from('clients').insert(payload(fd));
   revalidatePath('/admin/clients');
   return { ok: !error, error: error?.message };
 }
 export async function editClient(id: string, fd: FormData) {
-  const sb = await db();
+  const sb = await sbServer();
   const { error } = await sb.from('clients').update(payload(fd)).eq('id', id);
   revalidatePath('/admin/clients');
   return { ok: !error, error: error?.message };
 }
 export async function removeClient(id: string) {
-  const sb = await db();
+  const sb = await sbServer();
   await sb.from('clients').delete().eq('id', id);
   revalidatePath('/admin/clients');
   return { ok: true };

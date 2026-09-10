@@ -21,15 +21,10 @@ export default function ContactForm() {
         setOk(true);
         (e.target as HTMLFormElement).reset();
       } else {
-        const errors: Record<string, string> = {
-          RATE_LIMIT: t('errorRateLimit'),
-          INVALID: t('errorInvalid'),
-          SUBMIT_FAILED: t('errorSubmit'),
-        };
-        setErr(errors[r.code || ''] || t('errorGeneric'));
+        setErr(r.error || 'Xəta baş verdi.');
       }
-    } catch {
-      setErr(t('errorGeneric'));
+    } catch (ex: any) {
+      setErr(`Göndərilmədi: ${ex?.message || 'Yenidən cəhd edin.'}`);
     } finally {
       setLoading(false);
     }
@@ -40,9 +35,6 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate>
-      <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
-        <label>Website<input name="_website" type="text" tabIndex={-1} autoComplete="off" /></label>
-      </div>
       {ok && (
         <div className="bg-brand/10 border border-brand rounded-xl px-4 py-3.5 text-brand text-sm mb-5">
           ✓ {t('ok')}
@@ -57,37 +49,37 @@ export default function ContactForm() {
       <div className="grid sm:grid-cols-2 gap-3.5 mb-4">
         <div>
           <label className={lbl}>{t('name')}</label>
-          <input name="name" required minLength={2} maxLength={100} disabled={loading} className={inp} placeholder={t('namePlaceholder')} />
+          <input name="name" required minLength={2} disabled={loading} className={inp} placeholder="Adınız" />
         </div>
         <div>
           <label className={lbl}>{t('email')}</label>
-          <input name="email" type="email" required maxLength={254} disabled={loading} className={inp} placeholder={t('emailPlaceholder')} />
+          <input name="email" type="email" required disabled={loading} className={inp} placeholder="email@nümunə.az" />
         </div>
       </div>
 
       <div className="mb-4">
         <label className={lbl}>{t('company')}</label>
-        <input name="company" maxLength={160} disabled={loading} className={inp} placeholder={t('companyPlaceholder')} />
+        <input name="company" disabled={loading} className={inp} placeholder="Şirkət adı (istəyə görə)" />
       </div>
 
       <div className="mb-4">
         <label className={lbl}>{t('service')}</label>
         <select name="service" disabled={loading} className={inp}>
-          <option value="">{t('selectService')}</option>
-          <option value="Veb sayt">{t('serviceWeb')}</option>
-          <option value="SEO">{t('serviceSeo')}</option>
-          <option value="Google & Meta Ads">{t('serviceAds')}</option>
-          <option value="Brendinq & Dizayn">{t('serviceBrand')}</option>
-          <option value="SMM">{t('serviceSmm')}</option>
-          <option value="AI & Avtomatlaşdırma">{t('serviceAi')}</option>
-          <option value="Digər">{t('serviceOther')}</option>
+          <option value="">Seçin…</option>
+          <option value="Veb sayt">Veb sayt</option>
+          <option value="SEO">SEO</option>
+          <option value="Google & Meta Ads">Google & Meta Ads</option>
+          <option value="Brendinq & Dizayn">Brendinq & Dizayn</option>
+          <option value="SMM">SMM</option>
+          <option value="AI & Avtomatlaşdırma">AI & Avtomatlaşdırma</option>
+          <option value="Digər">Digər</option>
         </select>
       </div>
 
       <div className="mb-6">
         <label className={lbl}>{t('message')}</label>
-        <textarea name="message" rows={4} maxLength={3000} disabled={loading} className={inp}
-          placeholder={t('messagePlaceholder')} />
+        <textarea name="message" rows={4} disabled={loading} className={inp}
+          placeholder="Layihəniz haqqında qısa məlumat..." />
       </div>
 
       <button type="submit" disabled={loading}

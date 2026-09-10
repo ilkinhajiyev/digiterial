@@ -26,8 +26,7 @@ const groups = [
     { href: '/admin/tickets', label: 'Dəstək / Tiketlər' },
   ] },
   { title: 'Biznes', items: [
-    { href: '/admin/finance', label: 'Maliyyə sistemi' },
-    { href: '/admin/invoices', label: 'Köhnə fakturalar' },
+    { href: '/admin/invoices', label: 'Maliyyə / Fakturalar' },
     { href: '/admin/reports', label: 'Hesabatlar' },
     { href: '/admin/team', label: 'Komanda' },
     { href: '/admin/settings', label: 'Tənzimləmələr' },

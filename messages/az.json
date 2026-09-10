@@ -63,7 +63,6 @@
       "h3": "Rəqəmsal məhsul", "p3": "Mobil, sürətli və istifadəsi rahat saytları real biznes axınına bağlayırıq.",
       "h4": "Böyümə dövrü", "p4": "Yayımdan sonra data ilə öyrənir, test edir və davamlı təkmilləşdiririk."
     },
-    "selectedWork": { "label": "Seçilmiş işlər", "heading": "İşimiz öz sözünü desin.", "viewAll": "Bütün işlər" },
     "process": {
       "label": "İş prosesi",
       "heading": "Tanışlıqdan yayıma qədər.",
@@ -74,11 +73,6 @@
       "p2": "Strategiyanı sürətli, fərqli və konversiya yönümlü rəqəmsal təcrübəyə çeviririk.",
       "h3": "Ölçmə və böyümə",
       "p3": "Nəticələri izləyir, öyrənir və sistemi davamlı olaraq daha effektiv edirik."
-    },
-    "legacy": {
-      "label": "Təcrübə", "heading": "Dəyişən platformalar. Eyni məsuliyyət.",
-      "text": "2018-dən bəri brendlərə rəqəmsal mühitdə aydın görünmək, düzgün işləmək və davamlı böyümək üçün kömək edirik.",
-      "since": "Başlanğıc", "i1": "Strategiya ilə başlayan iş", "i2": "Senior səviyyəli icra", "i3": "Uzunmüddətli tərəfdaşlıq"
     },
     "toolkit": {
       "label": "Alətlər yox, imkanlar", "heading": "İşin tələb etdiyi komanda.",
@@ -188,23 +182,7 @@
       "iHours": "İş saatı",
       "addr": "Bakı, Azərbaycan",
       "hours": "B.e – Cümə · 10:00–18:00",
-      "service": "Xidmət",
-      "namePlaceholder": "Adınız və soyadınız",
-      "emailPlaceholder": "email@nümunə.az",
-      "companyPlaceholder": "Şirkət adı (istəyə görə)",
-      "selectService": "Xidmət seçin…",
-      "serviceWeb": "Veb sayt",
-      "serviceSeo": "SEO",
-      "serviceAds": "Google və Meta reklamları",
-      "serviceBrand": "Brendinq və dizayn",
-      "serviceSmm": "Sosial media",
-      "serviceAi": "AI və avtomatlaşdırma",
-      "serviceOther": "Digər",
-      "messagePlaceholder": "Layihəniz haqqında qısa məlumat…",
-      "errorRateLimit": "Çox sayda müraciət göndərilib. Bir qədər sonra yenidən cəhd edin.",
-      "errorInvalid": "Məlumatları yoxlayıb yenidən cəhd edin.",
-      "errorSubmit": "Müraciət göndərilmədi. salam@digiterial.com ünvanına yaza bilərsiniz.",
-      "errorGeneric": "Göndərilmədi. Yenidən cəhd edin."
+      "service": "Xidmət"
     }
   },
   "svcDetail": {

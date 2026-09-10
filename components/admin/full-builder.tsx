@@ -11,19 +11,12 @@ const LOCALES = [
   { code: 'az', label: '🇦🇿 AZ' },
   { code: 'en', label: '🇬🇧 EN' },
   { code: 'ru', label: '🇷🇺 RU' },
-  { code: 'de', label: '🇩🇪 DE' },
 ];
 
 const BLOCK_TYPES = [
   ['hero', 'Hero'],
   ['band', 'Editorial band'],
   ['services', 'Xidmət sıraları'],
-  ['workbench', 'İş masası'],
-  ['selectedWork', 'Seçilmiş işlər'],
-  ['process', 'İş prosesi'],
-  ['legacy', 'Təcrübə'],
-  ['toolkit', 'Alətlər'],
-  ['principles', 'İş prinsipləri'],
   ['stats', 'Statistika'],
   ['cards', 'Kartlar'],
   ['testimonials', 'Rəylər'],
@@ -31,7 +24,6 @@ const BLOCK_TYPES = [
   ['cta', 'CTA band'],
   ['marquee', 'Marquee'],
   ['clients', 'Müştərilər'],
-  ['contact', 'Əlaqə səhifəsi'],
   ['richtext', 'Mətn bloku'],
 ];
 
@@ -39,12 +31,6 @@ const DEF: Record<string, any> = {
   hero:         { eyebrow: 'Etiket', h1: 'Başlıq.', lead: 'Alt mətn.', b1: 'Düymə 1', b2: 'Düymə 2' },
   band:         { label: 'Etiket', big: 'Böyük ifadə.', h3: 'Alt başlıq.', p: 'Mətn.' },
   services:     { label: 'Xidmətlər', heading: 'Hər şey bir dam altında.' },
-  workbench:    { label: 'İş masası', heading: 'Başlıq.', text: 'Açıqlama.', items: [{ h: 'İstiqamət', p: 'Mətn.' }] },
-  selectedWork: { label: 'Seçilmiş işlər', heading: 'İşimiz öz sözünü desin.', viewAll: 'Bütün işlər' },
-  process:      { label: 'İş prosesi', heading: 'Başlıq.', text: 'Açıqlama.', items: [{ h: 'Mərhələ', p: 'Mətn.' }] },
-  legacy:       { label: 'Təcrübə', heading: 'Başlıq.', text: 'Açıqlama.', since: 'Başlanğıc', items: ['Üstünlük'] },
-  toolkit:      { label: 'İmkanlar', heading: 'Başlıq.', text: 'Açıqlama.', row1: ['Veb', 'Dizayn'], row2: ['SEO', 'Reklam'] },
-  principles:   { label: 'Prinsiplər', heading: 'Başlıq.', items: [{ h: 'Prinsip', p: 'Mətn.' }] },
   stats:        { label: 'Statistika', statement: 'İfadə.', items: [{ v: '100+', l: 'Etiket' }], receipt: '' },
   cards:        { label: 'Etiket', heading: 'Başlıq.', items: [{ h: 'Kart', p: 'Mətn.' }] },
   testimonials: { label: 'Rəylər', items: [{ q: 'Rəy mətni.', by: 'Ad · Şirkət' }] },
@@ -52,7 +38,6 @@ const DEF: Record<string, any> = {
   cta:          { h2: 'Çağırış başlığı?', p: 'Alt mətn.', b1: 'Başla' },
   marquee:      { items: ['VEB', 'SEO', 'REKLAM'] },
   clients:      { label: 'Müştərilər', items: ['Müştəri A', 'Müştəri B'] },
-  contact:      { eyebrow: 'Əlaqə', h1: 'Gəlin', accent: 'danışaq.', lead: 'Layihəniz barədə yazın.', emailLabel: 'Email', phoneLabel: 'Telefon', addressLabel: 'Ünvan', hoursLabel: 'İş saatı', hours: 'B.e – Cümə · 10:00–18:00' },
   richtext:     { h: 'Başlıq', p: 'Mətn buraya...' },
 };
 
@@ -143,25 +128,6 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
           : <input className={inp} value={p[key] || ''} onChange={e => setProp(i, key, e.target.value)} />}
       </div>
     );
-    const PairItems = ({ title = 'Elementlər', addLabel = 'element' }: { title?: string; addLabel?: string }) => (
-      <>
-        <label className={lbl}>{title}</label>
-        {(p.items || []).map((it: any, ii: number) => (
-          <div key={ii} className="bg-white/5 rounded-lg p-3 mb-2">
-            <div className="flex justify-between mb-1"><span className="font-mono text-[.6rem] text-white/40">{String(ii + 1).padStart(2, '0')}</span><button type="button" onClick={() => delItem(i, ii)} className="text-red-400 text-xs">✕</button></div>
-            <input className={inp + ' mb-1'} value={it.h || ''} onChange={e => setItem(i, ii, 'h', e.target.value)} placeholder="Başlıq" />
-            <textarea className={inp} rows={2} value={it.p || ''} onChange={e => setItem(i, ii, 'p', e.target.value)} placeholder="Mətn" />
-          </div>
-        ))}
-        <button type="button" onClick={() => addItem(i, { h: 'Başlıq', p: 'Mətn.' })} className="text-brand text-xs border border-brand/30 rounded-full px-3 py-1">+ {addLabel}</button>
-      </>
-    );
-    const Csv = ({ prop, label }: { prop: string; label: string }) => (
-      <div className="mb-2">
-        <label className={lbl}>{label} (vergüllə)</label>
-        <input className={inp} value={(p[prop] || []).join(', ')} onChange={e => setProp(i, prop, e.target.value.split(',').map(x => x.trim()).filter(Boolean))} />
-      </div>
-    );
 
     return (
       <div className="bg-[#0f0f0f] border border-white/10 rounded-xl p-4 mb-3 relative">
@@ -178,23 +144,11 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
         </div>
 
         {/* Hero */}
-        {b.type === 'hero' && <>{E('eyebrow','Etiket')}{E('h1','H1 başlıq',true)}{E('lead','Alt mətn',true)}{E('b1','Düymə 1')}{E('b1Href','Düymə 1 linki')}{E('b2','Düymə 2')}{E('b2Href','Düymə 2 linki')}</>}
+        {b.type === 'hero' && <>{E('eyebrow','Etiket')}{E('h1','H1 başlıq',true)}{E('lead','Alt mətn',true)}{E('b1','Düymə 1')}{E('b2','Düymə 2')}</>}
         {/* Band */}
         {b.type === 'band' && <>{E('label','Etiket')}{E('big','Böyük mətn',true)}{E('h3','H3')}{E('p','Mətn',true)}</>}
         {/* Services */}
         {b.type === 'services' && <>{E('label','Etiket')}{E('heading','Başlıq')}</>}
-        {/* Workbench */}
-        {b.type === 'workbench' && <>{E('label','Etiket')}{E('heading','Başlıq',true)}{E('text','Açıqlama',true)}<PairItems title="İş istiqamətləri" addLabel="istiqamət" /></>}
-        {/* Selected work */}
-        {b.type === 'selectedWork' && <>{E('label','Etiket')}{E('heading','Başlıq',true)}{E('viewAll','Bütün işlər düyməsi')}<p className="text-white/35 text-xs leading-relaxed">Layihələrin şəkil və məlumatları Portfolio bölməsindən idarə olunur.</p></>}
-        {/* Process */}
-        {b.type === 'process' && <>{E('label','Etiket')}{E('heading','Başlıq',true)}{E('text','Açıqlama',true)}<PairItems title="Mərhələlər" addLabel="mərhələ" /></>}
-        {/* Legacy */}
-        {b.type === 'legacy' && <>{E('label','Etiket')}{E('heading','Başlıq',true)}{E('text','Açıqlama',true)}{E('since','Başlanğıc etiketi')}<Csv prop="items" label="Üstünlüklər" /></>}
-        {/* Toolkit */}
-        {b.type === 'toolkit' && <>{E('label','Etiket')}{E('heading','Başlıq',true)}{E('text','Açıqlama',true)}<Csv prop="row1" label="Birinci sıra" /><Csv prop="row2" label="İkinci sıra" /></>}
-        {/* Principles */}
-        {b.type === 'principles' && <>{E('label','Etiket')}{E('heading','Başlıq',true)}<PairItems title="Prinsiplər" addLabel="prinsip" /></>}
         {/* Stats */}
         {b.type === 'stats' && <>
           {E('label','Etiket')}{E('statement','İfadə',true)}{E('receipt','Qeyd')}
@@ -245,7 +199,7 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
           <button onClick={()=>addItem(i,{q:'Sual?',a:'Cavab.'})} className="text-brand text-xs border border-brand/30 rounded-full px-3 py-1">+ sual</button>
         </>}
         {/* CTA */}
-        {b.type === 'cta' && <>{E('h2','H2 başlıq',true)}{E('p','Mətn',true)}{E('b1','Düymə')}{E('href','Düymə linki')}</>}
+        {b.type === 'cta' && <>{E('h2','H2 başlıq',true)}{E('p','Mətn')}{E('b1','Düymə')}</>}
         {/* Marquee */}
         {b.type === 'marquee' && <>
           <label className={lbl}>Elementlər (vergüllə)</label>
@@ -259,8 +213,6 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
         </>}
         {/* Richtext */}
         {b.type === 'richtext' && <>{E('h','Başlıq')}{E('p','Mətn',true)}</>}
-        {/* Contact */}
-        {b.type === 'contact' && <>{E('eyebrow','Etiket')}{E('h1','Başlıq')}{E('accent','Rəngli başlıq')}{E('lead','Alt mətn',true)}{E('emailLabel','Email etiketi')}{E('phoneLabel','Telefon etiketi')}{E('addressLabel','Ünvan etiketi')}{E('hoursLabel','İş saatı etiketi')}{E('hours','İş saatları')}</>}
       </div>
     );
   }
@@ -355,7 +307,7 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
             <div className="bg-[#121212] border border-white/10 rounded-xl p-4 space-y-3">
               <h3 className="font-display font-bold text-base mb-2">Header tənzimləmələri</h3>
               <div><label className={lbl}>Brend adı</label><input className={inp} value={settings.brand||''} onChange={e=>setSettings({...settings,brand:e.target.value})} /></div>
-              <div><label className={lbl}>CTA düymə mətni ({curLoc.toUpperCase()})</label><input className={inp} value={settings.headerCta?.[curLoc]||''} onChange={e=>setSettings({...settings,headerCta:{...(settings.headerCta||{}),[curLoc]:e.target.value}})} placeholder="Tərcümədəki standart mətn" /></div>
+              <div><label className={lbl}>CTA düymə mətni (AZ)</label><input className={inp} defaultValue="Layihə başlat" /></div>
               <div className="pt-2 border-t border-white/10">
                 <div className="font-mono text-[.6rem] uppercase text-white/40 mb-2">WhatsApp</div>
                 <input className={inp} value={settings.whatsapp||''} onChange={e=>setSettings({...settings,whatsapp:e.target.value})} placeholder="994601234567" />
@@ -369,8 +321,6 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
               <h3 className="font-display font-bold text-base mb-2">Footer tənzimləmələri</h3>
               <div><label className={lbl}>Email</label><input className={inp} value={settings.email||''} onChange={e=>setSettings({...settings,email:e.target.value})} /></div>
               <div><label className={lbl}>Telefon</label><input className={inp} value={settings.phone||''} onChange={e=>setSettings({...settings,phone:e.target.value})} /></div>
-              <div><label className={lbl}>Ünvan</label><input className={inp} value={settings.address||''} onChange={e=>setSettings({...settings,address:e.target.value})} /></div>
-              <div><label className={lbl}>Haqqında mətn ({curLoc.toUpperCase()})</label><textarea rows={3} className={inp} value={settings.footerTagline?.[curLoc]||''} onChange={e=>setSettings({...settings,footerTagline:{...(settings.footerTagline||{}),[curLoc]:e.target.value}})} placeholder="Tərcümədəki standart mətn" /></div>
               <div className="pt-2 border-t border-white/10 space-y-2">
                 <div className="font-mono text-[.6rem] uppercase text-white/40">Sosial media</div>
                 {(['instagram','linkedin','tiktok','facebook'] as const).map(k=>(

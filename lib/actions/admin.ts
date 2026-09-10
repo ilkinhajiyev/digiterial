@@ -1,11 +1,11 @@
 'use server';
 import { revalidatePath } from 'next/cache';
+import { createClient } from '@/lib/supabase/server';
 import { createServiceClient } from '@/lib/supabase/service';
-import { requireAdmin } from '@/lib/security/admin';
 
 // Yazma əməliyyatları üçün service client (RLS bypass — admin paneldə güvənli).
 // Auth-u layout onsuz da yoxlayır; burada rol boşluğu problemə səbəb olmasın.
-async function sb() { await requireAdmin(); return createServiceClient(); }
+async function sb() { return createServiceClient(); }
 
 // ── CLIENTS ──────────────────────────────────────────────────────────────
 export async function upsertClient(id: string | null, fd: FormData) {

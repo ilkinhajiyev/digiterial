@@ -1,20 +1,16 @@
 'use server';
-import { requireAdmin } from '@/lib/security/admin';
-import { createPrivateKey } from 'node:crypto';
 
 // Google Analytics 4 Data API-dən real statistika çəkir.
 // Lazımi env dəyişənləri (Hostinger-də):
 //   GA4_PROPERTY_ID          — GA4 property ID (rəqəm, məs. 512345678)
 //   GA4_CLIENT_EMAIL         — service account email
 //   GA4_PRIVATE_KEY          — service account private key (\n-lərlə)
-// Alternativ: GA4_SERVICE_ACCOUNT_JSON — bütün JSON açarı bir dəyişəndə saxlamaq üçün.
 
 type Row = Record<string, string | number>;
 
 export type Ga4Data = {
   ok: boolean;
   error?: string;
-  hint?: string;
   configured: boolean;
   summary?: {
     users: number;
@@ -30,113 +26,19 @@ export type Ga4Data = {
   devices?: { name: string; users: number }[];
 };
 
-function parseCredentialsJson(raw: string) {
-  const candidates = [raw.trim()];
-  try { candidates.push(Buffer.from(raw.trim(), 'base64').toString('utf8').trim()); } catch {}
-  for (const candidate of candidates) {
-    if (!candidate.startsWith('{')) continue;
-    try {
-      const parsed = JSON.parse(candidate);
-      if (parsed?.private_key) return parsed as { private_key: string; client_email?: string };
-    } catch {}
-  }
-  return null;
-}
-
-function normalizePrivateKey(raw: string) {
-  let value = raw.replace(/^\uFEFF/, '').trim();
-  value = value.replace(/^GA4_PRIVATE_KEY(?:_BASE64)?\s*=\s*/i, '').replace(/^base64:/i, '').trim();
-  if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
-    if (value.startsWith('"')) {
-      try { value = JSON.parse(value); } catch { value = value.slice(1, -1); }
-    } else {
-      value = value.slice(1, -1);
-    }
-  }
-
-  const embeddedJson = parseCredentialsJson(value);
-  if (embeddedJson) value = embeddedJson.private_key;
-  value = value
-    .replace(/\\+r\\+n/g, '\n')
-    .replace(/\\+n/g, '\n')
-    .replace(/\\+r/g, '\n')
-    .replace(/\\u000a/gi, '\n')
-    .replace(/\r/g, '')
-    .trim();
-
-  if (!value.includes('-----BEGIN')) {
-    const compact = value.replace(/\s/g, '');
-    if (/^MII[A-Za-z0-9+/=]+$/.test(compact)) {
-      value = `-----BEGIN PRIVATE KEY-----\n${compact}\n-----END PRIVATE KEY-----`;
-    } else {
-      const decoded = Buffer.from(compact, 'base64').toString('utf8').trim();
-      const decodedJson = parseCredentialsJson(decoded);
-      value = decodedJson?.private_key || decoded;
-      value = value
-        .replace(/\\+r\\+n/g, '\n')
-        .replace(/\\+n/g, '\n')
-        .replace(/\\u000a/gi, '\n')
-        .replace(/\r/g, '')
-        .trim();
-      const decodedBody = value.replace(/\s/g, '');
-      if (!value.includes('-----BEGIN') && /^MII[A-Za-z0-9+/=]+$/.test(decodedBody)) {
-        value = `-----BEGIN PRIVATE KEY-----\n${decodedBody}\n-----END PRIVATE KEY-----`;
-      }
-    }
-  }
-
-  const match = value.match(/-----BEGIN ([A-Z ]*PRIVATE KEY)-----([\s\S]*?)-----END \1-----/);
-  if (!match) throw new Error('GA4_PRIVATE_KEY_INVALID');
-  const body = match[2].replace(/\s/g, '');
-  if (body.length < 100 || !/^[A-Za-z0-9+/=]+$/.test(body)) throw new Error('GA4_PRIVATE_KEY_INVALID');
-
-  const normalized = `-----BEGIN ${match[1]}-----\n${body.match(/.{1,64}/g)?.join('\n')}\n-----END ${match[1]}-----\n`;
-  try { createPrivateKey(normalized); } catch { throw new Error('GA4_PRIVATE_KEY_INVALID'); }
-  return normalized;
-}
-
-function ga4Error(ex: any): Pick<Ga4Data, 'error' | 'hint'> {
-  const message = String(ex?.message || '');
-  if (message === 'GA4_PRIVATE_KEY_INVALID' || /DECODER routines|unsupported|PEM|private key/i.test(message)) {
-    return { error: 'Service account private key formatı oxunmadı.', hint: 'Ən etibarlı üsul: bütün service-account JSON faylını Base64 edin və Hostinger-də GA4_SERVICE_ACCOUNT_JSON_BASE64 dəyişəninə yazın. GA4_PRIVATE_KEY istifadə edirsinizsə, dəyər BEGIN PRIVATE KEY ilə başlayıb END PRIVATE KEY ilə bitməlidir.' };
-  }
-  if (/PERMISSION_DENIED|permission|does not have access|7 UNKNOWN/i.test(message)) {
-    return { error: 'Service account bu GA4 property-yə giriş icazəsinə malik deyil.', hint: 'GA4 → Admin → Property access management bölməsində service account emailini Viewer rolu ilə əlavə edin.' };
-  }
-  if (/NOT_FOUND|not found|5 UNKNOWN/i.test(message)) {
-    return { error: 'GA4 property tapılmadı.', hint: 'GA4_PROPERTY_ID üçün G-XXXX Measurement ID deyil, Admin → Property details bölməsindəki yalnız rəqəmlərdən ibarət Property ID yazılmalıdır.' };
-  }
-  if (/UNAUTHENTICATED|invalid_grant|invalid JWT|16 UNKNOWN/i.test(message)) {
-    return { error: 'Google service account məlumatları təsdiqlənmədi.', hint: 'GA4_CLIENT_EMAIL və private key eyni endirilmiş service-account JSON faylından götürülməlidir.' };
-  }
-  return { error: 'GA4 Data API ilə bağlantı qurulmadı.', hint: 'Google Analytics Data API-nin aktiv olduğunu, Property ID-ni və service account icazəsini yoxlayın.' };
-}
-
 export async function getGa4Data(days = 28): Promise<Ga4Data> {
-  await requireAdmin();
-  days = Math.min(Math.max(Math.trunc(days), 1), 365);
-  const propertyId = process.env.GA4_PROPERTY_ID?.replace(/^properties\//, '').trim();
-  let clientEmail = process.env.GA4_CLIENT_EMAIL?.trim();
-  let privateKeyRaw = process.env.GA4_PRIVATE_KEY || process.env.GA4_PRIVATE_KEY_BASE64;
-  const bundledRaw = process.env.GA4_SERVICE_ACCOUNT_JSON || process.env.GA4_SERVICE_ACCOUNT_JSON_BASE64;
-  const bundledCredentials = bundledRaw ? parseCredentialsJson(bundledRaw) : null;
-  if (bundledCredentials) {
-    clientEmail = bundledCredentials.client_email?.trim() || clientEmail;
-    privateKeyRaw = bundledCredentials.private_key;
+  const propertyId = process.env.GA4_PROPERTY_ID;
+  const clientEmail = process.env.GA4_CLIENT_EMAIL;
+  let privateKey = process.env.GA4_PRIVATE_KEY;
+
+  if (!propertyId || !clientEmail || !privateKey) {
+    return { ok: false, configured: false, error: 'GA4 hələ qurulmayıb' };
   }
 
-  if (!propertyId || !clientEmail || !privateKeyRaw) {
-    return { ok: false, configured: false, error: 'GA4 hələ tam qurulmayıb', hint: 'GA4_PROPERTY_ID, GA4_CLIENT_EMAIL və GA4_PRIVATE_KEY dəyişənlərinin üçünün də mövcud olduğunu yoxlayın.' };
-  }
+  // Hostinger env-də \n hərfi mətn kimi gəlir — real sətir keçidinə çevir
+  privateKey = privateKey.replace(/\\n/g, '\n');
 
   try {
-    if (!/^\d+$/.test(propertyId)) {
-      return { ok: false, configured: true, error: 'GA4_PROPERTY_ID düzgün deyil.', hint: 'G-XXXX Measurement ID əvəzinə GA4 Admin bölməsindəki yalnız rəqəmlərdən ibarət Property ID-ni yazın.' };
-    }
-    if (!/^[^@\s]+@[^@\s]+\.iam\.gserviceaccount\.com$/.test(clientEmail)) {
-      return { ok: false, configured: true, error: 'GA4_CLIENT_EMAIL düzgün service account ünvanı deyil.', hint: 'Email ünvanını Google Cloud-dan endirilmiş service-account JSON faylındakı client_email sahəsindən götürün.' };
-    }
-    const privateKey = normalizePrivateKey(privateKeyRaw);
     const { BetaAnalyticsDataClient } = await import('@google-analytics/data');
     const client = new BetaAnalyticsDataClient({
       credentials: { client_email: clientEmail, private_key: privateKey },
@@ -198,6 +100,6 @@ export async function getGa4Data(days = 28): Promise<Ga4Data> {
       })),
     };
   } catch (ex: any) {
-    return { ok: false, configured: true, ...ga4Error(ex) };
+    return { ok: false, configured: true, error: ex?.message || 'GA4 sorğu xətası' };
   }
 }

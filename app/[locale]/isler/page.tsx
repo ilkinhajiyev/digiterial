@@ -3,15 +3,11 @@ export const revalidate = 0;
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { getPortfolio, type PItem } from '@/lib/data/portfolio';
+import { getPortfolio, fallbackPortfolio, type PItem } from '@/lib/data/portfolio';
 import { Reveal } from '@/components/site/interactive';
-import { BlockRenderer } from '@/components/site/blocks';
-import { getPage } from '@/lib/data/pages';
-import { getDefaultPageBlocks, resolvePageBlocks } from '@/lib/data/page-content';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.work' });
-  const page = await getPage('work', locale);
-  return { title: page?.seo_title || `${t('h1a')} ${t('h1b')}`, description: page?.meta_desc || t('lead'), alternates: { canonical: page?.slug || '/isler' } };
+  return { title: `${t('h1a')} ${t('h1b')}`, description: t('lead'), alternates: { canonical: '/isler' } };
 }
 function Grid({ items, more }: { items: PItem[]; more: string }) {
   return (
@@ -34,11 +30,7 @@ function Grid({ items, more }: { items: PItem[]; more: string }) {
 }
 export default async function IslerPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params; setRequestLocale(locale);
-  const p = await getTranslations('portfolio');
-  const page = await getPage('work', locale);
-  const blocks = resolvePageBlocks(getDefaultPageBlocks('work', locale), page?.blocks as any[]);
-  const introBlocks = blocks.filter(block => block.type !== 'cta');
-  const outroBlocks = blocks.filter(block => block.type === 'cta');
+  const t = await getTranslations('pages.work'); const p = await getTranslations('portfolio');
   let all = await getPortfolio(locale);
   // Bu dildə layihə yoxdursa, bütün layihələri göstər (ən azı nəsə görünsün)
   if (all.length === 0) all = await getPortfolio();
@@ -46,7 +38,11 @@ export default async function IslerPage({ params }: { params: Promise<{ locale: 
   const web = items.filter((i) => i.category === 'web'); const smm = items.filter((i) => i.category === 'smm');
   return (
     <>
-      <BlockRenderer blocks={introBlocks as any} />
+      <section className="pt-32 md:pt-40 pb-14 border-b border-white/15"><div className="wrap">
+        <div className="font-mono text-sm tracking-[.2em] uppercase text-brand mb-6">{t('eyebrow')}</div>
+        <h1 className="font-display font-bold text-[clamp(2.6rem,7vw,5.6rem)] leading-[.96] tracking-tight">{t('h1a')} <span className="text-brand">{t('h1b')}</span></h1>
+        <p className="mt-6 max-w-[60ch] text-neutral-300 text-lg">{t('lead')}</p>
+      </div></section>
       {items.length === 0 && (
         <section className="py-20"><div className="wrap text-center">
           <p className="text-mut-d text-lg">Hələ layihə əlavə edilməyib.</p>
@@ -55,7 +51,7 @@ export default async function IslerPage({ params }: { params: Promise<{ locale: 
       )}
       {web.length > 0 && (<section className="py-16 md:py-20 border-b border-white/15"><div className="wrap"><div className="elbl">{p('web')}</div><h2 className="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] mt-3">{p('webHead')}</h2><Grid items={web} more={p('detail')} /></div></section>)}
       {smm.length > 0 && (<section className="py-16 md:py-20"><div className="wrap"><div className="elbl">{p('smm')}</div><h2 className="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] mt-3">{p('smmHead')}</h2><Grid items={smm} more={p('detail')} /></div></section>)}
-      <BlockRenderer blocks={outroBlocks as any} />
+      <section className="bg-brand text-ink py-16 md:py-20"><div className="wrap"><h2 className="font-display font-bold text-[clamp(2rem,6vw,4rem)] max-w-[14ch] leading-[.95]">{p('ctaH')}</h2><div className="flex justify-between items-end gap-6 flex-wrap mt-8"><p className="max-w-[40ch] text-lg">{p('ctaP')}</p><Link href="/elaqe" className="hbtn hbtn-d">{p('detail')} ↗</Link></div></div></section>
     </>
   );
 }

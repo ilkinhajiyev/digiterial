@@ -1,8 +1,7 @@
-import { createAdminServiceClient } from '@/lib/security/admin';
-import { getSettings } from '@/lib/data/settings';
+import { createServiceClient } from '@/lib/supabase/service';
+import { getSettings, defaultSettings } from '@/lib/data/settings';
 import FullBuilder from '@/components/admin/full-builder';
-import { getDefaultPageBlocks, resolvePageBlocks } from '@/lib/data/page-content';
-import { locales } from '@/i18n/routing';
+import { homeBlocks } from '@/lib/data/defaults';
 
 const PAGE_KEYS = [
   { key: 'home',         label: 'Ana səhifə',   slug: '/' },
@@ -13,8 +12,10 @@ const PAGE_KEYS = [
   { key: 'contact',      label: 'Əlaqə',         slug: '/elaqe' },
   { key: 'case-studies', label: 'Case Studies',  slug: '/case-studies' },
 ];
+const LOCALES = ['az', 'en', 'ru'];
+
 export default async function BuilderPage() {
-  const sb = await createAdminServiceClient();
+  const sb = createServiceClient();
 
   // Bütün səhifə + dil kombinasiyalarını yüklə
   const { data: allPages } = await sb.from('pages').select('*');
@@ -24,14 +25,13 @@ export default async function BuilderPage() {
   const pagesMap: Record<string, Record<string, any>> = {};
   for (const pk of PAGE_KEYS) {
     pagesMap[pk.key] = {};
-    for (const loc of locales) {
+    for (const loc of LOCALES) {
       const found = allPages?.find(p => p.key === pk.key && p.locale === loc);
-      const defaults = getDefaultPageBlocks(pk.key, loc);
       pagesMap[pk.key][loc] = {
         seo_title: found?.seo_title || '',
         slug: found?.slug || pk.slug,
         meta_desc: found?.meta_desc || '',
-        blocks: resolvePageBlocks(defaults, found?.blocks),
+        blocks: found?.blocks?.length ? found.blocks : (pk.key === 'home' ? homeBlocks : []),
       };
     }
   }
