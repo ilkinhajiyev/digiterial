@@ -1,43 +1,48 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react';
 
-export default function Gallery({ images }: { images: string[] }) {
+export default function Gallery({ images, title = '' }: { images: string[]; title?: string }) {
   const [open, setOpen] = useState<number | null>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const lastFocus = useRef<HTMLElement | null>(null);
+  const n = images?.length || 0;
+  const go = useCallback((d: number) => setOpen((o) => (o === null ? o : (o + d + n) % n)), [n]);
+
   useEffect(() => {
     if (open === null) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(null);
-      if (e.key === 'ArrowRight') setOpen((o) => (o === null ? o : (o + 1) % images.length));
-      if (e.key === 'ArrowLeft') setOpen((o) => (o === null ? o : (o - 1 + images.length) % images.length));
+      if (e.key === 'ArrowRight') go(1);
+      if (e.key === 'ArrowLeft') go(-1);
     };
     window.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
-    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; };
-  }, [open, images.length]);
+    document.documentElement.style.overflow = 'hidden';
+    closeRef.current?.focus();
+    return () => { window.removeEventListener('keydown', onKey); document.documentElement.style.overflow = ''; lastFocus.current?.focus(); };
+  }, [open, go]);
 
-  if (!images?.length) return null;
+  if (!n) return null;
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
         {images.map((src, i) => (
-          <button key={i} onClick={() => setOpen(i)}
-            className={`relative overflow-hidden rounded-2xl group ${i % 5 === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}>
-            <img src={src} alt={`Şəkil ${i + 1}`} loading="lazy"
-              className="w-full h-full object-cover aspect-square group-hover:scale-105 transition duration-500" />
-            <span className="absolute inset-0 bg-ink/0 group-hover:bg-ink/20 transition flex items-center justify-center text-brand opacity-0 group-hover:opacity-100">⤢</span>
+          <button key={i} type="button" onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(i); }}
+            aria-label={`${title} — ${i + 1} / ${n}`}
+            className={`img-zoom group relative overflow-hidden rounded-[1.25rem] bg-[#E6E1D6] ${i % 5 === 0 ? 'col-span-2 md:row-span-2' : ''}`}>
+            <img src={src} alt="" loading="lazy" decoding="async" className="aspect-square h-full w-full object-cover" />
+            <span className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-bone/90 opacity-0 transition group-hover:opacity-100"><Expand size={15} /></span>
           </button>
         ))}
       </div>
 
       {open !== null && (
-        <div className="fixed inset-0 z-[100] bg-ink/95 backdrop-blur flex items-center justify-center p-4" onClick={() => setOpen(null)}>
-          <button className="absolute top-5 right-5 text-white/70 hover:text-brand text-2xl" aria-label="Bağla">✕</button>
-          <button className="absolute left-4 md:left-8 text-white/60 hover:text-brand text-4xl" aria-label="Əvvəlki"
-            onClick={(e) => { e.stopPropagation(); setOpen((o) => (o! - 1 + images.length) % images.length); }}>‹</button>
-          <img src={images[open]} alt="" className="max-h-[85vh] max-w-[92vw] object-contain rounded-xl" onClick={(e) => e.stopPropagation()} />
-          <button className="absolute right-4 md:right-8 text-white/60 hover:text-brand text-4xl" aria-label="Növbəti"
-            onClick={(e) => { e.stopPropagation(); setOpen((o) => (o! + 1) % images.length); }}>›</button>
-          <div className="absolute bottom-5 font-mono text-xs text-mut">{open + 1} / {images.length}</div>
+        <div role="dialog" aria-modal="true" aria-label={title} className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/95 p-4" onClick={() => setOpen(null)}>
+          <button ref={closeRef} type="button" className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-bone hover:bg-brand hover:text-ink" aria-label="Close"><X size={20} /></button>
+          {n > 1 && <button type="button" className="absolute left-3 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-bone hover:bg-brand hover:text-ink md:left-8" aria-label="Previous" onClick={(e) => { e.stopPropagation(); go(-1); }}><ChevronLeft size={22} /></button>}
+          <img src={images[open]} alt="" className="max-h-[85vh] max-w-[90vw] rounded-xl object-contain" onClick={(e) => e.stopPropagation()} />
+          {n > 1 && <button type="button" className="absolute right-3 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-bone hover:bg-brand hover:text-ink md:right-8" aria-label="Next" onClick={(e) => { e.stopPropagation(); go(1); }}><ChevronRight size={22} /></button>}
+          <div className="absolute bottom-5 font-mono text-xs text-[#A39E94]">{open + 1} / {n}</div>
         </div>
       )}
     </>

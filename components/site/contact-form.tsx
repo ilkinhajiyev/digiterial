@@ -1,99 +1,115 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { submitContact } from '@/lib/actions/contact';
 
-export default function ContactForm() {
+export default function ContactForm({ services, defaultService = '' }: { services: string[]; defaultService?: string }) {
   const t = useTranslations('pages.contact');
-  const [loading, setLoading] = useState(false);
-  const [ok,      setOk]      = useState(false);
-  const [err,     setErr]     = useState('');
+  const [state, setState] = useState<'idle' | 'sending' | 'ok'>('idle');
+  const [err, setErr] = useState<{ field?: 'name' | 'email'; msg: string } | null>(null);
+  const started = useRef(0);
+  const errRef = useRef<HTMLDivElement>(null);
+  useEffect(() => { started.current = Date.now(); }, []);
+  useEffect(() => { if (err) errRef.current?.focus(); }, [err]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (loading) return;
-    setLoading(true);
-    setErr('');
+    if (state === 'sending') return;
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    // Brauzer tərəfində sürətli yoxlama
+    if (String(fd.get('name') || '').trim().length < 2) return setErr({ field: 'name', msg: t('errName') });
+    if (!/^\S+@\S+\.\S+$/.test(String(fd.get('email') || ''))) return setErr({ field: 'email', msg: t('errEmail') });
+    fd.set('_t', String(started.current));
+    setErr(null); setState('sending');
     try {
-      const fd = new FormData(e.currentTarget);
       const r = await submitContact(fd);
-      if (r.ok) {
-        setOk(true);
-        (e.target as HTMLFormElement).reset();
-      } else {
-        setErr(r.error || 'Xəta baş verdi.');
-      }
-    } catch (ex: any) {
-      setErr(`Göndərilmədi: ${ex?.message || 'Yenidən cəhd edin.'}`);
-    } finally {
-      setLoading(false);
+      if (r.ok) { setState('ok'); form.reset(); return; }
+      const map = { name: t('errName'), email: t('errEmail'), rate: t('errRate'), server: t('errServer') } as const;
+      setErr({ field: r.code === 'name' || r.code === 'email' ? r.code : undefined, msg: map[r.code] });
+      setState('idle');
+    } catch {
+      setErr({ msg: t('errServer') }); setState('idle');
     }
   }
 
-  const inp = 'w-full bg-[#0f0f0f] border border-white/15 rounded-xl px-4 py-3.5 text-white outline-none focus:border-brand disabled:opacity-50 transition';
-  const lbl = 'font-mono text-xs uppercase tracking-wide text-mut-d block mb-2';
+  if (state === 'ok') {
+    return (
+      <div className="card flex min-h-[420px] flex-col items-start justify-center p-8 md:p-12" role="status" aria-live="polite">
+        <span className="grid h-14 w-14 place-items-center rounded-full bg-brand"><CheckCircle2 size={26} /></span>
+        <h2 className="t-h2 mt-8 max-w-[16ch]">{t('ok')}</h2>
+        <button type="button" onClick={() => { setState('idle'); started.current = Date.now(); }} className="btn-ghost mt-8">{t('again')}</button>
+      </div>
+    );
+  }
+
+  const sending = state === 'sending';
+  const req = <span className="font-mono text-[.68rem] font-normal uppercase tracking-wider text-mut">{t('required')}</span>;
+  const budgets = ['bud1', 'bud2', 'bud3', 'bud4', 'bud5'] as const;
 
   return (
-    <form onSubmit={onSubmit} noValidate>
-      {ok && (
-        <div className="bg-brand/10 border border-brand rounded-xl px-4 py-3.5 text-brand text-sm mb-5">
-          ✓ {t('ok')}
-        </div>
-      )}
+    <form onSubmit={onSubmit} noValidate className="card p-6 sm:p-8 md:p-10" aria-busy={sending}>
       {err && (
-        <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-xl px-4 py-3.5 mb-5 break-words">
-          ⚠ {err}
+        <div ref={errRef} tabIndex={-1} role="alert" className="mb-6 flex items-start gap-3 rounded-xl border border-[#E5484D]/30 bg-[#E5484D]/[.07] px-4 py-3.5 text-sm text-[#A1262A] outline-none">
+          <AlertCircle size={18} className="mt-0.5 shrink-0" />{err.msg}
         </div>
       )}
+      {/* Honeypot — insanlara görünmür */}
+      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
+      </div>
 
-      <div className="grid sm:grid-cols-2 gap-3.5 mb-4">
+      <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className={lbl}>{t('name')}</label>
-          <input name="name" required minLength={2} disabled={loading} className={inp} placeholder="Adınız" />
+          <label htmlFor="cf-name" className="field-label">{t('name')} {req}</label>
+          <input id="cf-name" name="name" autoComplete="name" required minLength={2} maxLength={120} disabled={sending} className="field" placeholder={t('phName')} aria-invalid={err?.field === 'name' || undefined} />
         </div>
         <div>
-          <label className={lbl}>{t('email')}</label>
-          <input name="email" type="email" required disabled={loading} className={inp} placeholder="email@nümunə.az" />
+          <label htmlFor="cf-email" className="field-label">{t('email')} {req}</label>
+          <input id="cf-email" name="email" type="email" inputMode="email" autoComplete="email" required maxLength={200} disabled={sending} className="field" placeholder={t('phEmail')} aria-invalid={err?.field === 'email' || undefined} />
+        </div>
+        <div>
+          <label htmlFor="cf-phone" className="field-label">{t('phone')}</label>
+          <input id="cf-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} disabled={sending} className="field" placeholder={t('phPhone')} />
+        </div>
+        <div>
+          <label htmlFor="cf-company" className="field-label">{t('company')}</label>
+          <input id="cf-company" name="company" autoComplete="organization" maxLength={200} disabled={sending} className="field" placeholder={t('phCompany')} />
         </div>
       </div>
 
-      <div className="mb-4">
-        <label className={lbl}>{t('company')}</label>
-        <input name="company" disabled={loading} className={inp} placeholder="Şirkət adı (istəyə görə)" />
-      </div>
+      <fieldset className="mt-6" disabled={sending}>
+        <legend className="field-label">{t('service')}</legend>
+        <div className="flex flex-wrap gap-2">
+          {[...services, t('other')].map((s) => (
+            <label key={s} className="cursor-pointer">
+              <input type="radio" name="service" value={s} defaultChecked={s === defaultService} className="peer sr-only" />
+              <span className="inline-flex rounded-full border border-[color:var(--line-strong)] px-4 py-2 text-sm transition hover:border-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-bone peer-focus-visible:ring-4 peer-focus-visible:ring-brand/30">{s}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
-      <div className="mb-4">
-        <label className={lbl}>{t('service')}</label>
-        <select name="service" disabled={loading} className={inp}>
-          <option value="">Seçin…</option>
-          <option value="Veb sayt">Veb sayt</option>
-          <option value="SEO">SEO</option>
-          <option value="Google & Meta Ads">Google & Meta Ads</option>
-          <option value="Brendinq & Dizayn">Brendinq & Dizayn</option>
-          <option value="SMM">SMM</option>
-          <option value="AI & Avtomatlaşdırma">AI & Avtomatlaşdırma</option>
-          <option value="Digər">Digər</option>
+      <div className="mt-6">
+        <label htmlFor="cf-budget" className="field-label">{t('budget')}</label>
+        <select id="cf-budget" name="budget" disabled={sending} className="field appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22none%22 stroke=%22%23111%22 stroke-width=%221.6%22><path d=%22M4 6l4 4 4-4%22/></svg>')] bg-[length:16px] bg-[right_1rem_center] bg-no-repeat pr-10" defaultValue="">
+          <option value="">{t('choose')}</option>
+          {budgets.map((b) => <option key={b} value={t(b)}>{t(b)}</option>)}
         </select>
       </div>
 
-      <div className="mb-6">
-        <label className={lbl}>{t('message')}</label>
-        <textarea name="message" rows={4} disabled={loading} className={inp}
-          placeholder="Layihəniz haqqında qısa məlumat..." />
+      <div className="mt-6">
+        <label htmlFor="cf-message" className="field-label">{t('message')}</label>
+        <textarea id="cf-message" name="message" rows={5} maxLength={4000} disabled={sending} className="field resize-y" placeholder={t('phMessage')} />
       </div>
 
-      <button type="submit" disabled={loading}
-        className="hbtn hbtn-y disabled:opacity-60 flex items-center gap-2">
-        {loading ? (
-          <>
-            <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeOpacity=".3" strokeWidth="2"/>
-              <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-            {t('sending')}
-          </>
-        ) : `${t('send')} ↗`}
-      </button>
+      <div className="mt-8 flex flex-col-reverse gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-[46ch] text-xs leading-relaxed text-mut">{t('consent')}</p>
+        <button type="submit" disabled={sending} className="btn-brand shrink-0">
+          {sending ? <><Loader2 size={18} className="animate-spin" />{t('sending')}</> : <>{t('send')} <ArrowUpRight size={18} className="arr" /></>}
+        </button>
+      </div>
     </form>
   );
 }

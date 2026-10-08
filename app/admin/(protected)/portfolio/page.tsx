@@ -1,3 +1,4 @@
+import { requireStaff } from '@/lib/auth/guard';
 export const dynamic = 'force-dynamic';
 import { createClient } from '@/lib/supabase/server';
 import { createServiceClient } from '@/lib/supabase/service';
@@ -5,7 +6,7 @@ import CrudTable from '@/components/admin/crud-table';
 import { upsertPortfolio, destroyPortfolio } from '@/lib/actions/admin';
 
 export default async function Page() {
-  await (await createClient()).auth.getUser(); // auth yoxla
+  await requireStaff();
   const svc = createServiceClient();
   const { data } = await svc.from('portfolio_items').select('*').order('position', { ascending: true });
   return (

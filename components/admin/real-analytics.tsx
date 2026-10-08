@@ -3,9 +3,9 @@ import {
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis,
   CartesianGrid, Tooltip, BarChart, Bar, PieChart, Pie, Cell,
 } from 'recharts';
-import type { Ga4Data } from '@/lib/actions/ga4';
+import type { Ga4Data } from '@/lib/data/ga4';
 
-const COLORS = ['#F1E500', '#c9c400', '#9a9a93', '#6b6b64', '#44443f', '#2e2e2b'];
+const COLORS = ['#FF5A2C', '#c9c400', '#9a9a93', '#6b6b64', '#44443f', '#2e2e2b'];
 const card = 'bg-[#121212] border border-white/10 rounded-2xl p-5';
 
 export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; leads: number; clients: number }) {
@@ -90,14 +90,14 @@ export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; l
         <ResponsiveContainer width="100%" height={220}>
           <AreaChart data={ga4.daily}>
             <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#F1E500" stopOpacity={0.4} />
-              <stop offset="100%" stopColor="#F1E500" stopOpacity={0} />
+              <stop offset="0%" stopColor="#FF5A2C" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#FF5A2C" stopOpacity={0} />
             </linearGradient></defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" />
             <XAxis dataKey="date" stroke="#8A8A85" fontSize={11} />
             <YAxis stroke="#8A8A85" fontSize={11} />
             <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-            <Area type="monotone" dataKey="users" stroke="#F1E500" strokeWidth={2} fill="url(#g)" />
+            <Area type="monotone" dataKey="users" stroke="#FF5A2C" strokeWidth={2} fill="url(#g)" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -111,7 +111,7 @@ export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; l
               <XAxis type="number" stroke="#8A8A85" fontSize={11} />
               <YAxis type="category" dataKey="name" stroke="#8A8A85" fontSize={11} width={80} />
               <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-              <Bar dataKey="users" fill="#F1E500" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="users" fill="#FF5A2C" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

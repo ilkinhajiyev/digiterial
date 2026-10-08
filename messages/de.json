@@ -6,7 +6,11 @@
     "about": "Über uns",
     "blog": "Blog",
     "contact": "Kontakt",
-    "cta": "Projekt starten"
+    "cta": "Projekt starten",
+    "menu": "Menü",
+    "close": "Schließen",
+    "language": "Sprache",
+    "home": "Start"
   },
   "common": {
     "services": "Leistungen",
@@ -18,7 +22,9 @@
     "allServices": "Alle Leistungen",
     "freeConsult": "Kostenlose Beratung",
     "viewSite": "Website ansehen",
-    "more": "Mehr erfahren"
+    "more": "Mehr erfahren",
+    "skip": "Zum Inhalt springen",
+    "backTop": "Nach oben"
   },
   "hero": {
     "eyebrow": "Ein Digitalteam aus Baku",
@@ -40,10 +46,21 @@
     "channels": "Kanäle",
     "analytics": "Analytik",
     "averageResult": "Durchschnitt",
-    "explore": "Weiter"
+    "explore": "Weiter",
+    "layers": "Wie wir bauen",
+    "now": "Zeit in Baku",
+    "reply": "Antwort innerhalb von 24 Stunden",
+    "audit": "Kostenloses 30-Minuten-Audit"
   },
   "home": {
-    "marquee": { "i1": "Strategie", "i2": "Design", "i3": "Code", "i4": "Kampagnen", "i5": "Analytik", "i6": "Verbesserung" },
+    "marquee": {
+      "i1": "Strategie",
+      "i2": "Design",
+      "i3": "Code",
+      "i4": "Kampagnen",
+      "i5": "Analytik",
+      "i6": "Verbesserung"
+    },
     "band": {
       "label": "Unser Ansatz",
       "big": "Wir beginnen mit dem Problem.",
@@ -55,12 +72,17 @@
       "heading": "Was Sie brauchen. Nicht mehr."
     },
     "workbench": {
-      "label": "Die Werkbank", "heading": "Wir machen aus Ideen funktionierende Produkte.",
+      "label": "Die Werkbank",
+      "heading": "Wir machen aus Ideen funktionierende Produkte.",
       "text": "Wir denken vier Disziplinen gemeinsam, damit Design, Technologie und Wachstum nicht auseinanderdriften.",
-      "h1": "Bedeutung und Botschaft", "p1": "Wir klären in einem Satz, warum Menschen sich für Sie entscheiden sollten.",
-      "h2": "Visuelles System", "p2": "Nicht nur schöne Screens, sondern eine konsistente Sprache über alle Kanäle.",
-      "h3": "Digitales Produkt", "p3": "Wir verbinden schnelle, mobile Websites mit den realen Abläufen Ihres Unternehmens.",
-      "h4": "Wachstumszyklus", "p4": "Nach dem Launch lernen wir aus Daten, testen Ideen und verbessern weiter."
+      "h1": "Bedeutung und Botschaft",
+      "p1": "Wir klären in einem Satz, warum Menschen sich für Sie entscheiden sollten.",
+      "h2": "Visuelles System",
+      "p2": "Nicht nur schöne Screens, sondern eine konsistente Sprache über alle Kanäle.",
+      "h3": "Digitales Produkt",
+      "p3": "Wir verbinden schnelle, mobile Websites mit den realen Abläufen Ihres Unternehmens.",
+      "h4": "Wachstumszyklus",
+      "p4": "Nach dem Launch lernen wir aus Daten, testen Ideen und verbessern weiter."
     },
     "process": {
       "label": "Unser Prozess",
@@ -74,23 +96,38 @@
       "p3": "Wir messen Ergebnisse, lernen aus echten Daten und verbessern das System kontinuierlich."
     },
     "toolkit": {
-      "label": "Fähigkeiten statt Tools", "heading": "Das Team, das die Aufgabe braucht.",
+      "label": "Fähigkeiten statt Tools",
+      "heading": "Das Team, das die Aufgabe braucht.",
       "text": "Wir bringen die passenden Disziplinen zusammen, damit Sie nicht mehrere Dienstleister koordinieren müssen.",
-      "r1": "Web Experience", "r2": "E-Commerce", "r3": "Markensysteme", "r4": "Content",
-      "r5": "SEO", "r6": "Google Ads", "r7": "Meta Ads", "r8": "Automatisierung"
+      "r1": "Web Experience",
+      "r2": "E-Commerce",
+      "r3": "Markensysteme",
+      "r4": "Content",
+      "r5": "SEO",
+      "r6": "Google Ads",
+      "r7": "Meta Ads",
+      "r8": "Automatisierung"
     },
     "principles": {
-      "label": "Arbeitsprinzipien", "heading": "Der Prozess ist so wichtig wie das Ergebnis.",
-      "h1": "Wir sprechen klar", "p1": "Wir verstecken uns nicht hinter Fachsprache. Entscheidungen und Gründe bleiben nachvollziehbar.",
-      "h2": "Wir zeigen die Arbeit", "p2": "Sie sehen Fortschritt, geben Feedback und setzen gemeinsam mit uns Prioritäten.",
-      "h3": "Wir bleiben nach dem Launch", "p3": "Der Launch ist nicht das Ende. Wir prüfen Ergebnisse und planen den nächsten sinnvollen Schritt."
+      "label": "Arbeitsprinzipien",
+      "heading": "Der Prozess ist so wichtig wie das Ergebnis.",
+      "h1": "Wir sprechen klar",
+      "p1": "Wir verstecken uns nicht hinter Fachsprache. Entscheidungen und Gründe bleiben nachvollziehbar.",
+      "h2": "Wir zeigen die Arbeit",
+      "p2": "Sie sehen Fortschritt, geben Feedback und setzen gemeinsam mit uns Prioritäten.",
+      "h3": "Wir bleiben nach dem Launch",
+      "p3": "Der Launch ist nicht das Ende. Wir prüfen Ergebnisse und planen den nächsten sinnvollen Schritt."
     },
     "faq": {
       "label": "Häufig gefragt",
-      "q1": "Wie beginnt ein Projekt?", "a1": "Im ersten Gespräch klären wir Ziele, Zielgruppe, aktuelle Probleme und den Budgetrahmen. Danach folgt ein Phasenplan.",
-      "q2": "Können wir nur eine Leistung buchen?", "a2": "Ja. Wir ergänzen Ihr Team und konzentrieren uns bei Bedarf nur auf Web, Werbung, Design oder SEO.",
-      "q3": "Wie wird der Preis berechnet?", "a3": "Der Preis richtet sich nach Umfang, Zeitplan und benötigtem Team. Alle Phasen werden im Angebot einzeln aufgeführt.",
-      "q4": "Gibt es Support nach dem Launch?", "a4": "Ja. Technischer Support, Analytik, Optimierung und neue Funktionen sind laufend möglich."
+      "q1": "Wie beginnt ein Projekt?",
+      "a1": "Im ersten Gespräch klären wir Ziele, Zielgruppe, aktuelle Probleme und den Budgetrahmen. Danach folgt ein Phasenplan.",
+      "q2": "Können wir nur eine Leistung buchen?",
+      "a2": "Ja. Wir ergänzen Ihr Team und konzentrieren uns bei Bedarf nur auf Web, Werbung, Design oder SEO.",
+      "q3": "Wie wird der Preis berechnet?",
+      "a3": "Der Preis richtet sich nach Umfang, Zeitplan und benötigtem Team. Alle Phasen werden im Angebot einzeln aufgeführt.",
+      "q4": "Gibt es Support nach dem Launch?",
+      "a4": "Ja. Technischer Support, Analytik, Optimierung und neue Funktionen sind laufend möglich."
     },
     "stats": {
       "label": "Formel",
@@ -115,6 +152,11 @@
       "h2": "Sprechen wir über Ihr Projekt.",
       "p": "Wir hören zu und definieren gemeinsam einen sinnvollen Ansatz und die nächsten Schritte.",
       "b1": "Kontakt aufnehmen"
+    },
+    "work": {
+      "label": "Ausgewählte Arbeiten",
+      "heading": "Aus aktuellen Projekten.",
+      "all": "Alle Arbeiten"
     }
   },
   "footer": {
@@ -131,7 +173,9 @@
     "social": "Soziale Medien",
     "services": "Leistungen",
     "work": "Projekte",
-    "blog": "Blog"
+    "blog": "Blog",
+    "ctaH": "Was ist Ihr nächstes Projekt?",
+    "office": "Büro"
   },
   "pages": {
     "services": {
@@ -143,7 +187,9 @@
       "eyebrow": "Portfolio",
       "h1a": "Mehr als Worte —",
       "h1b": "Ergebnisse.",
-      "lead": "Ausgewählte Web- und SMM-Projekte. Klicken Sie auf ein Projekt für Details und die Galerie."
+      "lead": "Ausgewählte Web- und SMM-Projekte. Klicken Sie auf ein Projekt für Details und die Galerie.",
+      "empty": "Projekte werden in Kürze ergänzt.",
+      "all": "Alle"
     },
     "cases": {
       "eyebrow": "Fallstudien",
@@ -155,13 +201,22 @@
       "eyebrow": "Über uns",
       "h1a": "Eine Agentur, die wirklich",
       "h1b": "liefert.",
-      "lead": "In Baku seit 2018. Ihr zuverlässiger Partner für Kreativität und Technologie."
+      "lead": "In Baku seit 2018. Ihr zuverlässiger Partner für Kreativität und Technologie.",
+      "storyLabel": "Geschichte",
+      "storyH": "Kleines Team. Volle Aufmerksamkeit.",
+      "storyP1": "Digiterial ist ein Team aus Baku, das Strategie, Design, Technologie und Marketing an einen Tisch bringt.",
+      "storyP2": "Jedes Projekt beginnt beim echten Geschäftsziel: Was soll sich ändern, für wen und wie messen wir es?"
     },
     "blog": {
       "eyebrow": "Blog",
       "h1a": "Ideen, Taktiken,",
       "h1b": "Ergebnisse.",
-      "lead": "Keine Schlagwörter — nur, was funktioniert."
+      "lead": "Keine Schlagwörter — nur, was funktioniert.",
+      "empty": "Artikel folgen in Kürze.",
+      "emptyP": "Bis dahin können Sie Ihr Projekt direkt mit uns besprechen.",
+      "read": "Lesen",
+      "back": "Alle Artikel",
+      "min": "Min. Lesezeit"
     },
     "contact": {
       "eyebrow": "Kontakt",
@@ -181,7 +236,32 @@
       "iHours": "Öffnungszeiten",
       "addr": "Baku, Aserbaidschan",
       "hours": "Mo – Fr · 10:00–18:00",
-      "service": "Leistung"
+      "service": "Leistung",
+      "phone": "Telefon",
+      "budget": "Geschätztes Budget",
+      "phName": "Vor- und Nachname",
+      "phEmail": "sie@firma.de",
+      "phPhone": "+49 ___ _______",
+      "phCompany": "Unternehmen (optional)",
+      "phMessage": "Kurz zu Zielen, Zeitrahmen und aktueller Situation",
+      "choose": "Auswählen…",
+      "other": "Sonstiges",
+      "bud1": "Bis 1.000 ₼",
+      "bud2": "1.000 – 3.000 ₼",
+      "bud3": "3.000 – 10.000 ₼",
+      "bud4": "10.000 ₼ +",
+      "bud5": "Noch unklar",
+      "errName": "Bitte Namen eingeben (mind. 2 Buchstaben).",
+      "errEmail": "Bitte gültige E-Mail-Adresse eingeben.",
+      "errRate": "Zu viele Versuche. Bitte in ein paar Minuten erneut versuchen.",
+      "errServer": "Senden fehlgeschlagen. Bitte direkt per E-Mail oder WhatsApp schreiben.",
+      "consent": "Mit dem Senden stimmen Sie zu, dass wir Ihre Daten nur zur Kontaktaufnahme nutzen.",
+      "nextH": "Wie geht es weiter?",
+      "n1": "Wir lesen Ihre Anfrage und antworten innerhalb von 24 Stunden.",
+      "n2": "Ein kostenloses 30-Minuten-Gespräch zur Zielklärung.",
+      "n3": "Ein Phasenplan und ein transparentes Angebot.",
+      "required": "Pflicht",
+      "again": "Neue Anfrage"
     }
   },
   "svcDetail": {
@@ -209,32 +289,128 @@
     "veb-saytlar": {
       "title": "Web & E-Commerce",
       "tag": "Web",
-      "short": "Schnelle, conversion-orientierte Websites und Onlineshops."
+      "short": "Schnelle, conversion-orientierte Websites und Onlineshops.",
+      "o1": "Wir bauen schnelle, suchmaschinenfertige Websites, die Ihre Marke widerspiegeln – von Landingpages bis zu Unternehmensseiten, von WooCommerce-Shops bis zu individuellen Lösungen.",
+      "o2": "Jedes Projekt berücksichtigt Core Web Vitals, Mobile-first-Design und eine pflegeleichte Inhaltsstruktur.",
+      "f1h": "Unternehmenswebsites",
+      "f1p": "Mehrsprachig, pflegbar, schnell.",
+      "f2h": "E-Commerce",
+      "f2p": "WooCommerce / eigener Checkout.",
+      "f3h": "Landingpages",
+      "f3p": "Hohe Conversion für Kampagnen.",
+      "f4h": "Performance",
+      "f4p": "Core Web Vitals, PageSpeed 90+.",
+      "d1": "UI/UX-Design",
+      "d2": "Responsive Entwicklung",
+      "d3": "CMS-Integration",
+      "d4": "Technisches SEO-Fundament",
+      "d5": "Analytics-Einrichtung",
+      "metric": "Ø 98 PageSpeed"
     },
     "seo": {
       "title": "SEO & Technisches SEO",
       "tag": "SEO",
-      "short": "Keywords, technisches Audit und Content-Strategie für organischen Traffic."
+      "short": "Keywords, technisches Audit und Content-Strategie für organischen Traffic.",
+      "o1": "Wir steigern Ihre Sichtbarkeit in der Suche messbar: technisches Audit, Keyword-Recherche, On-Page-Optimierung und hochwertige Inhalte.",
+      "o2": "Monatliche Berichte auf Basis von Search Console und Analytics.",
+      "f1h": "Technisches Audit",
+      "f1p": "Indexierung, Speed, Struktur.",
+      "f2h": "Keywords",
+      "f2p": "Suchintention als Strategie.",
+      "f3h": "On-Page",
+      "f3p": "Inhalte, Meta, interne Links.",
+      "f4h": "Reporting",
+      "f4p": "Monatliche Rankings und Traffic.",
+      "d1": "Technisches SEO-Audit",
+      "d2": "Keyword-Map",
+      "d3": "Content-Plan",
+      "d4": "Linkstrategie",
+      "d5": "Monatsbericht",
+      "metric": "+312 % organischer Traffic"
     },
     "reklam": {
       "title": "Google & Meta Ads",
       "tag": "Ads",
-      "short": "ROAS-orientierte Performance-Werbung: Google, Meta, TikTok."
+      "short": "ROAS-orientierte Performance-Werbung: Google, Meta, TikTok.",
+      "o1": "Wir planen und steuern Kampagnen, die das Maximum aus Ihrem Budget holen: Zielgruppen, Creatives, A/B-Tests und laufende Optimierung.",
+      "o2": "Transparente Reports zeigen, wohin jeder Manat fließt.",
+      "f1h": "Google Ads",
+      "f1p": "Search, PMax, Remarketing.",
+      "f2h": "Meta Ads",
+      "f2p": "Instagram & Facebook.",
+      "f3h": "Creatives",
+      "f3p": "Reels, Static, UGC.",
+      "f4h": "Optimierung",
+      "f4p": "A/B-Tests, ROAS-Tracking.",
+      "d1": "Kampagnen-Setup",
+      "d2": "Zielgruppenstrategie",
+      "d3": "Werbemittel",
+      "d4": "Conversion-Tracking",
+      "d5": "Wöchentliche Optimierung",
+      "metric": "Ø 3,2x ROAS"
     },
     "brendinq": {
       "title": "Branding & Design",
       "tag": "Branding",
-      "short": "Logo, visuelle Identität und UI/UX — einprägsame Marken."
+      "short": "Logo, visuelle Identität und UI/UX — einprägsame Marken.",
+      "o1": "Wir übersetzen den Charakter Ihrer Marke in eine visuelle Sprache: Logo, Farbe, Typografie, Markenhandbuch und digitales Produktdesign.",
+      "o2": "Eine konsistente, moderne Identität, die auf jeder Plattform funktioniert.",
+      "f1h": "Logo & Identität",
+      "f1p": "Ein vollständiges visuelles System.",
+      "f2h": "Markenhandbuch",
+      "f2p": "Nutzungsrichtlinien.",
+      "f3h": "UI/UX",
+      "f3p": "Produkt- und Webdesign.",
+      "f4h": "Social-Vorlagen",
+      "f4p": "Post- und Story-Designs.",
+      "d1": "Logodesign",
+      "d2": "Markenhandbuch",
+      "d3": "Farbe & Typografie",
+      "d4": "Social-Media-Vorlagen",
+      "d5": "UI-Komponenten",
+      "metric": "40+ Markenidentitäten"
     },
     "smm": {
       "title": "SMM & Social Media",
       "tag": "SMM",
-      "short": "Content-Plan, Community-Management und Wachstumsstrategie."
+      "short": "Content-Plan, Community-Management und Wachstumsstrategie.",
+      "o1": "Wir führen Ihre Social-Media-Kanäle mit Strategie: Content-Kalender, Shootings, Design, Copywriting und Community-Management.",
+      "o2": "Organisches Wachstum mit Reels und Kurzvideos.",
+      "f1h": "Content-Plan",
+      "f1p": "Monatlicher Kalender und Themen.",
+      "f2h": "Produktion",
+      "f2p": "Foto, Video, Reels.",
+      "f3h": "Community",
+      "f3p": "Kommentare und Nachrichten.",
+      "f4h": "Analytics",
+      "f4p": "Wachstumsberichte.",
+      "d1": "Content-Kalender",
+      "d2": "Visuelles Design",
+      "d3": "Copywriting",
+      "d4": "Community-Management",
+      "d5": "Monatliche Analytics",
+      "metric": "Ø +58k Wachstum"
     },
     "ai-avtomatlasdirma": {
       "title": "KI & Automatisierung",
       "tag": "KI",
-      "short": "CRM, Lead-Flow und Automatisierung von Geschäftsprozessen."
+      "short": "CRM, Lead-Flow und Automatisierung von Geschäftsprozessen.",
+      "o1": "Wir automatisieren Routinearbeit und beschleunigen Ihren Kundenfluss mit KI: Chatbots, Lead-Scoring, CRM-Integrationen und E-Mail-Automatisierung.",
+      "o2": "Ihr Team konzentriert sich auf Strategie, das System erledigt den Rest.",
+      "f1h": "CRM-Flow",
+      "f1p": "Leads erfassen und verwalten.",
+      "f2h": "Chatbot",
+      "f2p": "KI-Kundensupport.",
+      "f3h": "E-Mail",
+      "f3p": "Automatisierte Kampagnen.",
+      "f4h": "Integrationen",
+      "f4p": "Ihre Tools verbinden.",
+      "d1": "Prozess-Audit",
+      "d2": "Automatisierungs-Setup",
+      "d3": "KI-Integration",
+      "d4": "CRM-Einrichtung",
+      "d5": "Schulung & Support",
+      "metric": "−60 % manuelle Arbeit"
     }
   },
   "portfolio": {
@@ -250,5 +426,11 @@
     "visit": "Website besuchen",
     "back": "Alle Projekte",
     "similar": "Möchten Sie ähnliche Ergebnisse?"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Seite nicht gefunden.",
+    "text": "Die gesuchte Seite wurde verschoben oder existiert nicht.",
+    "home": "Zur Startseite"
   }
 }

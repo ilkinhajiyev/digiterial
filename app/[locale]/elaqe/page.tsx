@@ -1,29 +1,56 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
+import PageHeader from '@/components/site/page-header';
 import ContactForm from '@/components/site/contact-form';
-import { JsonLd } from '@/components/site/jsonld';
+import { JsonLd, orgLd } from '@/components/site/jsonld';
+import { getSettings } from '@/lib/data/settings';
+import { services } from '@/lib/data/services';
+import { pageMetadata } from '@/lib/seo';
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.contact' });
-  return { title: `${t('h1a')} ${t('h1b')}`, description: t('lead'), alternates: { canonical: '/elaqe' } };
+  return pageMetadata('contact', locale, '/elaqe', { title: `${t('h1a')} ${t('h1b')}`, description: t('lead') });
 }
-const ld = { '@context': 'https://schema.org', '@type': 'ContactPage', mainEntity: { '@type': 'Organization', name: 'Digiterial', email: 'salam@digiterial.com', telephone: '+994604996340' } };
-export default async function Contact({ params }: { params: Promise<{ locale: string }> }) {
+
+export default async function Contact({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ service?: string }> }) {
   const { locale } = await params; setRequestLocale(locale);
-  const t = await getTranslations('pages.contact');
-  const info: [string, string][] = [[t('iEmail'), 'salam@digiterial.com'], [t('iPhone'), '+994 60 499 63 40'], [t('iAddr'), t('addr')], [t('iHours'), t('hours')]];
+  const { service } = await searchParams;
+  const t = await getTranslations('pages.contact'); const sv = await getTranslations('svc');
+  const st = await getSettings();
+  const svcNames = services.map((s) => sv(`${s.slug}.title`));
+  const info = [
+    { icon: Mail, k: t('iEmail'), v: st.email, href: `mailto:${st.email}` },
+    { icon: Phone, k: t('iPhone'), v: st.phone, href: `tel:${st.phone.replace(/\s/g, '')}` },
+    ...(st.whatsapp ? [{ icon: MessageCircle, k: 'WhatsApp', v: `+${st.whatsapp.replace(/\D/g, '')}`, href: `https://wa.me/${st.whatsapp.replace(/\D/g, '')}` }] : []),
+    { icon: MapPin, k: t('iAddr'), v: st.address || t('addr') },
+    { icon: Clock, k: t('iHours'), v: t('hours') },
+  ];
   return (
     <>
-      <JsonLd data={ld} />
-      <section className="pt-32 md:pt-40 pb-16 border-b border-white/15"><div className="wrap">
-        <div className="font-mono text-sm tracking-[.2em] uppercase text-brand mb-6">{t('eyebrow')}</div>
-        <h1 className="font-display font-bold text-[clamp(2.6rem,7vw,5.6rem)] leading-[.96] tracking-tight">{t('h1a')} <span className="text-brand">{t('h1b')}</span></h1>
-        <p className="mt-6 max-w-[60ch] text-neutral-300 text-lg">{t('lead')}</p>
-      </div></section>
-      <section className="py-20"><div className="wrap grid lg:grid-cols-[1.1fr_.9fr] gap-12">
-        <ContactForm />
-        <div>{info.map(([k, v]) => (
-          <div key={k} className="py-4 border-b border-white/15"><div className="font-mono text-xs uppercase tracking-wide text-mut-d mb-1.5">{k}</div><b className="font-display text-lg">{v}</b></div>
-        ))}</div>
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'ContactPage', mainEntity: orgLd(st as any) }} />
+      <PageHeader eyebrow={t('eyebrow')} title={`${t('h1a')} *${t('h1b')}*`} lead={t('lead')} />
+      <section className="pb-20 md:pb-28"><div className="wrap grid gap-6 lg:grid-cols-12">
+        <div className="lg:col-span-7"><ContactForm services={svcNames} defaultService={svcNames.includes(service || '') ? service : ''} /></div>
+        <aside className="space-y-6 lg:col-span-5">
+          <div className="rounded-[var(--radius)] bg-ink p-7 text-bone md:p-9">
+            <h2 className="t-h3">{t('nextH')}</h2>
+            <ol className="mt-6 space-y-5">
+              {[t('n1'), t('n2'), t('n3')].map((x, i) => (
+                <li key={i} className="flex gap-4"><span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand font-mono text-xs text-ink">{i + 1}</span><span className="pt-1 text-[#D8D3C9]">{x}</span></li>
+              ))}
+            </ol>
+          </div>
+          <dl className="card divide-y divide-[color:var(--line)] px-7">
+            {info.map(({ icon: I, k, v, href }) => (
+              <div key={k} className="flex items-start gap-4 py-5">
+                <I size={18} className="mt-1 shrink-0 text-brand-deep" />
+                <div><dt className="font-mono text-[.7rem] uppercase tracking-[.12em] text-mut">{k}</dt>
+                  <dd className="mt-1 font-medium">{href ? <a href={href} className="ulink" {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{v}</a> : v}</dd></div>
+              </div>
+            ))}
+          </dl>
+        </aside>
       </div></section>
     </>
   );

@@ -1,64 +1,51 @@
 'use client';
-import { useLocale } from 'next-intl';
+import { useEffect, useRef, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { Check, ChevronDown, Globe } from 'lucide-react';
 import { Link, usePathname } from '@/i18n/navigation';
 
-function Flag({ code }: { code: string }) {
-  // Azərbaycan
-  if (code === 'az') return (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <rect width="24" height="8" fill="#0098C3" /><rect y="8" width="24" height="8" fill="#ED2939" /><rect y="16" width="24" height="8" fill="#3F9C35" />
-      <circle cx="10.8" cy="12" r="3" fill="#fff" /><circle cx="11.9" cy="12" r="2.4" fill="#ED2939" />
-      <path d="M14.2 10.6l.5 1.1 1.2.1-.9.8.3 1.2-1.1-.7-1.1.7.3-1.2-.9-.8 1.2-.1z" fill="#fff" />
-    </svg>
-  );
-  // Rusiya
-  if (code === 'ru') return (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <rect width="24" height="8" fill="#fff" /><rect y="8" width="24" height="8" fill="#0039A6" /><rect y="16" width="24" height="8" fill="#D52B1E" />
-    </svg>
-  );
-  // İngilis dili → Böyük Britaniya (Union Jack)
-  if (code === 'en') return (
-    <svg viewBox="0 0 60 60" className="w-full h-full">
-      <clipPath id="uk-c"><circle cx="30" cy="30" r="30" /></clipPath>
-      <g clipPath="url(#uk-c)">
-        <rect width="60" height="60" fill="#012169" />
-        <path d="M0,0 L60,60 M60,0 L0,60" stroke="#fff" strokeWidth="12" />
-        <path d="M0,0 L60,60 M60,0 L0,60" stroke="#C8102E" strokeWidth="6" />
-        <path d="M30,0 V60 M0,30 H60" stroke="#fff" strokeWidth="20" />
-        <path d="M30,0 V60 M0,30 H60" stroke="#C8102E" strokeWidth="12" />
-      </g>
-    </svg>
-  );
-  // Alman → Almaniya
-  if (code === 'de') return (
-    <svg viewBox="0 0 24 24" className="w-full h-full">
-      <rect width="24" height="8" fill="#000" /><rect y="8" width="24" height="8" fill="#DD0000" /><rect y="16" width="24" height="8" fill="#FFCE00" />
-    </svg>
-  );
-  return null;
-}
-
 const langs = [
-  { code: 'az', label: 'Azərbaycan' },
-  { code: 'en', label: 'English' },
-  { code: 'ru', label: 'Русский' },
-  { code: 'de', label: 'Deutsch' },
+  { code: 'az', short: 'AZ', label: 'Azərbaycan' },
+  { code: 'en', short: 'EN', label: 'English' },
+  { code: 'ru', short: 'RU', label: 'Русский' },
+  { code: 'de', short: 'DE', label: 'Deutsch' },
 ] as const;
 
-export default function LangSwitcher({ size = 'sm', onPick }: { size?: 'sm' | 'lg'; onPick?: () => void }) {
+export default function LangSwitcher({ align = 'right' }: { align?: 'left' | 'right' }) {
   const pathname = usePathname();
   const active = useLocale();
-  const dim = size === 'lg' ? 'w-9 h-9' : 'w-7 h-7';
+  const t = useTranslations('nav');
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const cur = langs.find((l) => l.code === active) || langs[0];
+
+  useEffect(() => {
+    if (!open) return;
+    const onDoc = (e: MouseEvent) => { if (!ref.current?.contains(e.target as Node)) setOpen(false); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('mousedown', onDoc); document.addEventListener('keydown', onKey);
+    return () => { document.removeEventListener('mousedown', onDoc); document.removeEventListener('keydown', onKey); };
+  }, [open]);
+
   return (
-    <div className="flex items-center gap-1.5 sm:gap-2">
-      {langs.map((l) => (
-        <Link key={l.code} href={pathname} locale={l.code} onClick={onPick} aria-label={l.label}
-          className={`relative ${dim} rounded-full overflow-hidden grid place-items-center transition-all duration-300 hover:scale-110
-            ${active === l.code ? 'ring-2 ring-brand ring-offset-2 ring-offset-ink scale-105' : 'opacity-55 hover:opacity-100 ring-1 ring-white/15'}`}>
-          <Flag code={l.code} />
-        </Link>
-      ))}
+    <div ref={ref} className="relative">
+      <button type="button" onClick={() => setOpen((o) => !o)} aria-haspopup="listbox" aria-expanded={open} aria-label={`${t('language')}: ${cur.label}`}
+        className="inline-flex h-10 items-center gap-1.5 rounded-full px-3 font-mono text-[.78rem] text-ink transition hover:bg-ink/[.06]">
+        <Globe size={15} strokeWidth={1.6} />{cur.short}<ChevronDown size={14} className={`transition ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <ul role="listbox" className={`absolute top-12 z-50 w-48 overflow-hidden rounded-2xl border border-line bg-bone p-1.5 shadow-[0_24px_48px_-20px_rgba(17,17,16,.35)] ${align === 'right' ? 'right-0' : 'left-0'}`}>
+          {langs.map((l) => (
+            <li key={l.code} role="option" aria-selected={l.code === active}>
+              <Link href={pathname} locale={l.code} onClick={() => setOpen(false)} hrefLang={l.code}
+                className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm transition hover:bg-paper ${l.code === active ? 'font-medium text-ink' : 'text-[color:var(--ink-2)]'}`}>
+                <span><span className="mr-2 font-mono text-xs text-mut">{l.short}</span>{l.label}</span>
+                {l.code === active && <Check size={15} className="text-brand" />}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

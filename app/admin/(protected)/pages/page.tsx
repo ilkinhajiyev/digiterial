@@ -1,3 +1,4 @@
+import { requireStaff } from '@/lib/auth/guard';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 
@@ -5,6 +6,7 @@ const LOCALES: Record<string, string> = { az: '🇦🇿 AZ', en: '🇬🇧 EN', 
 const STATUS_COLOR: Record<string, string> = { published: 'text-brand border-brand/40', draft: 'text-mut border-white/15' };
 
 export default async function Page() {
+  await requireStaff();
   const sb = await createClient();
   const { data } = await sb.from('pages').select('*').order('updated_at', { ascending: false });
   const rows = (data as any[]) || [];

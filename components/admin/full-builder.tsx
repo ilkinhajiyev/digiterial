@@ -1,22 +1,28 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { savePage } from '@/lib/actions/pages';
+import { savePage, resetPage } from '@/lib/actions/pages';
 import { saveSettings } from '@/lib/actions/settings';
 import type { SiteSettings } from '@/lib/data/settings';
 
-type PageKey = { key: string; label: string; slug: string };
+type PageKey = { key: string; label: string; slug: string; blocks: boolean };
 
 const LOCALES = [
   { code: 'az', label: '🇦🇿 AZ' },
   { code: 'en', label: '🇬🇧 EN' },
   { code: 'ru', label: '🇷🇺 RU' },
+  { code: 'de', label: '🇩🇪 DE' },
 ];
 
 const BLOCK_TYPES = [
   ['hero', 'Hero'],
   ['band', 'Editorial band'],
-  ['services', 'Xidmət sıraları'],
+  ['services', 'Xidmət kartları'],
+  ['workbench', 'İş masası (4 kart)'],
+  ['process', 'Proses addımları'],
+  ['toolkit', 'Bacarıqlar'],
+  ['principles', 'Prinsiplər'],
+  ['work', 'Seçilmiş işlər'],
   ['stats', 'Statistika'],
   ['cards', 'Kartlar'],
   ['testimonials', 'Rəylər'],
@@ -38,7 +44,12 @@ const DEF: Record<string, any> = {
   cta:          { h2: 'Çağırış başlığı?', p: 'Alt mətn.', b1: 'Başla' },
   marquee:      { items: ['VEB', 'SEO', 'REKLAM'] },
   clients:      { label: 'Müştərilər', items: ['Müştəri A', 'Müştəri B'] },
-  richtext:     { h: 'Başlıq', p: 'Mətn buraya...' },
+  richtext:     { label: 'Etiket', h: 'Başlıq', p: 'Mətn buraya...' },
+  workbench:    { label: 'Etiket', heading: 'Başlıq.', text: '', items: [{ h: 'Kart', p: 'Mətn.' }] },
+  process:      { label: 'Proses', heading: 'Başlıq.', text: '', items: [{ h: 'Addım', p: 'Mətn.' }] },
+  toolkit:      { label: 'Bacarıqlar', heading: 'Başlıq.', text: '', row1: ['Veb'], row2: ['SEO'] },
+  principles:   { label: 'Prinsiplər', heading: 'Başlıq.', items: [{ h: 'Prinsip', p: 'Mətn.' }] },
+  work:         { label: 'Seçilmiş işlər', heading: 'Son layihələrdən.', b1: 'Bütün işlər', limit: 3 },
 };
 
 interface Props {
@@ -58,7 +69,8 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
   const [msg, setMsg]             = useState('');
   const [palette, setPalette]     = useState(false);
 
-  const pageData = pagesMap[curPage]?.[curLoc] || { seo_title: '', slug: '', meta_desc: '', blocks: [] };
+  const pageData = pagesMap[curPage]?.[curLoc] || { seo_title: '', slug: '', meta_desc: '', blocks: [], saved: false };
+  const curMeta = pageKeys.find((p) => p.key === curPage)!;
   const blocks: any[] = pageData.blocks || [];
 
   // ---------- helpers ----------
@@ -90,15 +102,25 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
   async function handleSave() {
     setSaving(true); setMsg('');
     try {
-      const r = await savePage(curPage, curLoc, blocks, {
+      const r = await savePage(curPage, curLoc, curMeta.blocks ? blocks : [], {
         seo_title: pageData.seo_title,
         slug: pageData.slug,
         meta_desc: pageData.meta_desc,
       });
-      if (r.ok) { setMsg('✓ Saxlanıldı'); router.refresh(); }
+      if (r.ok) { setPageData({ saved: true }); setMsg('✓ Saxlanıldı — sayt yeniləndi'); router.refresh(); }
       else setMsg('⚠ ' + r.error);
     } catch (e: any) { setMsg('⚠ ' + e.message); }
     finally { setSaving(false); setTimeout(() => setMsg(''), 3000); }
+  }
+
+  async function handleReset() {
+    if (!confirm('Bu səhifənin bu dildəki redaktələri silinsin və standart kontent bərpa olunsun?')) return;
+    setSaving(true); setMsg('');
+    try {
+      const r = await resetPage(curPage, curLoc);
+      if (r.ok) { setMsg('✓ Standart kontent bərpa olundu'); router.refresh(); setTimeout(() => window.location.reload(), 600); }
+      else setMsg('⚠ ' + r.error);
+    } finally { setSaving(false); }
   }
 
   async function handleSaveSettings() {
@@ -144,11 +166,33 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
         </div>
 
         {/* Hero */}
-        {b.type === 'hero' && <>{E('eyebrow','Etiket')}{E('h1','H1 başlıq',true)}{E('lead','Alt mətn',true)}{E('b1','Düymə 1')}{E('b2','Düymə 2')}</>}
+        {b.type === 'hero' && <>{E('eyebrow','Etiket')}{E('h1','H1 başlıq — *ulduz* arasındakı söz rəngli olur',true)}{E('lead','Alt mətn',true)}<div className="grid grid-cols-2 gap-2">{E('b1','Düymə 1')}{E('b1Href','Düymə 1 linki (/elaqe)')}{E('b2','Düymə 2')}{E('b2Href','Düymə 2 linki (/isler)')}</div></>}
+        {(b.type === 'workbench' || b.type === 'process' || b.type === 'principles') && <>
+          {E('label','Etiket')}{E('heading','Başlıq')}{b.type !== 'principles' && E('text','Mətn',true)}
+          {(p.items||[]).map((it: any, ii: number) => (
+            <div key={ii} className="bg-white/5 rounded-lg p-3 mb-2">
+              <div className="flex justify-between mb-1"><span className="font-mono text-[.6rem] text-white/40">{ii+1}</span><button onClick={()=>delItem(i,ii)} className="text-red-400 text-xs">✕</button></div>
+              <input className={inp+' mb-1'} value={it.h||''} onChange={e=>setItem(i,ii,'h',e.target.value)} placeholder="Başlıq" />
+              <textarea rows={2} className={inp} value={it.p||''} onChange={e=>setItem(i,ii,'p',e.target.value)} placeholder="Mətn" />
+            </div>
+          ))}
+          <button onClick={()=>addItem(i,{h:'Başlıq',p:'Mətn'})} className="text-brand text-xs border border-brand/30 rounded-full px-3 py-1">+ əlavə et</button>
+        </>}
+        {b.type === 'toolkit' && <>
+          {E('label','Etiket')}{E('heading','Başlıq')}{E('text','Mətn',true)}
+          <label className={lbl}>Bacarıqlar (vergüllə)</label>
+          <input className={inp} value={[...(p.row1||[]),...(p.row2||[])].join(', ')} onChange={e=>{ const all=e.target.value.split(',').map((x:string)=>x.trim()).filter(Boolean); setBlock(i,{...b,props:{...p,row1:all,row2:[]}}); }} />
+        </>}
+        {b.type === 'work' && <>
+          {E('label','Etiket')}{E('heading','Başlıq')}{E('b1','Düymə mətni')}
+          <label className={lbl}>Neçə layihə göstərilsin</label>
+          <input type="number" min={1} max={12} className={inp} value={p.limit||3} onChange={e=>setProp(i,'limit',Number(e.target.value))} />
+          <p className="text-white/35 text-xs mt-2">Portfolio-da “Seçilmiş (★)” işarələnmiş layihələr göstərilir; yoxdursa ən son layihələr.</p>
+        </>}
         {/* Band */}
         {b.type === 'band' && <>{E('label','Etiket')}{E('big','Böyük mətn',true)}{E('h3','H3')}{E('p','Mətn',true)}</>}
         {/* Services */}
-        {b.type === 'services' && <>{E('label','Etiket')}{E('heading','Başlıq')}</>}
+        {b.type === 'services' && <>{E('label','Etiket')}{E('heading','Başlıq')}{E('text','Mətn',true)}</>}
         {/* Stats */}
         {b.type === 'stats' && <>
           {E('label','Etiket')}{E('statement','İfadə',true)}{E('receipt','Qeyd')}
@@ -188,7 +232,7 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
         </>}
         {/* FAQ */}
         {b.type === 'faq' && <>
-          {E('label','Etiket')}
+          {E('label','Etiket')}{E('heading','Başlıq')}
           {(p.items||[]).map((it: any, ii: number) => (
             <div key={ii} className="bg-white/5 rounded-lg p-3 mb-2">
               <div className="flex justify-between mb-1"><span className="font-mono text-[.6rem] text-white/40">Sual {ii+1}</span><button onClick={()=>delItem(i,ii)} className="text-red-400 text-xs">✕</button></div>
@@ -212,7 +256,7 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
           <input className={inp} value={(p.items||[]).join(', ')} onChange={e=>setProp(i,'items',e.target.value.split(',').map((x:string)=>x.trim()).filter(Boolean))} />
         </>}
         {/* Richtext */}
-        {b.type === 'richtext' && <>{E('h','Başlıq')}{E('p','Mətn',true)}</>}
+        {b.type === 'richtext' && <>{E('label','Etiket')}{E('h','Başlıq')}{E('p','Mətn (yeni sətir = yeni abzas)',true)}</>}
       </div>
     );
   }
@@ -260,21 +304,31 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
           </div>
 
           {/* BLOKLAR */}
-          {tab === 'blocks' && (
+          {tab === 'blocks' && !curMeta.blocks && (
+            <div className="bg-[#121212] border border-white/10 rounded-xl p-5 text-sm text-white/60">
+              Bu səhifənin məzmunu avtomatik qurulur ({curPage === 'work' ? 'Portfolio bölməsindən' : curPage === 'blog' ? 'Kontent / Bloq bölməsindən' : 'əlaqə formu və tənzimləmələrdən'}). Burada yalnız <b className="text-white">SEO</b> tabını redaktə edə bilərsiniz.
+            </div>
+          )}
+          {tab === 'blocks' && curMeta.blocks && (
             <div>
+              <div className="flex items-center justify-between mb-3 text-xs">
+                <span className={pageData.saved ? 'text-brand' : 'text-white/40'}>{pageData.saved ? '● Redaktə olunmuş versiya saytda göstərilir' : '○ Standart (tərcümə faylı) kontent göstərilir'}</span>
+                {pageData.saved && <button onClick={handleReset} disabled={saving} className="text-white/40 hover:text-red-400 underline">Standarta qaytar</button>}
+              </div>
               {blocks.length === 0 && (
                 <div className="text-center text-white/25 py-10 font-mono text-sm border border-dashed border-white/10 rounded-xl">
                   Blok yoxdur — aşağıdan əlavə edin
                 </div>
               )}
-              {blocks.map((b, i) => <BlockEditor key={i} b={b} i={i} />)}
+              {/* Funksiya kimi çağırılır — komponent kimi render edilsə hər hərfdə input fokusu itirdi */}
+              {blocks.map((b, i) => <div key={i}>{BlockEditor({ b, i })}</div>)}
               <div className="mt-3">
                 <button onClick={() => setPalette(!palette)}
                   className="w-full border border-dashed border-brand/40 text-brand rounded-xl py-2.5 text-sm hover:bg-brand/5 transition">
                   + Blok əlavə et
                 </button>
                 {palette && (
-                  <div className="grid grid-cols-3 gap-2 mt-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2">
                     {BLOCK_TYPES.map(([t, n]) => (
                       <button key={t} onClick={() => addBlock(t)}
                         className="bg-[#0f0f0f] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-left hover:border-brand transition">
@@ -307,7 +361,6 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
             <div className="bg-[#121212] border border-white/10 rounded-xl p-4 space-y-3">
               <h3 className="font-display font-bold text-base mb-2">Header tənzimləmələri</h3>
               <div><label className={lbl}>Brend adı</label><input className={inp} value={settings.brand||''} onChange={e=>setSettings({...settings,brand:e.target.value})} /></div>
-              <div><label className={lbl}>CTA düymə mətni (AZ)</label><input className={inp} defaultValue="Layihə başlat" /></div>
               <div className="pt-2 border-t border-white/10">
                 <div className="font-mono text-[.6rem] uppercase text-white/40 mb-2">WhatsApp</div>
                 <input className={inp} value={settings.whatsapp||''} onChange={e=>setSettings({...settings,whatsapp:e.target.value})} placeholder="994601234567" />

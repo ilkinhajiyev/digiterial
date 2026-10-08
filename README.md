@@ -15,13 +15,16 @@ npm install
 cp .env.example .env.local
 #   NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY doldur
 
-# 3) verilənlər bazası (Supabase CLI)
+# 3) verilənlər bazası — Supabase SQL Editor-da supabase/migrations/FULL_SETUP.sql
+#    (mövcud bazada yalnız 0011_security_blog.sql kifayətdir)
+# və ya Supabase CLI:
 npx supabase link --project-ref <ref>
 npx supabase db push           # supabase/migrations/0001_init.sql tətbiq olunur
 #   (istəyə görə) supabase/seed.sql-i Studio SQL-də işə sal
 
 # 4) admin istifadəçi
-#   Supabase Studio → Authentication → Add user (email+şifrə)
+#   Supabase Studio → Authentication → Add user (email+şifrə), sonra SQL:
+#   update profiles set role='admin' where id=(select id from auth.users where email='...');
 
 # 5) işə sal
 npm run dev      # http://localhost:3000  · admin: /admin
@@ -35,7 +38,7 @@ npm run dev      # http://localhost:3000  · admin: /admin
 
 ```
 app/
-  [locale]/        # sayt (az default, /en, /ru) — SEO, i18n
+  [locale]/        # sayt (az default, /en, /ru, /de) — SEO, i18n
   admin/
     login/         # giriş
     (protected)/   # auth qorumalı: dashboard, crm, clients, projects, invoices, builder
@@ -48,6 +51,8 @@ supabase/migrations/0001_init.sql   # tam sxema + RLS + trigger
 ```
 
 ---
+
+> Son dəyişikliklər üçün **YENILIKLER.md**-ə baxın.
 
 ## Nə hazırdır (Sprint 0–3 nüvəsi)
 
@@ -71,6 +76,6 @@ supabase/migrations/0001_init.sql   # tam sxema + RLS + trigger
 ---
 
 ## Texnologiyalar
-Next.js 15 · React 18 · TypeScript · Tailwind · Supabase (Postgres+Auth+RLS) · next-intl · Recharts · zod
+Next.js 15 · React 18 · TypeScript · Tailwind · Fontsource · Supabase (Postgres+Auth+RLS) · next-intl · Recharts · zod
 
 © 2026 Digiterial

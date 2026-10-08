@@ -1,8 +1,10 @@
+import { requireStaff } from '@/lib/auth/guard';
 import { createClient } from '@/lib/supabase/server';
 import CrudTable from '@/components/admin/crud-table';
 
 // Komanda üzvləri Supabase Auth-dan yaradılır — yalnız oxu
 export default async function Page() {
+  await requireStaff();
   const sb = await createClient();
   const { data } = await sb.from('profiles').select('*').order('created_at', { ascending: false });
   return (

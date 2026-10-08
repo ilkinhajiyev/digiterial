@@ -1,57 +1,62 @@
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
-import { getPortfolio, fallbackPortfolio, type PItem } from '@/lib/data/portfolio';
+import PageHeader from '@/components/site/page-header';
+import WorkCard from '@/components/site/work-card';
+import { BlockRenderer } from '@/components/site/blocks';
 import { Reveal } from '@/components/site/interactive';
+import { getPortfolioFor, type PItem } from '@/lib/data/portfolio';
+import { pageMetadata } from '@/lib/seo';
+
+export const revalidate = 300;
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.work' });
-  return { title: `${t('h1a')} ${t('h1b')}`, description: t('lead'), alternates: { canonical: '/isler' } };
+  return pageMetadata('work', locale, '/isler', { title: `${t('h1a')} ${t('h1b')}`, description: t('lead') });
 }
-function Grid({ items, more }: { items: PItem[]; more: string }) {
+
+function Group({ id, label, heading, items, more }: { id: string; label: string; heading: string; items: PItem[]; more: string }) {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-      {items.map((it) => (
-        <Reveal key={it.id}>
-          <Link href={`/isler/${it.slug || it.id}`} className="card-glow block overflow-hidden group h-full">
-            <div className="aspect-square bg-white/5 img-zoom">{it.image_url ? <img src={it.image_url} alt={it.title} loading="lazy" className="w-full h-full object-cover" /> : <div className="w-full h-full grid place-items-center text-mut font-display text-2xl">{it.title}</div>}</div>
-            <div className="p-5">
-              <div className="flex justify-between items-start gap-2"><h3 className="font-display font-bold text-xl group-hover:text-brand transition">{it.title}</h3>{it.metric && <span className="font-mono text-xs text-brand whitespace-nowrap">{it.metric}</span>}</div>
-              {it.client && <div className="font-mono text-[.7rem] uppercase text-mut mt-1">{it.client}</div>}
-              {it.description && <p className="text-mut-d text-sm mt-3">{it.description}</p>}
-              <span className="inline-flex items-center gap-2 mt-4 text-sm text-brand group-hover:gap-3 transition-all">{more} →</span>
-            </div>
-          </Link>
-        </Reveal>
-      ))}
-    </div>
+    <Reveal as="section" className="section pt-8 md:pt-12">
+      <div className="wrap" id={id}>
+        <div className="flex flex-wrap items-end justify-between gap-4 border-t border-line pt-8">
+          <div><div className="eyebrow">{label}</div><h2 className="t-h2 mt-4">{heading}</h2></div>
+          <span className="font-mono text-sm text-mut">{String(items.length).padStart(2, '0')}</span>
+        </div>
+        <div className="mt-10 grid gap-x-4 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((it) => <WorkCard key={it.id} it={it} more={more} />)}
+        </div>
+      </div>
+    </Reveal>
   );
 }
-export default async function IslerPage({ params }: { params: Promise<{ locale: string }> }) {
+
+export default async function WorkPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params; setRequestLocale(locale);
-  const t = await getTranslations('pages.work'); const p = await getTranslations('portfolio');
-  let all = await getPortfolio(locale);
-  // Bu dildə layihə yoxdursa, bütün layihələri göstər (ən azı nəsə görünsün)
-  if (all.length === 0) all = await getPortfolio();
-  const items = all;
-  const web = items.filter((i) => i.category === 'web'); const smm = items.filter((i) => i.category === 'smm');
+  const t = await getTranslations('pages.work'); const p = await getTranslations('portfolio'); const h = await getTranslations('home');
+  const items = await getPortfolioFor(locale);
+  const web = items.filter((i) => i.category === 'web');
+  const smm = items.filter((i) => i.category === 'smm');
   return (
     <>
-      <section className="pt-32 md:pt-40 pb-14 border-b border-white/15"><div className="wrap">
-        <div className="font-mono text-sm tracking-[.2em] uppercase text-brand mb-6">{t('eyebrow')}</div>
-        <h1 className="font-display font-bold text-[clamp(2.6rem,7vw,5.6rem)] leading-[.96] tracking-tight">{t('h1a')} <span className="text-brand">{t('h1b')}</span></h1>
-        <p className="mt-6 max-w-[60ch] text-neutral-300 text-lg">{t('lead')}</p>
-      </div></section>
+      <PageHeader eyebrow={t('eyebrow')} title={`${t('h1a')} *${t('h1b')}*`} lead={t('lead')}>
+        {items.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            <span className="chip bg-ink text-bone border-ink">{t('all')} · {items.length}</span>
+            {web.length > 0 && <a href="#web" className="chip hover:border-ink">{p('web')} · {web.length}</a>}
+            {smm.length > 0 && <a href="#smm" className="chip hover:border-ink">{p('smm')} · {smm.length}</a>}
+          </div>
+        )}
+      </PageHeader>
       {items.length === 0 && (
-        <section className="py-20"><div className="wrap text-center">
-          <p className="text-mut-d text-lg">Hələ layihə əlavə edilməyib.</p>
-          <p className="text-mut text-sm mt-2 font-mono">Admin paneldən Portfolio bölməsinə layihə əlavə edin.</p>
+        <section className="pb-20"><div className="wrap">
+          <div className="card grid place-items-center px-6 py-20 text-center">
+            <p className="t-h3">{t('empty')}</p>
+          </div>
         </div></section>
       )}
-      {web.length > 0 && (<section className="py-16 md:py-20 border-b border-white/15"><div className="wrap"><div className="elbl">{p('web')}</div><h2 className="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] mt-3">{p('webHead')}</h2><Grid items={web} more={p('detail')} /></div></section>)}
-      {smm.length > 0 && (<section className="py-16 md:py-20"><div className="wrap"><div className="elbl">{p('smm')}</div><h2 className="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] mt-3">{p('smmHead')}</h2><Grid items={smm} more={p('detail')} /></div></section>)}
-      <section className="bg-brand text-ink py-16 md:py-20"><div className="wrap"><h2 className="font-display font-bold text-[clamp(2rem,6vw,4rem)] max-w-[14ch] leading-[.95]">{p('ctaH')}</h2><div className="flex justify-between items-end gap-6 flex-wrap mt-8"><p className="max-w-[40ch] text-lg">{p('ctaP')}</p><Link href="/elaqe" className="hbtn hbtn-d">{p('detail')} ↗</Link></div></div></section>
+      {web.length > 0 && <Group id="web" label={p('web')} heading={p('webHead')} items={web} more={p('detail')} />}
+      {smm.length > 0 && <Group id="smm" label={p('smm')} heading={p('smmHead')} items={smm} more={p('detail')} />}
+      <BlockRenderer blocks={[{ type: 'cta', props: { h2: p('ctaH'), p: p('ctaP'), b1: h('cta.b1') } }]} />
     </>
   );
 }

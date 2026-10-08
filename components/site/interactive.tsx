@@ -3,15 +3,16 @@ import { useEffect, useRef, useState } from 'react';
 
 const reduced = () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export function Reveal({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+export function Reveal({ children, className = '', as: Tag = 'div' }: { children: React.ReactNode; className?: string; as?: any }) {
+  const ref = useRef<HTMLElement>(null);
   useEffect(() => {
-    const el = ref.current; if (!el || reduced()) return;
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { el.classList.add('in'); io.disconnect(); } }, { threshold: 0.12 });
+    const el = ref.current; if (!el) return;
+    if (reduced()) { el.classList.add('in'); return; }
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { el.classList.add('in'); io.disconnect(); } }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     io.observe(el);
     return () => io.disconnect();
   }, []);
-  return <div ref={ref} className={`reveal ${className}`}>{children}</div>;
+  return <Tag ref={ref} className={`reveal ${className}`}>{children}</Tag>;
 }
 
 export function CountUp({ value }: { value: string }) {
@@ -19,36 +20,37 @@ export function CountUp({ value }: { value: string }) {
   const [disp, setDisp] = useState(value);
   useEffect(() => {
     const m = value.match(/^([^\d-]*)(-?[\d.,]+)(.*)$/);
-    if (!m || reduced()) { setDisp(value); return; }
+    const el = ref.current;
+    if (!m || !el || reduced()) return;
     const pre = m[1], numStr = m[2].replace(/,/g, ''), suf = m[3];
     const target = parseFloat(numStr); const decimals = (numStr.split('.')[1] || '').length;
-    const el = ref.current; if (!el) return;
-    let started = false;
+    let raf = 0;
     const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !started) {
-        started = true; const dur = 1400, t0 = performance.now();
-        const tick = (t: number) => {
-          const p = Math.min(1, (t - t0) / dur); const eased = 1 - Math.pow(1 - p, 3);
-          setDisp(pre + (target * eased).toFixed(decimals) + suf);
-          if (p < 1) requestAnimationFrame(tick); else setDisp(value);
-        };
-        requestAnimationFrame(tick); io.disconnect();
-      }
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      const t0 = performance.now(), dur = 1300;
+      const tick = (t: number) => {
+        const p = Math.min(1, (t - t0) / dur), eased = 1 - Math.pow(1 - p, 3);
+        setDisp(pre + (target * eased).toFixed(decimals) + suf);
+        if (p < 1) raf = requestAnimationFrame(tick); else setDisp(value);
+      };
+      raf = requestAnimationFrame(tick);
     }, { threshold: 0.4 });
     io.observe(el);
-    return () => io.disconnect();
+    return () => { io.disconnect(); cancelAnimationFrame(raf); };
   }, [value]);
   return <span ref={ref}>{disp}</span>;
 }
 
-export function Marquee({ items, className = '', sep = '·' }: { items: string[]; className?: string; sep?: string }) {
-  const seq = [...items, ...items];
+export function Marquee({ items, className = '', sep = '✦' }: { items: string[]; className?: string; sep?: string }) {
+  if (!items?.length) return null;
+  const seq = [...items, ...items, ...items, ...items];
   return (
-    <div className={`marquee ${className}`}>
-      <div className="marquee-track">
+    <div className={`marquee ${className}`} aria-label={items.join(', ')} role="marquee">
+      <div className="marquee-track" aria-hidden>
         {seq.map((t, i) => (
           <span key={i} className="inline-flex items-center">
-            <span className="px-5">{t}</span><span className="opacity-50">{sep}</span>
+            <span className="px-6">{t}</span><span className="text-brand">{sep}</span>
           </span>
         ))}
       </div>
@@ -57,10 +59,10 @@ export function Marquee({ items, className = '', sep = '·' }: { items: string[]
 }
 
 export function BakuClock() {
-  const [t, setT] = useState('--:--:--');
+  const [t, setT] = useState('');
   useEffect(() => {
-    const f = () => setT(new Date().toLocaleTimeString('az-AZ', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Baku' }));
-    f(); const id = setInterval(f, 1000); return () => clearInterval(id);
+    const f = () => setT(new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Baku' }));
+    f(); const id = setInterval(f, 15_000); return () => clearInterval(id);
   }, []);
-  return <span suppressHydrationWarning>{t}</span>;
+  return <span suppressHydrationWarning className="tabular-nums">{t || '--:--'}</span>;
 }

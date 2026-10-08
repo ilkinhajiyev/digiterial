@@ -1,8 +1,10 @@
+import { requireStaff } from '@/lib/auth/guard';
 import { createClient } from '@/lib/supabase/server';
 import CrudTable from '@/components/admin/crud-table';
 import { upsertKeyword, destroyKeyword } from '@/lib/actions/admin';
 
 export default async function Page() {
+  await requireStaff();
   const sb = await createClient();
   const { data } = await sb.from('keywords').select('*').order('position', { ascending: true });
   return (

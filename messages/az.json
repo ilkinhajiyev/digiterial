@@ -6,7 +6,11 @@
     "about": "Haqqımızda",
     "blog": "Bloq",
     "contact": "Əlaqə",
-    "cta": "Layihə başlat"
+    "cta": "Layihə başlat",
+    "menu": "Menyu",
+    "close": "Bağla",
+    "language": "Dil",
+    "home": "Ana səhifə"
   },
   "common": {
     "services": "Xidmətlər",
@@ -18,7 +22,9 @@
     "allServices": "Bütün xidmətlər",
     "freeConsult": "Pulsuz konsultasiya",
     "viewSite": "Saytda bax",
-    "more": "Ətraflı"
+    "more": "Ətraflı",
+    "skip": "Məzmuna keç",
+    "backTop": "Yuxarı qayıt"
   },
   "hero": {
     "eyebrow": "Bakıdan fəaliyyət göstərən rəqəmsal komanda",
@@ -40,10 +46,21 @@
     "channels": "Kanal",
     "analytics": "Analitika",
     "averageResult": "Orta nəticə",
-    "explore": "Davam et"
+    "explore": "Davam et",
+    "layers": "Necə qururuq",
+    "now": "Bakı vaxtı",
+    "reply": "24 saat ərzində cavab veririk",
+    "audit": "Pulsuz 30 dəqiqəlik audit"
   },
   "home": {
-    "marquee": { "i1": "Strategiya", "i2": "Dizayn", "i3": "Kod", "i4": "Kampaniya", "i5": "Analitika", "i6": "Təkmilləşdirmə" },
+    "marquee": {
+      "i1": "Strategiya",
+      "i2": "Dizayn",
+      "i3": "Kod",
+      "i4": "Kampaniya",
+      "i5": "Analitika",
+      "i6": "Təkmilləşdirmə"
+    },
     "band": {
       "label": "Yanaşma",
       "big": "Əvvəl problemi anlayırıq.",
@@ -58,10 +75,14 @@
       "label": "İş masası",
       "heading": "İdeyanı işləyən məhsula çeviririk.",
       "text": "Hər layihədə dörd istiqaməti birlikdə düşünürük. Beləliklə görünüş, texnologiya və satış bir-birindən qopmur.",
-      "h1": "Məna və mesaj", "p1": "İnsanların sizi niyə seçməli olduğunu bir cümlədə aydınlaşdırırıq.",
-      "h2": "Vizual sistem", "p2": "Təkcə gözəl ekran yox, bütün kanallarda tanınan tutarlı dil qururuq.",
-      "h3": "Rəqəmsal məhsul", "p3": "Mobil, sürətli və istifadəsi rahat saytları real biznes axınına bağlayırıq.",
-      "h4": "Böyümə dövrü", "p4": "Yayımdan sonra data ilə öyrənir, test edir və davamlı təkmilləşdiririk."
+      "h1": "Məna və mesaj",
+      "p1": "İnsanların sizi niyə seçməli olduğunu bir cümlədə aydınlaşdırırıq.",
+      "h2": "Vizual sistem",
+      "p2": "Təkcə gözəl ekran yox, bütün kanallarda tanınan tutarlı dil qururuq.",
+      "h3": "Rəqəmsal məhsul",
+      "p3": "Mobil, sürətli və istifadəsi rahat saytları real biznes axınına bağlayırıq.",
+      "h4": "Böyümə dövrü",
+      "p4": "Yayımdan sonra data ilə öyrənir, test edir və davamlı təkmilləşdiririk."
     },
     "process": {
       "label": "İş prosesi",
@@ -75,23 +96,38 @@
       "p3": "Nəticələri izləyir, öyrənir və sistemi davamlı olaraq daha effektiv edirik."
     },
     "toolkit": {
-      "label": "Alətlər yox, imkanlar", "heading": "İşin tələb etdiyi komanda.",
+      "label": "Alətlər yox, imkanlar",
+      "heading": "İşin tələb etdiyi komanda.",
       "text": "Layihəyə uyğun bacarıqları bir araya gətiririk; siz ayrı-ayrı icraçılar arasında koordinasiya etmirsiniz.",
-      "r1": "Veb təcrübə", "r2": "E-ticarət", "r3": "Brend sistemi", "r4": "Kontent",
-      "r5": "SEO", "r6": "Google Ads", "r7": "Meta Ads", "r8": "Avtomatlaşdırma"
+      "r1": "Veb təcrübə",
+      "r2": "E-ticarət",
+      "r3": "Brend sistemi",
+      "r4": "Kontent",
+      "r5": "SEO",
+      "r6": "Google Ads",
+      "r7": "Meta Ads",
+      "r8": "Avtomatlaşdırma"
     },
     "principles": {
-      "label": "İş prinsipləri", "heading": "Proses də nəticə qədər vacibdir.",
-      "h1": "Aydın danışırıq", "p1": "Texniki jarqonun arxasında gizlənmirik. Qərarları və səbəbləri açıq izah edirik.",
-      "h2": "İşi göstəririk", "p2": "Layihə boyunca real irəliləyişi görür, rəy verir və prioritetləri birlikdə müəyyənləşdirirsiniz.",
-      "h3": "Yayımdan sonra qalırıq", "p3": "Sayt və kampaniya yayımlananda iş bitmir; nəticələrə baxıb növbəti addımı planlayırıq."
+      "label": "İş prinsipləri",
+      "heading": "Proses də nəticə qədər vacibdir.",
+      "h1": "Aydın danışırıq",
+      "p1": "Texniki jarqonun arxasında gizlənmirik. Qərarları və səbəbləri açıq izah edirik.",
+      "h2": "İşi göstəririk",
+      "p2": "Layihə boyunca real irəliləyişi görür, rəy verir və prioritetləri birlikdə müəyyənləşdirirsiniz.",
+      "h3": "Yayımdan sonra qalırıq",
+      "p3": "Sayt və kampaniya yayımlananda iş bitmir; nəticələrə baxıb növbəti addımı planlayırıq."
     },
     "faq": {
       "label": "Tez-tez soruşulanlar",
-      "q1": "Layihəyə necə başlayırıq?", "a1": "İlk görüşdə məqsəd, auditoriya, mövcud problemlər və büdcə çərçivəsini dəqiqləşdiririk. Sonra mərhələli iş planı təqdim edirik.",
-      "q2": "Yalnız bir xidmət sifariş etmək olar?", "a2": "Bəli. Mövcud komandanızı tamamlaya və yalnız veb, reklam, dizayn və ya SEO istiqamətində işləyə bilərik.",
-      "q3": "Qiymət necə hesablanır?", "a3": "Qiymət işin həcmi, vaxtı və tələb olunan komanda üzrə formalaşır. Təklifdə bütün mərhələlər ayrıca göstərilir.",
-      "q4": "Sayt yayımlandıqdan sonra dəstək verirsiniz?", "a4": "Bəli. Texniki dəstək, analitika, optimizasiya və yeni funksiyalar üçün davamlı əməkdaşlıq mümkündür."
+      "q1": "Layihəyə necə başlayırıq?",
+      "a1": "İlk görüşdə məqsəd, auditoriya, mövcud problemlər və büdcə çərçivəsini dəqiqləşdiririk. Sonra mərhələli iş planı təqdim edirik.",
+      "q2": "Yalnız bir xidmət sifariş etmək olar?",
+      "a2": "Bəli. Mövcud komandanızı tamamlaya və yalnız veb, reklam, dizayn və ya SEO istiqamətində işləyə bilərik.",
+      "q3": "Qiymət necə hesablanır?",
+      "a3": "Qiymət işin həcmi, vaxtı və tələb olunan komanda üzrə formalaşır. Təklifdə bütün mərhələlər ayrıca göstərilir.",
+      "q4": "Sayt yayımlandıqdan sonra dəstək verirsiniz?",
+      "a4": "Bəli. Texniki dəstək, analitika, optimizasiya və yeni funksiyalar üçün davamlı əməkdaşlıq mümkündür."
     },
     "stats": {
       "label": "Formula",
@@ -116,6 +152,11 @@
       "h2": "Layihəniz barədə danışaq.",
       "p": "Ehtiyacınızı dinləyək, uyğun yanaşmanı və növbəti addımları birlikdə müəyyənləşdirək.",
       "b1": "Bizə yazın"
+    },
+    "work": {
+      "label": "Seçilmiş işlər",
+      "heading": "Son layihələrdən.",
+      "all": "Bütün işlər"
     }
   },
   "footer": {
@@ -132,7 +173,9 @@
     "social": "Sosial media",
     "services": "Xidmətlər",
     "work": "İşlər",
-    "blog": "Bloq"
+    "blog": "Bloq",
+    "ctaH": "Növbəti layihəniz nədir?",
+    "office": "Ofis"
   },
   "pages": {
     "services": {
@@ -144,7 +187,9 @@
       "eyebrow": "Portfolio",
       "h1a": "Sözdən çox —",
       "h1b": "nəticə.",
-      "lead": "Veb sayt və SMM üzrə seçilmiş layihələr. Hər birinə klikləyib detallara və qalereyaya baxın."
+      "lead": "Veb sayt və SMM üzrə seçilmiş layihələr. Hər birinə klikləyib detallara və qalereyaya baxın.",
+      "empty": "Layihələr tezliklə əlavə olunacaq.",
+      "all": "Hamısı"
     },
     "cases": {
       "eyebrow": "Case Studies",
@@ -156,13 +201,22 @@
       "eyebrow": "Haqqımızda",
       "h1a": "Həqiqətən nəticə verən",
       "h1b": "agentlik.",
-      "lead": "2018-dən bəri Bakıda. Etibarlı kreativ-texnoloji partnyorunuz."
+      "lead": "2018-dən bəri Bakıda. Etibarlı kreativ-texnoloji partnyorunuz.",
+      "storyLabel": "Hekayə",
+      "storyH": "Kiçik komanda. Böyük diqqət.",
+      "storyP1": "Digiterial strategiya, dizayn, texnologiya və marketinqi eyni masa arxasında birləşdirən Bakı əsaslı komandadır.",
+      "storyP2": "Hər layihəyə biznesin real məqsədindən başlayırıq: nəyi dəyişmək istəyirsiniz, kim üçün və bunu necə ölçəcəyik."
     },
     "blog": {
       "eyebrow": "Bloq",
       "h1a": "Fikirlər, taktikalar,",
       "h1b": "nəticələr.",
-      "lead": "Buzzword yox — işləyən şeylər."
+      "lead": "Buzzword yox — işləyən şeylər.",
+      "empty": "Yazılar tezliklə burada olacaq.",
+      "emptyP": "Hələlik layihənizi bizimlə birbaşa müzakirə edə bilərsiniz.",
+      "read": "Oxu",
+      "back": "Bütün yazılar",
+      "min": "dəq oxu"
     },
     "contact": {
       "eyebrow": "Əlaqə",
@@ -182,7 +236,32 @@
       "iHours": "İş saatı",
       "addr": "Bakı, Azərbaycan",
       "hours": "B.e – Cümə · 10:00–18:00",
-      "service": "Xidmət"
+      "service": "Xidmət",
+      "phone": "Telefon",
+      "budget": "Təxmini büdcə",
+      "phName": "Adınız və soyadınız",
+      "phEmail": "email@sirket.az",
+      "phPhone": "+994 __ ___ __ __",
+      "phCompany": "Şirkət adı (istəyə görə)",
+      "phMessage": "Hədəf, müddət və mövcud vəziyyət haqqında qısa məlumat",
+      "choose": "Seçin…",
+      "other": "Digər",
+      "bud1": "1 000 ₼-dək",
+      "bud2": "1 000 – 3 000 ₼",
+      "bud3": "3 000 – 10 000 ₼",
+      "bud4": "10 000 ₼ +",
+      "bud5": "Hələ bilmirəm",
+      "errName": "Adınızı daxil edin (ən azı 2 hərf).",
+      "errEmail": "Düzgün email ünvanı daxil edin.",
+      "errRate": "Çox sayda cəhd. Bir neçə dəqiqə sonra yenidən yoxlayın.",
+      "errServer": "Müraciət göndərilmədi. Zəhmət olmasa birbaşa email və ya WhatsApp ilə yazın.",
+      "consent": "Göndərməklə məlumatlarınızın yalnız sizinlə əlaqə saxlamaq üçün istifadə olunmasına razılıq verirsiniz.",
+      "nextH": "Sonra nə olur?",
+      "n1": "Müraciətinizi oxuyub 24 saat ərzində cavab veririk.",
+      "n2": "30 dəqiqəlik pulsuz görüşdə məqsədləri dəqiqləşdiririk.",
+      "n3": "Mərhələli iş planı və şəffaf təklif göndəririk.",
+      "required": "məcburi",
+      "again": "Yeni müraciət"
     }
   },
   "svcDetail": {
@@ -210,32 +289,128 @@
     "veb-saytlar": {
       "title": "Veb & E-ticarət",
       "tag": "Veb",
-      "short": "Sürətli, konvertasiya yönümlü saytlar və onlayn mağazalar."
+      "short": "Sürətli, konvertasiya yönümlü saytlar və onlayn mağazalar.",
+      "o1": "Brendinizi əks etdirən, sürətli və axtarış sistemlərinə hazır saytlar qururuq. Landing-dən korporativ saytadək, WooCommerce e-ticarətdən xüsusi həllərədək.",
+      "o2": "Hər layihə Core Web Vitals, mobil-əvvəl dizayn və idarəolunan kontent strukturu ilə gəlir.",
+      "f1h": "Korporativ saytlar",
+      "f1p": "Çoxdilli, idarəolunan, sürətli.",
+      "f2h": "E-ticarət",
+      "f2p": "WooCommerce / xüsusi ödəniş axını.",
+      "f3h": "Landing page",
+      "f3p": "Kampaniyalar üçün yüksək konvertasiya.",
+      "f4h": "Performans",
+      "f4p": "Core Web Vitals, 90+ PageSpeed.",
+      "d1": "UI/UX dizayn",
+      "d2": "Responsiv kodlaşdırma",
+      "d3": "CMS inteqrasiyası",
+      "d4": "Texniki SEO təməli",
+      "d5": "Analitika quraşdırması",
+      "metric": "98 orta PageSpeed"
     },
     "seo": {
       "title": "SEO & Texniki SEO",
       "tag": "SEO",
-      "short": "Üzvi trafik üçün açar söz, texniki audit və kontent strategiyası."
+      "short": "Üzvi trafik üçün açar söz, texniki audit və kontent strategiyası.",
+      "o1": "Axtarışda görünürlüyünüzü ölçülə bilən şəkildə artırırıq: texniki audit, açar söz araşdırması, on-page optimizasiya və keyfiyyətli kontent.",
+      "o2": "Search Console və analitika ilə hər ay irəliləyişi hesabatlandırırıq.",
+      "f1h": "Texniki audit",
+      "f1p": "İndeksləmə, sürət, struktur.",
+      "f2h": "Açar söz",
+      "f2p": "Niyyət əsaslı strategiya.",
+      "f3h": "On-page",
+      "f3p": "Məzmun, meta, daxili keçidlər.",
+      "f4h": "Hesabat",
+      "f4p": "Aylıq mövqe və trafik.",
+      "d1": "Texniki SEO audit",
+      "d2": "Açar söz xəritəsi",
+      "d3": "Kontent planı",
+      "d4": "Link strategiyası",
+      "d5": "Aylıq hesabat",
+      "metric": "+312% üzvi trafik"
     },
     "reklam": {
       "title": "Google & Meta Ads",
       "tag": "Reklam",
-      "short": "ROAS yönümlü performans reklamı: Google, Meta, TikTok."
+      "short": "ROAS yönümlü performans reklamı: Google, Meta, TikTok.",
+      "o1": "Büdcənizdən maksimum nəticə üçün kampaniyalar qurub idarə edirik. Auditoriya, kreativ, A/B test və davamlı optimizasiya.",
+      "o2": "Hər manatın hara getdiyini şəffaf hesabatla göstəririk.",
+      "f1h": "Google Ads",
+      "f1p": "Search, PMax, remarketinq.",
+      "f2h": "Meta Ads",
+      "f2p": "Instagram & Facebook.",
+      "f3h": "Kreativ",
+      "f3p": "Reels, statik, UGC.",
+      "f4h": "Optimizasiya",
+      "f4p": "A/B test, ROAS izləmə.",
+      "d1": "Kampaniya quruluşu",
+      "d2": "Auditoriya strategiyası",
+      "d3": "Reklam kreativləri",
+      "d4": "Konversiya izləmə",
+      "d5": "Həftəlik optimizasiya",
+      "metric": "3.2x orta ROAS"
     },
     "brendinq": {
       "title": "Brendinq & Dizayn",
       "tag": "Brendinq",
-      "short": "Loqo, vizual kimlik və UI/UX — yadda qalan brendlər."
+      "short": "Loqo, vizual kimlik və UI/UX — yadda qalan brendlər.",
+      "o1": "Brendinizin xarakterini vizual dilə çeviririk: loqo, rəng, tipoqrafiya, brend kitabı və rəqəmsal məhsul dizaynı.",
+      "o2": "Tutarlı, müasir və hər platformada işləyən kimlik.",
+      "f1h": "Loqo & kimlik",
+      "f1p": "Tam vizual sistem.",
+      "f2h": "Brend kitabı",
+      "f2p": "İstifadə qaydaları.",
+      "f3h": "UI/UX",
+      "f3p": "Məhsul və sayt dizaynı.",
+      "f4h": "Sosial şablonlar",
+      "f4p": "Post və story dizaynları.",
+      "d1": "Loqo dizaynı",
+      "d2": "Brend kitabı",
+      "d3": "Rəng & tipoqrafiya",
+      "d4": "Sosial media şablonları",
+      "d5": "UI komponentləri",
+      "metric": "40+ brend kimliyi"
     },
     "smm": {
       "title": "SMM & Sosial Media",
       "tag": "SMM",
-      "short": "Kontent plan, icma idarəçiliyi və böyümə strategiyası."
+      "short": "Kontent plan, icma idarəçiliyi və böyümə strategiyası.",
+      "o1": "Sosial media hesablarınızı strategiya ilə idarə edirik: kontent təqvimi, çəkiliş, dizayn, copywriting və icma idarəçiliyi.",
+      "o2": "Reels və qısa video formatları ilə üzvi böyümə.",
+      "f1h": "Kontent plan",
+      "f1p": "Aylıq təqvim və mövzular.",
+      "f2h": "Prodakşn",
+      "f2p": "Foto, video, Reels.",
+      "f3h": "İcma",
+      "f3p": "Şərh və mesaj idarəçiliyi.",
+      "f4h": "Analitika",
+      "f4p": "Böyümə hesabatı.",
+      "d1": "Kontent təqvimi",
+      "d2": "Vizual dizayn",
+      "d3": "Copywriting",
+      "d4": "İcma idarəçiliyi",
+      "d5": "Aylıq analitika",
+      "metric": "+58k orta böyümə"
     },
     "ai-avtomatlasdirma": {
       "title": "AI & Avtomatlaşdırma",
       "tag": "AI",
-      "short": "CRM, lead axını və biznes proseslərinin avtomatlaşdırılması."
+      "short": "CRM, lead axını və biznes proseslərinin avtomatlaşdırılması.",
+      "o1": "Təkrarlanan işləri avtomatlaşdırır, AI ilə müştəri axınını sürətləndiririk: chatbot, lead scoring, CRM inteqrasiyaları və email avtomatlaşdırma.",
+      "o2": "Komandanız strateji işə fokuslanır, sistem qalanını edir.",
+      "f1h": "CRM axını",
+      "f1p": "Lead toplama və idarəetmə.",
+      "f2h": "Chatbot",
+      "f2p": "AI müştəri dəstəyi.",
+      "f3h": "Email",
+      "f3p": "Avtomatik kampaniyalar.",
+      "f4h": "İnteqrasiya",
+      "f4p": "Alətlərin birləşməsi.",
+      "d1": "Proses auditi",
+      "d2": "Avtomatlaşdırma quruluşu",
+      "d3": "AI inteqrasiyası",
+      "d4": "CRM qurulması",
+      "d5": "Təlim & dəstək",
+      "metric": "−60% əl ilə iş"
     }
   },
   "portfolio": {
@@ -251,5 +426,11 @@
     "visit": "Saytı ziyarət et",
     "back": "Bütün işlər",
     "similar": "Bənzər nəticə istəyirsiniz?"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Səhifə tapılmadı.",
+    "text": "Axtardığınız səhifə köçürülüb və ya mövcud deyil.",
+    "home": "Ana səhifəyə qayıt"
   }
 }

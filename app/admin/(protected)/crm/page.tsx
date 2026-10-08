@@ -1,3 +1,4 @@
+import { requireStaff } from '@/lib/auth/guard';
 import { createClient } from '@/lib/supabase/server';
 import { createServiceClient } from '@/lib/supabase/service';
 import CrudTable from '@/components/admin/crud-table';
@@ -6,7 +7,7 @@ import { upsertLead, destroyLead } from '@/lib/actions/admin';
 export default async function Page() {
   // Auth yoxla
   const sb = await createClient();
-  await sb.auth.getUser();
+  await requireStaff();
 
   // Leads-i service client ilə oxu (RLS bypass — admin paneldə güvənlidir)
   let rows: any[] = [];

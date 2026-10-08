@@ -1,6 +1,7 @@
+import { requireStaff } from '@/lib/auth/guard';
 export const dynamic = 'force-dynamic';
 import { createServiceClient } from '@/lib/supabase/service';
-import { getGa4Data } from '@/lib/actions/ga4';
+import { getGa4Data } from '@/lib/data/ga4';
 import RealAnalytics from '@/components/admin/real-analytics';
 
 async function count(table: string) {
@@ -12,6 +13,7 @@ async function count(table: string) {
 }
 
 export default async function Page() {
+  await requireStaff();
   const [ga4, leads, clients] = await Promise.all([
     getGa4Data(28),
     count('leads'),

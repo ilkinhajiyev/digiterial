@@ -1,3 +1,4 @@
+import { requireStaff } from '@/lib/auth/guard';
 import { createClient } from '@/lib/supabase/server';
 import { fmtMoney } from '@/lib/utils';
 
@@ -8,6 +9,7 @@ async function count(table: string) {
 }
 
 export default async function Dashboard() {
+  await requireStaff();
   const sb = await createClient();
   const [clients, leads, projects] = await Promise.all([count('clients'), count('leads'), count('projects')]);
   const { data: invoices } = await sb.from('invoices').select('amount,status');

@@ -1,28 +1,17 @@
 import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
 import { NextIntlClientProvider } from 'next-intl';
 import AdminShell from '@/components/admin/shell';
+import { getStaff } from '@/lib/auth/guard';
 
-// Admin pages depend on the signed-in user and Supabase runtime credentials.
-// They must never be evaluated while producing the public static build.
+// Admin səhifələri daxil olmuş istifadəçidən asılıdır — statik build-ə düşməməlidir.
 export const dynamic = 'force-dynamic';
 
-export default async function ProtectedLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  try {
-    const sb = await createClient();
-    const { data: { user } } = await sb.auth.getUser();
-    if (!user) redirect('/admin/login');
-  } catch {
-    redirect('/admin/login');
-  }
-
+export default async function ProtectedLayout({ children }: { children: React.ReactNode }) {
+  const staff = await getStaff();
+  if (!staff) redirect('/admin/login?e=role');
   return (
     <NextIntlClientProvider messages={{}}>
-      <AdminShell>{children}</AdminShell>
+      <AdminShell email={staff.email} role={staff.role}>{children}</AdminShell>
     </NextIntlClientProvider>
   );
 }

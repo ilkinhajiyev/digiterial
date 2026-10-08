@@ -1,46 +1,36 @@
+import { requireStaff } from '@/lib/auth/guard';
 import { createServiceClient } from '@/lib/supabase/service';
-import { getSettings, defaultSettings } from '@/lib/data/settings';
+import { getSettings } from '@/lib/data/settings';
 import FullBuilder from '@/components/admin/full-builder';
-import { homeBlocks } from '@/lib/data/defaults';
+import { defaultBlocks } from '@/lib/data/default-blocks';
+import { PAGE_KEYS } from '@/lib/data/page-registry';
+import { locales } from '@/i18n/routing';
 
-const PAGE_KEYS = [
-  { key: 'home',         label: 'Ana səhifə',   slug: '/' },
-  { key: 'services',     label: 'Xidmətlər',    slug: '/xidmetler' },
-  { key: 'work',         label: 'İşlər',         slug: '/isler' },
-  { key: 'about',        label: 'Haqqımızda',   slug: '/haqqimizda' },
-  { key: 'blog',         label: 'Bloq',          slug: '/bloq' },
-  { key: 'contact',      label: 'Əlaqə',         slug: '/elaqe' },
-  { key: 'case-studies', label: 'Case Studies',  slug: '/case-studies' },
-];
-const LOCALES = ['az', 'en', 'ru'];
+export const dynamic = 'force-dynamic';
+
+// Blok redaktəsi olan səhifələr (qalanlarında yalnız SEO tabı işləyir)
+const BLOCK_PAGES = ['home', 'services', 'about', 'case-studies'];
 
 export default async function BuilderPage() {
-  const sb = createServiceClient();
-
-  // Bütün səhifə + dil kombinasiyalarını yüklə
-  const { data: allPages } = await sb.from('pages').select('*');
+  await requireStaff();
+  const { data: allPages } = await createServiceClient().from('pages').select('*');
   const settings = await getSettings();
 
-  // Səhifə məlumatlarını map et
   const pagesMap: Record<string, Record<string, any>> = {};
   for (const pk of PAGE_KEYS) {
     pagesMap[pk.key] = {};
-    for (const loc of LOCALES) {
-      const found = allPages?.find(p => p.key === pk.key && p.locale === loc);
+    for (const loc of locales) {
+      const found = allPages?.find((p) => p.key === pk.key && p.locale === loc);
+      const saved = Array.isArray(found?.blocks) && found.blocks.length > 0;
       pagesMap[pk.key][loc] = {
         seo_title: found?.seo_title || '',
         slug: found?.slug || pk.slug,
         meta_desc: found?.meta_desc || '',
-        blocks: found?.blocks?.length ? found.blocks : (pk.key === 'home' ? homeBlocks : []),
+        saved: !!found,
+        blocks: saved ? found.blocks : BLOCK_PAGES.includes(pk.key) ? await defaultBlocks(pk.key, loc) : [],
       };
     }
   }
 
-  return (
-    <FullBuilder
-      pageKeys={PAGE_KEYS}
-      pagesMap={pagesMap}
-      settings={settings}
-    />
-  );
+  return <FullBuilder pageKeys={PAGE_KEYS.map((p) => ({ ...p, blocks: BLOCK_PAGES.includes(p.key) }))} pagesMap={pagesMap} settings={settings} />;
 }

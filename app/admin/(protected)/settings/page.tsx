@@ -1,3 +1,4 @@
+import { requireStaff } from '@/lib/auth/guard';
 import { createClient } from '@/lib/supabase/server';
 import SettingsForm from '@/components/admin/settings-form';
 import { getSettings } from '@/lib/data/settings';
@@ -5,7 +6,7 @@ import { getSettings } from '@/lib/data/settings';
 export default async function Page() {
   // Auth yoxla
   const sb = await createClient();
-  const { data: { user } } = await sb.auth.getUser();
+  await requireStaff();
 
   // Mövcud settings-i oxu
   const current = await getSettings();

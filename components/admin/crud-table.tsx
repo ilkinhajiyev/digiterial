@@ -7,7 +7,7 @@ export type Col = { key: string; label: string; fmt?: 'badge' | 'money' | 'bool'
 export type Field = {
   name: string; label: string;
   type?: 'text' | 'number' | 'select' | 'textarea' | 'date' | 'checkbox' | 'image' | 'gallery';
-  options?: string[]; required?: boolean; span2?: boolean; placeholder?: string;
+  options?: string[]; required?: boolean; span2?: boolean; placeholder?: string; rows?: number; hint?: string;
 };
 
 const money = (v: any) => v != null ? new Intl.NumberFormat('az-AZ').format(Number(v)) + ' ₼' : '—';
@@ -72,12 +72,14 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
 
   /* ── DELETE ─────────────────────────────────────────────────────────── */
   const handleDelete = async (id: string) => {
+    if (!confirm('Bu qeydi silmək istədiyinizə əminsiniz? Bu əməliyyat geri qaytarılmır.')) return;
     setDelId(id);
     try {
-      await destroy(id);
+      const r = await destroy(id);
+      if (!r.ok) alert((r as any).error || 'Silinmədi');
       router.refresh();
     } catch {
-      /* silent */
+      alert('Silinmədi');
     } finally {
       setDelId(null);
     }
@@ -141,7 +143,7 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
                 ))}
                 {!readOnly && (
                   <td className="px-3 py-3 border-b border-white/5">
-                    <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center justify-end gap-2 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100 transition-opacity">
                       <button onClick={() => openEdit(row)}
                         title="Redaktə et"
                         className="w-7 h-7 rounded-md bg-white/5 hover:bg-brand/20 hover:text-brand text-white/50 transition flex items-center justify-center text-sm">
@@ -175,7 +177,7 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
         <div
           className="fixed inset-0 z-50 flex items-start justify-center bg-black/75 backdrop-blur-sm overflow-y-auto"
           onMouseDown={e => { if (e.target === e.currentTarget) close(); }}>
-          <div className="bg-[#181818] border border-white/15 rounded-2xl w-full max-w-lg mx-4 my-8 shadow-2xl">
+          <div className="bg-[#181818] border border-white/15 rounded-2xl w-full max-w-2xl mx-4 my-8 shadow-2xl">
             {/* Modal header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
               <h3 className="font-display font-bold text-lg">
@@ -208,8 +210,8 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
                       <textarea
                         id={`field-${f.name}`} name={f.name}
                         defaultValue={edit?.[f.name] ?? ''}
-                        rows={3} disabled={loading} placeholder={f.placeholder}
-                        className={inp + ' resize-none'} />
+                        rows={f.rows ?? 3} disabled={loading} placeholder={f.placeholder}
+                        className={inp + ' resize-y'} />
 
                     ) : f.type === 'checkbox' ? (
                       <label className="flex items-center gap-2.5 mt-1.5 cursor-pointer select-none">
@@ -237,6 +239,7 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
                         placeholder={f.placeholder}
                         className={inp} />
                     )}
+                    {f.hint && <p className="text-white/35 text-[.7rem] mt-1.5 leading-relaxed">{f.hint}</p>}
                   </div>
                 ))}
               </div>

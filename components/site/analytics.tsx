@@ -1,10 +1,13 @@
 import Script from 'next/script';
 import type { SiteSettings } from '@/lib/data/settings';
+import { safeId } from '@/lib/utils';
 
 // Bütün analitika / izləmə skriptlərini sayta əlavə edir.
 // Yalnız dəyər daxil edilmiş kodlar yüklənir.
-export default function Analytics({ a }: { a: SiteSettings['analytics'] }) {
-  if (!a) return null;
+export default function Analytics({ a: raw }: { a: SiteSettings['analytics'] }) {
+  if (!raw) return null;
+  // ID-lər skriptə yerləşdirilir — yalnız təhlükəsiz simvollar
+  const a = { gtm: safeId(raw.gtm), ga4: safeId(raw.ga4), metaPixel: safeId(raw.metaPixel), yandexMetrica: safeId(raw.yandexMetrica), tiktokPixel: safeId(raw.tiktokPixel) };
 
   return (
     <>
@@ -50,7 +53,8 @@ export default function Analytics({ a }: { a: SiteSettings['analytics'] }) {
 }
 
 // GTM noscript (body başında) — ayrıca export
-export function GtmNoScript({ gtm }: { gtm?: string }) {
+export function GtmNoScript({ gtm: raw }: { gtm?: string }) {
+  const gtm = safeId(raw);
   if (!gtm) return null;
   return (
     <noscript>

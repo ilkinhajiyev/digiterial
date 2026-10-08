@@ -1,131 +1,95 @@
+import { getLocale, getTranslations } from 'next-intl/server';
+import { ArrowUpRight, Plus } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import Hero from '@/components/site/hero';
 import { CountUp, Marquee, Reveal } from '@/components/site/interactive';
 import { ServiceIcon } from '@/components/site/service-icons';
+import { Accent } from '@/components/site/accent';
 import { services } from '@/lib/data/services';
-import ServicesList from '@/components/site/services-list';
+import { getPortfolioFor } from '@/lib/data/portfolio';
+import WorkCard from '@/components/site/work-card';
+import type { Block } from '@/lib/data/page-registry';
 
-type Block = { type: string; props: any };
+type P = { p: any };
+const arr = (v: any) => (Array.isArray(v) ? v : []);
 
-function Band({ p }: { p: any }) {
+function Head({ label, heading, text, dark, className = '' }: { label?: string; heading?: string; text?: string; dark?: boolean; className?: string }) {
   return (
-    <section className="py-24 md:py-36 border-b border-white/10 relative overflow-hidden"><div className="wrap">
-      <div className="elbl">{p.label}</div>
-      <div className="font-display font-semibold text-[clamp(2.5rem,7vw,6.5rem)] leading-[.92] tracking-[-.05em] mt-7 max-w-[15ch]">{p.big}</div>
-      <div className="grid md:grid-cols-2 gap-8 md:gap-12 mt-12 md:mt-14 items-end">
-        <h3 className="font-display font-bold text-[clamp(1.4rem,3vw,2.3rem)]">{p.h3}</h3>
-        <p className="text-mut-d text-base md:text-lg max-w-[52ch]">{p.p}</p>
+    <div className={`grid gap-6 md:grid-cols-12 md:items-end ${className}`}>
+      <div className="md:col-span-7">
+        {label && <div className="eyebrow">{label}</div>}
+        {heading && <h2 className={`t-h2 mt-5 max-w-[16ch] ${dark ? 'text-bone' : ''}`}><Accent text={heading} /></h2>}
       </div>
-    </div></section>
+      {text && <p className="t-lead md:col-span-5 md:justify-self-end md:max-w-[44ch]">{text}</p>}
+    </div>
   );
 }
 
-function Services({ p }: { p: any }) {
-  return <ServicesList label={p.label} heading={p.heading} />;
-}
-
-function Stats({ p }: { p: any }) {
+function MarqueeBand({ p }: P) {
   return (
-    <section className="py-24 md:py-32 bg-[#0d100e]"><div className="wrap">
-      <div className="elbl">{p.label}</div>
-      <div className="font-display font-bold text-[clamp(1.9rem,6vw,4.6rem)] leading-[.98] tracking-tight my-6 max-w-[18ch]">{p.statement}</div>
-      <div className="grid grid-cols-2 md:grid-cols-4 border-y border-white/15">
-        {p.items?.map((s: any, i: number) => (
-          <div key={i} className="p-6 md:p-9 border-r border-b md:border-b-0 border-white/15 last:border-r-0 odd:border-r [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r hover:bg-brand/[.04] transition-colors">
-            <b className="font-display font-bold text-[clamp(2.2rem,5vw,3.8rem)] text-brand block leading-none"><CountUp value={s.v} /></b>
-            <span className="text-mut-d text-xs sm:text-sm mt-2 block">{s.l}</span>
-          </div>
-        ))}
-      </div>
-      {p.receipt && <div className="font-display font-bold text-[clamp(1.3rem,3.5vw,2.2rem)] mt-10 max-w-[22ch]">{p.receipt}</div>}
-    </div></section>
+    <div className="border-y border-line bg-bone py-5">
+      <Marquee items={arr(p.items)} className="font-display text-[clamp(1.1rem,2.2vw,1.6rem)] font-medium tracking-tight" />
+    </div>
   );
 }
 
-function Process({ p }: { p: any }) {
+function Band({ p }: P) {
   return (
-    <section className="py-24 md:py-32 border-y border-white/10">
+    <section className="section">
       <div className="wrap">
-        <div className="grid lg:grid-cols-[.8fr_1.2fr] gap-12 lg:gap-20">
-          <div>
-            <div className="elbl">{p.label}</div>
-            <h2 className="font-display font-semibold text-[clamp(2.3rem,5vw,4.8rem)] leading-[.94] tracking-[-.045em] mt-6 max-w-[10ch]">{p.heading}</h2>
-            <p className="text-mut-d mt-6 max-w-[42ch] leading-relaxed">{p.text}</p>
-          </div>
-          <div className="border-t border-white/15">
-            {p.items?.map((item: any, i: number) => (
-              <div key={i} className="stagger-item group grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr_auto] gap-4 sm:gap-7 py-7 md:py-9 border-b border-white/15 items-start" style={{ transitionDelay: `${i * 100}ms` }}>
-                <span className="font-mono text-xs text-brand pt-1">0{i + 1}</span>
-                <div><h3 className="font-display font-semibold text-xl md:text-2xl group-hover:text-brand transition-colors">{item.h}</h3><p className="text-mut-d mt-2 max-w-[48ch] text-sm md:text-base">{item.p}</p></div>
-                <span aria-hidden className="hidden sm:grid w-10 h-10 rounded-full border border-white/15 place-items-center group-hover:bg-brand group-hover:text-ink group-hover:border-brand transition-colors">↗</span>
-              </div>
-            ))}
-          </div>
+        {p.label && <div className="eyebrow">{p.label}</div>}
+        <p className="t-display mt-6 max-w-[20ch] text-[clamp(2rem,5vw,4.2rem)]"><Accent text={p.big} /></p>
+        <div className="mt-12 grid gap-6 border-t border-line pt-8 md:grid-cols-2 md:gap-12">
+          <h3 className="t-h3 max-w-[30ch]">{p.h3}</h3>
+          <p className="t-lead max-w-[54ch]">{p.p}</p>
         </div>
       </div>
     </section>
   );
 }
 
-function Workbench({ p }: { p: any }) {
+async function Services({ p }: P) {
+  const t = await getTranslations('svc');
+  const c = await getTranslations('common');
   return (
-    <section className="workbench py-24 md:py-32 overflow-hidden">
+    <section id="services" className="section scroll-mt-20">
       <div className="wrap">
-        <div className="grid lg:grid-cols-[.72fr_1.28fr] gap-12 lg:gap-20 items-start">
-          <div className="lg:sticky lg:top-28">
-            <div className="elbl">{p.label}</div>
-            <h2 className="font-display font-semibold text-[clamp(2.4rem,5.4vw,5rem)] leading-[.92] tracking-[-.05em] mt-6 max-w-[9ch]">{p.heading}</h2>
-            <p className="text-mut-d mt-6 max-w-[38ch] leading-relaxed">{p.text}</p>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
-            {p.items?.map((item: any, i: number) => (
-              <div key={i} className={`work-card stagger-item ${i === 1 ? 'sm:mt-16' : ''} ${i === 2 ? 'sm:-mt-16' : ''}`} style={{ transitionDelay: `${i * 90}ms` }}>
-                <div className="flex justify-between items-start gap-4">
-                  <span className="font-mono text-xs text-ink/45">0{i + 1}</span>
-                  <span className="work-card-dot" />
-                </div>
-                <div>
-                  <h3 className="font-display font-semibold text-2xl md:text-3xl tracking-tight">{item.h}</h3>
-                  <p className="text-ink/65 mt-3 leading-relaxed">{item.p}</p>
-                </div>
+        <Head label={p.label} heading={p.heading} text={p.text} />
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-4">
+          {services.map((s, i) => (
+            <Link key={s.slug} href={`/xidmetler/${s.slug}`}
+              className="card card-hover group flex min-h-[260px] flex-col p-6 md:p-7">
+              <div className="flex items-start justify-between">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-paper text-ink transition duration-300 group-hover:bg-brand"><ServiceIcon slug={s.slug} className="h-6 w-6" /></span>
+                <span className="font-mono text-xs text-mut">{String(i + 1).padStart(2, '0')}</span>
               </div>
-            ))}
-          </div>
+              <h3 className="t-h3 mt-auto pt-10">{t(`${s.slug}.title`)}</h3>
+              <p className="mt-2 text-[.95rem] leading-relaxed text-[color:var(--ink-2)]">{t(`${s.slug}.short`)}</p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium">
+                {c('more')} <ArrowUpRight size={16} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function Toolkit({ p }: { p: any }) {
+function Workbench({ p }: P) {
+  const tones = ['bg-bone text-ink', 'bg-brand text-ink', 'bg-sage text-ink', 'bg-[#2A2926] text-bone'];
   return (
-    <section className="py-24 md:py-32 bg-paper text-ink overflow-hidden">
-      <div className="wrap mb-12 md:mb-16 grid md:grid-cols-2 gap-8 items-end">
-        <div><div className="elbl text-ink/55">{p.label}</div><h2 className="font-display font-semibold text-[clamp(2.3rem,5vw,4.6rem)] leading-[.94] tracking-[-.05em] mt-6 max-w-[11ch]">{p.heading}</h2></div>
-        <p className="text-ink/65 max-w-[48ch] md:justify-self-end text-base md:text-lg">{p.text}</p>
-      </div>
-      <div className="toolkit-line border-y border-ink/15 py-4 rotate-[-1deg] origin-center bg-white">
-        <Marquee items={p.row1 || []} sep="+" className="font-display font-semibold text-[clamp(1.6rem,4vw,3.2rem)] tracking-tight" />
-      </div>
-      <div className="toolkit-line toolkit-reverse border-b border-ink/15 py-4 rotate-[1deg] origin-center bg-brand mt-1">
-        <Marquee items={p.row2 || []} sep="/" className="font-mono text-sm md:text-base uppercase tracking-[.16em]" />
-      </div>
-    </section>
-  );
-}
-
-function Principles({ p }: { p: any }) {
-  return (
-    <section className="py-24 md:py-32 bg-[#101310] border-y border-white/10">
+    <section className="section-dark section rounded-[2rem]">
       <div className="wrap">
-        <div className="elbl">{p.label}</div>
-        <h2 className="font-display font-semibold text-[clamp(2.4rem,5.4vw,5rem)] leading-[.92] tracking-[-.05em] mt-6 max-w-[13ch]">{p.heading}</h2>
-        <div className="grid md:grid-cols-3 mt-14 border-t border-white/15">
-          {p.items?.map((item: any, i: number) => (
-            <div key={i} className="principle stagger-item py-8 md:px-7 md:py-10 border-b md:border-b-0 md:border-r last:border-r-0 border-white/15" style={{ transitionDelay: `${i * 110}ms` }}>
-              <span className="principle-n font-display font-semibold text-brand/20">0{i + 1}</span>
-              <h3 className="font-display font-semibold text-xl md:text-2xl -mt-4 relative">{item.h}</h3>
-              <p className="text-mut-d mt-4 leading-relaxed text-sm md:text-base">{item.p}</p>
+        <Head label={p.label} heading={p.heading} text={p.text} dark />
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 md:gap-4">
+          {arr(p.items).map((it: any, i: number) => (
+            <div key={i} className={`flex min-h-[240px] flex-col justify-between rounded-[1.25rem] p-6 transition duration-500 ease-out hover:-translate-y-1 ${tones[i % 4]}`}>
+              <span className="font-mono text-xs opacity-60">0{i + 1}</span>
+              <div>
+                <h3 className="t-h3">{it.h}</h3>
+                <p className="mt-3 text-[.92rem] leading-relaxed opacity-75">{it.p}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -134,107 +98,227 @@ function Principles({ p }: { p: any }) {
   );
 }
 
-function Testimonials({ p }: { p: any }) {
+function Process({ p }: P) {
+  const items = arr(p.items);
   return (
-    <section className="py-20 md:py-28"><div className="wrap">
-      <div className="elbl">{p.label}</div>
-      <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 mt-8">
-        {p.items?.map((q: any, i: number) => (
-          <div key={i} className="relative border-t border-white/15 pt-8 group">
-            <span aria-hidden className="absolute -top-1 left-0 font-display text-6xl text-brand/25 leading-none select-none group-hover:text-brand/50 transition-colors">"</span>
-            <p className="font-display font-medium text-[clamp(1.2rem,2.6vw,2rem)] leading-tight pl-1">{q.q}</p>
-            <div className="font-mono text-sm text-mut-d mt-4 flex items-center gap-2"><span className="w-5 h-px bg-brand inline-block" />{q.by}</div>
-          </div>
-        ))}
-      </div>
-    </div></section>
-  );
-}
-
-function Cards({ p }: { p: any }) {
-  return (
-    <section className="py-20 md:py-28"><div className="wrap">
-      <div className="elbl">{p.label}</div>
-      <h2 className="font-display font-bold text-[clamp(1.9rem,5vw,3.4rem)] mt-4">{p.heading}</h2>
-      <div className="grid md:grid-cols-3 gap-4 mt-8">
-        {p.items?.map((c: any, i: number) => (
-          <div key={i} className="card-glow p-6 group">
-            <div className="font-mono text-xs text-brand/70">{String(i + 1).padStart(2, '0')}</div>
-            <h3 className="font-display font-bold text-xl mt-3 mb-2 group-hover:text-brand transition-colors">{c.h}</h3>
-            <p className="text-mut-d text-sm leading-relaxed">{c.p}</p>
-          </div>
-        ))}
-      </div>
-    </div></section>
-  );
-}
-
-function Faq({ p }: { p: any }) {
-  return (
-    <section className="py-20 md:py-28"><div className="wrap">
-      <div className="elbl">{p.label}</div>
-      <div className="mt-8 border-t border-white/15">
-        {p.items?.map((f: any, i: number) => (
-          <details key={i} className="border-b border-white/15 py-5 md:py-6 group">
-            <summary className="font-display font-bold text-lg md:text-xl cursor-pointer list-none flex justify-between gap-4 hover:text-brand transition-colors">{f.q}<span className="text-brand transition-transform duration-300 group-open:rotate-45">+</span></summary>
-            <p className="text-mut-d mt-4 max-w-[70ch]">{f.a}</p>
-          </details>
-        ))}
-      </div>
-    </div></section>
-  );
-}
-
-function Cta({ p }: { p: any }) {
-  return (
-    <section className="bg-brand text-ink py-20 md:py-28">
+    <section className="section">
       <div className="wrap">
-        <div className="font-mono text-[.68rem] tracking-[.18em] uppercase mb-10">Digiterial / Contact</div>
-        <h2 className="font-display font-medium tracking-[-.055em] text-[clamp(2.5rem,7vw,6rem)] max-w-[14ch] leading-[.9]">{p.h2}</h2>
-        <div className="flex justify-between items-end gap-6 flex-wrap mt-10 pt-8 border-t border-ink/20">
-          <p className="max-w-[40ch] text-base md:text-lg">{p.p}</p>
-          <Link href="/elaqe" className="hbtn hbtn-d">{p.b1} ↗</Link>
+        <Head label={p.label} heading={p.heading} text={p.text} />
+        <ol className={`mt-14 grid gap-px overflow-hidden rounded-[1.25rem] border border-line bg-[color:var(--line)] ${items.length >= 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
+          {items.map((it: any, i: number) => (
+            <li key={i} className="group relative bg-bone p-6 md:p-8">
+              <div className="flex items-center gap-3">
+                <span className="grid h-9 w-9 place-items-center rounded-full border border-line font-mono text-xs transition group-hover:border-brand group-hover:bg-brand">{i + 1}</span>
+                <span className="h-px flex-1 bg-[color:var(--line)]" />
+              </div>
+              <h3 className="t-h3 mt-8">{it.h}</h3>
+              <p className="mt-3 text-[.95rem] leading-relaxed text-[color:var(--ink-2)]">{it.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function Toolkit({ p }: P) {
+  const all = [...arr(p.row1), ...arr(p.row2)];
+  return (
+    <section className="section pt-0">
+      <div className="wrap">
+        <div className="rounded-[2rem] bg-sage p-6 sm:p-10 md:p-14">
+          <Head label={p.label} heading={p.heading} text={p.text} />
+          <ul className="mt-10 flex flex-wrap gap-2.5">
+            {all.map((x: string, i: number) => (
+              <li key={i} className={`rounded-full px-5 py-3 font-display text-[clamp(.95rem,1.6vw,1.2rem)] tracking-tight ${i % 3 === 0 ? 'bg-ink text-bone' : 'bg-bone'}`}>{x}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
   );
 }
 
-function Clients({ p }: { p: any }) {
+function Principles({ p }: P) {
   return (
-    <section className="py-14 md:py-20 border-y border-white/10 bg-white/[.015]">
-      <div className="wrap mb-7"><div className="elbl">{p.label || 'Bizə etibar edənlər'}</div></div>
-      <Marquee items={p.items || []} className="font-display font-bold text-[clamp(1.4rem,4vw,2.6rem)] text-white/35" sep="●" />
+    <section className="section">
+      <div className="wrap">
+        <Head label={p.label} heading={p.heading} />
+        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+          {arr(p.items).map((it: any, i: number) => (
+            <div key={i} className="border-t-2 border-ink pt-6">
+              <span className="font-display text-[3.2rem] font-medium leading-none tracking-tight text-brand">0{i + 1}</span>
+              <h3 className="t-h3 mt-6">{it.h}</h3>
+              <p className="mt-3 leading-relaxed text-[color:var(--ink-2)]">{it.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
 
-function MarqueeBand({ p }: { p: any }) {
+async function Work({ p }: P) {
+  const locale = await getLocale();
+  const tp = await getTranslations('portfolio');
+  let items = await getPortfolioFor(locale);
+  const featured = items.filter((x) => x.featured);
+  if (p.featuredOnly !== false && featured.length) items = featured;
+  items = items.slice(0, Number(p.limit) || 3);
+  if (!items.length) return null; // Layihə yoxdursa bölmə görünmür
   return (
-    <div className="bg-brand text-ink py-3.5 overflow-hidden">
-      <Marquee items={p.items || []} className="font-mono text-sm sm:text-base font-medium uppercase tracking-wide" sep="·" />
-    </div>
+    <section className="section">
+      <div className="wrap">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>{p.label && <div className="eyebrow">{p.label}</div>}{p.heading && <h2 className="t-h2 mt-5"><Accent text={p.heading} /></h2>}</div>
+          {p.b1 && <Link href="/isler" className="btn-ghost">{p.b1} <ArrowUpRight size={16} className="arr" /></Link>}
+        </div>
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((it, i) => <WorkCard key={it.id} it={it} more={tp('detail')} large={i === 0 && items.length % 2 === 1 && items.length > 1} />)}
+        </div>
+      </div>
+    </section>
   );
 }
 
-function RichText({ p }: { p: any }) {
-  return (<section className="py-16 md:py-20"><div className="wrap">
-    <h3 className="font-display font-bold text-[clamp(1.5rem,4vw,2.6rem)] mb-4">{p.h}</h3>
-    <p className="text-neutral-300 max-w-[62ch] text-base md:text-lg">{p.p}</p>
-  </div></section>);
+function Stats({ p }: P) {
+  return (
+    <section className="section">
+      <div className="wrap">
+        {p.label && <div className="eyebrow">{p.label}</div>}
+        {p.statement && <p className="t-h2 mt-5 max-w-[20ch]"><Accent text={p.statement} /></p>}
+        <dl className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[1.25rem] border border-line bg-[color:var(--line)] md:grid-cols-4">
+          {arr(p.items).map((s: any, i: number) => (
+            <div key={i} className="bg-bone p-6 md:p-8">
+              <dt className="order-2 mt-2 text-sm text-[color:var(--ink-2)]">{s.l}</dt>
+              <dd className="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] font-medium leading-none tracking-tight"><CountUp value={String(s.v ?? '')} /></dd>
+            </div>
+          ))}
+        </dl>
+        {p.receipt && <p className="mt-8 font-mono text-sm text-mut">{p.receipt}</p>}
+      </div>
+    </section>
+  );
 }
 
-const MAP: Record<string, any> = { band: Band, services: Services, workbench: Workbench, process: Process, toolkit: Toolkit, principles: Principles, stats: Stats, testimonials: Testimonials, cards: Cards, faq: Faq, cta: Cta, clients: Clients, marquee: MarqueeBand, richtext: RichText };
+function Cards({ p }: P) {
+  return (
+    <section className="section">
+      <div className="wrap">
+        <Head label={p.label} heading={p.heading} />
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {arr(p.items).map((it: any, i: number) => (
+            <div key={i} className="card card-hover p-6 md:p-7">
+              <span className="font-mono text-xs text-mut">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="t-h3 mt-6">{it.h}</h3>
+              <p className="mt-3 leading-relaxed text-[color:var(--ink-2)]">{it.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials({ p }: P) {
+  return (
+    <section className="section">
+      <div className="wrap">
+        {p.label && <div className="eyebrow">{p.label}</div>}
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {arr(p.items).map((q: any, i: number) => (
+            <figure key={i} className={`flex flex-col justify-between rounded-[1.5rem] p-7 md:p-10 ${i % 2 ? 'bg-bone border border-line' : 'bg-ink text-bone'}`}>
+              <blockquote className="font-display text-[clamp(1.2rem,2.2vw,1.65rem)] leading-snug tracking-tight">“{String(q.q || '').replace(/^["“]|["”]$/g, '')}”</blockquote>
+              <figcaption className="mt-10 flex items-center gap-3 font-mono text-sm opacity-70"><span className="h-px w-6 bg-brand" />{q.by}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Clients({ p }: P) {
+  return (
+    <section className="py-14">
+      <div className="wrap mb-6">{p.label && <div className="eyebrow">{p.label}</div>}</div>
+      <Marquee items={arr(p.items)} sep="·" className="font-display text-[clamp(1.5rem,4vw,2.6rem)] font-medium tracking-tight text-ink/40" />
+    </section>
+  );
+}
+
+function Faq({ p }: P) {
+  return (
+    <section className="section">
+      <div className="wrap grid gap-10 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          {p.label && <div className="eyebrow">{p.label}</div>}
+          {p.heading && <h2 className="t-h2 mt-5">{p.heading}</h2>}
+        </div>
+        <div className="divide-y divide-[color:var(--line)] border-y border-line lg:col-span-8">
+          {arr(p.items).map((f: any, i: number) => (
+            <details key={i} className="group py-1">
+              <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 text-left font-display text-[clamp(1.02rem,1.6vw,1.25rem)] font-medium tracking-tight transition hover:text-brand-deep">
+                {f.q}
+                <span className="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line transition duration-300"><Plus size={16} /></span>
+              </summary>
+              <p className="max-w-[64ch] pb-6 pr-12 leading-relaxed text-[color:var(--ink-2)]">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Cta({ p }: P) {
+  return (
+    <section className="pb-20 md:pb-28">
+      <div className="wrap">
+        <div className="relative overflow-hidden rounded-[2rem] bg-brand px-6 py-14 sm:px-10 md:px-16 md:py-20">
+          <div aria-hidden className="absolute -bottom-24 -right-16 h-72 w-72 rounded-full border-[40px] border-ink/[.07]" />
+          <h2 className="t-display relative max-w-[16ch] text-[clamp(2.1rem,5.5vw,4.6rem)]"><Accent text={p.h2} /></h2>
+          <div className="relative mt-10 flex flex-wrap items-end justify-between gap-6">
+            {p.p && <p className="max-w-[44ch] text-[1.05rem] leading-relaxed text-ink/80">{p.p}</p>}
+            <Link href={p.href || '/elaqe'} className="btn bg-ink text-bone hover:bg-bone hover:text-ink">{p.b1} <ArrowUpRight size={18} className="arr" /></Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function RichText({ p }: P) {
+  const paras = String(p.p || '').split('\n').filter(Boolean);
+  return (
+    <section className="section">
+      <div className="wrap grid gap-8 md:grid-cols-12">
+        <div className="md:col-span-4">{p.label && <div className="eyebrow">{p.label}</div>}</div>
+        <div className="md:col-span-8">
+          {p.h && <h2 className="t-h2 max-w-[18ch]"><Accent text={p.h} /></h2>}
+          <div className="mt-8 space-y-5">{paras.map((x, i) => <p key={i} className="t-lead max-w-[62ch]">{x}</p>)}</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const MAP: Record<string, (props: P) => any> = {
+  marquee: MarqueeBand, band: Band, services: Services, workbench: Workbench, process: Process, toolkit: Toolkit,
+  principles: Principles, work: Work, stats: Stats, cards: Cards, testimonials: Testimonials, clients: Clients,
+  faq: Faq, cta: Cta, richtext: RichText,
+};
 
 export function BlockRenderer({ blocks }: { blocks: Block[] }) {
   return (
     <>
       {blocks.map((b, i) => {
-        if (b.type === 'hero') return <Hero key={i} p={b.props} />;
-        if (b.type === 'marquee') return <MarqueeBand key={i} p={b.props} />;
+        if (!b || typeof b !== 'object') return null;
+        if (b.type === 'hero') return <Hero key={i} p={b.props || {}} />;
         const C = MAP[b.type];
         if (!C) return null;
-        return <Reveal key={i}><C p={b.props} /></Reveal>;
+        if (b.type === 'marquee') return <C key={i} p={b.props || {}} />;
+        return <Reveal key={i}><C p={b.props || {}} /></Reveal>;
       })}
     </>
   );

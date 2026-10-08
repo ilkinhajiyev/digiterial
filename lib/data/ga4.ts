@@ -1,4 +1,4 @@
-'use server';
+import 'server-only';
 
 // Google Analytics 4 Data API-dən real statistika çəkir.
 // Lazımi env dəyişənləri (Hostinger-də):

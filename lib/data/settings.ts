@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { createServiceClient } from '@/lib/supabase/service';
 
 export type SiteSettings = {
@@ -34,10 +35,10 @@ export const defaultSettings: SiteSettings = {
   whatsapp: '994604996340',
   address: 'Bakı & Gəncə, Azərbaycan',
   social: {
-    instagram: 'https://instagram.com',
-    linkedin: 'https://linkedin.com',
-    tiktok: 'https://tiktok.com',
-    facebook: 'https://facebook.com',
+    instagram: '',
+    linkedin: '',
+    tiktok: '',
+    facebook: '',
     youtube: '',
   },
   analytics: {
@@ -51,7 +52,7 @@ export const defaultSettings: SiteSettings = {
   },
 };
 
-export async function getSettings(): Promise<SiteSettings> {
+export const getSettings = cache(async function getSettings(): Promise<SiteSettings> {
   try {
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -80,4 +81,4 @@ export async function getSettings(): Promise<SiteSettings> {
   } catch {
     return defaultSettings;
   }
-}
+});

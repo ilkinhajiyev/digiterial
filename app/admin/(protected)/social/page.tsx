@@ -1,3 +1,4 @@
+import { requireStaff } from '@/lib/auth/guard';
 export default function Page() {
   return (
     <>
