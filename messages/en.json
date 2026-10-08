@@ -28,7 +28,7 @@
   },
   "hero": {
     "eyebrow": "A digital team based in Baku",
-    "h1": "Digital systems that work for your business.",
+    "h1": "Digital systems that *work* for your business.",
     "lead": "We build web, marketing and brand as one connected system focused on the same business goal.",
     "b1": "Discuss your project",
     "b2": "See our work",
@@ -63,17 +63,17 @@
     },
     "band": {
       "label": "Our approach",
-      "big": "We start with the problem.",
+      "big": "We start with the *problem.*",
       "h3": "Then we plan and deliver around your business.",
       "p": "We do not sell a fixed package. We set priorities around your goals, team and budget, then divide the work into clear stages."
     },
     "servicesHead": {
       "label": "Services",
-      "heading": "What you need. Nothing extra."
+      "heading": "What you need. *Nothing extra.*"
     },
     "workbench": {
       "label": "The workbench",
-      "heading": "We turn ideas into working products.",
+      "heading": "We turn ideas into *working products.*",
       "text": "We consider four disciplines together, so design, technology and growth never drift apart.",
       "h1": "Meaning and message",
       "p1": "We clarify in one sentence why people should choose you.",
@@ -86,7 +86,7 @@
     },
     "process": {
       "label": "How we work",
-      "heading": "From first conversation to launch.",
+      "heading": "From first conversation to *launch.*",
       "text": "At every stage, you know what we are doing, why it matters and what comes next.",
       "h1": "Discover and direct",
       "p1": "Together, we define your business, audience and the clearest opportunities for growth.",
@@ -97,7 +97,7 @@
     },
     "toolkit": {
       "label": "Capabilities, not tools",
-      "heading": "The team the work requires.",
+      "heading": "The team the work *requires.*",
       "text": "We bring the right disciplines together for the project, so you do not have to coordinate separate suppliers.",
       "r1": "Web experience",
       "r2": "E-commerce",
@@ -110,7 +110,7 @@
     },
     "principles": {
       "label": "Working principles",
-      "heading": "The process matters as much as the result.",
+      "heading": "The process matters as much as *the result.*",
       "h1": "We speak clearly",
       "p1": "We do not hide behind technical language. Decisions and their reasons stay visible.",
       "h2": "We show the work",
@@ -149,7 +149,7 @@
       "label": "Trusted by"
     },
     "cta": {
-      "h2": "Let’s talk about your project.",
+      "h2": "Let’s talk about *your project.*",
       "p": "We will listen to what you need and define a sensible approach and next steps together.",
       "b1": "Get in touch"
     },
@@ -174,7 +174,7 @@
     "services": "Services",
     "work": "Work",
     "blog": "Blog",
-    "ctaH": "What's your next project?",
+    "ctaH": "What's your *next project?*",
     "office": "Office"
   },
   "pages": {

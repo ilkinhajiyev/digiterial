@@ -1,17 +1,21 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import { Accent } from '@/components/site/accent';
+import WordReveal from '@/components/site/word-reveal';
 
 export default function PageHeader({ eyebrow, title, lead, back, children }: { eyebrow?: string; title: string; lead?: string; back?: { href: string; label: string }; children?: React.ReactNode }) {
   return (
-    <section className="relative overflow-hidden pb-12 pt-32 md:pb-16 md:pt-40">
-      <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 h-[480px] w-[480px] rounded-full bg-brand/[.10] blur-3xl" />
+    <section className="relative overflow-hidden pb-14 pt-40 md:pb-20 md:pt-52">
+      <div aria-hidden className="aurora pointer-events-none absolute inset-0" />
       <div className="wrap relative">
-        {back && <Link href={back.href} className="rise rise-1 mb-8 flex w-fit items-center gap-2 text-sm text-[color:var(--ink-2)] transition hover:text-ink"><ArrowLeft size={16} />{back.label}</Link>}
-        {eyebrow && <div className="eyebrow rise rise-1">{eyebrow}</div>}
-        <h1 className="t-h1 rise rise-2 mt-6 max-w-[18ch]"><Accent text={title} /></h1>
-        {lead && <p className="t-lead rise rise-3 mt-6 max-w-[56ch]">{lead}</p>}
-        {children && <div className="rise rise-4 mt-8">{children}</div>}
+        {back && <Link href={back.href} className="fade-up d1 mb-10 flex w-fit items-center gap-2 font-mono text-[.7rem] uppercase tracking-[.18em] text-ash transition hover:text-bone"><ArrowLeft size={14} />{back.label}</Link>}
+        {eyebrow && <div className="eyebrow fade-up d1">{eyebrow}</div>}
+        <h1 className="t-h1 mt-8 max-w-[15ch]"><WordReveal text={title} delay={150} /></h1>
+        {(lead || children) && (
+          <div className="mt-12 grid gap-8 border-t border-[color:var(--line)] pt-8 md:grid-cols-12">
+            {lead && <p className="t-lead fade-up d4 md:col-span-6">{lead}</p>}
+            {children && <div className="fade-up d5 md:col-span-6 md:flex md:justify-end">{children}</div>}
+          </div>
+        )}
       </div>
     </section>
   );

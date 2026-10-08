@@ -13,16 +13,17 @@ Saytın dizaynı tam yenidən qurulub, backend-də ciddi təhlükəsizlik boşlu
    ```
 3. Tövsiyə: Supabase → Authentication → Providers → Email → **"Allow new users to sign up"** söndürün.
 
-## Dizayn (UI/UX)
+## Dizayn (UI/UX) — "Noir" kinematik üslub
 
-- Yeni vizual dil "Studio Paper": isti kağız fonu, mürəkkəb qara, siqnal narıncı (#FF5A2C).
-- Şriftlər self-hosted (Unbounded + Onest + JetBrains Mono) — Google Fonts sorğusu yoxdur, Azərbaycan (ə, ğ, ı), kiril və alman simvollarının hamısı dəstəklənir.
-- Ana səhifə: yeni hero + saxta rəqəmsiz "bento" panel (iş prosesi, canlı Bakı saatı, əsas istiqamətlər); 3D səhnə çıxarılıb.
-- Bütün bloklar yenidən dizayn olunub: xidmət kartları, iş masası, proses, bacarıqlar, prinsiplər, FAQ, CTA, footer.
-- Header: aktiv səhifə göstəricisi, dil seçimi bayraqlar əvəzinə açılan siyahı, tam ekran mobil menyu (Esc ilə bağlanır).
-- Əlaqə formu: telefon, büdcə, xidmət seçimi (chip-lər), aydın xəta mesajları, "Sonra nə olur?" bloku; xidmət səhifəsindən gələndə xidmət avtomatik seçilir.
-- Yeni səhifələr/bölmələr: işlənmiş 404, Haqqımızda və Case-lər üçün real kontent, Bloq siyahısı və yazı səhifəsi.
-- Əlçatanlıq: "məzmuna keç" linki, label-input əlaqəsi, fokus halqaları, `aria-*` atributları, `prefers-reduced-motion` dəstəyi; JS olmadan kontent görünür.
+- Qara səhnə, fil sümüyü mətn və şampan qızılı işıq (#E7B76A); bütün sayta film dənəvərliyi teksturası.
+- Tipoqrafiya: Cormorant Garamond (serif başlıqlar, qızılı kursiv vurğular) + Inter Tight + JetBrains Mono. Self-hosted, Ə/ə, kiril və alman simvolları dəstəklənir.
+- Hero: **real vaxtda WebGL ilə çəkilən maye metal obyekt** (raymarching, studiya işığı əks olunmaları, siçana reaksiya). Xarici kitabxana yoxdur; ekrandan çıxanda dayanır, "azaldılmış hərəkət" rejimində tək kadr göstərir, WebGL olmayan cihazlarda CSS fallback.
+- Başlıqlar sözbəsöz maskadan açılır; manifest mətni scroll etdikcə sözbəsöz işıqlanır.
+- Xidmətlər: böyük serif indeks + kursoru izləyən "material" önizləmə kartı.
+- İş prosesi: scroll zamanı üst-üstə yığılan (sticky) kartlar; iş masası kartlarında siçanı izləyən işıq; portfolio kartlarında 3D əyilmə.
+- Konturlu kursiv marquee-lər, fəsil nömrələri (01), (02)…, kinematik CTA və nəhəng kursiv footer işarəsi.
+- Başlıqda `*söz*` yazdıqda o söz qızılı kursiv olur (builder-də də işləyir).
+- Əlçatanlıq: skip link, label/aria, fokus halqaları, `prefers-reduced-motion`; JS olmadan kontent görünür.
 
 ## Frontend
 

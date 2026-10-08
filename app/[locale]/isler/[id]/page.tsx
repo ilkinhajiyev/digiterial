@@ -34,14 +34,14 @@ export default async function PortfolioDetail({ params }: { params: Promise<{ lo
       <PageHeader back={{ href: '/isler', label: tr('back') }} eyebrow={it.category === 'smm' ? 'SMM' : 'Web'} title={it.title} lead={it.description}>
         <div className="flex flex-wrap items-center gap-2">
           {it.client && <span className="chip">{it.client}</span>}
-          {it.metric && <span className="chip border-ink bg-ink text-bone">{it.metric}</span>}
+          {it.metric && <span className="chip border-brand text-brand">{it.metric}</span>}
           {tags.map((t) => <span key={t} className="chip">{t}</span>)}
           {link && <a href={link} target="_blank" rel="noopener noreferrer" className="btn-primary ml-auto">{tr('visit')} <ArrowUpRight size={18} className="arr" /></a>}
         </div>
       </PageHeader>
 
       {it.image_url && (
-        <div className="wrap"><div className="overflow-hidden rounded-[1.5rem] bg-[#E6E1D6]"><img src={it.image_url} alt={it.title} className="aspect-[16/9] w-full object-cover" /></div></div>
+        <div className="wrap"><div className="overflow-hidden rounded-[1.75rem] bg-coal"><img src={it.image_url} alt={it.title} className="aspect-[16/9] w-full object-cover" /></div></div>
       )}
 
       {it.body && (

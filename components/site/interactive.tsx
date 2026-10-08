@@ -42,15 +42,15 @@ export function CountUp({ value }: { value: string }) {
   return <span ref={ref}>{disp}</span>;
 }
 
-export function Marquee({ items, className = '', sep = '✦' }: { items: string[]; className?: string; sep?: string }) {
+export function Marquee({ items, className = '', sep = '✦', itemClass = '', sepClass = 'text-brand' }: { items: string[]; className?: string; sep?: string; itemClass?: string; sepClass?: string }) {
   if (!items?.length) return null;
   const seq = [...items, ...items, ...items, ...items];
   return (
-    <div className={`marquee ${className}`} aria-label={items.join(', ')} role="marquee">
+    <div className={`marquee ${className}`} aria-hidden>
       <div className="marquee-track" aria-hidden>
         {seq.map((t, i) => (
           <span key={i} className="inline-flex items-center">
-            <span className="px-6">{t}</span><span className="text-brand">{sep}</span>
+            <span className={`px-[.35em] ${itemClass}`}>{t}</span><span className={sepClass}>{sep}</span>
           </span>
         ))}
       </div>

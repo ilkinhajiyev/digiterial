@@ -15,7 +15,7 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const viewport: Viewport = { themeColor: '#F3F0E9', width: 'device-width', initialScale: 1 };
+export const viewport: Viewport = { themeColor: '#09090B', width: 'device-width', initialScale: 1 };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (s.analytics?.yandexVerification) verification.yandex = safeId(s.analytics.yandexVerification, 100);
   return {
     metadataBase: new URL(SITE_URL),
-    title: { default: `${s.brand} — ${t('h1')}`, template: `%s · ${s.brand}` },
+    title: { default: `${s.brand} — ${t('h1').replace(/\*/g, '')}`, template: `%s · ${s.brand}` },
     description: t('lead'),
     applicationName: s.brand,
     formatDetection: { telephone: false },

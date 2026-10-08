@@ -28,7 +28,7 @@
   },
   "hero": {
     "eyebrow": "Bakıdan fəaliyyət göstərən rəqəmsal komanda",
-    "h1": "Biznesiniz üçün işləyən rəqəmsal sistemlər.",
+    "h1": "Biznesiniz üçün işləyən *rəqəmsal* sistemlər.",
     "lead": "Veb sayt, reklam və brendi ayrı-ayrı xidmətlər kimi yox, eyni biznes məqsədinə işləyən vahid sistem kimi qururuq.",
     "b1": "Layihəni müzakirə et",
     "b2": "İşlərimizə bax",
@@ -63,17 +63,17 @@
     },
     "band": {
       "label": "Yanaşma",
-      "big": "Əvvəl problemi anlayırıq.",
+      "big": "Əvvəl *problemi* anlayırıq.",
       "h3": "Sonra biznesinizə uyğun plan qurub icra edirik.",
       "p": "Hazır paket satmırıq. Məqsədinizə, komandanıza və büdcənizə uyğun prioritetləri müəyyənləşdirir, işi aydın mərhələlərə bölürük."
     },
     "servicesHead": {
       "label": "Xidmətlər",
-      "heading": "Lazım olan qədər. Artıq yox."
+      "heading": "Lazım olan qədər. *Artıq yox.*"
     },
     "workbench": {
       "label": "İş masası",
-      "heading": "İdeyanı işləyən məhsula çeviririk.",
+      "heading": "İdeyanı işləyən *məhsula* çeviririk.",
       "text": "Hər layihədə dörd istiqaməti birlikdə düşünürük. Beləliklə görünüş, texnologiya və satış bir-birindən qopmur.",
       "h1": "Məna və mesaj",
       "p1": "İnsanların sizi niyə seçməli olduğunu bir cümlədə aydınlaşdırırıq.",
@@ -86,7 +86,7 @@
     },
     "process": {
       "label": "İş prosesi",
-      "heading": "Tanışlıqdan yayıma qədər.",
+      "heading": "Tanışlıqdan *yayıma* qədər.",
       "text": "Hər mərhələdə nə etdiyimizi, nə üçün etdiyimizi və növbəti addımı bilirsiniz.",
       "h1": "Kəşf və istiqamət",
       "p1": "Biznesinizi, auditoriyanızı və real böyümə imkanlarını birlikdə müəyyənləşdiririk.",
@@ -97,7 +97,7 @@
     },
     "toolkit": {
       "label": "Alətlər yox, imkanlar",
-      "heading": "İşin tələb etdiyi komanda.",
+      "heading": "İşin tələb etdiyi *komanda.*",
       "text": "Layihəyə uyğun bacarıqları bir araya gətiririk; siz ayrı-ayrı icraçılar arasında koordinasiya etmirsiniz.",
       "r1": "Veb təcrübə",
       "r2": "E-ticarət",
@@ -110,7 +110,7 @@
     },
     "principles": {
       "label": "İş prinsipləri",
-      "heading": "Proses də nəticə qədər vacibdir.",
+      "heading": "Proses də *nəticə* qədər vacibdir.",
       "h1": "Aydın danışırıq",
       "p1": "Texniki jarqonun arxasında gizlənmirik. Qərarları və səbəbləri açıq izah edirik.",
       "h2": "İşi göstəririk",
@@ -149,7 +149,7 @@
       "label": "Bizə etibar edənlər"
     },
     "cta": {
-      "h2": "Layihəniz barədə danışaq.",
+      "h2": "Layihəniz barədə *danışaq.*",
       "p": "Ehtiyacınızı dinləyək, uyğun yanaşmanı və növbəti addımları birlikdə müəyyənləşdirək.",
       "b1": "Bizə yazın"
     },
@@ -174,7 +174,7 @@
     "services": "Xidmətlər",
     "work": "İşlər",
     "blog": "Bloq",
-    "ctaH": "Növbəti layihəniz nədir?",
+    "ctaH": "Növbəti layihəniz *nədir?*",
     "office": "Ofis"
   },
   "pages": {

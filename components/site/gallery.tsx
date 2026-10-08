@@ -29,15 +29,15 @@ export default function Gallery({ images, title = '' }: { images: string[]; titl
         {images.map((src, i) => (
           <button key={i} type="button" onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(i); }}
             aria-label={`${title} — ${i + 1} / ${n}`}
-            className={`img-zoom group relative overflow-hidden rounded-[1.25rem] bg-[#E6E1D6] ${i % 5 === 0 ? 'col-span-2 md:row-span-2' : ''}`}>
+            className={`img-zoom group relative overflow-hidden rounded-[1.25rem] bg-coal ${i % 5 === 0 ? 'col-span-2 md:row-span-2' : ''}`}>
             <img src={src} alt="" loading="lazy" decoding="async" className="aspect-square h-full w-full object-cover" />
-            <span className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-bone/90 opacity-0 transition group-hover:opacity-100"><Expand size={15} /></span>
+            <span className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-ink/70 text-bone opacity-0 backdrop-blur transition group-hover:opacity-100"><Expand size={15} /></span>
           </button>
         ))}
       </div>
 
       {open !== null && (
-        <div role="dialog" aria-modal="true" aria-label={title} className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/95 p-4" onClick={() => setOpen(null)}>
+        <div role="dialog" aria-modal="true" aria-label={title} className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/95 p-4 backdrop-blur" onClick={() => setOpen(null)}>
           <button ref={closeRef} type="button" className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-bone hover:bg-brand hover:text-ink" aria-label="Close"><X size={20} /></button>
           {n > 1 && <button type="button" className="absolute left-3 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-bone hover:bg-brand hover:text-ink md:left-8" aria-label="Previous" onClick={(e) => { e.stopPropagation(); go(-1); }}><ChevronLeft size={22} /></button>}
           <img src={images[open]} alt="" className="max-h-[85vh] max-w-[90vw] rounded-xl object-contain" onClick={(e) => e.stopPropagation()} />

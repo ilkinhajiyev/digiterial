@@ -5,27 +5,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Əsas tokenlər (admin də istifadə edir)
-        ink: '#111110',
-        paper: '#F3F0E9',
-        brand: '#FF5A2C',
-        mut: '#6E6A62',
-        'mut-d': '#A39E94',
-        // Sayt tokenləri
-        bone: '#FBFAF6',
-        line: 'rgba(17,17,16,.12)',
-        'brand-deep': '#C93A12',
-        sage: '#D9E3D3',
-        sky: '#D6E0F0',
+        ink: '#09090B',      // səhifə fonu
+        coal: '#111114',     // qaldırılmış səth
+        slate: '#1A1A1F',    // daha yüksək səth
+        bone: '#ECE8E1',     // əsas mətn
+        ash: '#8E8A84',      // ikinci dərəcəli mətn
+        brand: '#E7B76A',    // şampan qızılı
+        'brand-deep': '#C08A44',
+        glow: '#9C8CFF',     // soyuq kənar işıq
+        paper: '#ECE8E1',
+        mut: '#8E8A84',
+        'mut-d': '#B4AFA7',
       },
       fontFamily: {
-        display: ['"Unbounded Variable"', 'Unbounded', 'system-ui', 'sans-serif'],
-        body: ['"Onest Variable"', 'Onest', 'system-ui', 'sans-serif'],
+        display: ['"Cormorant Garamond Variable"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+        body: ['"Inter Tight Variable"', '"Inter Tight"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono Variable"', '"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
-      borderRadius: { '4xl': '2rem' },
-      transitionTimingFunction: { out: 'cubic-bezier(.2,.7,.2,1)' },
-      maxWidth: { site: '1320px' },
+      maxWidth: { site: '1440px' },
+      transitionTimingFunction: { out: 'cubic-bezier(.16,1,.3,1)' },
     },
   },
   plugins: [],

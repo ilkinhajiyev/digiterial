@@ -3,116 +3,123 @@ import { ArrowUpRight, Plus } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import Hero from '@/components/site/hero';
 import { CountUp, Marquee, Reveal } from '@/components/site/interactive';
-import { ServiceIcon } from '@/components/site/service-icons';
+import { ScrollWords, ServicesIndex, Spotlight } from '@/components/site/fx';
 import { Accent } from '@/components/site/accent';
 import { services } from '@/lib/data/services';
 import { getPortfolioFor } from '@/lib/data/portfolio';
 import WorkCard from '@/components/site/work-card';
 import type { Block } from '@/lib/data/page-registry';
 
-type P = { p: any };
+type P = { p: any; n?: number };
 const arr = (v: any) => (Array.isArray(v) ? v : []);
+const ch = (n?: number) => (n ? `(${String(n).padStart(2, '0')})` : '');
 
-function Head({ label, heading, text, dark, className = '' }: { label?: string; heading?: string; text?: string; dark?: boolean; className?: string }) {
+/** Bölmə başlığı: sol tərəfdə fəsil nömrəsi, sağda başlıq və mətn. */
+function Head({ label, heading, text, n }: { label?: string; heading?: string; text?: string; n?: number }) {
   return (
-    <div className={`grid gap-6 md:grid-cols-12 md:items-end ${className}`}>
-      <div className="md:col-span-7">
+    <div className="grid gap-8 md:grid-cols-12">
+      <div className="md:col-span-3">
         {label && <div className="eyebrow">{label}</div>}
-        {heading && <h2 className={`t-h2 mt-5 max-w-[16ch] ${dark ? 'text-bone' : ''}`}><Accent text={heading} /></h2>}
+        {n ? <div className="chapter mt-3">{ch(n)}</div> : null}
       </div>
-      {text && <p className="t-lead md:col-span-5 md:justify-self-end md:max-w-[44ch]">{text}</p>}
+      <div className="md:col-span-9">
+        {heading && <h2 className="t-h2 max-w-[15ch]"><Accent text={heading} /></h2>}
+        {text && <p className="t-lead mt-8 max-w-[52ch]">{text}</p>}
+      </div>
     </div>
   );
 }
 
 function MarqueeBand({ p }: P) {
   return (
-    <div className="border-y border-line bg-bone py-5">
-      <Marquee items={arr(p.items)} className="font-display text-[clamp(1.1rem,2.2vw,1.6rem)] font-medium tracking-tight" />
+    <div className="relative border-y border-[color:var(--line)] py-6 md:py-8">
+      <p className="sr-only">{arr(p.items).join(', ')}</p>
+      <Marquee items={arr(p.items)} sep="✦" itemClass="text-outline" sepClass="text-brand text-[.4em] not-italic align-middle" className="font-display text-[clamp(2.4rem,6vw,5.4rem)] italic leading-none tracking-[-.02em]" />
     </div>
   );
 }
 
-function Band({ p }: P) {
+function Band({ p, n }: P) {
   return (
     <section className="section">
       <div className="wrap">
-        {p.label && <div className="eyebrow">{p.label}</div>}
-        <p className="t-display mt-6 max-w-[20ch] text-[clamp(2rem,5vw,4.2rem)]"><Accent text={p.big} /></p>
-        <div className="mt-12 grid gap-6 border-t border-line pt-8 md:grid-cols-2 md:gap-12">
-          <h3 className="t-h3 max-w-[30ch]">{p.h3}</h3>
-          <p className="t-lead max-w-[54ch]">{p.p}</p>
+        <div className="mb-14 flex items-center justify-between">
+          {p.label && <div className="eyebrow">{p.label}</div>}
+          <span className="chapter">{ch(n)}</span>
+        </div>
+        <ScrollWords text={p.big || ''} className="t-display max-w-[18ch] text-[clamp(2.8rem,8vw,8rem)] leading-[.92]" />
+        <div className="mt-16 grid gap-8 border-t border-[color:var(--line)] pt-10 md:grid-cols-12">
+          <h3 className="t-h3 md:col-span-5">{p.h3}</h3>
+          <p className="t-lead md:col-span-6 md:col-start-7">{p.p}</p>
         </div>
       </div>
     </section>
   );
 }
 
-async function Services({ p }: P) {
+async function Services({ p, n }: P) {
   const t = await getTranslations('svc');
   const c = await getTranslations('common');
+  const items = services.map((s) => ({ slug: s.slug, title: t(`${s.slug}.title`), short: t(`${s.slug}.short`), tag: t(`${s.slug}.tag`) }));
   return (
     <section id="services" className="section scroll-mt-20">
       <div className="wrap">
-        <Head label={p.label} heading={p.heading} text={p.text} />
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-4">
-          {services.map((s, i) => (
-            <Link key={s.slug} href={`/xidmetler/${s.slug}`}
-              className="card card-hover group flex min-h-[260px] flex-col p-6 md:p-7">
-              <div className="flex items-start justify-between">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-paper text-ink transition duration-300 group-hover:bg-brand"><ServiceIcon slug={s.slug} className="h-6 w-6" /></span>
-                <span className="font-mono text-xs text-mut">{String(i + 1).padStart(2, '0')}</span>
-              </div>
-              <h3 className="t-h3 mt-auto pt-10">{t(`${s.slug}.title`)}</h3>
-              <p className="mt-2 text-[.95rem] leading-relaxed text-[color:var(--ink-2)]">{t(`${s.slug}.short`)}</p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium">
-                {c('more')} <ArrowUpRight size={16} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </span>
-            </Link>
-          ))}
-        </div>
+        <Head label={p.label} heading={p.heading} text={p.text} n={n} />
+        <div className="mt-16 md:mt-24"><ServicesIndex items={items} more={c('more')} /></div>
       </div>
     </section>
   );
 }
 
-function Workbench({ p }: P) {
-  const tones = ['bg-bone text-ink', 'bg-brand text-ink', 'bg-sage text-ink', 'bg-[#2A2926] text-bone'];
-  return (
-    <section className="section-dark section rounded-[2rem]">
-      <div className="wrap">
-        <Head label={p.label} heading={p.heading} text={p.text} dark />
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 md:gap-4">
-          {arr(p.items).map((it: any, i: number) => (
-            <div key={i} className={`flex min-h-[240px] flex-col justify-between rounded-[1.25rem] p-6 transition duration-500 ease-out hover:-translate-y-1 ${tones[i % 4]}`}>
-              <span className="font-mono text-xs opacity-60">0{i + 1}</span>
-              <div>
-                <h3 className="t-h3">{it.h}</h3>
-                <p className="mt-3 text-[.92rem] leading-relaxed opacity-75">{it.p}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Process({ p }: P) {
-  const items = arr(p.items);
+function Workbench({ p, n }: P) {
   return (
     <section className="section">
       <div className="wrap">
-        <Head label={p.label} heading={p.heading} text={p.text} />
-        <ol className={`mt-14 grid gap-px overflow-hidden rounded-[1.25rem] border border-line bg-[color:var(--line)] ${items.length >= 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
-          {items.map((it: any, i: number) => (
-            <li key={i} className="group relative bg-bone p-6 md:p-8">
-              <div className="flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-full border border-line font-mono text-xs transition group-hover:border-brand group-hover:bg-brand">{i + 1}</span>
-                <span className="h-px flex-1 bg-[color:var(--line)]" />
+        <Head label={p.label} heading={p.heading} text={p.text} n={n} />
+        <Spotlight className="mt-16 grid gap-px overflow-hidden rounded-[1.75rem] border border-[color:var(--line)] bg-[color:var(--line)] sm:grid-cols-2 lg:grid-cols-4">
+          {arr(p.items).map((it: any, i: number) => (
+            <div key={i} className="spot group flex min-h-[340px] flex-col justify-between bg-ink p-7 md:p-8">
+              <div className="flex items-start justify-between">
+                <span className="font-display text-6xl italic leading-none text-brand/80">{['i', 'ii', 'iii', 'iv', 'v', 'vi'][i] || i + 1}</span>
+                <span className="h-2 w-2 rounded-full bg-[color:var(--line-2)] transition duration-500 group-hover:scale-150 group-hover:bg-brand" />
               </div>
-              <h3 className="t-h3 mt-8">{it.h}</h3>
-              <p className="mt-3 text-[.95rem] leading-relaxed text-[color:var(--ink-2)]">{it.p}</p>
+              <div>
+                <h3 className="t-h3">{it.h}</h3>
+                <p className="t-small mt-4">{it.p}</p>
+              </div>
+            </div>
+          ))}
+        </Spotlight>
+      </div>
+    </section>
+  );
+}
+
+function Process({ p, n }: P) {
+  const items = arr(p.items);
+  return (
+    <section className="section">
+      <div className="wrap grid gap-12 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <div className="lg:sticky lg:top-[calc(var(--header-h)+40px)]">
+            {p.label && <div className="eyebrow">{p.label}</div>}
+            {n ? <div className="chapter mt-3">{ch(n)}</div> : null}
+            {p.heading && <h2 className="t-h2 mt-8 max-w-[12ch]"><Accent text={p.heading} /></h2>}
+            {p.text && <p className="t-lead mt-8 max-w-[40ch]">{p.text}</p>}
+          </div>
+        </div>
+        <ol className="space-y-5 lg:col-span-7">
+          {items.map((it: any, i: number) => (
+            <li key={i} className="stack-card" style={{ ['--i' as any]: i }}>
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-[color:var(--line)] bg-coal p-8 shadow-[0_-30px_60px_-30px_rgba(0,0,0,.9)] md:p-12">
+                <div aria-hidden className="pointer-events-none absolute -right-10 -top-16 font-display text-[14rem] italic leading-none text-white/[.035]">{i + 1}</div>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-xs text-brand">{String(i + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}</span>
+                  <span className="h-px flex-1 bg-[color:var(--line)]" />
+                </div>
+                <h3 className="t-h3 relative mt-14 text-[clamp(2rem,3.4vw,3rem)]">{it.h}</h3>
+                <p className="t-lead relative mt-4 max-w-[46ch]">{it.p}</p>
+              </div>
             </li>
           ))}
         </ol>
@@ -121,35 +128,34 @@ function Process({ p }: P) {
   );
 }
 
-function Toolkit({ p }: P) {
+function Toolkit({ p, n }: P) {
   const all = [...arr(p.row1), ...arr(p.row2)];
+  const half = Math.ceil(all.length / 2);
   return (
-    <section className="section pt-0">
-      <div className="wrap">
-        <div className="rounded-[2rem] bg-sage p-6 sm:p-10 md:p-14">
-          <Head label={p.label} heading={p.heading} text={p.text} />
-          <ul className="mt-10 flex flex-wrap gap-2.5">
-            {all.map((x: string, i: number) => (
-              <li key={i} className={`rounded-full px-5 py-3 font-display text-[clamp(.95rem,1.6vw,1.2rem)] tracking-tight ${i % 3 === 0 ? 'bg-ink text-bone' : 'bg-bone'}`}>{x}</li>
-            ))}
-          </ul>
-        </div>
+    <section className="section overflow-hidden">
+      <div className="wrap"><Head label={p.label} heading={p.heading} text={p.text} n={n} /></div>
+      <p className="sr-only">{all.join(', ')}</p>
+      <div className="mt-16 space-y-2 md:mt-20">
+        <Marquee items={all.slice(0, half)} sep="✦" sepClass="text-brand text-[.35em] align-middle" className="font-display text-[clamp(2.6rem,7vw,6.4rem)] leading-[1.1] tracking-[-.02em]" />
+        <div className="marquee-rev"><Marquee items={all.slice(half)} sep="✦" itemClass="text-outline" sepClass="text-brand text-[.35em] align-middle not-italic" className="font-display text-[clamp(2.6rem,7vw,6.4rem)] italic leading-[1.1] tracking-[-.02em]" /></div>
       </div>
     </section>
   );
 }
 
-function Principles({ p }: P) {
+function Principles({ p, n }: P) {
   return (
     <section className="section">
       <div className="wrap">
-        <Head label={p.label} heading={p.heading} />
-        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+        <Head label={p.label} heading={p.heading} n={n} />
+        <div className="mt-20 grid gap-14 md:grid-cols-3 md:gap-10">
           {arr(p.items).map((it: any, i: number) => (
-            <div key={i} className="border-t-2 border-ink pt-6">
-              <span className="font-display text-[3.2rem] font-medium leading-none tracking-tight text-brand">0{i + 1}</span>
-              <h3 className="t-h3 mt-6">{it.h}</h3>
-              <p className="mt-3 leading-relaxed text-[color:var(--ink-2)]">{it.p}</p>
+            <div key={i}>
+              <div className="flex items-end gap-4 border-b border-[color:var(--line)] pb-6">
+                <span className="font-display text-[5.5rem] italic leading-[.75] text-transparent [-webkit-text-stroke:1px_rgba(231,183,106,.7)]">{i + 1}</span>
+              </div>
+              <h3 className="t-h3 mt-8">{it.h}</h3>
+              <p className="t-small mt-4">{it.p}</p>
             </div>
           ))}
         </div>
@@ -158,7 +164,7 @@ function Principles({ p }: P) {
   );
 }
 
-async function Work({ p }: P) {
+async function Work({ p, n }: P) {
   const locale = await getLocale();
   const tp = await getTranslations('portfolio');
   let items = await getPortfolioFor(locale);
@@ -169,67 +175,70 @@ async function Work({ p }: P) {
   return (
     <section className="section">
       <div className="wrap">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>{p.label && <div className="eyebrow">{p.label}</div>}{p.heading && <h2 className="t-h2 mt-5"><Accent text={p.heading} /></h2>}</div>
+        <div className="flex flex-wrap items-end justify-between gap-8">
+          <div>
+            {p.label && <div className="eyebrow">{p.label}</div>}
+            {n ? <div className="chapter mt-3">{ch(n)}</div> : null}
+            {p.heading && <h2 className="t-h2 mt-8"><Accent text={p.heading} /></h2>}
+          </div>
           {p.b1 && <Link href="/isler" className="btn-ghost">{p.b1} <ArrowUpRight size={16} className="arr" /></Link>}
         </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((it, i) => <WorkCard key={it.id} it={it} more={tp('detail')} large={i === 0 && items.length % 2 === 1 && items.length > 1} />)}
+        <div className="mt-16 grid gap-x-6 gap-y-16 md:grid-cols-2">
+          {items.map((it, i) => <WorkCard key={it.id} it={it} more={tp('detail')} index={i} />)}
         </div>
       </div>
     </section>
   );
 }
 
-function Stats({ p }: P) {
+function Stats({ p, n }: P) {
   return (
     <section className="section">
       <div className="wrap">
-        {p.label && <div className="eyebrow">{p.label}</div>}
-        {p.statement && <p className="t-h2 mt-5 max-w-[20ch]"><Accent text={p.statement} /></p>}
-        <dl className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[1.25rem] border border-line bg-[color:var(--line)] md:grid-cols-4">
+        <Head label={p.label} heading={p.statement} n={n} />
+        <dl className="mt-16 grid grid-cols-2 border-t border-[color:var(--line)] md:grid-cols-4">
           {arr(p.items).map((s: any, i: number) => (
-            <div key={i} className="bg-bone p-6 md:p-8">
-              <dt className="order-2 mt-2 text-sm text-[color:var(--ink-2)]">{s.l}</dt>
-              <dd className="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] font-medium leading-none tracking-tight"><CountUp value={String(s.v ?? '')} /></dd>
+            <div key={i} className="flex flex-col-reverse border-b border-[color:var(--line)] py-8 pr-6 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0">
+              <dt className="mt-3 font-mono text-[.7rem] uppercase tracking-[.18em] text-ash">{s.l}</dt>
+              <dd className="font-display text-[clamp(3rem,6vw,5.5rem)] leading-none tracking-[-.02em]"><CountUp value={String(s.v ?? '')} /></dd>
             </div>
           ))}
         </dl>
-        {p.receipt && <p className="mt-8 font-mono text-sm text-mut">{p.receipt}</p>}
+        {p.receipt && <p className="mt-8 font-mono text-sm text-ash">{p.receipt}</p>}
       </div>
     </section>
   );
 }
 
-function Cards({ p }: P) {
+function Cards({ p, n }: P) {
   return (
     <section className="section">
       <div className="wrap">
-        <Head label={p.label} heading={p.heading} />
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <Head label={p.label} heading={p.heading} n={n} />
+        <Spotlight className="mt-16 grid gap-4 md:grid-cols-3">
           {arr(p.items).map((it: any, i: number) => (
-            <div key={i} className="card card-hover p-6 md:p-7">
-              <span className="font-mono text-xs text-mut">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="t-h3 mt-6">{it.h}</h3>
-              <p className="mt-3 leading-relaxed text-[color:var(--ink-2)]">{it.p}</p>
+            <div key={i} className="spot panel p-8">
+              <span className="font-mono text-xs text-brand">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="t-h3 mt-10">{it.h}</h3>
+              <p className="t-small mt-4">{it.p}</p>
             </div>
           ))}
-        </div>
+        </Spotlight>
       </div>
     </section>
   );
 }
 
-function Testimonials({ p }: P) {
+function Testimonials({ p, n }: P) {
   return (
     <section className="section">
       <div className="wrap">
-        {p.label && <div className="eyebrow">{p.label}</div>}
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="flex items-center justify-between">{p.label && <div className="eyebrow">{p.label}</div>}<span className="chapter">{ch(n)}</span></div>
+        <div className="mt-14 space-y-16">
           {arr(p.items).map((q: any, i: number) => (
-            <figure key={i} className={`flex flex-col justify-between rounded-[1.5rem] p-7 md:p-10 ${i % 2 ? 'bg-bone border border-line' : 'bg-ink text-bone'}`}>
-              <blockquote className="font-display text-[clamp(1.2rem,2.2vw,1.65rem)] leading-snug tracking-tight">“{String(q.q || '').replace(/^["“]|["”]$/g, '')}”</blockquote>
-              <figcaption className="mt-10 flex items-center gap-3 font-mono text-sm opacity-70"><span className="h-px w-6 bg-brand" />{q.by}</figcaption>
+            <figure key={i} className={`max-w-[26ch] ${i % 2 ? 'ml-auto text-right' : ''}`}>
+              <blockquote className="font-display text-[clamp(2rem,4.4vw,4rem)] italic leading-[1.02] tracking-[-.01em]">“{String(q.q || '').replace(/^["“]|["”]$/g, '')}”</blockquote>
+              <figcaption className="mt-6 font-mono text-xs uppercase tracking-[.18em] text-ash">— {q.by}</figcaption>
             </figure>
           ))}
         </div>
@@ -240,29 +249,30 @@ function Testimonials({ p }: P) {
 
 function Clients({ p }: P) {
   return (
-    <section className="py-14">
-      <div className="wrap mb-6">{p.label && <div className="eyebrow">{p.label}</div>}</div>
-      <Marquee items={arr(p.items)} sep="·" className="font-display text-[clamp(1.5rem,4vw,2.6rem)] font-medium tracking-tight text-ink/40" />
+    <section className="py-16">
+      <div className="wrap mb-8">{p.label && <div className="eyebrow">{p.label}</div>}</div>
+      <Marquee items={arr(p.items)} sep="·" className="font-display text-[clamp(2rem,4.5vw,3.6rem)] italic text-white/35" />
     </section>
   );
 }
 
-function Faq({ p }: P) {
+function Faq({ p, n }: P) {
   return (
     <section className="section">
-      <div className="wrap grid gap-10 lg:grid-cols-12">
+      <div className="wrap grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           {p.label && <div className="eyebrow">{p.label}</div>}
-          {p.heading && <h2 className="t-h2 mt-5">{p.heading}</h2>}
+          {n ? <div className="chapter mt-3">{ch(n)}</div> : null}
+          {p.heading && <h2 className="t-h2 mt-8">{p.heading}</h2>}
         </div>
-        <div className="divide-y divide-[color:var(--line)] border-y border-line lg:col-span-8">
+        <div className="border-t border-[color:var(--line)] lg:col-span-8">
           {arr(p.items).map((f: any, i: number) => (
-            <details key={i} className="group py-1">
-              <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 text-left font-display text-[clamp(1.02rem,1.6vw,1.25rem)] font-medium tracking-tight transition hover:text-brand-deep">
-                {f.q}
-                <span className="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line transition duration-300"><Plus size={16} /></span>
+            <details key={i} className="group border-b border-[color:var(--line)]">
+              <summary className="flex cursor-pointer items-center justify-between gap-6 py-7 text-left font-display text-[clamp(1.5rem,2.4vw,2.2rem)] leading-tight transition-colors duration-300 hover:text-brand">
+                <span><span className="mr-4 align-middle font-mono text-xs text-ash">{String(i + 1).padStart(2, '0')}</span>{f.q}</span>
+                <span className="faq-icon grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[color:var(--line-2)] transition duration-500"><Plus size={16} /></span>
               </summary>
-              <p className="max-w-[64ch] pb-6 pr-12 leading-relaxed text-[color:var(--ink-2)]">{f.a}</p>
+              <p className="t-lead max-w-[62ch] pb-8 pr-14 md:pl-9">{f.a}</p>
             </details>
           ))}
         </div>
@@ -273,30 +283,26 @@ function Faq({ p }: P) {
 
 function Cta({ p }: P) {
   return (
-    <section className="pb-20 md:pb-28">
-      <div className="wrap">
-        <div className="relative overflow-hidden rounded-[2rem] bg-brand px-6 py-14 sm:px-10 md:px-16 md:py-20">
-          <div aria-hidden className="absolute -bottom-24 -right-16 h-72 w-72 rounded-full border-[40px] border-ink/[.07]" />
-          <h2 className="t-display relative max-w-[16ch] text-[clamp(2.1rem,5.5vw,4.6rem)]"><Accent text={p.h2} /></h2>
-          <div className="relative mt-10 flex flex-wrap items-end justify-between gap-6">
-            {p.p && <p className="max-w-[44ch] text-[1.05rem] leading-relaxed text-ink/80">{p.p}</p>}
-            <Link href={p.href || '/elaqe'} className="btn bg-ink text-bone hover:bg-bone hover:text-ink">{p.b1} <ArrowUpRight size={18} className="arr" /></Link>
-          </div>
-        </div>
+    <section className="relative overflow-hidden py-28 md:py-44">
+      <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-[80vmin] w-[80vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(231,183,106,.22),transparent_62%)] blur-2xl" />
+      <div className="wrap relative text-center">
+        <h2 className="t-display mx-auto max-w-[13ch] text-[clamp(3rem,9vw,9rem)] leading-[.88]"><Accent text={p.h2} /></h2>
+        {p.p && <p className="t-lead mx-auto mt-10 max-w-[44ch]">{p.p}</p>}
+        <Link href={p.href || '/elaqe'} className="btn-gold mt-12">{p.b1} <ArrowUpRight size={18} className="arr" /></Link>
       </div>
     </section>
   );
 }
 
-function RichText({ p }: P) {
+function RichText({ p, n }: P) {
   const paras = String(p.p || '').split('\n').filter(Boolean);
   return (
     <section className="section">
-      <div className="wrap grid gap-8 md:grid-cols-12">
-        <div className="md:col-span-4">{p.label && <div className="eyebrow">{p.label}</div>}</div>
-        <div className="md:col-span-8">
-          {p.h && <h2 className="t-h2 max-w-[18ch]"><Accent text={p.h} /></h2>}
-          <div className="mt-8 space-y-5">{paras.map((x, i) => <p key={i} className="t-lead max-w-[62ch]">{x}</p>)}</div>
+      <div className="wrap grid gap-10 md:grid-cols-12">
+        <div className="md:col-span-3">{p.label && <div className="eyebrow">{p.label}</div>}{n ? <div className="chapter mt-3">{ch(n)}</div> : null}</div>
+        <div className="md:col-span-9">
+          {p.h && <h2 className="t-h2 max-w-[16ch]"><Accent text={p.h} /></h2>}
+          <div className="mt-10 grid gap-8 md:grid-cols-2">{paras.map((x, i) => <p key={i} className={i === 0 ? 'font-display text-[1.7rem] leading-snug text-bone' : 't-lead'}>{x}</p>)}</div>
         </div>
       </div>
     </section>
@@ -308,8 +314,10 @@ const MAP: Record<string, (props: P) => any> = {
   principles: Principles, work: Work, stats: Stats, cards: Cards, testimonials: Testimonials, clients: Clients,
   faq: Faq, cta: Cta, richtext: RichText,
 };
+const UNNUMBERED = new Set(['marquee', 'cta', 'clients']);
 
 export function BlockRenderer({ blocks }: { blocks: Block[] }) {
+  let chapter = 0;
   return (
     <>
       {blocks.map((b, i) => {
@@ -317,8 +325,9 @@ export function BlockRenderer({ blocks }: { blocks: Block[] }) {
         if (b.type === 'hero') return <Hero key={i} p={b.props || {}} />;
         const C = MAP[b.type];
         if (!C) return null;
-        if (b.type === 'marquee') return <C key={i} p={b.props || {}} />;
-        return <Reveal key={i}><C p={b.props || {}} /></Reveal>;
+        const n = UNNUMBERED.has(b.type) ? undefined : ++chapter;
+        if (b.type === 'marquee' || b.type === 'process') return <C key={i} p={b.props || {}} n={n} />; // sticky üçün Reveal-siz
+        return <Reveal key={i}><C p={b.props || {}} n={n} /></Reveal>;
       })}
     </>
   );

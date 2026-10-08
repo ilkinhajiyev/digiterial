@@ -28,7 +28,7 @@
   },
   "hero": {
     "eyebrow": "Ein Digitalteam aus Baku",
-    "h1": "Digitale Systeme, die für Ihr Unternehmen arbeiten.",
+    "h1": "Digitale Systeme, die für Ihr Unternehmen *arbeiten.*",
     "lead": "Wir verbinden Web, Marketing und Marke zu einem System mit einem gemeinsamen Geschäftsziel.",
     "b1": "Projekt besprechen",
     "b2": "Unsere Projekte",
@@ -63,17 +63,17 @@
     },
     "band": {
       "label": "Unser Ansatz",
-      "big": "Wir beginnen mit dem Problem.",
+      "big": "Wir beginnen mit dem *Problem.*",
       "h3": "Danach planen und liefern wir passend zu Ihrem Unternehmen.",
       "p": "Wir verkaufen kein starres Paket. Gemeinsam setzen wir Prioritäten nach Zielen, Team und Budget und teilen die Arbeit in klare Phasen."
     },
     "servicesHead": {
       "label": "Leistungen",
-      "heading": "Was Sie brauchen. Nicht mehr."
+      "heading": "Was Sie brauchen. *Nicht mehr.*"
     },
     "workbench": {
       "label": "Die Werkbank",
-      "heading": "Wir machen aus Ideen funktionierende Produkte.",
+      "heading": "Wir machen aus Ideen *funktionierende* Produkte.",
       "text": "Wir denken vier Disziplinen gemeinsam, damit Design, Technologie und Wachstum nicht auseinanderdriften.",
       "h1": "Bedeutung und Botschaft",
       "p1": "Wir klären in einem Satz, warum Menschen sich für Sie entscheiden sollten.",
@@ -86,7 +86,7 @@
     },
     "process": {
       "label": "Unser Prozess",
-      "heading": "Vom ersten Gespräch bis zum Launch.",
+      "heading": "Vom ersten Gespräch bis zum *Launch.*",
       "text": "In jeder Phase wissen Sie, was wir tun, warum es wichtig ist und was als Nächstes kommt.",
       "h1": "Verstehen und ausrichten",
       "p1": "Gemeinsam definieren wir Ihr Geschäft, Ihre Zielgruppe und die klarsten Wachstumschancen.",
@@ -97,7 +97,7 @@
     },
     "toolkit": {
       "label": "Fähigkeiten statt Tools",
-      "heading": "Das Team, das die Aufgabe braucht.",
+      "heading": "Das Team, das die *Aufgabe* braucht.",
       "text": "Wir bringen die passenden Disziplinen zusammen, damit Sie nicht mehrere Dienstleister koordinieren müssen.",
       "r1": "Web Experience",
       "r2": "E-Commerce",
@@ -110,7 +110,7 @@
     },
     "principles": {
       "label": "Arbeitsprinzipien",
-      "heading": "Der Prozess ist so wichtig wie das Ergebnis.",
+      "heading": "Der Prozess ist so wichtig wie das *Ergebnis.*",
       "h1": "Wir sprechen klar",
       "p1": "Wir verstecken uns nicht hinter Fachsprache. Entscheidungen und Gründe bleiben nachvollziehbar.",
       "h2": "Wir zeigen die Arbeit",
@@ -149,7 +149,7 @@
       "label": "Vertraut von"
     },
     "cta": {
-      "h2": "Sprechen wir über Ihr Projekt.",
+      "h2": "Sprechen wir über *Ihr Projekt.*",
       "p": "Wir hören zu und definieren gemeinsam einen sinnvollen Ansatz und die nächsten Schritte.",
       "b1": "Kontakt aufnehmen"
     },
@@ -174,7 +174,7 @@
     "services": "Leistungen",
     "work": "Projekte",
     "blog": "Blog",
-    "ctaH": "Was ist Ihr nächstes Projekt?",
+    "ctaH": "Was ist Ihr *nächstes* Projekt?",
     "office": "Büro"
   },
   "pages": {

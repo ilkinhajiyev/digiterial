@@ -30,22 +30,22 @@ export default async function Contact({ params, searchParams }: { params: Promis
     <>
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'ContactPage', mainEntity: orgLd(st as any) }} />
       <PageHeader eyebrow={t('eyebrow')} title={`${t('h1a')} *${t('h1b')}*`} lead={t('lead')} />
-      <section className="pb-20 md:pb-28"><div className="wrap grid gap-6 lg:grid-cols-12">
+      <section className="pb-24 md:pb-36"><div className="wrap grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-7"><ContactForm services={svcNames} defaultService={svcNames.includes(service || '') ? service : ''} /></div>
-        <aside className="space-y-6 lg:col-span-5">
-          <div className="rounded-[var(--radius)] bg-ink p-7 text-bone md:p-9">
-            <h2 className="t-h3">{t('nextH')}</h2>
-            <ol className="mt-6 space-y-5">
+        <aside className="space-y-12 lg:col-span-4 lg:col-start-9">
+          <div>
+            <h2 className="t-h3 text-[2.2rem]">{t('nextH')}</h2>
+            <ol className="mt-8 space-y-6">
               {[t('n1'), t('n2'), t('n3')].map((x, i) => (
-                <li key={i} className="flex gap-4"><span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand font-mono text-xs text-ink">{i + 1}</span><span className="pt-1 text-[#D8D3C9]">{x}</span></li>
+                <li key={i} className="flex gap-5"><span className="font-display text-3xl italic leading-none text-brand">{i + 1}</span><span className="t-small pt-1">{x}</span></li>
               ))}
             </ol>
           </div>
-          <dl className="card divide-y divide-[color:var(--line)] px-7">
+          <dl className="border-t border-[color:var(--line)]">
             {info.map(({ icon: I, k, v, href }) => (
-              <div key={k} className="flex items-start gap-4 py-5">
-                <I size={18} className="mt-1 shrink-0 text-brand-deep" />
-                <div><dt className="font-mono text-[.7rem] uppercase tracking-[.12em] text-mut">{k}</dt>
+              <div key={k} className="flex items-start gap-4 border-b border-[color:var(--line)] py-5">
+                <I size={16} strokeWidth={1.5} className="mt-1 shrink-0 text-brand" />
+                <div><dt className="font-mono text-[.66rem] uppercase tracking-[.2em] text-ash">{k}</dt>
                   <dd className="mt-1 font-medium">{href ? <a href={href} className="ulink" {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{v}</a> : v}</dd></div>
               </div>
             ))}

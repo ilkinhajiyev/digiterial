@@ -18,12 +18,12 @@ function Group({ id, label, heading, items, more }: { id: string; label: string;
   return (
     <Reveal as="section" className="section pt-8 md:pt-12">
       <div className="wrap" id={id}>
-        <div className="flex flex-wrap items-end justify-between gap-4 border-t border-line pt-8">
-          <div><div className="eyebrow">{label}</div><h2 className="t-h2 mt-4">{heading}</h2></div>
-          <span className="font-mono text-sm text-mut">{String(items.length).padStart(2, '0')}</span>
+        <div className="flex flex-wrap items-end justify-between gap-4 border-t border-[color:var(--line)] pt-10">
+          <div><div className="eyebrow">{label}</div><h2 className="t-h2 mt-6">{heading}</h2></div>
+          <span className="font-display text-5xl italic text-brand">{String(items.length).padStart(2, '0')}</span>
         </div>
-        <div className="mt-10 grid gap-x-4 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((it) => <WorkCard key={it.id} it={it} more={more} />)}
+        <div className="mt-16 grid gap-x-6 gap-y-16 md:grid-cols-2">
+          {items.map((it, i) => <WorkCard key={it.id} it={it} more={more} index={i} />)}
         </div>
       </div>
     </Reveal>
@@ -41,16 +41,16 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
       <PageHeader eyebrow={t('eyebrow')} title={`${t('h1a')} *${t('h1b')}*`} lead={t('lead')}>
         {items.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            <span className="chip bg-ink text-bone border-ink">{t('all')} · {items.length}</span>
-            {web.length > 0 && <a href="#web" className="chip hover:border-ink">{p('web')} · {web.length}</a>}
-            {smm.length > 0 && <a href="#smm" className="chip hover:border-ink">{p('smm')} · {smm.length}</a>}
+            <span className="chip border-brand text-brand">{t('all')} · {items.length}</span>
+            {web.length > 0 && <a href="#web" className="chip hover:border-bone hover:text-bone">{p('web')} · {web.length}</a>}
+            {smm.length > 0 && <a href="#smm" className="chip hover:border-bone hover:text-bone">{p('smm')} · {smm.length}</a>}
           </div>
         )}
       </PageHeader>
       {items.length === 0 && (
         <section className="pb-20"><div className="wrap">
-          <div className="card grid place-items-center px-6 py-20 text-center">
-            <p className="t-h3">{t('empty')}</p>
+          <div className="grid place-items-center rounded-[1.75rem] border border-dashed border-[color:var(--line-2)] px-6 py-24 text-center">
+            <p className="font-display text-4xl italic text-[color:var(--fg-2)]">{t('empty')}</p>
           </div>
         </div></section>
       )}

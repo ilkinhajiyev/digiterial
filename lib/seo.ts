@@ -15,7 +15,9 @@ const OG_LOCALE: Record<string, string> = { az: 'az_AZ', en: 'en_US', ru: 'ru_RU
 export function buildMetadata(opts: {
   locale: string; path: string; title: string; description?: string; image?: string; absoluteTitle?: boolean; type?: 'website' | 'article';
 }): Metadata {
-  const { locale, path, title, description, image } = opts;
+  const { locale, path, image } = opts;
+  const title = opts.title.replace(/\*/g, '');
+  const description = opts.description?.replace(/\*/g, '');
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = localePath(l, path);
   languages['x-default'] = localePath(defaultLocale, path);
