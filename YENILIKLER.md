@@ -17,7 +17,13 @@ Saytın dizaynı tam yenidən qurulub, backend-də ciddi təhlükəsizlik boşlu
 
 - Qara fon (#050506), tünd səthlər (#0E0F12, #15161B) və neon yaşıl vurğu (#3DFFA8); yaşıl üzərində mətn tünd (#02140B) — WCAG AA kontrast.
 - 12 sütunlu grid xətləri, Inter Tight + JetBrains Mono, self-hosted.
-- Hero: interaktiv "Signal Field" (kursora reaksiya verən nöqtələr + parlayan böyümə xətti), canvas, kitabxanasız.
+- **Hero slayder (4 slayd):** Böyümə → Veb sayt → SEO → Reklam. Hər slaydın öz animasiyalı vizualı var (kodla çəkilir, şəkil yükləmir):
+  - Böyümə — kursora reaksiya verən "Signal Field" və parlayan böyümə xətti;
+  - Veb sayt — sayt maketinin hissə-hissə yığılması + mobil versiya;
+  - SEO — axtarış nəticələrində "Sizin saytınız"ın 1-ci yerə qalxması;
+  - Reklam — göstərimdən satışa huni və trend xətti.
+  - 7 saniyəlik avtomatik keçid, Instagram-story tipli progress zolaqları, oxlar, klaviatura (← →), mobil swipe, pauza düyməsi; tab gizli olanda, siçan naviqasiyanın üzərində olanda və "azaldılmış hərəkət" rejimində dayanır.
+  - 1-ci slaydın başlığı builder-dəki hero mətnindən gəlir və səhifənin yeganə H1-idir.
 - "Pulsuz audit" təklifi saytın bütün dillərindən çıxarılıb; əsas CTA — "Layihəni müzakirə edək" / "Layihə başlat".
 
 ## Bloq

@@ -78,7 +78,47 @@
     "sig1": "Trafik",
     "sig2": "Müraciət",
     "sig3": "Satış",
-    "sigTitle": "Canlı siqnal: saytınız → müştəri"
+    "sigTitle": "Canlı siqnal: saytınız → müştəri",
+    "slider": {
+      "label": "Əsas istiqamətlər",
+      "prev": "Əvvəlki slayd",
+      "next": "Növbəti slayd",
+      "pause": "Dayandır",
+      "play": "Davam et",
+      "of": "/",
+      "s1": {
+        "nav": "Böyümə",
+        "tag": "Rəqəmsal marketinq agentliyi"
+      },
+      "s2": {
+        "nav": "Veb sayt",
+        "tag": "Veb sayt hazırlanması",
+        "h": "Ziyarətçini *müştəriyə* çevirən saytlar.",
+        "p": "Sürətli, mobil uyğun və SEO-ya hazır korporativ saytlar, landing səhifələr və onlayn mağazalar — konversiya üçün dizayn olunur.",
+        "b": "Veb sayt xidməti"
+      },
+      "s3": {
+        "nav": "SEO",
+        "tag": "SEO xidməti",
+        "h": "Google-da *birinci* səhifəyə doğru.",
+        "p": "Texniki SEO, açar söz strategiyası və faydalı kontentlə saytınızı müştərilərinizin axtardığı yerdə göstəririk.",
+        "b": "SEO xidməti",
+        "q": "veb sayt hazırlanması bakı",
+        "you": "Sizin saytınız"
+      },
+      "s4": {
+        "nav": "Reklam",
+        "tag": "Google və Meta reklamı",
+        "h": "Hər manatı *ölçülən* reklam.",
+        "p": "Google Ads, Instagram və Facebook kampaniyaları — auditoriya, kreativ və konversiya izləməsi bir sistemdə.",
+        "b": "Reklam xidməti",
+        "f1": "Göstərim",
+        "f2": "Klik",
+        "f3": "Müraciət",
+        "f4": "Satış",
+        "ch": "Kampaniya paneli"
+      }
+    }
   },
   "home": {
     "marquee": {

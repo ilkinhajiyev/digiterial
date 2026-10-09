@@ -78,7 +78,47 @@
     "sig1": "Traffic",
     "sig2": "Anfragen",
     "sig3": "Umsatz",
-    "sigTitle": "Live-Signal: Website → Kunde"
+    "sigTitle": "Live-Signal: Website → Kunde",
+    "slider": {
+      "label": "Schwerpunkte",
+      "prev": "Vorherige Folie",
+      "next": "Nächste Folie",
+      "pause": "Pausieren",
+      "play": "Abspielen",
+      "of": "/",
+      "s1": {
+        "nav": "Wachstum",
+        "tag": "Digitalagentur"
+      },
+      "s2": {
+        "nav": "Websites",
+        "tag": "Webentwicklung",
+        "h": "Websites, die Besucher zu *Kunden* machen.",
+        "p": "Schnelle, mobile und SEO-optimierte Unternehmenswebsites, Landingpages und Onlineshops — auf Conversion ausgelegt.",
+        "b": "Webentwicklung"
+      },
+      "s3": {
+        "nav": "SEO",
+        "tag": "SEO-Leistungen",
+        "h": "Auf die *erste* Seite bei Google.",
+        "p": "Technisches SEO, Keyword-Strategie und nützlicher Content bringen Ihre Website dorthin, wo Ihre Kunden suchen.",
+        "b": "SEO-Leistungen",
+        "q": "webentwicklung baku",
+        "you": "Ihre Website"
+      },
+      "s4": {
+        "nav": "Werbung",
+        "tag": "Google & Meta Ads",
+        "h": "Werbung, bei der jeder Manat *messbar* ist.",
+        "p": "Google Ads, Instagram- und Facebook-Kampagnen — Zielgruppen, Creatives und Conversion-Tracking in einem System.",
+        "b": "Online-Werbung",
+        "f1": "Impressionen",
+        "f2": "Klicks",
+        "f3": "Anfragen",
+        "f4": "Verkäufe",
+        "ch": "Kampagnen-Dashboard"
+      }
+    }
   },
   "home": {
     "marquee": {

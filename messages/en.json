@@ -78,7 +78,47 @@
     "sig1": "Traffic",
     "sig2": "Leads",
     "sig3": "Sales",
-    "sigTitle": "Live signal: website → customer"
+    "sigTitle": "Live signal: website → customer",
+    "slider": {
+      "label": "What we do",
+      "prev": "Previous slide",
+      "next": "Next slide",
+      "pause": "Pause",
+      "play": "Play",
+      "of": "/",
+      "s1": {
+        "nav": "Growth",
+        "tag": "Digital marketing agency"
+      },
+      "s2": {
+        "nav": "Websites",
+        "tag": "Website development",
+        "h": "Websites that turn visitors into *customers*.",
+        "p": "Fast, mobile-friendly, SEO-ready corporate sites, landing pages and online stores — designed to convert.",
+        "b": "Website development"
+      },
+      "s3": {
+        "nav": "SEO",
+        "tag": "SEO services",
+        "h": "Climb to the *first* page of Google.",
+        "p": "Technical SEO, keyword strategy and useful content put your site where your customers are searching.",
+        "b": "SEO services",
+        "q": "website development baku",
+        "you": "Your website"
+      },
+      "s4": {
+        "nav": "Ads",
+        "tag": "Google & Meta Ads",
+        "h": "Advertising where every manat is *measured*.",
+        "p": "Google Ads, Instagram and Facebook campaigns — audiences, creatives and conversion tracking in one system.",
+        "b": "Paid advertising",
+        "f1": "Impressions",
+        "f2": "Clicks",
+        "f3": "Leads",
+        "f4": "Sales",
+        "ch": "Campaign dashboard"
+      }
+    }
   },
   "home": {
     "marquee": {
