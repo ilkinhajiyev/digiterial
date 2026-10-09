@@ -82,3 +82,7 @@ export const getSettings = cache(async function getSettings(): Promise<SiteSetti
     return defaultSettings;
   }
 });
+
+/** Ünvan yalnız Azərbaycan dilində yazılıbsa, digər dillərdə tərcümə faylındakı ünvan göstərilir. */
+export const addressFor = (st: SiteSettings, locale: string, fallback: string) =>
+  st.address && st.address !== defaultSettings.address && (locale === 'az' || !/[əƏ]/.test(st.address)) ? st.address : fallback;

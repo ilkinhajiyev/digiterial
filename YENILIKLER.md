@@ -42,6 +42,15 @@ Saytın dizaynı tam yenidən qurulub, backend-də ciddi təhlükəsizlik boşlu
 - Yoxlanılmamış rəqəmlər ("+312% trafik", "3.2x ROAS" kimi) mətnlərdən çıxarılıb; yerinə öhdəlik və standartlar yazılıb ("90+ PageSpeed hədəfi", "Aylıq şəffaf hesabat"). Real nəticələr portfolio-da layihə üzrə göstərilə bilər.
 - FAQ-da göstərilən müddətlər (sayt 2–12 həftə, SEO 3–6 ay) "adətən" kimi ifadə olunub — öz təcrübənizə görə builder-dən dəyişə bilərsiniz.
 
+## Dil qarışıqlığının düzəlişi
+
+- Köhnə builder ana səhifəni bütün dillər üçün Azərbaycan mətni ilə və köhnə dizaynın blokları ilə saxlayırdı — buna görə EN/RU/DE-də AZ mətni görünür, slayderli hero isə çıxmırdı.
+- İndi sayt EN/RU/DE səhifələrində Azərbaycan mətni olan builder qeydlərini və slayderi olmayan köhnə ana səhifə qeydlərini avtomatik nəzərə almır — tərcümə fayllarındakı düzgün kontent göstərilir. Builder də bu halda standart kontentdən başlayır.
+- SEO başlıq/təsvirləri də eyni qayda ilə yoxlanılır.
+- Portfolio: hər dildə yalnız həmin dildə əlavə edilmiş layihələr göstərilir (əvvəl EN-də AZ layihələri çıxırdı).
+- Ünvan: tənzimləmələrdə Azərbaycan dilində yazılıbsa, digər dillərdə tərcümə faylındakı ünvan göstərilir.
+- İstəyə görə: `supabase/migrations/0012_cleanup_pages.sql` köhnə qeydləri bazadan silir.
+
 ## Frontend
 
 - `<html lang>` artıq dilə uyğundur (əvvəl hər dildə `az` idi).

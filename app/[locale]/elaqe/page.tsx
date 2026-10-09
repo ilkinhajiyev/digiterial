@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
 import PageHeader from '@/components/site/page-header';
 import ContactForm from '@/components/site/contact-form';
 import { JsonLd, orgLd } from '@/components/site/jsonld';
-import { getSettings, defaultSettings } from '@/lib/data/settings';
+import { getSettings, addressFor } from '@/lib/data/settings';
 import { services } from '@/lib/data/services';
 import { pageMetadata } from '@/lib/seo';
 
@@ -24,7 +24,7 @@ export default async function Contact({ params, searchParams }: { params: Promis
     { icon: Mail, k: t('iEmail'), v: st.email, href: `mailto:${st.email}` },
     { icon: Phone, k: t('iPhone'), v: st.phone, href: `tel:${st.phone.replace(/\s/g, '')}` },
     ...(wa ? [{ icon: MessageCircle, k: 'WhatsApp', v: `+${wa}`, href: `https://wa.me/${wa}` }] : []),
-    { icon: MapPin, k: t('iAddr'), v: st.address && st.address !== defaultSettings.address ? st.address : t('addr') },
+    { icon: MapPin, k: t('iAddr'), v: addressFor(st, locale, t('addr')) },
     { icon: Clock, k: t('iHours'), v: t('hours') },
   ];
   return (

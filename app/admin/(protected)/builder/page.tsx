@@ -5,6 +5,7 @@ import FullBuilder from '@/components/admin/full-builder';
 import { defaultBlocks } from '@/lib/data/default-blocks';
 import { PAGE_KEYS } from '@/lib/data/page-registry';
 import { locales } from '@/i18n/routing';
+import { wrongLanguage } from '@/lib/data/pages';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,7 +22,9 @@ export default async function BuilderPage() {
     pagesMap[pk.key] = {};
     for (const loc of locales) {
       const found = allPages?.find((p) => p.key === pk.key && p.locale === loc);
-      const saved = Array.isArray(found?.blocks) && found.blocks.length > 0;
+      let saved = Array.isArray(found?.blocks) && found.blocks.length > 0;
+      // Köhnə/yanlış dildə saxlanılmış bloklar saytda istifadə olunmur — builder-də də standartdan başlayırıq
+      if (saved && (wrongLanguage(loc, found.blocks) || (pk.key === 'home' && !found.blocks[0]?.props?.showAside))) saved = false;
       pagesMap[pk.key][loc] = {
         seo_title: found?.seo_title || '',
         slug: found?.slug || pk.slug,

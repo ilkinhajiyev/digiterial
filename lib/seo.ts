@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { locales, defaultLocale } from '@/i18n/routing';
-import { getPage } from '@/lib/data/pages';
+import { getPage, wrongLanguage } from '@/lib/data/pages';
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://digiterial.com').replace(/\/$/, '');
 
@@ -39,10 +39,12 @@ export function buildMetadata(opts: {
 /** Builder-dəki SEO tabında yazılmış başlıq/təsvir varsa, onları üstün tutur. */
 export async function pageMetadata(key: string, locale: string, path: string, fallback: { title: string; description?: string; absoluteTitle?: boolean }) {
   const page = await getPage(key, locale);
+  const title = page?.seo_title && !wrongLanguage(locale, page.seo_title) ? page.seo_title : '';
+  const desc = page?.meta_desc && !wrongLanguage(locale, page.meta_desc) ? page.meta_desc : '';
   return buildMetadata({
     locale, path,
-    title: page?.seo_title || fallback.title,
-    description: page?.meta_desc || fallback.description,
-    absoluteTitle: page?.seo_title ? true : fallback.absoluteTitle,
+    title: title || fallback.title,
+    description: desc || fallback.description,
+    absoluteTitle: title ? true : fallback.absoluteTitle,
   });
 }

@@ -32,8 +32,7 @@ export const getPortfolioItem = cache(async function getPortfolioItem(key: strin
   return null;
 });
 
-/** Dilə uyğun layihələr; həmin dildə yoxdursa, bütün layihələr. */
+/** Yalnız həmin dildə əlavə edilmiş layihələr (dillər qarışmasın deyə başqa dilə keçid edilmir). */
 export async function getPortfolioFor(locale: string) {
-  const items = await getPortfolio(locale);
-  return items.length ? items : getPortfolio();
+  return getPortfolio(locale);
 }

@@ -5,7 +5,8 @@ import { BakuClock } from '@/components/site/interactive';
 import { Accent } from '@/components/site/accent';
 import Logo from '@/components/site/logo';
 import { services } from '@/lib/data/services';
-import { defaultSettings, type SiteSettings } from '@/lib/data/settings';
+import { addressFor, type SiteSettings } from '@/lib/data/settings';
+import { getLocale } from 'next-intl/server';
 
 export default async function SiteFooter({ st }: { st: SiteSettings }) {
   const t = await getTranslations('footer');
@@ -48,7 +49,7 @@ export default async function SiteFooter({ st }: { st: SiteSettings }) {
             <a className={link} href={`tel:${st.phone.replace(/\s/g, '')}`}>{st.phone}</a>
             {st.whatsapp && <a className={link} href={`https://wa.me/${st.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>}
             {socials.map((s) => <a key={s.k} className={link} href={s.u} target="_blank" rel="noopener noreferrer">{s.n}</a>)}
-            <p className="mt-4 text-[.9rem] text-white/50">{st.address && st.address !== defaultSettings.address ? st.address : t('hq')}</p>
+            <p className="mt-4 text-[.9rem] text-white/50">{addressFor(st, await getLocale(), t('hq'))}</p>
           </div>
         </div>
 
