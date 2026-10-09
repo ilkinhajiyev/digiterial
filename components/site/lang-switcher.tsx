@@ -30,16 +30,16 @@ export default function LangSwitcher({ align = 'right' }: { align?: 'left' | 'ri
   return (
     <div ref={ref} className="relative">
       <button type="button" onClick={() => setOpen((o) => !o)} aria-haspopup="listbox" aria-expanded={open} aria-label={`${t('language')}: ${cur.label}`}
-        className="inline-flex h-10 items-center gap-1.5 rounded-full px-3 font-mono text-[.76rem] font-medium text-graphite transition hover:bg-white hover:text-ink">
+        className="inline-flex h-10 items-center gap-1.5 rounded-full px-3 font-mono text-[.76rem] font-medium text-muted transition hover:bg-surface hover:text-fg">
         <Globe size={15} strokeWidth={1.6} />{cur.short}<ChevronDown size={14} className={`transition ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <ul role="listbox" className={`absolute top-12 z-50 w-48 overflow-hidden rounded-2xl border border-[color:var(--line)] bg-white p-1.5 shadow-[0_24px_60px_-20px_rgba(10,11,13,.35)] ${align === 'right' ? 'right-0' : 'left-0'}`}>
+        <ul role="listbox" className={`absolute top-12 z-50 w-48 overflow-hidden rounded-2xl border border-[color:var(--line)] bg-surface p-1.5 shadow-[0_24px_60px_-20px_rgba(10,11,13,.35)] ${align === 'right' ? 'right-0' : 'left-0'}`}>
           {langs.map((l) => (
             <li key={l.code} role="option" aria-selected={l.code === active}>
               <Link href={pathname} locale={l.code} onClick={() => setOpen(false)} hrefLang={l.code}
-                className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm transition hover:bg-paper ${l.code === active ? 'font-medium text-ink' : 'text-graphite'}`}>
-                <span><span className="mr-2 font-mono text-xs text-mut">{l.short}</span>{l.label}</span>
+                className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm transition hover:bg-bg ${l.code === active ? 'font-medium text-fg' : 'text-muted'}`}>
+                <span><span className="mr-2 font-mono text-xs text-muted">{l.short}</span>{l.label}</span>
                 {l.code === active && <Check size={15} className="text-brand" />}
               </Link>
             </li>

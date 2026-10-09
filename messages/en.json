@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Digiterial — Digital Marketing Agency in Baku",
-      "desc": "Website development, SEO, Google & Meta Ads, social media and branding. We build digital systems that drive sales. Book a free audit."
+      "desc": "Website development, SEO, Google & Meta Ads, social media and branding. We build digital systems that drive sales. Let’s discuss your project."
     },
     "services": {
       "title": "Digital Marketing Services — Web, SEO, Paid Ads",
@@ -25,8 +25,8 @@
       "desc": "Practical articles on SEO, Google and Meta advertising, web design and conversion — steps you can apply to your business."
     },
     "contact": {
-      "title": "Contact — Free Audit and Consultation",
-      "desc": "Let's talk about your project: a reply within 24 hours and a free 30-minute audit. Baku, Azerbaijan · +994 60 499 63 40."
+      "title": "Contact — Let’s Discuss Your Project",
+      "desc": "Let’s talk about your project: a reply within 24 hours and a 30-minute intro call. Baku, Azerbaijan · +994 60 499 63 40."
     }
   },
   "nav": {
@@ -36,7 +36,7 @@
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
-    "cta": "Free audit",
+    "cta": "Start a project",
     "menu": "Menu",
     "close": "Close",
     "language": "Language",
@@ -46,11 +46,11 @@
     "services": "Services",
     "work": "Our work",
     "contact": "Contact",
-    "audit": "Get a free audit",
+    "audit": "Discuss your project",
     "start": "Let's start",
     "details": "Details",
     "allServices": "All services",
-    "freeConsult": "Free consultation",
+    "freeConsult": "Discuss your project",
     "viewSite": "Visit site",
     "more": "Learn more",
     "skip": "Skip to content",
@@ -60,7 +60,7 @@
     "eyebrow": "Digital marketing agency in Baku",
     "h1": "We build *digital* systems that sell.",
     "lead": "Websites, SEO, Google and Meta Ads, branding — one team working toward one goal: measurable growth for your business.",
-    "b1": "Get a free audit",
+    "b1": "Discuss your project",
     "b2": "See our work",
     "available": "Taking on new projects",
     "now": "Baku time",
@@ -71,7 +71,7 @@
     "focus2": "SEO and performance ads",
     "focus3": "Branding and UI/UX",
     "layers": "How we build",
-    "audit": "Free 30-minute audit",
+    "audit": "Intro call",
     "proof1": "Strategy, design and code — one team",
     "proof2": "Websites and campaigns in 4 languages",
     "proof3": "Transparent monthly reporting",
@@ -115,10 +115,10 @@
     },
     "process": {
       "label": "Process",
-      "heading": "From audit to *results* in 4 steps.",
+      "heading": "From first call to *results* in 4 steps.",
       "text": "At the end of each stage you know exactly what you've got. No hidden costs, no open-ended timelines.",
-      "h1": "Free audit",
-      "p1": "We review your website, ads and competitors and show you the biggest growth opportunities.",
+      "h1": "Discovery",
+      "p1": "We review your business, website, ads and competitors to pinpoint the biggest growth opportunities.",
       "h2": "Strategy and plan",
       "p2": "Goals, KPIs, budget and a phased roadmap — in writing, in plain language.",
       "h3": "Design and build",
@@ -153,7 +153,7 @@
       "label": "Frequently asked questions",
       "heading": "Have questions?",
       "q1": "How long does it take to build a website?",
-      "a1": "A landing page usually takes 2–3 weeks, a corporate website 4–8 weeks and an online store 6–12 weeks. We confirm the exact timeline in a written plan after the audit.",
+      "a1": "A landing page usually takes 2–3 weeks, a corporate website 4–8 weeks and an online store 6–12 weeks. We confirm the exact timeline in a written plan after our first call.",
       "q2": "How is pricing calculated?",
       "a2": "Pricing depends on scope, features and timeline. Every stage and cost is listed separately in the proposal — no hidden fees.",
       "q3": "Can I order just one service?",
@@ -170,8 +170,8 @@
     },
     "cta": {
       "h2": "Let's plan your next step *together*.",
-      "p": "In a free 30-minute call we'll review your website and ads and show you the fastest ways to grow.",
-      "b1": "Get a free audit"
+      "p": "In a 30-minute intro call we’ll listen to your goals and map out the fastest route to growth together.",
+      "b1": "Discuss your project"
     }
   },
   "footer": {
@@ -228,16 +228,26 @@
       "h1b": "in plain language.",
       "lead": "Tested advice on SEO, paid ads, web design and conversion — no fluff, just steps you can apply.",
       "empty": "Articles are coming soon.",
-      "emptyP": "In the meantime, send us your question — we'll answer for free.",
+      "emptyP": "In the meantime, send us your question — we’re happy to help.",
       "read": "Read",
       "back": "All articles",
-      "min": "min read"
+      "min": "min read",
+      "toc": "Contents",
+      "related": "Related articles",
+      "author": "Digiterial team",
+      "published": "Published",
+      "faq": "Frequently asked questions",
+      "all": "All",
+      "ctaH": "Need help with this?",
+      "ctaP": "Tell us about your project — we’ll reply within 24 hours.",
+      "ctaB": "Get in touch",
+      "latest": "Latest articles"
     },
     "contact": {
       "eyebrow": "Contact",
       "h1a": "Let's talk about",
       "h1b": "your project.",
-      "lead": "Fill in the form — we'll reply within 24 hours and offer you a free 30-minute audit.",
+      "lead": "Fill in the form — we’ll get back to you within 24 hours to discuss your project in detail.",
       "name": "Full name",
       "email": "Email",
       "company": "Company",
@@ -273,7 +283,7 @@
       "consent": "By sending this form you agree that we use your details only to contact you.",
       "nextH": "What happens next?",
       "n1": "We call or write to you within 24 hours.",
-      "n2": "In a free 30-minute call we discuss your goals and opportunities.",
+      "n2": "In a 30-minute call we discuss your goals and opportunities.",
       "n3": "Within 2–3 business days you receive a written plan and a transparent quote.",
       "required": "required",
       "again": "Send another enquiry"
@@ -288,10 +298,10 @@
     "processHead": "Results in 4 steps.",
     "deliverables": "Deliverables",
     "ctaTail": "let's discuss your project.",
-    "ctaP": "Start with a free audit — we'll assess where you stand and show you the real opportunities.",
-    "start": "Get a free audit",
+    "ctaP": "Tell us about your goals — we’ll assess where you stand and propose the right solution.",
+    "start": "Discuss your project",
     "other": "Other services",
-    "s1h": "Audit",
+    "s1h": "Discovery",
     "s1p": "We analyse your current position, competitors and audience.",
     "s2h": "Strategy",
     "s2p": "We set goals, KPIs and a phased plan.",
@@ -322,7 +332,7 @@
       "d5": "GA4, GTM and technical SEO setup",
       "metric": "90+ PageSpeed target",
       "metaTitle": "Website Development in Baku — Corporate & E-commerce",
-      "metaDesc": "Website development in Baku: fast, mobile-friendly, SEO-ready corporate websites, landing pages and online stores. Book a free audit."
+      "metaDesc": "Website development in Baku: fast, mobile-friendly, SEO-ready corporate websites, landing pages and online stores."
     },
     "seo": {
       "title": "SEO services",
@@ -345,7 +355,7 @@
       "d5": "Monthly rankings and traffic report",
       "metric": "Transparent monthly reporting",
       "metaTitle": "SEO Services in Baku — Rank Higher on Google",
-      "metaDesc": "Professional SEO services: technical audit, keyword strategy, on-page optimisation and local SEO. Move your site up on Google — free audit."
+      "metaDesc": "Professional SEO services: technical audit, keyword strategy, on-page optimisation and local SEO. Move your website up on Google."
     },
     "reklam": {
       "title": "Google & Meta Ads",
@@ -447,7 +457,7 @@
     "smmHead": "Social media and advertising",
     "detail": "View project",
     "ctaH": "Make the next success story *yours*.",
-    "ctaP": "Start with a free audit — we'll show you the real potential of your website and ads.",
+    "ctaP": "Share your goals with us — together we’ll unlock the real potential of your website and ads.",
     "about": "About the project",
     "gallery": "Gallery",
     "visit": "Visit website",

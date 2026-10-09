@@ -41,13 +41,13 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
       <PageHeader locale={locale} crumbs={[{ href: '/xidmetler', label: n('services') }]} eyebrow={t(`${slug}.tag`)} title={title} lead={t(`${slug}.short`)}>
         <div className="flex flex-wrap items-center gap-3">
           <Link href={contactHref} className="btn-accent">{c('freeConsult')} <ArrowRight size={18} className="arr" /></Link>
-          <span className="chip h-[52px] px-5 text-[.9rem] font-medium text-ink"><span className="h-2 w-2 rounded-full bg-brand" />{t(`${slug}.metric`)}</span>
+          <span className="chip h-[52px] px-5 text-[.9rem] font-medium text-fg"><span className="h-2 w-2 rounded-full bg-brand" />{t(`${slug}.metric`)}</span>
         </div>
       </PageHeader>
 
       <Reveal as="section" className="section"><div className="wrap grid gap-10 md:grid-cols-12">
         <div className="md:col-span-4">
-          <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand text-white"><ServiceIcon slug={slug} className="h-7 w-7" /></span>
+          <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand text-onbrand"><ServiceIcon slug={slug} className="h-7 w-7" /></span>
           <div className="eyebrow mt-6">{sd('overview')}</div>
         </div>
         <div className="space-y-6 md:col-span-8">
@@ -56,12 +56,12 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         </div>
       </div></Reveal>
 
-      <Reveal as="section" className="section bg-white"><div className="wrap">
+      <Reveal as="section" className="section bg-surface"><div className="wrap">
         <div className="eyebrow">{sd('included')}</div>
         <h2 className="t-h2 mt-5">{sd('includedHead')}</h2>
         <div className="mt-12 grid overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--line)] sm:grid-cols-2 lg:grid-cols-4" style={{ gap: 1 }}>
           {features.map((f, i) => (
-            <div key={i} className="flex min-h-[220px] flex-col justify-between bg-paper p-7">
+            <div key={i} className="flex min-h-[220px] flex-col justify-between bg-bg p-7">
               <span className="text-[2.4rem] font-semibold leading-none tracking-[-.06em] text-brand">{String(i + 1).padStart(2, '0')}</span>
               <div><h3 className="t-h3">{f.h}</h3><p className="t-small mt-2">{f.p}</p></div>
             </div>
@@ -80,12 +80,12 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             ))}
           </ul>
         </div>
-        <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-brand p-8 text-white md:p-10">
-          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-25 [background-image:radial-gradient(rgba(255,255,255,.6)_1px,transparent_1px)] [background-size:20px_20px] [mask-image:linear-gradient(to_top_left,#000,transparent_70%)]" />
+        <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-brand p-8 text-onbrand md:p-10">
+          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-25 [background-image:radial-gradient(rgba(3,20,12,.35)_1px,transparent_1px)] [background-size:20px_20px] [mask-image:linear-gradient(to_top_left,#000,transparent_70%)]" />
           <h3 className="relative text-[clamp(1.8rem,3vw,2.6rem)] font-semibold leading-[1.05] tracking-[-.04em]">{title} — {sd('ctaTail')}</h3>
           <div className="relative mt-10">
-            <p className="mb-6 text-white/80">{sd('ctaP')}</p>
-            <Link href={contactHref} className="btn-light">{sd('start')} <ArrowRight size={18} className="arr" /></Link>
+            <p className="mb-6 text-onbrand/75">{sd('ctaP')}</p>
+            <Link href={contactHref} className="btn-dark">{sd('start')} <ArrowRight size={18} className="arr" /></Link>
           </div>
         </div>
       </div></Reveal>

@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Digiterial — Digitalagentur in Baku",
-      "desc": "Webentwicklung, SEO, Google & Meta Ads, Social Media und Branding. Wir bauen digitale Systeme, die verkaufen. Jetzt kostenloses Audit sichern."
+      "desc": "Webentwicklung, SEO, Google & Meta Ads, Social Media und Branding. Wir bauen digitale Systeme, die verkaufen. Sprechen wir über Ihr Projekt."
     },
     "services": {
       "title": "Digitalmarketing-Leistungen — Web, SEO, Werbung",
@@ -25,8 +25,8 @@
       "desc": "Praxisartikel zu SEO, Google- und Meta-Werbung, Webdesign und Conversion — Schritte, die Sie direkt umsetzen können."
     },
     "contact": {
-      "title": "Kontakt — kostenloses Audit und Beratung",
-      "desc": "Sprechen wir über Ihr Projekt: Antwort innerhalb von 24 Stunden und ein kostenloses 30-Minuten-Audit. Baku, Aserbaidschan."
+      "title": "Kontakt — sprechen wir über Ihr Projekt",
+      "desc": "Sprechen wir über Ihr Projekt: Antwort innerhalb von 24 Stunden und ein 30-minütiges Kennenlerngespräch. Baku, Aserbaidschan."
     }
   },
   "nav": {
@@ -36,7 +36,7 @@
     "about": "Über uns",
     "blog": "Blog",
     "contact": "Kontakt",
-    "cta": "Kostenloses Audit",
+    "cta": "Projekt starten",
     "menu": "Menü",
     "close": "Schließen",
     "language": "Sprache",
@@ -46,11 +46,11 @@
     "services": "Leistungen",
     "work": "Unsere Projekte",
     "contact": "Kontakt",
-    "audit": "Kostenloses Audit anfragen",
+    "audit": "Projekt besprechen",
     "start": "Jetzt starten",
     "details": "Details",
     "allServices": "Alle Leistungen",
-    "freeConsult": "Kostenlose Beratung",
+    "freeConsult": "Projekt besprechen",
     "viewSite": "Zur Website",
     "more": "Mehr erfahren",
     "skip": "Zum Inhalt springen",
@@ -60,7 +60,7 @@
     "eyebrow": "Digitalagentur in Baku",
     "h1": "Wir bauen *digitale* Systeme, die verkaufen.",
     "lead": "Websites, SEO, Google & Meta Ads, Branding — ein Team mit einem Ziel: messbares Wachstum für Ihr Unternehmen.",
-    "b1": "Kostenloses Audit anfragen",
+    "b1": "Projekt besprechen",
     "b2": "Projekte ansehen",
     "available": "Wir nehmen neue Projekte an",
     "now": "Uhrzeit in Baku",
@@ -71,7 +71,7 @@
     "focus2": "SEO und Performance-Werbung",
     "focus3": "Branding und UI/UX",
     "layers": "Wie wir arbeiten",
-    "audit": "Kostenloses 30-Minuten-Audit",
+    "audit": "Kennenlerngespräch",
     "proof1": "Strategie, Design und Code — in einem Team",
     "proof2": "Websites und Kampagnen in 4 Sprachen",
     "proof3": "Transparente Monatsberichte",
@@ -115,10 +115,10 @@
     },
     "process": {
       "label": "Prozess",
-      "heading": "Vom Audit zum *Ergebnis* in 4 Schritten.",
+      "heading": "Vom Kennenlernen zum *Ergebnis* in 4 Schritten.",
       "text": "Nach jeder Phase wissen Sie genau, was Sie erhalten haben. Keine versteckten Kosten, keine offenen Zeitpläne.",
-      "h1": "Kostenloses Audit",
-      "p1": "Wir analysieren Website, Werbung und Wettbewerb und zeigen Ihnen die größten Wachstumschancen.",
+      "h1": "Kennenlernen und Analyse",
+      "p1": "Wir analysieren Ihr Geschäft, Ihre Website, Werbung und Wettbewerber und identifizieren die größten Wachstumschancen.",
       "h2": "Strategie und Plan",
       "p2": "Ziele, KPIs, Budget und ein Phasenplan — schriftlich und verständlich.",
       "h3": "Design und Umsetzung",
@@ -153,7 +153,7 @@
       "label": "Häufige Fragen",
       "heading": "Noch Fragen?",
       "q1": "Wie lange dauert die Entwicklung einer Website?",
-      "a1": "Eine Landingpage dauert in der Regel 2–3 Wochen, eine Unternehmenswebsite 4–8 Wochen und ein Onlineshop 6–12 Wochen. Den genauen Zeitplan halten wir nach dem Audit schriftlich fest.",
+      "a1": "Eine Landingpage dauert in der Regel 2–3 Wochen, eine Unternehmenswebsite 4–8 Wochen und ein Onlineshop 6–12 Wochen. Den genauen Zeitplan halten wir nach dem ersten Gespräch schriftlich fest.",
       "q2": "Wie wird der Preis berechnet?",
       "a2": "Der Preis richtet sich nach Umfang, Funktionen und Zeitrahmen. Im Angebot sind alle Phasen und Kosten einzeln aufgeführt — ohne versteckte Gebühren.",
       "q3": "Kann ich nur eine Leistung buchen?",
@@ -170,8 +170,8 @@
     },
     "cta": {
       "h2": "Planen wir Ihren nächsten Schritt *gemeinsam*.",
-      "p": "In einem kostenlosen 30-Minuten-Gespräch analysieren wir Website und Werbung und zeigen Ihnen die schnellsten Wachstumshebel.",
-      "b1": "Kostenloses Audit anfragen"
+      "p": "In einem 30-minütigen Gespräch hören wir uns Ihre Ziele an und planen gemeinsam den schnellsten Weg zum Wachstum.",
+      "b1": "Projekt besprechen"
     }
   },
   "footer": {
@@ -228,16 +228,26 @@
       "h1b": "verständlich erklärt.",
       "lead": "Erprobte Tipps zu SEO, Werbung, Webdesign und Conversion — ohne Floskeln, mit Schritten, die Sie umsetzen können.",
       "empty": "Artikel folgen in Kürze.",
-      "emptyP": "Bis dahin beantworten wir Ihre Frage gern direkt und kostenlos.",
+      "emptyP": "Bis dahin beantworten wir Ihre Frage gern direkt.",
       "read": "Lesen",
       "back": "Alle Artikel",
-      "min": "Min. Lesezeit"
+      "min": "Min. Lesezeit",
+      "toc": "Inhalt",
+      "related": "Ähnliche Artikel",
+      "author": "Digiterial-Team",
+      "published": "Veröffentlicht",
+      "faq": "Häufige Fragen",
+      "all": "Alle",
+      "ctaH": "Brauchen Sie Unterstützung?",
+      "ctaP": "Erzählen Sie uns von Ihrem Projekt — wir antworten innerhalb von 24 Stunden.",
+      "ctaB": "Kontakt aufnehmen",
+      "latest": "Neueste Artikel"
     },
     "contact": {
       "eyebrow": "Kontakt",
       "h1a": "Sprechen wir über",
       "h1b": "Ihr Projekt.",
-      "lead": "Füllen Sie das Formular aus — wir antworten innerhalb von 24 Stunden und bieten Ihnen ein kostenloses 30-Minuten-Audit an.",
+      "lead": "Füllen Sie das Formular aus — wir melden uns innerhalb von 24 Stunden, um Ihr Projekt im Detail zu besprechen.",
       "name": "Vor- und Nachname",
       "email": "E-Mail",
       "company": "Unternehmen",
@@ -273,7 +283,7 @@
       "consent": "Mit dem Absenden stimmen Sie zu, dass wir Ihre Daten ausschließlich zur Kontaktaufnahme verwenden.",
       "nextH": "Wie geht es weiter?",
       "n1": "Wir rufen Sie an oder schreiben Ihnen innerhalb von 24 Stunden.",
-      "n2": "Im kostenlosen 30-Minuten-Gespräch besprechen wir Ziele und Chancen.",
+      "n2": "In einem 30-minütigen Gespräch besprechen wir Ziele und Chancen.",
       "n3": "Innerhalb von 2–3 Werktagen erhalten Sie einen schriftlichen Plan und ein transparentes Angebot.",
       "required": "Pflichtfeld",
       "again": "Neue Anfrage"
@@ -288,10 +298,10 @@
     "processHead": "Ergebnisse in 4 Schritten.",
     "deliverables": "Das erhalten Sie",
     "ctaTail": "sprechen wir über Ihr Projekt.",
-    "ctaP": "Starten Sie mit einem kostenlosen Audit — wir zeigen Ihnen, wo Sie stehen und welche Chancen es gibt.",
-    "start": "Kostenloses Audit anfragen",
+    "ctaP": "Erzählen Sie uns von Ihren Zielen — wir bewerten die Ausgangslage und schlagen die passende Lösung vor.",
+    "start": "Projekt besprechen",
     "other": "Weitere Leistungen",
-    "s1h": "Audit",
+    "s1h": "Analyse",
     "s1p": "Wir analysieren Ausgangslage, Wettbewerb und Zielgruppe.",
     "s2h": "Strategie",
     "s2p": "Wir definieren Ziele, KPIs und einen Phasenplan.",
@@ -322,7 +332,7 @@
       "d5": "Einrichtung von GA4, GTM und technischem SEO",
       "metric": "PageSpeed-Ziel 90+",
       "metaTitle": "Webentwicklung in Baku — Websites & Onlineshops",
-      "metaDesc": "Webentwicklung in Baku: schnelle, mobile und SEO-optimierte Unternehmenswebsites, Landingpages und Onlineshops. Kostenloses Audit anfragen."
+      "metaDesc": "Webentwicklung in Baku: schnelle, mobile und SEO-optimierte Unternehmenswebsites, Landingpages und Onlineshops."
     },
     "seo": {
       "title": "SEO-Leistungen",
@@ -447,7 +457,7 @@
     "smmHead": "Social Media und Werbung",
     "detail": "Projekt ansehen",
     "ctaH": "Die nächste Erfolgsgeschichte ist *Ihre*.",
-    "ctaP": "Starten wir mit einem kostenlosen Audit — wir zeigen Ihnen das echte Potenzial Ihrer Website und Werbung.",
+    "ctaP": "Teilen Sie uns Ihr Ziel mit — gemeinsam heben wir das Potenzial Ihrer Website und Werbung.",
     "about": "Zum Projekt",
     "gallery": "Galerie",
     "visit": "Website besuchen",

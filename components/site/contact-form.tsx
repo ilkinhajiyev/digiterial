@@ -37,7 +37,7 @@ export default function ContactForm({ services, defaultService = '' }: { service
   if (state === 'ok') {
     return (
       <div className="card flex min-h-[460px] flex-col items-start justify-center p-8 md:p-14" role="status" aria-live="polite">
-        <span className="grid h-14 w-14 place-items-center rounded-full bg-brand text-white"><CheckCircle2 size={26} /></span>
+        <span className="grid h-14 w-14 place-items-center rounded-full bg-brand text-onbrand"><CheckCircle2 size={26} /></span>
         <h2 className="t-h3 mt-8 max-w-[26ch] text-[1.8rem]">{t('ok')}</h2>
         <button type="button" onClick={() => { setState('idle'); started.current = Date.now(); }} className="btn-ghost mt-8">{t('again')}</button>
       </div>
@@ -85,7 +85,7 @@ export default function ContactForm({ services, defaultService = '' }: { service
           {[...services, t('other')].map((s) => (
             <label key={s} className="cursor-pointer">
               <input type="radio" name="service" value={s} defaultChecked={s === defaultService} className="peer sr-only" />
-              <span className="inline-flex rounded-full border border-[color:var(--line-2)] bg-white px-4 py-2.5 text-sm text-graphite transition duration-200 hover:border-ink hover:text-ink peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white peer-focus-visible:ring-4 peer-focus-visible:ring-brand/20">{s}</span>
+              <span className="inline-flex rounded-full border border-[color:var(--line-2)] bg-surface px-4 py-2.5 text-sm text-muted transition duration-200 hover:border-fg hover:text-fg peer-checked:border-brand peer-checked:bg-brand peer-checked:text-onbrand peer-focus-visible:ring-4 peer-focus-visible:ring-brand/20">{s}</span>
             </label>
           ))}
         </div>
@@ -105,7 +105,7 @@ export default function ContactForm({ services, defaultService = '' }: { service
       </div>
 
       <div className="mt-8 flex flex-col-reverse gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-[44ch] text-xs leading-relaxed text-graphite">{t('consent')}</p>
+        <p className="max-w-[44ch] text-xs leading-relaxed text-muted">{t('consent')}</p>
         <button type="submit" disabled={sending} className="btn-accent shrink-0">
           {sending ? <><Loader2 size={18} className="animate-spin" />{t('sending')}</> : <>{t('send')} <ArrowUpRight size={18} className="arr" /></>}
         </button>

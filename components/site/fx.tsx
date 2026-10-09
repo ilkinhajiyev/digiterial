@@ -48,8 +48,8 @@ export function SignalField({ className = '', labels = [] as string[] }: { class
           const wave = (Math.sin(x * .018 + t * 1.2) + Math.sin(y * .022 - t * .9)) * .25 + .5;
           const under = y > curve(x / w, t) ? 1 : 0;
           const r = .9 + wave * .55 + near * 2.4 + under * .35;
-          const a = .12 + wave * .1 + near * .75 + under * .12;
-          ctx.fillStyle = near > .05 || under ? `rgba(51,65,255,${Math.min(1, a + (under ? .08 : 0))})` : `rgba(10,11,13,${a})`;
+          const a = .1 + wave * .08 + near * .75 + under * .1;
+          ctx.fillStyle = near > .05 || under ? `rgba(61,255,168,${Math.min(1, a + (under ? .1 : 0))})` : `rgba(255,255,255,${a * .8})`;
           ctx.beginPath(); ctx.arc(x + dx * -near * .12, y + dy * -near * .12, r, 0, Math.PI * 2); ctx.fill();
         }
       }
@@ -57,25 +57,25 @@ export function SignalField({ className = '', labels = [] as string[] }: { class
       // Böyümə xətti (tədricən çəkilir, sonra "nəfəs alır")
       const prog = still ? 1 : Math.min(1, t / 2.4);
       const grad = ctx.createLinearGradient(0, 0, w, 0);
-      grad.addColorStop(0, 'rgba(51,65,255,0)'); grad.addColorStop(.25, 'rgba(51,65,255,.9)'); grad.addColorStop(1, 'rgba(51,65,255,1)');
-      ctx.strokeStyle = grad; ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      grad.addColorStop(0, 'rgba(61,255,168,0)'); grad.addColorStop(.25, 'rgba(61,255,168,.9)'); grad.addColorStop(1, 'rgba(61,255,168,1)');
+      ctx.strokeStyle = grad; ctx.lineWidth = 2.5; ctx.shadowColor = 'rgba(61,255,168,.6)'; ctx.shadowBlur = 14; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
       ctx.beginPath();
       const steps = 120;
       for (let i = 0; i <= steps * prog; i++) { const u = i / steps; const y = curve(u, t); i ? ctx.lineTo(u * w, y) : ctx.moveTo(u * w, y); }
-      ctx.stroke();
+      ctx.stroke(); ctx.shadowBlur = 0;
 
       // Qeyd nöqtələri və etiketlər
       const marks = [.28, .58, .9];
       marks.forEach((u, i) => {
         if (u > prog) return;
         const x = u * w, y = curve(u, t);
-        ctx.fillStyle = '#fff'; ctx.strokeStyle = '#3341FF'; ctx.lineWidth = 2.5;
-        ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#050506'; ctx.strokeStyle = '#3DFFA8'; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); ctx.shadowBlur = 0;
         const label = labels[i]; if (!label) return;
         ctx.font = '500 12px "Inter Tight Variable", system-ui, sans-serif';
         const tw = ctx.measureText(label).width + 20, bx = Math.min(w - tw - 8, Math.max(8, x - tw / 2)), by = y - 42;
-        ctx.fillStyle = '#0A0B0D'; ctx.beginPath(); (ctx as any).roundRect ? (ctx as any).roundRect(bx, by, tw, 26, 13) : ctx.rect(bx, by, tw, 26); ctx.fill();
-        ctx.fillStyle = '#fff'; ctx.fillText(label, bx + 10, by + 17);
+        ctx.fillStyle = '#3DFFA8'; ctx.beginPath(); (ctx as any).roundRect ? (ctx as any).roundRect(bx, by, tw, 26, 13) : ctx.rect(bx, by, tw, 26); ctx.fill();
+        ctx.fillStyle = '#02140B'; ctx.fillText(label, bx + 10, by + 17);
       });
 
       if (!still) raf = requestAnimationFrame(draw);

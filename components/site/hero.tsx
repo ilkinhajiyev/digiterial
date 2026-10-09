@@ -47,7 +47,7 @@ export default async function Hero({ p }: { p: any }) {
             {p.b1 && <Link href={p.b1Href || '/elaqe'} className="btn-accent">{p.b1} <ArrowRight size={18} className="arr" /></Link>}
             {p.b2 && <Link href={p.b2Href || '/isler'} className="btn-ghost">{p.b2}</Link>}
           </div>
-          <ul className="fade-up d6 mt-10 grid gap-3 text-[.95rem] text-ink sm:grid-cols-3 sm:gap-5">
+          <ul className="fade-up d6 mt-10 grid gap-3 text-[.95rem] text-fg sm:grid-cols-3 sm:gap-5">
             {proofs.map((x) => (
               <li key={x} className="flex items-start gap-2.5"><span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-soft text-brand"><Check size={12} strokeWidth={3} /></span>{x}</li>
             ))}
@@ -56,13 +56,13 @@ export default async function Hero({ p }: { p: any }) {
 
         {/* İnteraktiv "siqnal" paneli */}
         <div className="fade-up d4 lg:col-span-5">
-          <div className="card overflow-hidden shadow-[0_40px_100px_-40px_rgba(10,11,13,.35)]">
+          <div className="card overflow-hidden shadow-[0_40px_120px_-40px_rgba(61,255,168,.25)]">
             <div className="flex items-center justify-between border-b border-[color:var(--line)] px-5 py-3.5">
               <div className="flex items-center gap-1.5" aria-hidden><span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" /><span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" /><span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" /></div>
-              <span className="font-mono text-[.7rem] text-graphite">digiterial / growth.signal</span>
-              <span className="flex items-center gap-1.5 font-mono text-[.7rem] text-graphite"><span className="live-dot" />live</span>
+              <span className="font-mono text-[.7rem] text-muted">digiterial / growth.signal</span>
+              <span className="flex items-center gap-1.5 font-mono text-[.7rem] text-muted"><span className="live-dot" />live</span>
             </div>
-            <div className="relative aspect-[5/4] bg-[linear-gradient(180deg,#fff,#F3F4FF)]">
+            <div className="relative aspect-[5/4] bg-[radial-gradient(120%_90%_at_100%_0%,rgba(61,255,168,.10),transparent_60%),linear-gradient(180deg,#0E0F12,#08090B)]">
               <SignalField labels={[th('sig1'), th('sig2'), th('sig3')]} />
             </div>
             <div className="grid grid-cols-3 divide-x divide-[color:var(--line)] border-t border-[color:var(--line)]">
@@ -74,7 +74,7 @@ export default async function Hero({ p }: { p: any }) {
               ))}
             </div>
           </div>
-          <p className="mt-4 flex items-center justify-between font-mono text-[.72rem] text-graphite">
+          <p className="mt-4 flex items-center justify-between font-mono text-[.72rem] text-muted">
             <span>{th('sigTitle')}</span>
             <span>{th('now')} · <BakuClock /></span>
           </p>

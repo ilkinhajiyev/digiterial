@@ -27,11 +27,11 @@ export default async function PageHeader({ eyebrow, title, lead, back, crumbs, l
       <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 h-[480px] w-[480px] rounded-full bg-brand/[.08] blur-[110px]" />
       <div className="wrap relative">
         <nav aria-label="Breadcrumb" className="fade-up d1 mb-10">
-          <ol className="flex flex-wrap items-center gap-1.5 text-[.85rem] text-graphite">
+          <ol className="flex flex-wrap items-center gap-1.5 text-[.85rem] text-muted">
             {trail.map((c) => (
-              <li key={c.href} className="flex items-center gap-1.5"><Link href={c.href} className="transition hover:text-ink">{c.label}</Link><ChevronRight size={14} className="text-mut" /></li>
+              <li key={c.href} className="flex items-center gap-1.5"><Link href={c.href} className="transition hover:text-fg">{c.label}</Link><ChevronRight size={14} className="text-muted" /></li>
             ))}
-            <li aria-current="page" className="max-w-[40ch] truncate text-ink">{title.replace(/\*/g, '')}</li>
+            <li aria-current="page" className="max-w-[40ch] truncate text-fg">{title.replace(/\*/g, '')}</li>
           </ol>
         </nav>
         {eyebrow && <div className="eyebrow fade-up d1">{eyebrow}</div>}

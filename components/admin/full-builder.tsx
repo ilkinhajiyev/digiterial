@@ -136,8 +136,8 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
   // ---------- styles ----------
   const inp  = 'w-full bg-[#0c0c0c] border border-white/15 rounded-lg px-3 py-2.5 text-white text-sm outline-none focus:border-brand';
   const lbl  = 'font-mono text-[.6rem] uppercase text-white/40 block mb-1';
-  const tabt = (active: boolean) => `px-3 py-1.5 text-sm rounded-lg cursor-pointer transition ${active ? 'bg-brand text-white font-semibold' : 'text-white/50 hover:text-white'}`;
-  const btn  = 'bg-brand text-white font-semibold text-sm rounded-lg px-4 py-2 hover:opacity-90 active:scale-[.97] transition disabled:opacity-50';
+  const tabt = (active: boolean) => `px-3 py-1.5 text-sm rounded-lg cursor-pointer transition ${active ? 'bg-brand text-ink font-semibold' : 'text-white/50 hover:text-white'}`;
+  const btn  = 'bg-brand text-ink font-semibold text-sm rounded-lg px-4 py-2 hover:opacity-90 active:scale-[.97] transition disabled:opacity-50';
 
   // ---------- block editor ----------
   function BlockEditor({ b, i }: { b: any; i: number }) {
@@ -401,7 +401,7 @@ export default function FullBuilder({ pageKeys, pagesMap: initMap, settings: ini
                 <div className="flex gap-1">
                   {LOCALES.map(l => (
                     <button key={l.code} onClick={() => { setCurPage(pk.key); setCurLoc(l.code); setTab('blocks'); }}
-                      className={`font-mono text-[.6rem] px-1.5 py-0.5 rounded ${curPage===pk.key&&curLoc===l.code ? 'bg-brand text-white' : 'bg-white/5 text-white/40 hover:bg-white/10'}`}>
+                      className={`font-mono text-[.6rem] px-1.5 py-0.5 rounded ${curPage===pk.key&&curLoc===l.code ? 'bg-brand text-ink' : 'bg-white/5 text-white/40 hover:bg-white/10'}`}>
                       {l.code}
                     </button>
                   ))}

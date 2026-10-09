@@ -5,13 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: '#F6F6F3',     // səhifə fonu
-        white: '#FFFFFF',
-        ink: '#0A0B0D',       // əsas mətn / tünd bölmələr
-        graphite: '#555861',  // ikinci dərəcəli mətn
-        brand: '#3341FF',     // kobalt
-        'brand-dark': '#2330D6',
-        'brand-soft': '#E9EBFF',
+        // Sayt — qara fon + neon yaşıl
+        bg: '#050506',            // səhifə fonu
+        surface: '#0E0F12',       // kartlar
+        'surface-2': '#15161B',   // daha yüksək səth / tünd panellər
+        fg: '#F3F4F2',            // əsas mətn
+        muted: '#9C9EA6',         // ikinci dərəcəli mətn (AA kontrast)
+        brand: '#3DFFA8',         // neon yaşıl
+        'brand-dark': '#1FE58E',
+        'brand-soft': 'rgba(61,255,168,.12)',
+        onbrand: '#02140B',       // yaşıl üzərində mətn
+        // Admin panel üçün saxlanılan tokenlər
+        ink: '#0A0A0D',
+        paper: '#F3F4F2',
         mut: '#8A8D95',
         'mut-d': '#B0B3BA',
       },

@@ -112,7 +112,7 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
           </div>
           {!readOnly && (
             <button onClick={openNew}
-              className="flex items-center gap-1.5 bg-brand text-white font-semibold text-sm rounded-lg px-4 py-2.5 hover:opacity-90 active:scale-[.97] transition select-none">
+              className="flex items-center gap-1.5 bg-brand text-ink font-semibold text-sm rounded-lg px-4 py-2.5 hover:opacity-90 active:scale-[.97] transition select-none">
               <span className="text-base leading-none">+</span> Yeni
             </button>
           )}
@@ -258,7 +258,7 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
                   Ləğv et
                 </button>
                 <button type="submit" disabled={loading}
-                  className="px-5 py-2.5 text-sm bg-brand text-white font-semibold rounded-lg hover:opacity-90 active:scale-[.97] transition disabled:opacity-60 min-w-[110px] flex items-center justify-center gap-2">
+                  className="px-5 py-2.5 text-sm bg-brand text-ink font-semibold rounded-lg hover:opacity-90 active:scale-[.97] transition disabled:opacity-60 min-w-[110px] flex items-center justify-center gap-2">
                   {loading ? (
                     <>
                       <svg className="animate-spin w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none">

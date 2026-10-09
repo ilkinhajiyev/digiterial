@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Digiterial — Bakıda rəqəmsal marketinq agentliyi",
-      "desc": "Veb sayt hazırlanması, SEO, Google və Meta reklamı, SMM və brendinq. Bakıda satış gətirən rəqəmsal sistemlər qururuq. Pulsuz audit alın."
+      "desc": "Veb sayt hazırlanması, SEO, Google və Meta reklamı, SMM və brendinq. Bakıda satış gətirən rəqəmsal sistemlər qururuq. Layihənizi bizimlə müzakirə edin."
     },
     "services": {
       "title": "Rəqəmsal marketinq xidmətləri — veb sayt, SEO, reklam",
@@ -25,8 +25,8 @@
       "desc": "SEO, Google və Meta reklamı, veb dizayn və konversiya haqqında praktik məqalələr. Biznesinizə tətbiq edə biləcəyiniz addımlar."
     },
     "contact": {
-      "title": "Əlaqə — pulsuz audit və konsultasiya",
-      "desc": "Layihənizi danışaq: 24 saat ərzində cavab və pulsuz 30 dəqiqəlik audit. Bakı, Azərbaycan · +994 60 499 63 40."
+      "title": "Əlaqə — layihənizi müzakirə edək",
+      "desc": "Layihənizi danışaq: 24 saat ərzində cavab və 30 dəqiqəlik tanışlıq görüşü. Bakı, Azərbaycan · +994 60 499 63 40."
     }
   },
   "nav": {
@@ -36,7 +36,7 @@
     "about": "Haqqımızda",
     "blog": "Bloq",
     "contact": "Əlaqə",
-    "cta": "Pulsuz audit",
+    "cta": "Layihə başlat",
     "menu": "Menyu",
     "close": "Bağla",
     "language": "Dil",
@@ -46,11 +46,11 @@
     "services": "Xidmətlər",
     "work": "İşlərimiz",
     "contact": "Əlaqə",
-    "audit": "Pulsuz audit alın",
+    "audit": "Layihəni müzakirə edək",
     "start": "Başlayaq",
     "details": "Ətraflı",
     "allServices": "Bütün xidmətlər",
-    "freeConsult": "Pulsuz konsultasiya",
+    "freeConsult": "Layihəni müzakirə edək",
     "viewSite": "Sayta keçin",
     "more": "Ətraflı",
     "skip": "Məzmuna keç",
@@ -60,7 +60,7 @@
     "eyebrow": "Bakıda rəqəmsal marketinq agentliyi",
     "h1": "Satış gətirən *rəqəmsal* sistemlər qururuq.",
     "lead": "Veb sayt, SEO, Google və Meta reklamı, brendinq — hamısı bir komandada və bir hədəf üçün: biznesinizin ölçülə bilən böyüməsi.",
-    "b1": "Pulsuz audit alın",
+    "b1": "Layihəni müzakirə edək",
     "b2": "İşlərimizə baxın",
     "available": "Yeni layihələr qəbul edirik",
     "now": "Bakı vaxtı",
@@ -71,7 +71,7 @@
     "focus2": "SEO və performans reklamı",
     "focus3": "Brendinq və UI/UX",
     "layers": "Necə qururuq",
-    "audit": "Pulsuz 30 dəqiqəlik audit",
+    "audit": "Tanışlıq görüşü",
     "proof1": "Strategiya, dizayn və kod — bir komandada",
     "proof2": "4 dildə sayt və kampaniyalar",
     "proof3": "Hər ay şəffaf hesabat",
@@ -115,10 +115,10 @@
     },
     "process": {
       "label": "İş prosesi",
-      "heading": "Auditdən *nəticəyə* 4 addımda.",
+      "heading": "Tanışlıqdan *nəticəyə* 4 addımda.",
       "text": "Hər mərhələnin sonunda nə əldə etdiyinizi bilirsiniz. Gizli xərc və qeyri-müəyyən müddət yoxdur.",
-      "h1": "Pulsuz audit",
-      "p1": "Mövcud saytınızı, reklamlarınızı və rəqiblərinizi təhlil edib əsas böyümə imkanlarını göstəririk.",
+      "h1": "Tanışlıq və təhlil",
+      "p1": "Biznesinizi, mövcud saytınızı, reklamlarınızı və rəqiblərinizi təhlil edib əsas böyümə imkanlarını müəyyənləşdiririk.",
       "h2": "Strategiya və plan",
       "p2": "Hədəflər, KPI-lar, büdcə və mərhələli iş planı — yazılı və aydın.",
       "h3": "Dizayn və icra",
@@ -153,7 +153,7 @@
       "label": "Tez-tez verilən suallar",
       "heading": "Suallarınız var?",
       "q1": "Veb sayt hazırlanması nə qədər vaxt aparır?",
-      "a1": "Landing səhifə adətən 2–3 həftə, korporativ sayt 4–8 həftə, e-ticarət saytı isə 6–12 həftə çəkir. Dəqiq müddəti auditdən sonra yazılı planla təqdim edirik.",
+      "a1": "Landing səhifə adətən 2–3 həftə, korporativ sayt 4–8 həftə, e-ticarət saytı isə 6–12 həftə çəkir. Dəqiq müddəti ilk görüşdən sonra yazılı planla təqdim edirik.",
       "q2": "Qiymət necə müəyyən edilir?",
       "a2": "Qiymət layihənin həcminə, funksiyalarına və müddətinə görə hesablanır. Təklifdə bütün mərhələlər və xərclər ayrıca göstərilir — gizli ödəniş yoxdur.",
       "q3": "Yalnız bir xidmət sifariş edə bilərəm?",
@@ -170,8 +170,8 @@
     },
     "cta": {
       "h2": "Növbəti addımı *birlikdə* planlayaq.",
-      "p": "30 dəqiqəlik pulsuz görüşdə saytınızı və reklamlarınızı təhlil edək, ən sürətli böyümə imkanlarını göstərək.",
-      "b1": "Pulsuz audit alın"
+      "p": "30 dəqiqəlik tanışlıq görüşündə hədəflərinizi dinləyək və ən sürətli böyümə yolunu birlikdə müəyyənləşdirək.",
+      "b1": "Layihəni müzakirə edək"
     }
   },
   "footer": {
@@ -228,16 +228,26 @@
       "h1b": "praktik dildə.",
       "lead": "SEO, reklam, veb dizayn və konversiya haqqında sınaqdan keçmiş məsləhətlər — boş söz yox, tətbiq edə biləcəyiniz addımlar.",
       "empty": "Məqalələr tezliklə burada olacaq.",
-      "emptyP": "Hələlik sualınızı birbaşa bizə yazın — pulsuz cavablandıraq.",
+      "emptyP": "Hələlik sualınızı birbaşa bizə yazın — məmnuniyyətlə cavablandıraq.",
       "read": "Oxu",
       "back": "Bütün məqalələr",
-      "min": "dəq oxuma"
+      "min": "dəq oxuma",
+      "toc": "Mündəricat",
+      "related": "Oxşar məqalələr",
+      "author": "Digiterial komandası",
+      "published": "Dərc olunub",
+      "faq": "Tez-tez verilən suallar",
+      "all": "Hamısı",
+      "ctaH": "Bu mövzuda köməyə ehtiyacınız var?",
+      "ctaP": "Layihənizi bizimlə bölüşün — 24 saat ərzində cavab verək.",
+      "ctaB": "Bizə yazın",
+      "latest": "Son məqalələr"
     },
     "contact": {
       "eyebrow": "Əlaqə",
       "h1a": "Layihənizi",
       "h1b": "danışaq.",
-      "lead": "Formu doldurun — 24 saat ərzində cavab verək və pulsuz 30 dəqiqəlik audit təklif edək.",
+      "lead": "Formu doldurun — 24 saat ərzində sizinlə əlaqə saxlayıb layihənizi ətraflı müzakirə edək.",
       "name": "Ad və soyad",
       "email": "Email",
       "company": "Şirkət",
@@ -273,7 +283,7 @@
       "consent": "Göndərməklə məlumatlarınızın yalnız sizinlə əlaqə saxlamaq üçün istifadə olunmasına razılıq verirsiniz.",
       "nextH": "Sonra nə olur?",
       "n1": "24 saat ərzində sizə zəng edir və ya yazırıq.",
-      "n2": "30 dəqiqəlik pulsuz görüşdə hədəfləri və imkanları müzakirə edirik.",
+      "n2": "30 dəqiqəlik görüşdə hədəfləri və imkanları müzakirə edirik.",
       "n3": "2–3 iş günü ərzində yazılı plan və şəffaf qiymət təklifi göndəririk.",
       "required": "məcburi",
       "again": "Yeni müraciət"
@@ -288,10 +298,10 @@
     "processHead": "4 addımda nəticə.",
     "deliverables": "Təhvil verilənlər",
     "ctaTail": "layihənizi müzakirə edək.",
-    "ctaP": "Pulsuz audit ilə başlayın — mövcud vəziyyəti təhlil edib real imkanları göstərək.",
-    "start": "Pulsuz audit alın",
+    "ctaP": "Hədəflərinizi danışaq — mövcud vəziyyəti dəyərləndirib sizə uyğun həll təklif edək.",
+    "start": "Layihəni müzakirə edək",
     "other": "Digər xidmətlər",
-    "s1h": "Audit",
+    "s1h": "Təhlil",
     "s1p": "Mövcud vəziyyəti, rəqibləri və auditoriyanı təhlil edirik.",
     "s2h": "Strategiya",
     "s2p": "Hədəf, KPI və mərhələli plan hazırlayırıq.",
@@ -322,7 +332,7 @@
       "d5": "GA4, GTM və texniki SEO quraşdırması",
       "metric": "90+ PageSpeed hədəfi",
       "metaTitle": "Veb sayt hazırlanması Bakıda — korporativ və e-ticarət",
-      "metaDesc": "Bakıda veb sayt hazırlanması: sürətli, mobil uyğun və SEO-ya hazır korporativ saytlar, landing səhifələr və onlayn mağazalar. Pulsuz audit alın."
+      "metaDesc": "Bakıda veb sayt hazırlanması: sürətli, mobil uyğun və SEO-ya hazır korporativ saytlar, landing səhifələr və onlayn mağazalar."
     },
     "seo": {
       "title": "SEO xidməti",
@@ -345,7 +355,7 @@
       "d5": "Aylıq mövqe və trafik hesabatı",
       "metric": "Aylıq şəffaf hesabat",
       "metaTitle": "SEO xidməti Bakıda — Google-da yuxarı mövqelər",
-      "metaDesc": "Peşəkar SEO xidməti: texniki audit, açar söz strategiyası, on-page optimizasiya və lokal SEO. Saytınızı Google-da yuxarı qaldırın — pulsuz audit."
+      "metaDesc": "Peşəkar SEO xidməti: texniki audit, açar söz strategiyası, on-page optimizasiya və lokal SEO. Saytınızı Google-da yuxarı qaldırın."
     },
     "reklam": {
       "title": "Google və Meta reklamı",
@@ -447,7 +457,7 @@
     "smmHead": "Sosial media və reklam",
     "detail": "Ətraflı bax",
     "ctaH": "Növbəti uğur hekayəsi *sizin* olsun.",
-    "ctaP": "Pulsuz audit ilə başlayaq — saytınızın və reklamlarınızın real potensialını göstərək.",
+    "ctaP": "Hədəfinizi bizimlə bölüşün — saytınızın və reklamlarınızın real potensialını birlikdə üzə çıxaraq.",
     "about": "Layihə haqqında",
     "gallery": "Qalereya",
     "visit": "Sayta keçin",

@@ -34,11 +34,11 @@ export default async function Contact({ params, searchParams }: { params: Promis
       <section className="section pt-12 md:pt-16"><div className="wrap grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-7"><ContactForm services={svcNames} defaultService={svcNames.includes(service || '') ? service : ''} /></div>
         <aside className="space-y-5 lg:col-span-5">
-          <div className="rounded-2xl bg-ink p-7 text-white md:p-9">
+          <div className="rounded-2xl bg-surface-2 p-7 text-white md:p-9">
             <h2 className="t-h3 text-[1.6rem]">{t('nextH')}</h2>
             <ol className="mt-7 space-y-5">
               {[t('n1'), t('n2'), t('n3')].map((x, i) => (
-                <li key={i} className="flex gap-4"><span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand font-mono text-xs">{i + 1}</span><span className="pt-1 text-white/75">{x}</span></li>
+                <li key={i} className="flex gap-4"><span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand font-mono text-xs text-onbrand">{i + 1}</span><span className="pt-1 text-white/75">{x}</span></li>
               ))}
             </ol>
           </div>
@@ -46,7 +46,7 @@ export default async function Contact({ params, searchParams }: { params: Promis
             {info.map(({ icon: I, k, v, href }) => (
               <div key={k} className="flex items-start gap-4 py-5">
                 <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand"><I size={16} /></span>
-                <div><dt className="text-[.82rem] text-graphite">{k}</dt>
+                <div><dt className="text-[.82rem] text-muted">{k}</dt>
                   <dd className="mt-0.5 font-medium">{href ? <a href={href} className="ulink" {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{v}</a> : v}</dd></div>
               </div>
             ))}

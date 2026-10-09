@@ -13,15 +13,19 @@ Saytın dizaynı tam yenidən qurulub, backend-də ciddi təhlükəsizlik boşlu
    ```
 3. Tövsiyə: Supabase → Authentication → Providers → Email → **"Allow new users to sign up"** söndürün.
 
-## Dizayn (UI/UX) — "Swiss Precision"
+## Dizayn (UI/UX) — qara fon + neon yaşıl
 
-- Açıq kağız fon, mürəkkəb qara mətn və kobalt mavi vurğu (#3341FF); 12 sütunlu grid xətləri, ciddi və oxunaqlı kompozisiya.
-- Tipoqrafiya: Inter Tight (başlıqlar və mətn) + JetBrains Mono (etiketlər). Self-hosted; Ə/ə, kiril və alman simvolları dəstəklənir.
-- Hero: **interaktiv "Signal Field"** — kursora reaksiya verən nöqtə matrisi və tədricən çəkilən böyümə xətti (Trafik → Müraciət → Satış). Canvas 2D, kitabxanasız, ekrandan çıxanda dayanır, "azaldılmış hərəkət" rejimində statik.
-- Konversiya elementləri: "Yeni layihələr qəbul edirik" statusu, hər ekranda "Pulsuz audit" CTA-sı, hero-da 3 güvən nöqtəsi, əlaqə səhifəsində "Sonra nə olur?" bloku.
-- Xidmət kartları (hover-da kobalt), "Niyə Digiterial" 4 sütunu, tünd fonda 4 addımlı proses xətti, texnologiya şəbəkəsi, FAQ akkordeonu, kobalt CTA paneli, tünd footer.
-- Daxili səhifələrdə görünən breadcrumb (Ana səhifə › Xidmətlər › …).
-- Mobil üçün ayrıca tənzimlənmiş ölçülər; tam ekran mobil menyu.
+- Qara fon (#050506), tünd səthlər (#0E0F12, #15161B) və neon yaşıl vurğu (#3DFFA8); yaşıl üzərində mətn tünd (#02140B) — WCAG AA kontrast.
+- 12 sütunlu grid xətləri, Inter Tight + JetBrains Mono, self-hosted.
+- Hero: interaktiv "Signal Field" (kursora reaksiya verən nöqtələr + parlayan böyümə xətti), canvas, kitabxanasız.
+- "Pulsuz audit" təklifi saytın bütün dillərindən çıxarılıb; əsas CTA — "Layihəni müzakirə edək" / "Layihə başlat".
+
+## Bloq
+
+- 15 SEO yönümlü məqalə: Azərbaycanca 6, ingilis, rus və alman dillərində 3-ər (veb sayt qiyməti, SEO nədir, Google Ads vs Instagram; AZ-da əlavə olaraq landing page, lokal SEO, konversiya).
+- Hər məqalədə: açar sözlü URL, ayrıca SEO başlığı və təsvir, mündəricat, FAQ (FAQPage schema), BlogPosting schema, daxili linklər xidmət səhifələrinə, oxşar məqalələr.
+- Tərcümələr bir-birinə hreflang ilə bağlanıb; dil dəyişəndə məqalənin həmin dildəki versiyası açılır.
+- Məqalələr kodda saxlanılır (lib/data/articles/); admin paneldən əlavə edilən yazılar onlarla birlikdə göstərilir. Şəkil yoxdursa generativ üz qabığı çəkilir.
 
 ## Kopirayt və SEO
 

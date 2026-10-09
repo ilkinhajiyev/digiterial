@@ -41,9 +41,9 @@ export default async function WorkPage({ params }: { params: Promise<{ locale: s
       <PageHeader locale={locale} eyebrow={t('eyebrow')} title={`${t('h1a')} *${t('h1b')}*`} lead={t('lead')}>
         {items.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            <span className="chip border-ink bg-ink text-white">{t('all')} · {items.length}</span>
-            {web.length > 0 && <a href="#web" className="chip hover:border-ink hover:text-ink">{p('web')} · {web.length}</a>}
-            {smm.length > 0 && <a href="#smm" className="chip hover:border-ink hover:text-ink">{p('smm')} · {smm.length}</a>}
+            <span className="chip border-brand bg-brand text-onbrand">{t('all')} · {items.length}</span>
+            {web.length > 0 && <a href="#web" className="chip hover:border-fg hover:text-fg">{p('web')} · {web.length}</a>}
+            {smm.length > 0 && <a href="#smm" className="chip hover:border-fg hover:text-fg">{p('smm')} · {smm.length}</a>}
           </div>
         )}
       </PageHeader>

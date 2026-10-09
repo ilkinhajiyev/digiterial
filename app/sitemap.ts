@@ -4,6 +4,7 @@ import { SITE_URL, localePath } from '@/lib/seo';
 import { services } from '@/lib/data/services';
 import { getPortfolio } from '@/lib/data/portfolio';
 import { createServiceClient } from '@/lib/supabase/service';
+import { allArticles, articleTranslations } from '@/lib/data/articles';
 
 export const revalidate = 3600;
 
@@ -24,10 +25,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const path = `/isler/${w.slug || w.id}`;
     out.push({ url: `${SITE_URL}${localePath(w.locale || 'az', path)}`, changeFrequency: 'monthly', priority: 0.6 });
   }
+  for (const a of allArticles()) {
+    const languages = Object.fromEntries(articleTranslations(a.group).map((x) => [x.locale, `${SITE_URL}${localePath(x.locale, `/bloq/${x.slug}`)}`]));
+    out.push({ url: `${SITE_URL}${localePath(a.locale, `/bloq/${a.slug}`)}`, lastModified: a.date, changeFrequency: 'monthly', priority: 0.7, alternates: { languages } });
+  }
   if (process.env.SUPABASE_SERVICE_ROLE_KEY && process.env.NEXT_PUBLIC_SUPABASE_URL) {
     try {
       const { data } = await createServiceClient().from('content_posts').select('slug,locale,published_at').eq('status', 'published');
-      for (const p of data || []) out.push({ url: `${SITE_URL}${localePath(p.locale || 'az', `/bloq/${p.slug}`)}`, lastModified: p.published_at || undefined, changeFrequency: 'monthly', priority: 0.6 });
+      for (const p of data || []) if (!allArticles().some((a) => a.slug === p.slug)) out.push({ url: `${SITE_URL}${localePath(p.locale || 'az', `/bloq/${p.slug}`)}`, lastModified: p.published_at || undefined, changeFrequency: 'monthly', priority: 0.6 });
     } catch { /* DB əlçatan deyilsə statik xəritə kifayətdir */ }
   }
   return out;

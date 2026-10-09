@@ -41,7 +41,7 @@ export default async function PortfolioDetail({ params }: { params: Promise<{ lo
       </PageHeader>
 
       {it.image_url && (
-        <div className="wrap pt-12"><div className="overflow-hidden rounded-2xl border border-[color:var(--line)] bg-white"><img src={it.image_url} alt={it.title} className="aspect-[16/9] w-full object-cover" /></div></div>
+        <div className="wrap pt-12"><div className="overflow-hidden rounded-2xl border border-[color:var(--line)] bg-surface"><img src={it.image_url} alt={it.title} className="aspect-[16/9] w-full object-cover" /></div></div>
       )}
 
       {it.body && (

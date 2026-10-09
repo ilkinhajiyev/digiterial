@@ -14,19 +14,24 @@ const OG_LOCALE: Record<string, string> = { az: 'az_AZ', en: 'en_US', ru: 'ru_RU
 
 export function buildMetadata(opts: {
   locale: string; path: string; title: string; description?: string; image?: string; absoluteTitle?: boolean; type?: 'website' | 'article';
+  /** Fərqli dillərdə fərqli slug olduqda (bloq məqalələri) */
+  languages?: Record<string, string>; publishedTime?: string;
 }): Metadata {
   const { locale, path, image } = opts;
   const title = opts.title.replace(/\*/g, '');
   const description = opts.description?.replace(/\*/g, '');
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = localePath(l, path);
-  languages['x-default'] = localePath(defaultLocale, path);
+  if (opts.languages) Object.assign(languages, opts.languages);
+  else {
+    for (const l of locales) languages[l] = localePath(l, path);
+    languages['x-default'] = localePath(defaultLocale, path);
+  }
   const images = image ? [{ url: image }] : [{ url: '/og-kinetic.png', width: 1200, height: 630, alt: 'Digiterial' }];
   return {
     title: opts.absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: localePath(locale, path), languages },
-    openGraph: { type: opts.type || 'website', locale: OG_LOCALE[locale], url: localePath(locale, path), title, description, siteName: 'Digiterial', images },
+    openGraph: { type: opts.type || 'website', ...(opts.publishedTime ? { publishedTime: opts.publishedTime } : {}), locale: OG_LOCALE[locale], url: localePath(locale, path), title, description, siteName: 'Digiterial', images },
     twitter: { card: 'summary_large_image', title, description, images: images.map((i) => i.url) },
   };
 }

@@ -30,7 +30,7 @@ function Head({ label, heading, text, dark }: { label?: string; heading?: string
 
 function MarqueeBand({ p }: P) {
   return (
-    <div className="bg-ink py-5 text-white">
+    <div className="bg-surface-2 py-5 text-white">
       <p className="sr-only">{arr(p.items).join(', ')}</p>
       <Marquee items={arr(p.items)} sep="■" sepClass="text-brand text-[.5em] align-middle" className="text-[clamp(1.3rem,2.6vw,2rem)] font-semibold tracking-[-.03em]" />
     </div>
@@ -62,14 +62,14 @@ async function Services({ p }: P) {
         <div className="mt-14 grid overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--line)] sm:grid-cols-2 lg:grid-cols-3" style={{ gap: 1 }}>
           {services.map((s, i) => (
             <Link key={s.slug} href={`/xidmetler/${s.slug}`}
-              className="group relative flex min-h-[240px] flex-col bg-white p-7 md:min-h-[300px] transition-colors duration-300 hover:bg-brand md:p-8">
+              className="group relative flex min-h-[240px] flex-col bg-surface p-7 md:min-h-[300px] transition-colors duration-300 hover:bg-brand md:p-8">
               <div className="flex items-start justify-between">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-brand transition-colors duration-300 group-hover:bg-white/15 group-hover:text-white"><ServiceIcon slug={s.slug} className="h-6 w-6" /></span>
-                <span className="idx transition-colors group-hover:text-white/70">{pad(i + 1)}</span>
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-brand transition-colors duration-300 group-hover:bg-onbrand/10 group-hover:text-onbrand"><ServiceIcon slug={s.slug} className="h-6 w-6" /></span>
+                <span className="idx transition-colors group-hover:text-onbrand/70">{pad(i + 1)}</span>
               </div>
-              <h3 className="t-h3 mt-auto pt-12 transition-colors group-hover:text-white">{t(`${s.slug}.title`)}</h3>
-              <p className="t-small mt-3 transition-colors group-hover:text-white/80">{t(`${s.slug}.short`)}</p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-[.9rem] font-medium text-brand transition-colors group-hover:text-white">
+              <h3 className="t-h3 mt-auto pt-12 transition-colors group-hover:text-onbrand">{t(`${s.slug}.title`)}</h3>
+              <p className="t-small mt-3 transition-colors group-hover:text-onbrand/80">{t(`${s.slug}.short`)}</p>
+              <span className="mt-6 inline-flex items-center gap-1.5 text-[.9rem] font-medium text-brand transition-colors group-hover:text-onbrand">
                 {c('more')} <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
@@ -82,12 +82,12 @@ async function Services({ p }: P) {
 
 function Workbench({ p }: P) {
   return (
-    <section className="section bg-white">
+    <section className="section bg-surface">
       <div className="wrap">
         <Head label={p.label} heading={p.heading} text={p.text} />
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {arr(p.items).map((it: any, i: number) => (
-            <div key={i} className="border-t-2 border-ink pt-6">
+            <div key={i} className="border-t-2 border-fg pt-6">
               <div className="text-[3.2rem] font-semibold leading-none tracking-[-.06em] text-brand">{pad(i + 1)}</div>
               <h3 className="t-h3 mt-8">{it.h}</h3>
               <p className="t-small mt-3">{it.p}</p>
@@ -110,7 +110,7 @@ function Process({ p }: P) {
           <span aria-hidden className="progress-line absolute left-0 right-0 top-[22px] hidden h-px bg-brand md:block" />
           {items.map((it: any, i: number) => (
             <li key={i} className="relative">
-              <span className="relative grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-ink font-mono text-sm text-white">{pad(i + 1)}</span>
+              <span className="relative grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-surface-2 font-mono text-sm text-white">{pad(i + 1)}</span>
               <h3 className="t-h3 mt-8 text-white">{it.h}</h3>
               <p className="t-small mt-3">{it.p}</p>
             </li>
@@ -129,7 +129,7 @@ function Toolkit({ p }: P) {
         <Head label={p.label} heading={p.heading} text={p.text} />
         <ul className="mt-14 grid grid-cols-2 overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--line)] sm:grid-cols-4" style={{ gap: 1 }}>
           {all.map((x: string, i: number) => (
-            <li key={i} className="group flex h-28 items-center justify-center bg-paper px-4 text-center text-[clamp(1rem,1.6vw,1.25rem)] font-semibold tracking-[-.03em] text-graphite transition-colors hover:bg-white hover:text-ink md:h-32">{x}</li>
+            <li key={i} className="group flex h-28 items-center justify-center bg-bg px-4 text-center text-[clamp(1rem,1.6vw,1.25rem)] font-semibold tracking-[-.03em] text-muted transition-colors hover:bg-surface hover:text-fg md:h-32">{x}</li>
           ))}
         </ul>
       </div>
@@ -145,7 +145,7 @@ function Principles({ p }: P) {
         <div className="mt-14 grid gap-4 md:grid-cols-3">
           {arr(p.items).map((it: any, i: number) => (
             <div key={i} className="card p-7 md:p-8">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-ink font-mono text-xs text-white">{pad(i + 1)}</span>
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-surface-2 font-mono text-xs text-white">{pad(i + 1)}</span>
               <h3 className="t-h3 mt-10">{it.h}</h3>
               <p className="t-small mt-3">{it.p}</p>
             </div>
@@ -186,13 +186,13 @@ function Stats({ p }: P) {
         <Head label={p.label} heading={p.statement} />
         <dl className="mt-14 grid grid-cols-2 overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--line)] md:grid-cols-4" style={{ gap: 1 }}>
           {arr(p.items).map((s: any, i: number) => (
-            <div key={i} className="flex flex-col-reverse bg-white p-7">
-              <dt className="mt-2 text-[.9rem] text-graphite">{s.l}</dt>
+            <div key={i} className="flex flex-col-reverse bg-surface p-7">
+              <dt className="mt-2 text-[.9rem] text-muted">{s.l}</dt>
               <dd className="text-[clamp(2.4rem,4.5vw,3.8rem)] font-semibold leading-none tracking-[-.05em]"><CountUp value={String(s.v ?? '')} /></dd>
             </div>
           ))}
         </dl>
-        {p.receipt && <p className="mt-6 font-mono text-sm text-graphite">{p.receipt}</p>}
+        {p.receipt && <p className="mt-6 font-mono text-sm text-muted">{p.receipt}</p>}
       </div>
     </section>
   );
@@ -224,9 +224,9 @@ function Testimonials({ p }: P) {
         {p.label && <div className="eyebrow">{p.label}</div>}
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {arr(p.items).map((q: any, i: number) => (
-            <figure key={i} className={`flex flex-col justify-between rounded-2xl p-8 md:p-10 ${i % 2 ? 'card' : 'bg-ink text-white'}`}>
+            <figure key={i} className={`flex flex-col justify-between rounded-2xl p-8 md:p-10 ${i % 2 ? 'card' : 'bg-surface-2 text-white'}`}>
               <blockquote className="text-[clamp(1.2rem,2vw,1.55rem)] font-medium leading-snug tracking-[-.02em]">“{String(q.q || '').replace(/^["“]|["”]$/g, '')}”</blockquote>
-              <figcaption className={`mt-10 font-mono text-[.78rem] ${i % 2 ? 'text-graphite' : 'text-white/60'}`}>— {q.by}</figcaption>
+              <figcaption className={`mt-10 font-mono text-[.78rem] ${i % 2 ? 'text-muted' : 'text-white/60'}`}>— {q.by}</figcaption>
             </figure>
           ))}
         </div>
@@ -239,7 +239,7 @@ function Clients({ p }: P) {
   return (
     <section className="py-14">
       <div className="wrap mb-6">{p.label && <div className="eyebrow">{p.label}</div>}</div>
-      <Marquee items={arr(p.items)} sep="·" className="text-[clamp(1.6rem,3.6vw,2.6rem)] font-semibold tracking-[-.04em] text-ink/35" />
+      <Marquee items={arr(p.items)} sep="·" className="text-[clamp(1.6rem,3.6vw,2.6rem)] font-semibold tracking-[-.04em] text-fg/35" />
     </section>
   );
 }
@@ -257,7 +257,7 @@ function Faq({ p }: P) {
         </div>
         <div className="lg:col-span-8">
           {items.map((f: any, i: number) => (
-            <details key={i} className="group mb-3 rounded-2xl border border-[color:var(--line)] bg-white px-6 transition-shadow open:shadow-[0_20px_50px_-30px_rgba(10,11,13,.3)]">
+            <details key={i} className="group mb-3 rounded-2xl border border-[color:var(--line)] bg-surface px-6 transition-shadow open:shadow-[0_20px_50px_-30px_rgba(10,11,13,.3)]">
               <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 text-left text-[clamp(1.02rem,1.4vw,1.15rem)] font-semibold tracking-[-.02em]">
                 {f.q}
                 <span className="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[color:var(--line-2)] transition duration-300"><Plus size={16} /></span>
@@ -275,13 +275,13 @@ function Cta({ p }: P) {
   return (
     <section className="pb-20 md:pb-28">
       <div className="wrap">
-        <div className="on-dark relative overflow-hidden rounded-3xl bg-brand px-6 py-16 text-white sm:px-12 md:px-16 md:py-24">
-          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(to_left,#000,transparent_70%)]" />
+        <div className="relative overflow-hidden rounded-3xl bg-brand px-6 py-16 text-onbrand sm:px-12 md:px-16 md:py-24">
+          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(3,20,12,.35)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(to_left,#000,transparent_70%)]" />
           <div className="relative grid items-end gap-10 md:grid-cols-12">
-            <h2 className="t-display text-[clamp(2.2rem,5vw,4.4rem)] md:col-span-8 [&_em]:!text-white [&_em]:underline [&_em]:decoration-white/40 [&_em]:decoration-2 [&_em]:underline-offset-[.15em]"><Accent text={p.h2} /></h2>
+            <h2 className="t-display text-[clamp(2.2rem,5vw,4.4rem)] md:col-span-8 [&_em]:!text-onbrand [&_em]:underline [&_em]:decoration-onbrand/40 [&_em]:decoration-2 [&_em]:underline-offset-[.15em]"><Accent text={p.h2} /></h2>
             <div className="md:col-span-4">
-              {p.p && <p className="text-[1.05rem] leading-relaxed text-white/80">{p.p}</p>}
-              <Link href={p.href || '/elaqe'} className="btn-light mt-8">{p.b1} <ArrowUpRight size={18} className="arr" /></Link>
+              {p.p && <p className="text-[1.05rem] leading-relaxed text-onbrand/75">{p.p}</p>}
+              <Link href={p.href || '/elaqe'} className="btn-dark mt-8">{p.b1} <ArrowUpRight size={18} className="arr" /></Link>
             </div>
           </div>
         </div>

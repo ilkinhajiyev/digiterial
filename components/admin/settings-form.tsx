@@ -43,7 +43,7 @@ export default function SettingsForm({ current }: Props) {
   const lbl = 'font-mono text-[.62rem] uppercase text-white/45 block mb-1.5';
   const hint = 'text-white/30 text-[.68rem] mt-1';
   const card = 'bg-[#121212] border border-white/10 rounded-2xl p-5 mb-4';
-  const tabBtn = (active: boolean) => `px-4 py-2 text-sm rounded-lg transition ${active ? 'bg-brand text-white font-semibold' : 'text-white/50 hover:text-white bg-white/5'}`;
+  const tabBtn = (active: boolean) => `px-4 py-2 text-sm rounded-lg transition ${active ? 'bg-brand text-ink font-semibold' : 'text-white/50 hover:text-white bg-white/5'}`;
 
   return (
     <form onSubmit={save} className="max-w-2xl">
@@ -168,7 +168,7 @@ export default function SettingsForm({ current }: Props) {
       {/* Save bar */}
       <div className="flex items-center gap-3 sticky bottom-4 bg-[#0b0b0b]/80 backdrop-blur p-3 rounded-xl border border-white/10">
         <button type="submit" disabled={loading}
-          className="bg-brand text-white font-semibold rounded-lg px-6 py-2.5 disabled:opacity-50 flex items-center gap-2">
+          className="bg-brand text-ink font-semibold rounded-lg px-6 py-2.5 disabled:opacity-50 flex items-center gap-2">
           {loading ? 'Saxlanır…' : '💾 Yadda saxla'}
         </button>
         {msg && <span className={`text-sm ${msg.ok ? 'text-brand' : 'text-red-400'}`}>{msg.text}</span>}
