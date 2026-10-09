@@ -36,22 +36,22 @@ export default function ContactForm({ services, defaultService = '' }: { service
 
   if (state === 'ok') {
     return (
-      <div className="glass flex min-h-[460px] flex-col items-start justify-center p-8 md:p-14" role="status" aria-live="polite">
-        <span className="grid h-14 w-14 place-items-center rounded-full bg-brand text-ink"><CheckCircle2 size={26} /></span>
-        <h2 className="t-h2 mt-10 max-w-[14ch]">{t('ok')}</h2>
+      <div className="card flex min-h-[460px] flex-col items-start justify-center p-8 md:p-14" role="status" aria-live="polite">
+        <span className="grid h-14 w-14 place-items-center rounded-full bg-brand text-white"><CheckCircle2 size={26} /></span>
+        <h2 className="t-h3 mt-8 max-w-[26ch] text-[1.8rem]">{t('ok')}</h2>
         <button type="button" onClick={() => { setState('idle'); started.current = Date.now(); }} className="btn-ghost mt-8">{t('again')}</button>
       </div>
     );
   }
 
   const sending = state === 'sending';
-  const req = <span className="text-brand/80">*</span>;
+  const req = <span className="text-brand">*</span>;
   const budgets = ['bud1', 'bud2', 'bud3', 'bud4', 'bud5'] as const;
 
   return (
-    <form onSubmit={onSubmit} noValidate className="glass relative p-6 sm:p-10 md:p-12" aria-busy={sending}>
+    <form onSubmit={onSubmit} noValidate className="card relative p-6 shadow-[0_30px_80px_-40px_rgba(10,11,13,.3)] sm:p-10" aria-busy={sending}>
       {err && (
-        <div ref={errRef} tabIndex={-1} role="alert" className="mb-8 flex items-start gap-3 rounded-xl border border-[#FF6B6B]/30 bg-[#FF6B6B]/[.08] px-4 py-3.5 text-sm text-[#FFB4B4] outline-none">
+        <div ref={errRef} tabIndex={-1} role="alert" className="mb-8 flex items-start gap-3 rounded-xl border border-[#D92D20]/25 bg-[#FEF3F2] px-4 py-3.5 text-sm text-[#B42318] outline-none">
           <AlertCircle size={18} className="mt-0.5 shrink-0" />{err.msg}
         </div>
       )}
@@ -60,7 +60,7 @@ export default function ContactForm({ services, defaultService = '' }: { service
         <label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       </div>
 
-      <div className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
+      <div className="grid gap-x-5 gap-y-6 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-name" className="field-label">{t('name')} {req}</label>
           <input id="cf-name" name="name" autoComplete="name" required minLength={2} maxLength={120} disabled={sending} className="field" placeholder={t('phName')} aria-invalid={err?.field === 'name' || undefined} />
@@ -79,34 +79,34 @@ export default function ContactForm({ services, defaultService = '' }: { service
         </div>
       </div>
 
-      <fieldset className="mt-10" disabled={sending}>
-        <legend className="field-label mb-4">{t('service')}</legend>
+      <fieldset className="mt-7" disabled={sending}>
+        <legend className="field-label mb-3">{t('service')}</legend>
         <div className="flex flex-wrap gap-2">
           {[...services, t('other')].map((s) => (
             <label key={s} className="cursor-pointer">
               <input type="radio" name="service" value={s} defaultChecked={s === defaultService} className="peer sr-only" />
-              <span className="inline-flex rounded-full border border-[color:var(--line-2)] px-4 py-2.5 text-sm text-[color:var(--fg-2)] transition duration-300 hover:border-bone hover:text-bone peer-checked:border-brand peer-checked:bg-brand peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-brand/60">{s}</span>
+              <span className="inline-flex rounded-full border border-[color:var(--line-2)] bg-white px-4 py-2.5 text-sm text-graphite transition duration-200 hover:border-ink hover:text-ink peer-checked:border-brand peer-checked:bg-brand peer-checked:text-white peer-focus-visible:ring-4 peer-focus-visible:ring-brand/20">{s}</span>
             </label>
           ))}
         </div>
       </fieldset>
 
-      <div className="mt-10">
+      <div className="mt-7">
         <label htmlFor="cf-budget" className="field-label">{t('budget')}</label>
-        <select id="cf-budget" name="budget" disabled={sending} className="field appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22none%22 stroke=%22%23ECE8E1%22 stroke-width=%221.6%22><path d=%22M4 6l4 4 4-4%22/></svg>')] bg-[length:16px] bg-[right_0_center] bg-no-repeat pr-8 [&>option]:bg-coal" defaultValue="">
+        <select id="cf-budget" name="budget" disabled={sending} className="field appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22none%22 stroke=%22%230A0B0D%22 stroke-width=%221.6%22><path d=%22M4 6l4 4 4-4%22/></svg>')] bg-[length:16px] bg-[right_1rem_center] bg-no-repeat pr-10" defaultValue="">
           <option value="">{t('choose')}</option>
           {budgets.map((b) => <option key={b} value={t(b)}>{t(b)}</option>)}
         </select>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-7">
         <label htmlFor="cf-message" className="field-label">{t('message')}</label>
         <textarea id="cf-message" name="message" rows={5} maxLength={4000} disabled={sending} className="field resize-y" placeholder={t('phMessage')} />
       </div>
 
-      <div className="mt-12 flex flex-col-reverse gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-[44ch] text-xs leading-relaxed text-ash">{t('consent')}</p>
-        <button type="submit" disabled={sending} className="btn-gold shrink-0">
+      <div className="mt-8 flex flex-col-reverse gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-[44ch] text-xs leading-relaxed text-graphite">{t('consent')}</p>
+        <button type="submit" disabled={sending} className="btn-accent shrink-0">
           {sending ? <><Loader2 size={18} className="animate-spin" />{t('sending')}</> : <>{t('send')} <ArrowUpRight size={18} className="arr" /></>}
         </button>
       </div>

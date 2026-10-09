@@ -20,7 +20,7 @@ export default async function Page() {
           <p className="text-white/40 text-sm mt-0.5">{rows.length} səhifə · Builder ilə redaktə</p>
         </div>
         <Link href="/admin/builder"
-          className="bg-brand text-ink font-semibold text-sm rounded-lg px-4 py-2.5 hover:opacity-90 active:scale-95 transition">
+          className="bg-brand text-white font-semibold text-sm rounded-lg px-4 py-2.5 hover:opacity-90 active:scale-95 transition">
           Vizual Builder →
         </Link>
       </div>
@@ -76,7 +76,7 @@ export default async function Page() {
                 <td colSpan={6} className="text-center py-12">
                   <div className="text-white/25 font-mono text-sm">Hələ səhifə yoxdur</div>
                   <div className="mt-3">
-                    <Link href="/admin/builder" className="bg-brand text-ink font-semibold text-sm rounded-lg px-4 py-2.5 inline-block">
+                    <Link href="/admin/builder" className="bg-brand text-white font-semibold text-sm rounded-lg px-4 py-2.5 inline-block">
                       Builder-dən yarat →
                     </Link>
                   </div>

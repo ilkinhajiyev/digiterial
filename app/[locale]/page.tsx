@@ -9,8 +9,8 @@ import { pageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'hero' });
-  return pageMetadata('home', locale, '/', { title: `Digiterial — ${t('h1')}`, description: t('lead'), absoluteTitle: true });
+  const m = await getTranslations({ locale, namespace: 'meta.home' });
+  return pageMetadata('home', locale, '/', { title: m('title'), description: m('desc'), absoluteTitle: true });
 }
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {

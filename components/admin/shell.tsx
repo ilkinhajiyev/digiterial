@@ -53,7 +53,7 @@ export default function AdminShell({ children, email, role }: { children: React.
             return (
               <Link key={n.href} href={n.href} onClick={() => setOpen(false)}
                 aria-current={on ? 'page' : undefined}
-                className={`block px-3 py-2 rounded-[10px] text-[.86rem] mb-0.5 transition ${on ? 'bg-brand text-ink font-medium' : 'text-[#B5B0A6] hover:bg-white/[.06] hover:text-white'}`}>
+                className={`block px-3 py-2 rounded-[10px] text-[.86rem] mb-0.5 transition ${on ? 'bg-brand text-white font-medium' : 'text-[#B5B0A6] hover:bg-white/[.06] hover:text-white'}`}>
                 {n.label}
               </Link>
             );

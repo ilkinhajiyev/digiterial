@@ -6,8 +6,8 @@ import { defaultBlocks } from '@/lib/data/default-blocks';
 import { pageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params; const t = await getTranslations({ locale, namespace: 'pages.services' });
-  return pageMetadata('services', locale, '/xidmetler', { title: t('h1'), description: t('lead') });
+  const { locale } = await params; const m = await getTranslations({ locale, namespace: 'meta.services' });
+  return pageMetadata('services', locale, '/xidmetler', { title: m('title'), description: m('desc') });
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {

@@ -31,17 +31,17 @@ export default async function PortfolioDetail({ params }: { params: Promise<{ lo
   return (
     <>
       <JsonLd data={ld} />
-      <PageHeader back={{ href: '/isler', label: tr('back') }} eyebrow={it.category === 'smm' ? 'SMM' : 'Web'} title={it.title} lead={it.description}>
+      <PageHeader locale={locale} back={{ href: '/isler', label: tr('back') }} eyebrow={it.category === 'smm' ? 'SMM' : 'Web'} title={it.title} lead={it.description}>
         <div className="flex flex-wrap items-center gap-2">
           {it.client && <span className="chip">{it.client}</span>}
-          {it.metric && <span className="chip border-brand text-brand">{it.metric}</span>}
+          {it.metric && <span className="chip border-brand bg-brand-soft font-semibold text-brand">{it.metric}</span>}
           {tags.map((t) => <span key={t} className="chip">{t}</span>)}
-          {link && <a href={link} target="_blank" rel="noopener noreferrer" className="btn-primary ml-auto">{tr('visit')} <ArrowUpRight size={18} className="arr" /></a>}
+          {link && <a href={link} target="_blank" rel="noopener noreferrer" className="btn-accent">{tr('visit')} <ArrowUpRight size={18} className="arr" /></a>}
         </div>
       </PageHeader>
 
       {it.image_url && (
-        <div className="wrap"><div className="overflow-hidden rounded-[1.75rem] bg-coal"><img src={it.image_url} alt={it.title} className="aspect-[16/9] w-full object-cover" /></div></div>
+        <div className="wrap pt-12"><div className="overflow-hidden rounded-2xl border border-[color:var(--line)] bg-white"><img src={it.image_url} alt={it.title} className="aspect-[16/9] w-full object-cover" /></div></div>
       )}
 
       {it.body && (

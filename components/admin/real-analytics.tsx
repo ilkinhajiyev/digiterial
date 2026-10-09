@@ -5,7 +5,7 @@ import {
 } from 'recharts';
 import type { Ga4Data } from '@/lib/data/ga4';
 
-const COLORS = ['#E7B76A', '#c9c400', '#9a9a93', '#6b6b64', '#44443f', '#2e2e2b'];
+const COLORS = ['#3341FF', '#c9c400', '#9a9a93', '#6b6b64', '#44443f', '#2e2e2b'];
 const card = 'bg-[#121212] border border-white/10 rounded-2xl p-5';
 
 export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; leads: number; clients: number }) {
@@ -90,14 +90,14 @@ export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; l
         <ResponsiveContainer width="100%" height={220}>
           <AreaChart data={ga4.daily}>
             <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#E7B76A" stopOpacity={0.4} />
-              <stop offset="100%" stopColor="#E7B76A" stopOpacity={0} />
+              <stop offset="0%" stopColor="#3341FF" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#3341FF" stopOpacity={0} />
             </linearGradient></defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" />
             <XAxis dataKey="date" stroke="#8A8A85" fontSize={11} />
             <YAxis stroke="#8A8A85" fontSize={11} />
             <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-            <Area type="monotone" dataKey="users" stroke="#E7B76A" strokeWidth={2} fill="url(#g)" />
+            <Area type="monotone" dataKey="users" stroke="#3341FF" strokeWidth={2} fill="url(#g)" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -111,7 +111,7 @@ export default function RealAnalytics({ ga4, leads, clients }: { ga4: Ga4Data; l
               <XAxis type="number" stroke="#8A8A85" fontSize={11} />
               <YAxis type="category" dataKey="name" stroke="#8A8A85" fontSize={11} width={80} />
               <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-              <Bar dataKey="users" fill="#E7B76A" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="users" fill="#3341FF" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

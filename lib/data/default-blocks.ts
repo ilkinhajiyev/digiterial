@@ -16,10 +16,10 @@ export async function defaultBlocks(key: string, locale: string): Promise<Block[
   const marquee: Block = { type: 'marquee', props: { items: ['i1', 'i2', 'i3', 'i4', 'i5', 'i6'].map((k) => t(`marquee.${k}`)) } };
   const band: Block = { type: 'band', props: { label: t('band.label'), big: t('band.big'), h3: t('band.h3'), p: t('band.p') } };
   const workbench: Block = { type: 'workbench', props: { label: t('workbench.label'), heading: t('workbench.heading'), text: t('workbench.text'), items: [1, 2, 3, 4].map((n) => ({ h: t(`workbench.h${n}`), p: t(`workbench.p${n}`) })) } };
-  const process: Block = { type: 'process', props: { label: t('process.label'), heading: t('process.heading'), text: t('process.text'), items: [1, 2, 3].map((n) => ({ h: t(`process.h${n}`), p: t(`process.p${n}`) })) } };
+  const process: Block = { type: 'process', props: { label: t('process.label'), heading: t('process.heading'), text: t('process.text'), items: [1, 2, 3, 4].map((n) => ({ h: t(`process.h${n}`), p: t(`process.p${n}`) })) } };
   const toolkit: Block = { type: 'toolkit', props: { label: t('toolkit.label'), heading: t('toolkit.heading'), text: t('toolkit.text'), row1: [1, 2, 3, 4].map((n) => t(`toolkit.r${n}`)), row2: [5, 6, 7, 8].map((n) => t(`toolkit.r${n}`)) } };
   const principles: Block = { type: 'principles', props: { label: t('principles.label'), heading: t('principles.heading'), items: [1, 2, 3].map((n) => ({ h: t(`principles.h${n}`), p: t(`principles.p${n}`) })) } };
-  const faq: Block = { type: 'faq', props: { label: t('faq.label'), items: [1, 2, 3, 4].map((n) => ({ q: t(`faq.q${n}`), a: t(`faq.a${n}`) })) } };
+  const faq: Block = { type: 'faq', props: { label: t('faq.label'), heading: t('faq.heading'), items: [1, 2, 3, 4, 5].map((n) => ({ q: t(`faq.q${n}`), a: t(`faq.a${n}`) })) } };
   const cta: Block = { type: 'cta', props: { h2: t('cta.h2'), p: t('cta.p'), b1: t('cta.b1') } };
   const work: Block = { type: 'work', props: { label: t('work.label'), heading: t('work.heading'), b1: t('work.all'), limit: 3 } };
 
@@ -28,14 +28,14 @@ export async function defaultBlocks(key: string, locale: string): Promise<Block[
       return [
         { type: 'hero', props: { eyebrow: th('eyebrow'), h1: th('h1'), lead: th('lead'), b1: th('b1'), b2: th('b2'), b1Href: '/elaqe', b2Href: '/isler', showAside: true } },
         marquee, band,
-        { type: 'services', props: { label: t('servicesHead.label'), heading: t('servicesHead.heading') } },
-        workbench, work, process, toolkit, principles, faq, cta,
+        { type: 'services', props: { label: t('servicesHead.label'), heading: t('servicesHead.heading'), text: t('servicesHead.text') } },
+        workbench, process, work, toolkit, principles, faq, cta,
       ];
     case 'services':
       return [
         { type: 'hero', props: { eyebrow: pg('services.eyebrow'), h1: pg('services.h1'), lead: pg('services.lead'), b1: c('audit'), b2: c('work'), b1Href: '/elaqe', b2Href: '/isler' } },
-        { type: 'services', props: { label: t('servicesHead.label'), heading: t('servicesHead.heading') } },
-        process, faq, cta,
+        { type: 'services', props: { label: t('servicesHead.label'), heading: t('servicesHead.heading'), text: t('servicesHead.text') } },
+        workbench, process, faq, cta,
       ];
     case 'about':
       return [

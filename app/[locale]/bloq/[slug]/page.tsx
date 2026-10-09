@@ -41,7 +41,7 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <JsonLd data={ld} />
-      <PageHeader back={{ href: '/bloq', label: t('back') }} eyebrow={`${new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(new Date(date))} · ${readingMinutes(post.body)} ${t('min')}`} title={post.title} lead={post.excerpt} />
+      <PageHeader locale={locale} back={{ href: '/bloq', label: t('back') }} eyebrow={`${new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(new Date(date))} · ${readingMinutes(post.body)} ${t('min')}`} title={post.title} lead={post.excerpt} />
       {post.cover_url && <div className="wrap"><img src={post.cover_url} alt="" className="aspect-[16/8] w-full rounded-[1.5rem] object-cover" /></div>}
       <article className="section"><div className="wrap"><div className="mx-auto max-w-[68ch]"><Body text={post.body || ''} /></div></div></article>
       <BlockRenderer blocks={[{ type: 'cta', props: { h2: h('cta.h2'), p: h('cta.p'), b1: h('cta.b1') } }]} />

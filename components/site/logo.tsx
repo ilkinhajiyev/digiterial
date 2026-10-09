@@ -1,8 +1,12 @@
-export default function Logo({ brand = 'Digiterial', logoUrl, className = '' }: { brand?: string; logoUrl?: string; className?: string }) {
+export default function Logo({ brand = 'Digiterial', logoUrl, className = '', dark = false }: { brand?: string; logoUrl?: string; className?: string; dark?: boolean }) {
   if (logoUrl) return <img src={logoUrl} alt={brand} className={`h-8 w-auto object-contain ${className}`} />;
   return (
-    <span className={`inline-flex items-baseline font-display text-[1.7rem] font-medium leading-none tracking-[-.02em] ${className}`}>
-      {brand}<sup className="ml-0.5 font-body text-[.6rem] font-normal text-brand">®</sup>
+    <span className={`inline-flex items-center gap-2 font-display text-[1.3rem] font-semibold tracking-[-.05em] ${className}`}>
+      <span aria-hidden className="grid h-7 w-7 grid-cols-2 gap-[3px] rounded-[7px] bg-brand p-[6px]">
+        <span className="rounded-[1.5px] bg-white" /><span className="rounded-[1.5px] bg-white/40" />
+        <span className="rounded-[1.5px] bg-white/40" /><span className="rounded-[1.5px] bg-white" />
+      </span>
+      <span className={dark ? 'text-white' : 'text-ink'}>{brand.toLowerCase()}</span>
     </span>
   );
 }
