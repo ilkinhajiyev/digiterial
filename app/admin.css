@@ -1,0 +1,8 @@
+/* Admin panel (Agency OS) qlobal üslubları. Şriftlər root layout-dakı next/font dəyişənlərindən gəlir. */
+body { font-family: var(--font-sans), 'Helvetica Neue', Arial, sans-serif; background: #0E0F12; color: #ECEEF1; color-scheme: dark; }
+::selection { background: #F1B43A; color: #0E0F12; }
+.adm-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.adm-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.08); border-radius: 8px; }
+.adm-num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid #F1B43A; outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

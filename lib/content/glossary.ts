@@ -1,0 +1,31 @@
+// Rəqəmsal marketinq lüğəti: hər termin ayrıca lövbər (#slug) ilə; DefinedTermSet schema üçün istifadə olunur.
+export type Term = { slug: string; term: string; full?: string; def: string; service?: string; cat: 'SEO' | 'Reklam' | 'Analitika' | 'Veb' | 'Email' };
+
+export const glossary: Term[] = [
+  { slug: 'seo', term: 'SEO', full: 'Search Engine Optimization', cat: 'SEO', service: 'seo', def: 'Saytın Google kimi axtarış sistemlərinin pulsuz (üzvi) nəticələrində daha yuxarıda görünməsi üçün görülən texniki, məzmun və nüfuz işlərinin məcmusu.' },
+  { slug: 'lokal-seo', term: 'Lokal SEO', cat: 'SEO', service: 'seo', def: 'Biznesin müəyyən şəhər və ya ərazidə edilən axtarışlarda və Google Xəritədə görünməsi üçün optimallaşdırma. Google Business Profile əsas alətdir.' },
+  { slug: 'acar-soz', term: 'Açar söz', cat: 'SEO', service: 'seo', def: 'İstifadəçinin axtarış sisteminə yazdığı söz və ya ifadə. SEO və axtarış reklamı açar sözlərin axtarış niyyətinə görə seçilməsi ilə başlayır.' },
+  { slug: 'meta-description', term: 'Meta description', cat: 'SEO', service: 'seo', def: 'Axtarış nəticəsində başlığın altında görünən qısa təsvir. Klik etmək üçün səbəb verməli və təxminən 160 simvoldan çox olmamalıdır.' },
+  { slug: 'canonical', term: 'Canonical', cat: 'SEO', service: 'seo', def: 'Eyni və ya oxşar məzmunlu səhifələrdən hansının əsas olduğunu axtarış sisteminə bildirən teq. Dublikat məzmun problemlərinin qarşısını alır.' },
+  { slug: 'hreflang', term: 'hreflang', cat: 'SEO', service: 'seo', def: 'Çoxdilli saytlarda səhifənin hansı dil və region üçün olduğunu göstərən işarə. Google-a istifadəçiyə düzgün dil versiyasını göstərməyə kömək edir.' },
+  { slug: 'schema', term: 'Schema (strukturlaşdırılmış data)', cat: 'SEO', service: 'seo', def: 'Səhifənin məzmununu (təşkilat, məhsul, FAQ, məqalə) axtarış sistemlərinə maşın oxuya bilən formatda təsvir edən kod. Zəngin nəticələrə imkan verir.' },
+  { slug: 'core-web-vitals', term: 'Core Web Vitals', cat: 'Veb', service: 'veb-saytlar', def: 'Google-un səhifə təcrübəsini ölçən üç göstəricisi: yüklənmə sürəti (LCP), interaktivlik (INP) və vizual sabitlik (CLS).' },
+  { slug: 'landing-page', term: 'Landing page', cat: 'Veb', service: 'veb-saytlar', def: 'Bir məhsul, xidmət və ya kampaniya üçün hazırlanmış, ziyarətçini tək bir hərəkətə (müraciət, alış, qeydiyyat) yönləndirən səhifə.' },
+  { slug: 'konversiya', term: 'Konversiya', cat: 'Analitika', def: 'Ziyarətçinin istənilən hərəkəti etməsi: müraciət göndərmək, zəng etmək, alış etmək. Konversiya faizi bu hərəkəti edənlərin ümumi ziyarətçilərə nisbətidir.' },
+  { slug: 'cta', term: 'CTA', full: 'Call to action', cat: 'Veb', service: 'veb-saytlar', def: 'İstifadəçini konkret hərəkətə çağıran düymə və ya mətn, məsələn "Layihəni müzakirə edək".' },
+  { slug: 'roas', term: 'ROAS', full: 'Return on Ad Spend', cat: 'Reklam', service: 'reklam', def: 'Reklama xərclənən hər manatın nə qədər gəlir gətirdiyini göstərən nisbət. Məsələn, 100 ₼ xərc 400 ₼ gəlir gətiribsə, ROAS 4-dür.' },
+  { slug: 'cpa', term: 'CPA', full: 'Cost per Acquisition', cat: 'Reklam', service: 'reklam', def: 'Bir müraciətin, qeydiyyatın və ya satışın orta reklam xərci.' },
+  { slug: 'ctr', term: 'CTR', full: 'Click-through rate', cat: 'Reklam', service: 'reklam', def: 'Reklamı və ya axtarış nəticəsini görənlərin neçə faizinin kliklədiyi. Başlıq və kreativin cəlbediciliyini göstərir.' },
+  { slug: 'cpc', term: 'CPC', full: 'Cost per click', cat: 'Reklam', service: 'reklam', def: 'Reklamdakı bir klikin orta qiyməti. Rəqabət və reklamın keyfiyyətindən asılıdır.' },
+  { slug: 'retargeting', term: 'Retargetinq', cat: 'Reklam', service: 'reklam', def: 'Saytı ziyarət edib hərəkət etməyən istifadəçilərə yenidən reklam göstərmək. Qərar mərhələsindəki auditoriyanı geri qaytarır.' },
+  { slug: 'performance-max', term: 'Performance Max', cat: 'Reklam', service: 'reklam', def: 'Google-un bir kampaniya ilə Axtarış, YouTube, Display, Gmail və Xəritədə reklam göstərən avtomatlaşdırılmış kampaniya növü.' },
+  { slug: 'pixel', term: 'Meta Pixel', cat: 'Analitika', service: 'reklam', def: 'Saytdakı hərəkətləri (baxış, səbət, alış) Meta reklam sisteminə ötürən izləmə kodu. Reklamın optimallaşdırılması və retargetinq üçün lazımdır.' },
+  { slug: 'ga4', term: 'GA4', full: 'Google Analytics 4', cat: 'Analitika', def: 'Google-un veb analitika platforması. Ziyarətçi davranışını, trafik mənbələrini və konversiyaları hadisələr əsasında ölçür.' },
+  { slug: 'gtm', term: 'GTM', full: 'Google Tag Manager', cat: 'Analitika', def: 'Sayta izləmə kodlarını (GA4, Pixel və s.) proqramçı olmadan əlavə etmək və idarə etmək üçün alət.' },
+  { slug: 'utm', term: 'UTM', cat: 'Analitika', def: 'Linkə əlavə olunan parametrlər (utm_source, utm_campaign və s.). Ziyarətçinin hansı kampaniyadan gəldiyini analitikada göstərir.' },
+  { slug: 'spf', term: 'SPF', cat: 'Email', service: 'korporativ-email', def: 'Domen adından hansı serverlərin məktub göndərə biləcəyini göstərən DNS qeydi. Saxta göndərişlərin qarşısını alır.' },
+  { slug: 'dkim', term: 'DKIM', cat: 'Email', service: 'korporativ-email', def: 'Məktuba rəqəmsal imza əlavə edən mexanizm. Alıcı server məktubun yolda dəyişdirilmədiyini və həqiqətən domendən gəldiyini yoxlayır.' },
+  { slug: 'dmarc', term: 'DMARC', cat: 'Email', service: 'korporativ-email', def: 'SPF və DKIM yoxlamasından keçməyən məktublarla nə ediləcəyini (rədd, karantin) bildirən və hesabat göndərən DNS siyasəti.' },
+  { slug: 'acilma-faizi', term: 'Açılma faizi', cat: 'Email', service: 'email-marketinq', def: 'Göndərilən məktubların neçə faizinin açıldığı. Mövzu sətrinin və göndərən adının effektivliyini göstərir.' },
+  { slug: 'seqmentasiya', term: 'Seqmentasiya', cat: 'Email', service: 'email-marketinq', def: 'Abunəçi və ya müştəri bazasını maraq, davranış və ya mərhələyə görə qruplara bölmək. Hər qrupa uyğun məzmun göndərməyə imkan verir.' },
+];
