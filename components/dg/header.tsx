@@ -88,10 +88,7 @@ export default function Header({ brand = 'digiterial', logoUrl: _logoUrl, phone,
       <header ref={hdr} className={`top${hidden ? ' hide' : ''}${solid || menu ? ' solid' : ''}`}>
         <div className="wrap nav">
           <Link className="logo" href="/" aria-label={t('Digiterial ana səhifə')}>
-            <span className="logo-mascot" aria-hidden="true">
-              <img src="/brand/mascot/digiterial-mascot-front.png" alt="" width={40} height={54} decoding="async" />
-            </span>
-            {/* Daylight paper header: ink wordmark (CMS logoUrl is light-on-dark artwork). */}
+            {/* Daylight paper header: ink wordmark (no header mascot). */}
             <span className="logo-mark" aria-hidden="true" />
             <span className="logo-word">{brand.toLowerCase()}<i>.</i></span>
           </Link>

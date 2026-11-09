@@ -1665,34 +1665,12 @@ header.top .wrap{overflow:visible}
   opacity:.55;
 }
 .logo-img{height:28px; width:auto; display:block}
-.logo-mascot{
-  position:relative!important;
-  left:auto!important; bottom:auto!important;
-  width:14px; height:34px;
-  overflow:hidden;
-  opacity:.72;
-  flex-shrink:0;
-  transform:none;
-  transition:width .35s cubic-bezier(.2,.8,.2,1), opacity .28s, transform .35s cubic-bezier(.2,.8,.2,1);
-  pointer-events:none;
-}
-.logo-mascot img{
-  width:30px; height:auto; display:block;
-  filter:drop-shadow(0 4px 8px rgba(11,31,36,.18));
-}
 @media (hover:hover) and (pointer:fine){
-  .logo:hover .logo-mascot,
-  .logo:focus-visible .logo-mascot{
-    width:34px; opacity:1;
-  }
   .logo:hover .logo-mark,
   .logo:focus-visible .logo-mark{
     transform:scale(1.15) rotate(8deg);
     box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 18%,transparent);
   }
-}
-@media (hover:none), (pointer:coarse){
-  .logo-mascot{width:28px; opacity:.9}
 }
 .nav ul{
   gap:26px!important;
@@ -2204,7 +2182,7 @@ section#xidmetler > .wrap{position:relative; z-index:1}
   55%{transform:rotate(3deg) translateY(-2px)}
 }
 
-/* Header logo peek: inline slide (see Daylight header block above; do not re-absolute) */
+/* Header mascot peek removed — branding is mark + wordmark only. */
 
 .shero-mascot{
   margin:clamp(36px,5vw,56px) 0 0;
@@ -2247,7 +2225,7 @@ section#xidmetler > .wrap{position:relative; z-index:1}
   .shero-mascot .mascot-fig{width:min(132px,38vw)}
 }
 @media (prefers-reduced-motion:reduce){
-  .mascot-fig, .logo-mascot{transition:none!important; animation:none!important}
+  .mascot-fig{transition:none!important; animation:none!important}
 }
 
 /* —— Footer Digiterial brand hover (complete) —— */
