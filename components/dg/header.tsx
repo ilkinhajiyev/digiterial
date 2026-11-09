@@ -21,7 +21,7 @@ const RES = [
   { href: '/emekdasliq', title: 'Əməkdaşlıq və qiymət', desc: 'Necə işləyirik, təklif necə hazırlanır', icon: 'users' as const },
 ];
 
-export default function Header({ brand = 'digiterial', logoUrl, phone, email, latest, menu: m }: { brand?: string; logoUrl?: string; phone?: string; email?: string; latest?: HeaderPost; menu: HeaderMenu }) {
+export default function Header({ brand = 'digiterial', logoUrl: _logoUrl, phone, email, latest, menu: m }: { brand?: string; logoUrl?: string; phone?: string; email?: string; latest?: HeaderPost; menu: HeaderMenu }) {
   const t = useT();
   const pathname = usePathname();
   const locale = useLocale();
@@ -88,7 +88,12 @@ export default function Header({ brand = 'digiterial', logoUrl, phone, email, la
       <header ref={hdr} className={`top${hidden ? ' hide' : ''}${solid || menu ? ' solid' : ''}`}>
         <div className="wrap nav">
           <Link className="logo" href="/" aria-label={t('Digiterial ana səhifə')}>
-            {logoUrl ? <img src={logoUrl} alt={brand} style={{ height: 30, width: 'auto' }} /> : <>{brand.toLowerCase()}<i>.</i></>}
+            <span className="logo-mascot" aria-hidden="true">
+              <img src="/brand/mascot/digiterial-mascot-front.png" alt="" width={40} height={54} decoding="async" />
+            </span>
+            {/* Daylight paper header: ink wordmark (CMS logoUrl is light-on-dark artwork). */}
+            <span className="logo-mark" aria-hidden="true" />
+            <span className="logo-word">{brand.toLowerCase()}<i>.</i></span>
           </Link>
           <ul>
             <li>{trig('svc', t('Xidmətlər'))}</li>
