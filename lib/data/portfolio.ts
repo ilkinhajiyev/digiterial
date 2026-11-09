@@ -1,4 +1,5 @@
 import { createServiceClient } from '@/lib/supabase/service';
+import { markSupabaseUnavailable, supabaseLikelyDown, withSupabaseTimeout, isTransientSupabaseFailure } from '@/lib/supabase/soft';
 export type PItem = { id: string; title: string; category: 'web' | 'smm'; slug?: string; client?: string; description?: string; body?: string; url?: string; image_url?: string; gallery?: string[]; tags?: string; metric?: string; featured?: boolean; position?: number; locale?: string };
 
 // Supabase qoşulmayanda göstərilən real layihə(lər). Uydurma layihə əlavə etməyin.
@@ -13,6 +14,8 @@ export const SHOTS: Record<string, { desktop: string; mobile?: string; full?: st
   'samir-photography': { desktop: '/work/samirphoto-desktop.webp', mobile: '/work/samirphoto-mobile.webp', full: '/work/samirphoto-full.webp' },
   'gelecege-korpu': { desktop: '/work/bfngo-desktop.webp', full: '/work/bfngo-full.webp' },
   'zaurmarcom': { desktop: '/work/zaurmarcom-desktop.webp', mobile: '/work/zaurmarcom-mobile.webp', full: '/work/zaurmarcom-full.webp' },
+  'olerni': { desktop: '/work/olerni-desktop.webp', mobile: '/work/olerni-mobile.webp', full: '/work/olerni-full.webp' },
+  'gal-restaurant': { desktop: '/work/gal-desktop.webp', mobile: '/work/gal-mobile.webp', full: '/work/gal-full.webp' },
 };
 
 // Kodda saxlanan real layihələr. Supabase-dəki layihələrlə birləşdirilir (eyni slug varsa DB üstündür).
@@ -50,40 +53,60 @@ export const fallbackPortfolio: LocalItem[] = [
   { id: 'zaurmarcom', slug: 'zaurmarcom', title: 'zaurmarcom.com şəxsi bloq saytı', category: 'web', client: 'zaurmarcom.com', url: 'https://zaurmarcom.com/', year: 2026,
     description: 'Müəllif yazıları və bloq üçün şəxsi sayt.',
     tags: 'Veb sayt, Bloq' },
+  { id: 'olerni', slug: 'olerni', title: 'Olerni MMC üçün sənaye və kran xidmətləri saytı', category: 'web', client: 'Olerni MMC', url: 'https://olerni.az/en/home-english/', year: 2025, featured: true,
+    description: 'Kran istehsalı, təmiri və sənaye xidmətləri üçün çoxdilli korporativ sayt: xidmətlər, tərəfdaşlar, qalereya və əlaqə.',
+    body: 'Olerni MMC üçün kran istehsalı, təmiri və sənaye xidmətlərini təqdim edən korporativ veb-sayt hazırladıq.\nAna səhifədə xidmətlər, tərəfdaşlar və şirkət haqqında bölmələr var. Sayt AZ, EN və RU dillərində işləyir; qalereya və əlaqə forması ilə müraciət asandır.',
+    tags: 'Veb sayt, Korporativ, Çoxdilli, Sənaye', image_url: '/work/olerni-desktop.webp' },
+  { id: 'gal', slug: 'gal-restaurant', title: 'GAL Restaurant üçün Gallery Art Lifestyle saytı', category: 'web', client: 'GAL Restaurant', url: 'https://gal.az/', year: 2025, industry: 'restoran-ve-kafe', featured: true,
+    description: 'Gəncədə yerləşən GAL Restaurant üçün menyu, kabinetlər, qalereya və rezervasiya ilə korporativ restoran saytı.',
+    body: 'GAL — Gallery Art Lifestyle üçün incəsənət və mətbəxi birləşdirən restoran saytı hazırladıq.\nAna səhifədə hero, xüsusi təamlar və özəl kabinetlər bölmələri var; menyu, qalereya və əlaqə/rezervasiya yolu aydın göstərilir.',
+    tags: 'Veb sayt, Restoran, Rezervasiya', image_url: '/work/gal-desktop.webp' },
 ];
 
 export async function getWork(locale?: string): Promise<LocalItem[]> {
+  if (supabaseLikelyDown()) return [...fallbackPortfolio];
   let db: PItem[] = await getPortfolio(locale);
-  if (!db.length) db = await getPortfolio();
+  // Only retry without locale when the first query succeeded but returned no rows
+  // (not when DB is unreachable — that would double the hang).
+  if (!db.length && locale && !supabaseLikelyDown()) db = await getPortfolio();
+  if (!db.length) return [...fallbackPortfolio];
   const slugs = new Set(db.map((d) => d.slug || d.id));
   return [...db, ...fallbackPortfolio.filter((l) => !slugs.has(l.slug!))];
 }
 
 export async function getPortfolio(locale?: string): Promise<PItem[]> {
+  if (supabaseLikelyDown()) return [];
   try {
-    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    if (!key || !url) { console.warn('[portfolio] env yoxdur'); return []; }
     const sb = createServiceClient();
     let q = sb.from('portfolio_items').select('*');
     if (locale) q = q.eq('locale', locale);
-    const { data, error } = await q
-      .order('position', { ascending: true })
-      .order('created_at', { ascending: false });
-    if (error) { console.error('[portfolio] DB xəta:', error.message); return []; }
-    return (data as any) || [];
-  } catch (e: any) { console.error('[portfolio] exception:', e?.message); return []; }
+    const result = await withSupabaseTimeout(
+      q.order('position', { ascending: true }).order('created_at', { ascending: false }),
+    );
+    const { data, error } = result as { data: PItem[] | null; error: { message?: string } | null };
+    if (error) {
+      if (isTransientSupabaseFailure(error.message)) markSupabaseUnavailable();
+      // Soft-fail: fallbacks cover marketing pages; avoid Next.js Issues overlay noise.
+      return [];
+    }
+    return data || [];
+  } catch (e: any) {
+    if (isTransientSupabaseFailure(e?.message)) markSupabaseUnavailable();
+    return [];
+  }
 }
 
 export async function getPortfolioItem(key: string): Promise<PItem | null> {
-  try {
-    if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  if (!supabaseLikelyDown()) {
+    try {
       const sb = createServiceClient();
-      const bySlug = await sb.from('portfolio_items').select('*').eq('slug', key).maybeSingle();
-      if (bySlug.data) return bySlug.data as any;
-      const byId = await sb.from('portfolio_items').select('*').eq('id', key).maybeSingle();
-      if (byId.data) return byId.data as any;
+      const bySlug = await withSupabaseTimeout(sb.from('portfolio_items').select('*').eq('slug', key).maybeSingle());
+      if ((bySlug as any).data) return (bySlug as any).data as PItem;
+      const byId = await withSupabaseTimeout(sb.from('portfolio_items').select('*').eq('id', key).maybeSingle());
+      if ((byId as any).data) return (byId as any).data as PItem;
+    } catch {
+      markSupabaseUnavailable();
     }
-  } catch { /* DB yoxdursa fallback */ }
+  }
   return fallbackPortfolio.find((p) => p.slug === key || p.id === key) || null;
 }
