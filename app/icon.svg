@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0E0F12"/><text x="14" y="45" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="34" fill="#EDEEE7">d</text><rect x="40" y="36" width="10" height="10" rx="2" fill="#F1B43A"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0A286E"/>
+  <path fill="#ffffff" d="M32 10.5 18 22.2V27h3.2v16.2H28v-8.4h8v8.4h6.8V27H46v-4.8L32 10.5Zm0 5.2 8.2 6.6V24H23.8v-1.7L32 15.7Z"/>
+  <text x="32" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#ffffff">SOCHI</text>
+</svg>

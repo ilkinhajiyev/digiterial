@@ -61,10 +61,10 @@ export function Header({
   return (
     <>
     <header ref={headerRef} className="sticky top-0 z-40 border-b border-[#E4E7EB] bg-white">
-      <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
+      <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-3 sm:gap-3 sm:px-4">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="SOCHİ MMC">
           <Image src="/media/brand/sochi-logo.png" alt="" width={44} height={44} className="h-11 w-11" />
-          <span className="hidden text-sm font-semibold tracking-wide text-[#0A286E] sm:block">SOCHİ MMC</span>
+          <span className="text-sm font-semibold tracking-wide text-[#0A286E]">SOCHİ MMC</span>
         </Link>
 
         <button
@@ -89,7 +89,7 @@ export function Header({
           />
         </form>
 
-        <nav aria-label={t('languages')} className="flex items-center gap-1 text-sm font-medium">
+        <nav aria-label={t('languages')} className="hidden items-center gap-1 text-sm font-medium sm:flex">
           {(['az', 'en', 'ru'] as const).map((code) => (
             <Link
               key={code}
@@ -108,14 +108,15 @@ export function Header({
           {t('contact')}
         </a>
 
-        <Link href="/sifaris" className="relative inline-flex h-11 items-center rounded-full bg-[#0A286E] px-3 text-sm font-medium text-white">
-          <span className="max-w-[7rem] truncate sm:max-w-none">{orderLabel}</span>
+        <Link href="/sifaris" aria-label={orderLabel} className="relative inline-flex h-11 shrink-0 items-center rounded-full bg-[#0A286E] px-3 text-sm font-medium text-white">
+          <span className="sm:hidden">{t('orderShort')}</span>
+          <span className="hidden sm:inline">{orderLabel}</span>
           <span className="ml-2 inline-flex min-w-6 justify-center rounded-full bg-white px-1.5 text-xs font-semibold text-[#0A286E]">{count}</span>
         </Link>
 
         <button
           type="button"
-          className="inline-flex h-11 items-center rounded-full border border-[#D5DAE1] px-3 text-sm lg:hidden"
+          className="inline-flex h-11 shrink-0 items-center rounded-full border border-[#D5DAE1] px-3 text-sm lg:hidden"
           aria-expanded={open}
           aria-controls="category-menu"
           onClick={() => setOpen((value) => !value)}
@@ -152,6 +153,20 @@ export function Header({
               </div>
             ))}
             <div className="space-y-2 text-sm sm:col-span-2 lg:col-span-4">
+              <nav aria-label={t('languages')} className="mb-3 flex gap-2 sm:hidden">
+                {(['az', 'en', 'ru'] as const).map((code) => (
+                  <Link
+                    key={code}
+                    href={pathname}
+                    locale={code}
+                    hrefLang={code}
+                    className={`inline-flex h-11 items-center rounded-full border px-4 uppercase ${code === locale ? 'border-[#0A286E] text-[#0A286E]' : 'border-[#D5DAE1] text-[#374151]'}`}
+                    aria-current={code === locale ? 'page' : undefined}
+                  >
+                    {code}
+                  </Link>
+                ))}
+              </nav>
               <Link href="/xidmetler" className="mr-4 inline-block font-medium">{t('services')}</Link>
               <Link href="/about" className="mr-4 inline-block font-medium">{t('about')}</Link>
               <Link href="/contact" className="mr-4 inline-block font-medium">{t('contact')}</Link>
