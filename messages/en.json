@@ -1,206 +1,124 @@
 {
   "nav": {
+    "categories": "Categories",
+    "search": "Name, SKU, brand, or family",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "languages": "Language",
     "services": "Services",
-    "work": "Work",
-    "cases": "Cases",
     "about": "About",
+    "certificates": "Certificates",
     "blog": "Blog",
-    "contact": "Contact",
-    "cta": "Start a project"
-  },
-  "common": {
-    "services": "Services",
-    "work": "Work",
-    "contact": "Contact",
-    "audit": "Free audit",
-    "start": "Start",
-    "details": "Details",
-    "allServices": "All services",
-    "freeConsult": "Free consultation",
-    "viewSite": "View site",
-    "more": "Learn more"
-  },
-  "hero": {
-    "eyebrow": "A 360° digital agency",
-    "h1": "Digital experiences for modern brands.",
-    "lead": "From strategy to delivery — web, marketing and branding from one team. Measurable results.",
-    "b1": "Our services",
-    "b2": "See our work",
-    "whatWeDo": "What we do"
+    "order": "Order list"
   },
   "home": {
-    "band": {
-      "label": "What we do",
-      "big": "From clarity to momentum.",
-      "h3": "We run strategy, design, development and marketing as one system.",
-      "p": "One team, one heartbeat — progress you can feel and results you can prove."
-    },
-    "servicesHead": {
-      "label": "Services",
-      "heading": "Everything under one roof."
-    },
-    "portfolioHead": {
-      "label": "Our work",
-      "heading": "Results that speak.",
-      "viewAll": "View all work"
-    },
-    "stats": {
-      "label": "Formula",
-      "statement": "One team. One heartbeat. Zero excuses.",
-      "receipt": "0 templates / 240+ happy clients.",
-      "l1": "Projects",
-      "l2": "Traffic",
-      "l3": "PageSpeed",
-      "l4": "Rating"
-    },
-    "testimonials": {
-      "label": "Clients say",
-      "q1": "They understood us faster than any agency we've worked with.",
-      "by1": "Murad Q. · RestoBaku",
-      "q2": "They deliver three weeks ahead of every estimate.",
-      "by2": "Nigar P. · Aztravel"
-    },
-    "clients": {
-      "label": "Trusted by"
-    },
-    "cta": {
-      "h2": "Ready for real digital momentum?",
-      "p": "Let's talk about your project in a free 30-minute consultation.",
-      "b1": "Start a project"
-    }
+    "lead": "SOCHİ MMC sells heat, waterproofing, and sound insulation materials in Baku. Price and availability are confirmed on WhatsApp for each product.",
+    "ctaCatalog": "Browse the catalog",
+    "ctaWa": "Get advice on WhatsApp",
+    "categories": "Categories",
+    "featured": "Featured products",
+    "areas": "Application areas",
+    "services": "Services",
+    "contact": "Contact",
+    "waInvalid": "The WhatsApp number cannot build a link right now."
+  },
+  "areas": {
+    "dam": "Roof",
+    "fasad": "Facade",
+    "temel": "Foundation",
+    "doseme": "Floor",
+    "daxili": "Interior partitions"
+  },
+  "units": { "rulon": "roll", "litr": "L", "kq": "kg", "m2": "m²" },
+  "card": {
+    "variant": "Variant",
+    "sku": "SKU",
+    "whatsapp": "Order on WhatsApp",
+    "waUnavailable": "WhatsApp link is not ready."
+  },
+  "filters": {
+    "brand": "Brand",
+    "thickness": "Thickness",
+    "area": "Application area",
+    "unit": "Sales unit",
+    "stock": "Availability",
+    "sub": "Subcategory",
+    "any": "Any",
+    "apply": "Show",
+    "clear": "Clear filters",
+    "open": "Filters",
+    "close": "Close",
+    "count": "{count} products",
+    "stockConfirmed": "Confirmed availability",
+    "inStock": "In stock",
+    "outStock": "Out of stock",
+    "askStock": "Ask about availability",
+    "empty": "No products match these filters."
+  },
+  "catalog": { "title": "Catalog", "search": "Search: {query}" },
+  "product": {
+    "variant": "Variant",
+    "sku": "SKU",
+    "unit": "Sales unit",
+    "price": "Price",
+    "stock": "Availability",
+    "qty": "Quantity",
+    "whatsapp": "Order on WhatsApp",
+    "waUnavailable": "WhatsApp link is not ready.",
+    "add": "Add to order list",
+    "added": "Added to the list.",
+    "openList": "Order list",
+    "specs": "Specifications",
+    "specsUnknown": "No further technical values are confirmed.",
+    "codeNote": "A published code is the code from the source site, not an SKU.",
+    "areas": "Application areas",
+    "areasUnknown": "No application area is confirmed for this variant.",
+    "pdf": "Technical document",
+    "description": "Description",
+    "brand": "Brand",
+    "related": "Related products"
+  },
+  "order": {
+    "title": "Order list",
+    "empty": "The list is empty. Add a variant from the catalog.",
+    "missing": "This line is no longer in the published catalog.",
+    "sku": "SKU",
+    "unit": "Sales unit",
+    "unitUnknown": "Sales unit not confirmed",
+    "qty": "Quantity",
+    "remove": "Remove",
+    "preview": "Message preview",
+    "copy": "Copy text",
+    "copied": "Copied",
+    "whatsapp": "Order on WhatsApp",
+    "waUnavailable": "WhatsApp link is not ready."
   },
   "footer": {
-    "tagline": "A Baku-based 360° digital agency. Strategy, design, development and marketing from one team.",
-    "hq": "Baku, Azerbaijan",
-    "hours": "Mon – Fri ·",
-    "discover": "Discover",
+    "blurb": "Heat, waterproofing, and sound insulation materials. If price or stock is not confirmed in the catalog, the inquiry is sent on WhatsApp.",
     "contact": "Contact",
-    "follow": "Follow",
-    "legal": "Legal",
-    "rights": "All rights reserved.",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "social": "Social media",
+    "addressUnknown": "Street address is not confirmed.",
+    "waUnconfirmed": "The WhatsApp number must be confirmed again before publish.",
+    "catalog": "Catalog",
     "services": "Services",
-    "work": "Work",
-    "blog": "Blog"
+    "order": "Order list",
+    "advice": "Get advice on WhatsApp",
+    "waInvalid": "The WhatsApp number cannot build a link."
   },
-  "pages": {
-    "services": {
-      "eyebrow": "Our services",
-      "h1": "Everything under one roof.",
-      "lead": "From strategy to delivery — every stage of your digital presence from one team."
-    },
-    "work": {
-      "eyebrow": "Portfolio",
-      "h1a": "More than words —",
-      "h1b": "results.",
-      "lead": "Selected web and SMM projects. Click any to see details and the gallery."
-    },
-    "cases": {
-      "eyebrow": "Case Studies",
-      "h1a": "No case —",
-      "h1b": "didn't happen.",
-      "lead": "Real projects, real numbers."
-    },
-    "about": {
-      "eyebrow": "About us",
-      "h1a": "An agency that truly",
-      "h1b": "delivers.",
-      "lead": "In Baku since 2018. Your reliable creative-technology partner."
-    },
-    "blog": {
-      "eyebrow": "Blog",
-      "h1a": "Ideas, tactics,",
-      "h1b": "results.",
-      "lead": "No buzzwords — things that work."
-    },
-    "contact": {
-      "eyebrow": "Contact",
-      "h1a": "Let's",
-      "h1b": "talk.",
-      "lead": "Your project or idea — write to us. We reply within 24 hours. Free audit included.",
-      "name": "Full name",
-      "email": "Email",
-      "company": "Company",
-      "message": "About the project",
-      "send": "Send message",
-      "sending": "Sending…",
-      "ok": "Thanks! We'll reply within 24 hours.",
-      "iEmail": "Email",
-      "iPhone": "Phone",
-      "iAddr": "Address",
-      "iHours": "Working hours",
-      "addr": "Baku, Azerbaijan",
-      "hours": "Mon – Fri · 10:00–18:00",
-      "service": "Service"
-    }
+  "contact": {
+    "title": "Contact us",
+    "lead": "Call, email, or WhatsApp for heat, waterproofing, and sound insulation.",
+    "phone": "Call",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "city": "City"
   },
-  "svcDetail": {
-    "allServices": "All services",
-    "overview": "Overview",
-    "included": "Included",
-    "includedHead": "What we offer.",
-    "process": "How we work",
-    "processHead": "Process.",
-    "deliverables": "Deliverables",
-    "ctaTail": "let's talk about your project.",
-    "ctaP": "Let's start with a free audit and consultation.",
-    "start": "Start",
-    "other": "Other services",
-    "s1h": "Discover",
-    "s1p": "We understand business, goals and audience.",
-    "s2h": "Strategy",
-    "s2p": "A clear plan and measurable KPIs.",
-    "s3h": "Execution",
-    "s3p": "Design, development or campaign setup.",
-    "s4h": "Optimization",
-    "s4p": "Data-driven continuous improvement."
+  "about": { "title": "About" },
+  "services": { "title": "Services", "more": "All services" },
+  "certs": {
+    "title": "Certificates",
+    "note": "These images are published on sochi.az. A separate PDF is not confirmed in this catalog."
   },
-  "svc": {
-    "veb-saytlar": {
-      "title": "Web & E-commerce",
-      "tag": "Web",
-      "short": "Fast, conversion-focused websites and online stores."
-    },
-    "seo": {
-      "title": "SEO & Technical SEO",
-      "tag": "SEO",
-      "short": "Keywords, technical audit and content strategy for organic traffic."
-    },
-    "reklam": {
-      "title": "Google & Meta Ads",
-      "tag": "Ads",
-      "short": "ROAS-focused performance ads: Google, Meta, TikTok."
-    },
-    "brendinq": {
-      "title": "Branding & Design",
-      "tag": "Branding",
-      "short": "Logo, visual identity and UI/UX — memorable brands."
-    },
-    "smm": {
-      "title": "SMM & Social Media",
-      "tag": "SMM",
-      "short": "Content plan, community management and growth strategy."
-    },
-    "ai-avtomatlasdirma": {
-      "title": "AI & Automation",
-      "tag": "AI",
-      "short": "CRM, lead flow and business process automation."
-    }
-  },
-  "portfolio": {
-    "web": "Websites",
-    "webHead": "Web & E-commerce",
-    "smm": "SMM services",
-    "smmHead": "Social media & Ads",
-    "detail": "Details",
-    "ctaH": "Make the next success yours.",
-    "ctaP": "Get a free audit.",
-    "about": "About the project",
-    "gallery": "Gallery",
-    "visit": "Visit site",
-    "back": "All work",
-    "similar": "Want similar results?"
-  }
+  "blog": { "note": "The source site published these as short summaries. Full article text is not confirmed." },
+  "notFound": { "title": "Page not found", "body": "If this was an old address, continue from the catalog.", "cta": "Browse the catalog" }
 }

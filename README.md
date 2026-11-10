@@ -1,58 +1,69 @@
-# Digiterial — sayt + admin panel
+# SOCHİ MMC — izolyasiya materialları kataloqu
 
-**Next.js 15 (App Router) · React 18 · next-intl · Supabase · Tailwind (admin)**
+Mobil-öncəli kataloq. Məhsul seçilir, variant və miqdar yazılır, hazır WhatsApp sorğusu açılır. Ödəniş, məcburi qeydiyyat və avtomatik sifariş təsdiqi yoxdur.
 
-İctimai sayt (yeni dizayn, 4 dil: az/en/ru/de) və daxili idarəetmə paneli (`/admin`) bir kod bazasında.
+Bu repozitoriyadakı əvvəlki agentlik saytının ictimai səhifələri bu kataloqla əvəz olunub. Canlı `sochi.az` domeninə bu iş çərçivəsində deploy edilmir.
+
+## Texnologiya
+
+Next.js 15 (App Router), TypeScript, Tailwind CSS, next-intl (AZ default, EN, RU).
+
+## Məlumat anbarı
+
+Kataloqun mənbəyi bir JSON faylıdır: `data/catalog.json`. Şəkillər `public/media/` altındadır. Admin yükləmələri `public/media/uploads/` (və ya `CATALOG_DATA_DIR/media`) qovluğuna yazılır və `/uploads/[fayl]` ilə verilir.
+
+Hostinger Node.js tətbiqində fayl sistemi deploy zamanı silinə bilər. Davamlı saxlama üçün `CATALOG_DATA_DIR`-i deploy qovluğundan kənar bir qovluğa yönəldin. İlk işə salınanda orada `catalog.json` yoxdursa, repodakı nüsxə kopyalanır. Əlavə verilənlər bazası tələb olunmur; yazma müvəqqəti fayl və `rename` ilə gedir.
+
+Supabase paketləri əvvəlki layihədən qalıb və bu kataloq onlardan istifadə etmir.
 
 ## Lokal işə salma
 
 ```bash
 npm install
-cp .env.example .env.local   # Supabase açarlarını doldurun
-npm run dev                  # http://localhost:3000
+npm run dev
 ```
 
-Supabase açarları olmadan ictimai sayt işləyir (portfolio üçün RAMOIL nümunəsi göstərilir, əlaqə forması xəta mesajı qaytarır). `/admin` üçün açarlar mütləqdir.
+- Sayt: http://localhost:3000
+- Admin (yalnız `next dev`): http://localhost:3000/admin/login
+- Lokal istifadəçi: `admin` / `sochi-dev-admin` (və ya `ADMIN_DEV_PASSWORD`). Bu istifadəçi diskə yazılmır.
+- Production admin: `ADMIN_PASSWORD='...' node scripts/create-admin.mjs <username>` və `ADMIN_SESSION_SECRET` (ən azı 16 simvol).
 
-## Hostinger (Business veb hostinq, Node.js tətbiqi)
-
-1. hPanel → **Websites → Add website → Node.js app** (və ya mövcud saytda Node.js tətbiqi).
-2. Kodu GitHub-dan qoşun və ya bu qovluğun ZIP arxivini yükləyin (`node_modules` və `.next` olmadan).
-3. Parametrlər:
-   - **Node.js versiyası:** 22.x (Node 20 dəstəyi 2026-cı ilin aprelində bitib)
-   - **Build əmri:** `npm run build`
-   - **Start əmri:** `npm run start` (port Hostinger-in verdiyi `PORT` dəyişənindən avtomatik götürülür)
-   - **Paket meneceri:** npm
-4. **Mühit dəyişənləri** (Environment variables) bölməsinə `.env.example`-dakı dəyərləri yazın:
-   `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SITE_URL=https://digiterial.com`
-   (`NEXT_PUBLIC_*` dəyişənləri build zamanı koda yazılır — dəyişdikdən sonra yenidən build edin.)
-5. Build bitdikdən sonra yoxlayın: `/`, `/xidmetler/seo`, `/en`, `/sitemap.xml`, `/admin/login`.
-
-Şriftlər (`next/font`) build zamanı Google Fonts-dan yüklənir və saytın öz domenindən verilir; build serverinin internetə çıxışı olmalıdır (Hostinger-də var).
-
-## Struktur
-
-```
-app/
-  [locale]/            ictimai sayt (az default, /en, /ru, /de)
-    dg.css             dizayn sistemi (rənglər, tipoqrafiya, animasiyalar)
-    xidmetler/[slug]   8 xidmət səhifəsi
-    bloq/[slug]        bloq yazıları
-  admin/               idarəetmə paneli (Supabase, dinamik)
-components/dg/         yeni dizayn komponentləri (header, mega menyu, 3D bayraqlar, vizuallar)
-lib/content/           xidmətlər və bloq məzmunu (AZ)
-lib/data/              Supabase: parametrlər, portfolio
-lib/actions/contact.ts əlaqə forması → Supabase `leads` cədvəli
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm run start
 ```
 
-## Məzmunu dəyişmək
+`NEXT_PUBLIC_SITE_URL` kanonik ünvan üçündür (default `https://sochi.az`).
 
-- Xidmətlər: `lib/content/services.ts`
-- Bloq yazıları: `lib/content/blog.ts`
-- Əlaqə məlumatları, sosial linklər, analitika kodları: admin → Settings (Supabase `site_settings`)
-- Portfolio: admin → Portfolio
+## Köhnə ünvanlar
 
-## Qeydlər
+Saxlanılanlar: `/`, `/about`, `/contact`, `/blog`.
 
-- Ictimai səhifələrin mətni hələlik yalnız azərbaycancadır; `/en`, `/ru`, `/de` ünvanları eyni AZ məzmunu göstərir. Tərcümə `lib/content` fayllarına əlavə olunmalıdır.
-- Admin → Builder bölməsi əvvəlki blok-əsaslı ana səhifə üçün idi; yeni dizayn həmin blokları istifadə etmir.
+301:
+
+| Köhnə | Yeni |
+| --- | --- |
+| `/istilikvesesizolyasiyasi` | `/kataloq/istilik-ses` |
+| `/berkizolyasixps` və `/berkizolyasiyaxps` | `/kataloq/xps` |
+| `/suizolyasiyasi` | `/kataloq/bitum-rulon` |
+| `/mayeizolyasiyaveaksesuarlar` | `/kataloq/maye-aksesuar` |
+| `/services01`, `/services02` | `/xidmetler` |
+| `/sertifkat` | `/sertifikatlar` |
+| `/appeal` | `/contact` |
+| `/mehsullar` | `/kataloq` |
+
+## Dərcdən əvvəl təsdiq
+
+Bunlar mənbə saytda qiymət, stok, artikul və ya ayrıca PDF kimi yoxdur. Kataloqda naməlum vəziyyət göstərilir:
+
+- WhatsApp nömrəsi `+994 50 204 20 31` saytda görünür, amma `whatsappConfirmed` false-dur. Təsdiqləmədən dərc etməyin.
+- Bütün qiymətlər naməlumdur.
+- Bütün stok naməlumdur.
+- Artikul (SKU) heç bir məhsulda təsdiqlənməyib. Saytdakı rəqəm kodlar gömrük/dərc kodu kimi ayrıca sətirdədir, artikul deyil.
+- Texniki PDF yoxdur. Sertifikatlar yalnız sochi.az-dəki şəkillərdir.
+- Küçə ünvanı yoxdur (şəhər: Bakı).
+- Lövhə məhsullarının satış vahidi (plitə, paket və ya m²) mənbədə açıq deyil.
+- Zəmanət müddəti və laboratoriya göstəriciləri (lambda, sıxlıq və s.) uydurulmayıb.
+- 301 siyahısını canlı DNS-dən əvvəl bir daha yoxlayın.

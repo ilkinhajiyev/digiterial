@@ -1,26 +1,21 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { getSettings } from '@/lib/data/settings';
 
-// Sayt ([locale]) və admin ayrı kök layout-lardır: hər biri <html lang> dəyərini özü təyin edir.
-// Şriftlər build zamanı yüklənir və saytın öz domenindən verilir (Google-a sorğu getmir).
-// Geist Azərbaycan hərflərini (ə, ğ, ı, ş, ç, ö, ü) və kiril əlifbasını dəstəkləyir.
-const sans = Geist({ subsets: ['latin', 'latin-ext', 'cyrillic'], variable: '--font-sans', display: 'swap' });
-const mono = Geist_Mono({ subsets: ['latin', 'latin-ext', 'cyrillic'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' });
-export const fontVars = `${sans.variable} ${mono.variable}`;
+// Geist is self-hosted via @fontsource-variable/geist (latin, latin-ext, cyrillic).
+export const fontVars = '';
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: [{ color: '#0F282F' }],
+  themeColor: [{ color: '#0A286E' }],
 };
 
 export async function baseMetadata(): Promise<Metadata> {
   const s = await getSettings().catch(() => null);
   const meta: Metadata = {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://digiterial.com'),
-    applicationName: 'Digiterial',
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sochi.az'),
+    applicationName: 'SOCHİ MMC',
     formatDetection: { telephone: false },
   };
   // Search Console / Yandex Webmaster təsdiq kodları
