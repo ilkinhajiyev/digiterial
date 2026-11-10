@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 140" role="img" aria-label="Digiterial lockup">
+  <title>Digiterial Lockup</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600&amp;display=swap');
+    .wm { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 84px; letter-spacing: -0.04em; }
+  </style>
+  <rect x="0" y="38" width="64" height="64" rx="8" fill="#0F8F88"/>
+  <text class="wm" x="88" y="100" fill="#0B1F24">Digiterial<tspan fill="#0F8F88">.</tspan></text>
+</svg>

@@ -1,6 +1,6 @@
 'use server';
 import { requireStaff } from '@/lib/auth-guard';
-import { createServiceClient } from '@/lib/supabase/service';
+import { createStaffClient } from '@/lib/supabase/service';
 
 const BUCKET = 'portfolio';
 
@@ -19,7 +19,7 @@ export async function uploadImage(formData: FormData) {
       return { ok: false, error: 'Yalnız şəkil faylı yükləyin' };
     }
 
-    const sb = createServiceClient();
+    const sb = (await createStaffClient());
 
     // Unikal ad
     const ext = file.name.split('.').pop() || 'jpg';

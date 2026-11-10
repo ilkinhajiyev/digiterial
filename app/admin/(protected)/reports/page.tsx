@@ -1,10 +1,10 @@
-import { createServiceClient } from '@/lib/supabase/service';
+import { createStaffClient } from '@/lib/supabase/service';
 import { PageHead, Card, money } from '@/components/admin/ui';
 
 const MONTHS = ['Yan', 'Fev', 'Mar', 'Apr', 'May', 'İyn', 'İyl', 'Avq', 'Sen', 'Okt', 'Noy', 'Dek'];
 
 export default async function Page() {
-  const svc = createServiceClient();
+  const svc = (await createStaffClient());
   const [{ data: leads }, { data: invoices }] = await Promise.all([
     svc.from('leads').select('created_at,stage,value').then((r) => r, () => ({ data: [] as any[] })),
     svc.from('invoices').select('issue_date,amount,status').then((r) => r, () => ({ data: [] as any[] })),

@@ -2,11 +2,11 @@
 import { requireStaff } from '@/lib/auth-guard';
 import { revalidatePath } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
-import { createServiceClient } from '@/lib/supabase/service';
+import { createStaffClient } from '@/lib/supabase/service';
 
 // Yazma əməliyyatları üçün service client (RLS bypass — admin paneldə güvənli).
 // Auth-u layout onsuz da yoxlayır; burada rol boşluğu problemə səbəb olmasın.
-async function sb() { return createServiceClient(); }
+async function sb() { return createStaffClient(); }
 
 // ── CLIENTS ──────────────────────────────────────────────────────────────
 export async function upsertClient(id: string | null, fd: FormData) {

@@ -19,7 +19,12 @@ export default function Footer({ st, locale }: { st: SiteSettings; locale: strin
         </div>
         <div className="nfoot-grid">
           <div className="nfoot-brand">
-            <Link className="logo" href="/">{brand}<i>.</i></Link>
+            <Link className="logo nfoot-logo" href="/" aria-label={t('Digiterial ana səhifə')}>
+              <span className="nfoot-logo-mark" aria-hidden="true" />
+              <span className="nfoot-logo-text">{brand.split('').map((c, i) => (
+                <span key={i} style={{ ['--i' as string]: i } as React.CSSProperties}>{c}</span>
+              ))}<i>.</i></span>
+            </Link>
             <p>{t('Bakıda kreativ və performans agentliyi. Strategiya, dizayn, reklam və texnologiya bir komandada, 2018-dən bəri.')}</p>
             <address>
               <a href={`mailto:${st.email}`}>{st.email}</a>
@@ -35,9 +40,14 @@ export default function Footer({ st, locale }: { st: SiteSettings; locale: strin
             {st.whatsapp && <a href={`https://wa.me/${st.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>}
           </nav>
         </div>
-        <p className="wordmark" aria-hidden="true">
-          {brand.split('').map((c, i) => <span key={i} style={{ ['--i' as string]: i } as React.CSSProperties}>{c}</span>)}<i>.</i>
-        </p>
+        <div className="nfoot-brandmark">
+          <Link className="wordmark nfoot-wordmark" href="/" aria-label={t('Digiterial ana səhifə')}>
+            {brand.split('').map((c, i) => (
+              <span key={i} style={{ ['--i' as string]: i } as React.CSSProperties}>{c}</span>
+            ))}
+            <i style={{ ['--i' as string]: brand.length } as React.CSSProperties}>.</i>
+          </Link>
+        </div>
         <div className="copy">
           <span>© 2018–{new Date().getFullYear()} Digiterial. {t('Bütün hüquqlar qorunur.')}</span>
           <span>{t('Bakı, Azərbaycan')}</span>

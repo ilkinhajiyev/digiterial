@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digiterial Brand Book — Daylight Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #E8EEEC;
+      --surface: #F4F7F6;
+      --surface-2: #DCE5E2;
+      --ink: #0B1F24;
+      --ink-2: #3A5258;
+      --muted: #5E7378;
+      --accent: #0F8F88;
+      --accent-text: #0B6F6A;
+      --on-accent: #F4F7F6;
+      --line: rgba(11, 31, 36, 0.1);
+      --f-d: "Unbounded", system-ui, sans-serif;
+      --f-b: "Manrope", system-ui, sans-serif;
+      --f-m: "JetBrains Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(15, 143, 136, 0.12), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(11, 31, 36, 0.06), transparent 55%),
+        var(--paper);
+      color: var(--ink);
+      font: 400 17px/1.55 var(--f-b);
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin-inline: auto; }
+    header.hero {
+      padding: clamp(48px, 8vw, 96px) 0 clamp(36px, 5vw, 64px);
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      font: 500 12px/1 var(--f-m);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin: 0 0 18px;
+    }
+    h1.brand {
+      font: 600 clamp(48px, 10vw, 96px)/0.95 var(--f-d);
+      letter-spacing: -0.04em;
+      margin: 0 0 18px;
+    }
+    h1.brand span { color: var(--accent); }
+    .lead { max-width: 42rem; color: var(--ink-2); font-size: 18px; margin: 0; }
+    nav.toc {
+      display: flex; flex-wrap: wrap; gap: 10px 18px;
+      padding: 22px 0; border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 5;
+      background: color-mix(in srgb, var(--paper) 88%, transparent);
+      backdrop-filter: blur(12px);
+    }
+    nav.toc a {
+      color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px;
+    }
+    nav.toc a:hover { color: var(--accent-text); }
+    section { padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--line); }
+    h2 {
+      font: 600 clamp(28px, 4vw, 40px)/1.1 var(--f-d);
+      letter-spacing: -0.03em; margin: 0 0 10px;
+    }
+    .sub { color: var(--muted); margin: 0 0 28px; max-width: 40rem; }
+    .grid { display: grid; gap: 18px; }
+    .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 800px) { .g2, .g3 { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      display: grid; gap: 14px; align-content: start;
+    }
+    .panel.ink { background: var(--ink); color: var(--paper); border-color: transparent; }
+    .panel h3 { margin: 0; font: 600 15px/1.3 var(--f-b); }
+    .panel p, .panel figcaption { margin: 0; color: var(--muted); font-size: 14px; }
+    .panel.ink p, .panel.ink figcaption { color: color-mix(in srgb, var(--paper) 70%, transparent); }
+    .logo-demo {
+      min-height: 120px; display: flex; align-items: center; justify-content: center;
+      border-radius: 12px; padding: 20px;
+    }
+    .logo-demo.paper { background: var(--paper); }
+    .logo-demo.ink { background: var(--ink); }
+    .logo-demo img { max-width: 100%; height: auto; max-height: 88px; }
+    .mark-xl {
+      width: 72px; height: 72px; border-radius: 10px; background: var(--accent);
+    }
+    .wm {
+      font: 600 clamp(28px, 5vw, 44px)/1 var(--f-d);
+      letter-spacing: -0.04em; color: var(--ink);
+    }
+    .wm.light { color: var(--paper); }
+    .wm i { color: var(--accent); font-style: normal; }
+    .lock { display: flex; align-items: center; gap: 14px; }
+    .swatch {
+      aspect-ratio: 1.35; border-radius: 14px; padding: 16px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      border: 1px solid var(--line); min-height: 140px;
+    }
+    .swatch b { font: 600 15px/1.2 var(--f-b); }
+    .swatch code {
+      font: 500 12px/1.4 var(--f-m); margin-top: 6px; opacity: 0.85;
+    }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 15px;
+      background: var(--surface); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font: 600 12px/1 var(--f-m); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: color-mix(in srgb, var(--surface-2) 55%, var(--surface)); }
+    tr:last-child td { border-bottom: 0; }
+    ul.rules { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    ul.rules li {
+      padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line);
+    }
+    ul.rules li.no { border-color: color-mix(in srgb, #8B3A3A 35%, var(--line)); }
+    ul.rules li.yes { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+    .type-sample { display: grid; gap: 8px; }
+    .type-sample .d { font: 600 42px/1.05 var(--f-d); letter-spacing: -0.03em; }
+    .type-sample .b { font: 500 18px/1.5 var(--f-b); color: var(--ink-2); }
+    .type-sample .m { font: 500 13px/1.5 var(--f-m); color: var(--muted); }
+    footer {
+      padding: 40px 0 64px; color: var(--muted); font-size: 14px;
+    }
+    footer .word {
+      font: 600 56px/1 var(--f-d); letter-spacing: -0.04em; color: var(--ink); margin: 0 0 18px;
+    }
+    footer .word i { color: var(--accent); font-style: normal; }
+    code { font-family: var(--f-m); font-size: 0.92em; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Brand Book · v1.0 · Daylight Atelier</p>
+      <h1 class="brand">Digiterial<span>.</span></h1>
+      <p class="lead">
+        Loqo sistemi, rənglər, tipografiya və istifadə qaydaları —
+        Digiterial public marketing brendinin vahid istinad sənədi.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="toc" aria-label="Mündəricat">
+      <a href="#logo">Loqo</a>
+      <a href="#color">Rəng</a>
+      <a href="#type">Tipografiya</a>
+      <a href="#rules">Qaydalar</a>
+      <a href="#files">Fayllar</a>
+    </nav>
+
+    <section id="logo">
+      <h2>Loqo sistemi</h2>
+      <p class="sub">Mark, wordmark və horizontal lockup — saytdakı CSS brendindən ayrıca çıxarılıb.</p>
+      <div class="grid g3">
+        <figure class="panel">
+          <h3>Mark</h3>
+          <div class="logo-demo paper"><div class="mark-xl" aria-hidden="true"></div></div>
+          <figcaption>Lagoon teal yuvarlaq kvadrat · <code>digiterial-mark.svg</code></figcaption>
+        </figure>
+        <figure class="panel">
+          <h3>Wordmark — paper</h3>
+          <div class="logo-demo paper"><div class="wm">Digiterial<i>.</i></div></div>
+          <figcaption>Unbounded 600 · teal nöqtə · <code>digiterial-wordmark-*</code></figcaption>
+        </figure>
+        <figure class="panel ink">
+          <h3>Lockup — ink</h3>
+          <div class="logo-demo ink">
+            <div class="lock">
+              <div class="mark-xl" style="width:44px;height:44px;border-radius:7px"></div>
+              <div class="wm light">Digiterial<i>.</i></div>
+            </div>
+          </div>
+          <figcaption>Mark + wordmark · tünd səthlər üçün</figcaption>
+        </figure>
+      </div>
+      <div class="grid g2" style="margin-top:18px">
+        <figure class="panel">
+          <h3>Raster — paper lockup</h3>
+          <div class="logo-demo paper">
+            <img src="digiterial-lockup-paper.png" alt="Digiterial lockup on paper" />
+          </div>
+        </figure>
+        <figure class="panel ink">
+          <h3>Raster — ink lockup</h3>
+          <div class="logo-demo ink">
+            <img src="digiterial-lockup-ink.png" alt="Digiterial lockup on ink" />
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="color">
+      <h2>Rəng palitrası</h2>
+      <p class="sub">Cool mist paper, storm ink, lagoon teal — Daylight Atelier əsas üçlüyü.</p>
+      <div class="grid g3">
+        <div class="swatch" style="background:#E8EEEC;color:#0B1F24"><b>Paper</b><code>#E8EEEC · --paper</code></div>
+        <div class="swatch" style="background:#0B1F24;color:#E8EEEC"><b>Storm Ink</b><code>#0B1F24 · --ink</code></div>
+        <div class="swatch" style="background:#0F8F88;color:#F4F7F6"><b>Lagoon Teal</b><code>#0F8F88 · --accent</code></div>
+        <div class="swatch" style="background:#F4F7F6;color:#0B1F24"><b>Surface</b><code>#F4F7F6 · --surface</code></div>
+        <div class="swatch" style="background:#3A5258;color:#F4F7F6"><b>Slate Ink</b><code>#3A5258 · --ink-2</code></div>
+        <div class="swatch" style="background:#0B6F6A;color:#F4F7F6"><b>Deep Lagoon</b><code>#0B6F6A · --accent-text</code></div>
+      </div>
+    </section>
+
+    <section id="type">
+      <h2>Tipografiya</h2>
+      <p class="sub">Display Unbounded, body Manrope, mono JetBrains Mono.</p>
+      <div class="grid g3">
+        <div class="panel type-sample">
+          <div class="d">Unbounded</div>
+          <div class="b">Display / brand / H1</div>
+          <div class="m">600 · tracking −4%</div>
+        </div>
+        <div class="panel type-sample">
+          <div class="b" style="font-size:28px;color:var(--ink)">Manrope</div>
+          <div class="b">UI, nav, body, form</div>
+          <div class="m">400–700</div>
+        </div>
+        <div class="panel type-sample">
+          <div class="m" style="font-size:22px;color:var(--ink)">JetBrains Mono</div>
+          <div class="b">İndeks, meta, kod</div>
+          <div class="m">500</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules">
+      <h2>İstifadə qaydaları</h2>
+      <p class="sub">Loqo və brend səthində saxlanmalı sərhədlər.</p>
+      <div class="grid g2">
+        <ul class="rules">
+          <li class="yes"><b>Edin —</b> paper/ink cütləri; teal yalnız mark və nöqtədə.</li>
+          <li class="yes"><b>Edin —</b> hero-da böyük <code>Digiterial.</code> wordmark.</li>
+          <li class="yes"><b>Edin —</b> clear space = mark eninin ≥ ¼-i.</li>
+        </ul>
+        <ul class="rules">
+          <li class="no"><b>Etməyin —</b> nöqtəni ink ilə eyni rəngə boyamaq.</li>
+          <li class="no"><b>Etməyin —</b> glow, gradient mark, əyilmiş lockup.</li>
+          <li class="no"><b>Etməyin —</b> Inter / Roboto / Arial ilə wordmark.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="files">
+      <h2>Fayl paketi</h2>
+      <p class="sub">SVG mənbə + PNG raster. Saytda: <code>/brand/*</code>.</p>
+      <table>
+        <thead>
+          <tr><th>Fayl</th><th>Növ</th><th>İstifadə</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>digiterial-mark.svg</code></td><td>SVG</td><td>Simvol / app icon baza</td></tr>
+          <tr><td><code>digiterial-wordmark.svg</code></td><td>SVG</td><td>Şəffaf wordmark</td></tr>
+          <tr><td><code>digiterial-lockup.svg</code></td><td>SVG</td><td>Əsas loqo</td></tr>
+          <tr><td><code>digiterial-*-paper.png</code></td><td>PNG</td><td>Açıq fond təqdimat</td></tr>
+          <tr><td><code>digiterial-*-ink.png</code></td><td>PNG</td><td>Tünd fond təqdimat</td></tr>
+          <tr><td><code>digiterial-favicon.svg</code></td><td>SVG</td><td>Favicon</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p class="word">Digiterial<i>.</i></p>
+      <p>Daylight Atelier · Brand Book v1.0 · digiterial.com</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { createServiceClient } from '@/lib/supabase/service';
+import { createStaffClient } from '@/lib/supabase/service';
 import Dashboard, { type DashData } from '@/components/admin/dashboard';
 
 async function rows<T>(q: PromiseLike<{ data: T[] | null }>): Promise<T[]> {
@@ -9,7 +9,7 @@ async function rows<T>(q: PromiseLike<{ data: T[] | null }>): Promise<T[]> {
 export default async function Page() {
   const sb = await createClient();
   const { data: { user } } = await sb.auth.getUser();
-  const svc = createServiceClient();
+  const svc = (await createStaffClient());
   const [profile, leads, projects, tasks, invoices, tickets, clients] = await Promise.all([
     user ? svc.from('profiles').select('full_name').eq('id', user.id).maybeSingle().then((r) => r.data) : null,
     rows<DashData['leads'][number]>(svc.from('leads').select('id,name,company,service,value,stage,source,created_at').order('created_at', { ascending: false }).limit(500)),

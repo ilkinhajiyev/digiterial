@@ -1,4 +1,4 @@
-import { createServiceClient } from '@/lib/supabase/service';
+import { createStaffClient } from '@/lib/supabase/service';
 import { getSettings, defaultSettings } from '@/lib/data/settings';
 import FullBuilder from '@/components/admin/full-builder';
 import { homeBlocks } from '@/lib/data/defaults';
@@ -15,7 +15,7 @@ const PAGE_KEYS = [
 const LOCALES = ['az', 'en', 'ru'];
 
 export default async function BuilderPage() {
-  const sb = createServiceClient();
+  const sb = (await createStaffClient());
 
   // Bütün səhifə + dil kombinasiyalarını yüklə
   const { data: allPages } = await sb.from('pages').select('*');

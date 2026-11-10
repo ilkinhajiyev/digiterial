@@ -1,5 +1,5 @@
 export const dynamic = 'force-dynamic';
-import { createServiceClient } from '@/lib/supabase/service';
+import { createStaffClient } from '@/lib/supabase/service';
 import { getGa4Data } from '@/lib/actions/ga4';
 import { getYandexData } from '@/lib/actions/yandex';
 import { getSearchConsoleData } from '@/lib/actions/search-console';
@@ -7,7 +7,7 @@ import RealAnalytics from '@/components/admin/real-analytics';
 
 async function count(table: string) {
   try {
-    const sb = createServiceClient();
+    const sb = (await createStaffClient());
     const { count } = await sb.from(table).select('*', { count: 'exact', head: true });
     return count ?? 0;
   } catch { return 0; }

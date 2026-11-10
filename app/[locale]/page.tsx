@@ -4,6 +4,7 @@ import Hero from '@/components/dg/home/hero';
 import Bento from '@/components/dg/home/bento';
 import GlobalStrip from '@/components/dg/home/global';
 import Manifesto from '@/components/dg/home/manifesto';
+import MascotMoment from '@/components/dg/home/mascot-moment';
 import Quiz from '@/components/dg/home/quiz';
 import { WorkSection, ProcessSection, StackSection, BlogSection, ContactSection } from '@/components/dg/home/sections';
 import { FaqSection, SecHead } from '@/components/dg/ui';
@@ -59,6 +60,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
       <Manifesto />
+      <MascotMoment />
       <section id="xidmetler">
         <div className="wrap">
           <SecHead label={t('Xidmətlər')} title={t('Böyümək üçün lazım olan hər şey.')} lead={t('Ayrı-ayrı podratçılar arasında vaxt itirməyin. Strategiyadan icraya qədər bütün rəqəmsal kanallarınızı bir komanda idarə edir.')} />

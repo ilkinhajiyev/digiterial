@@ -22,17 +22,18 @@ export function ServicesSection() {
   const L = useLocalize();
   const list = L(HOME_ORDER.map((s) => services.find((x) => x.slug === s)!).filter(Boolean));
   return (
-    <section id="xidmetler">
+    <section id="xidmetler" className="svc-page">
       <div className="wrap">
         <SecHead label={t('Xidmətlər')} title={t('Böyümək üçün lazım olan hər şey.')} lead={t('Hazır paket yox. Auditoriyanızı, rəqiblərinizi və satış yolunuzu təhlil edir, büdcəni ən çox nəticə verən kanallara yönəldirik.')} />
-        <ul className="svc">
-          {list.map((s) => (
+        <ul className="svc svc-rail">
+          {list.map((s, i) => (
             <li key={s.slug}>
               <Link href={`/xidmetler/${s.slug}`}>
+                <span className="svc-idx" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                 <h3>{s.title}{s.isNew && <em className="new">{t('Yeni')}</em>}</h3>
                 <p>{s.homeDesc}</p>
                 <div className="chips">{s.chips.map((c) => <span key={c}>{c}</span>)}</div>
-                <span className="arrow"><Arrow /></span>
+                <span className="arrow" aria-hidden="true"><Arrow /></span>
                 <span className="svc-ic" hidden><Icon name={s.icon} /></span>
               </Link>
             </li>

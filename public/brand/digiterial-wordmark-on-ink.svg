@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" role="img" aria-label="Digiterial on ink">
+  <title>Digiterial Wordmark — Ink</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600&amp;display=swap');
+    .wm { font-family: 'Unbounded', system-ui, sans-serif; font-weight: 600; font-size: 96px; letter-spacing: -0.04em; }
+  </style>
+  <rect width="900" height="280" fill="#0B1F24"/>
+  <text class="wm" x="70" y="168" fill="#E8EEEC">Digiterial<tspan fill="#0F8F88">.</tspan></text>
+</svg>

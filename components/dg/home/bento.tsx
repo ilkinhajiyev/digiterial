@@ -1,19 +1,26 @@
 import { Link } from '@/i18n/navigation';
-import { services } from '@/lib/content/services';
+import { services, GROUPS, type ServiceGroup } from '@/lib/content/services';
 import { Arrow, Icon, Check } from '../icons';
 import { useServerT, useLocalize } from '@/lib/i18n/server';
 import type { T } from '@/lib/i18n/core';
 
-// Bento xidmət kartları: hər kartda xidmətə uyğun kiçik "məhsul" vizualı
+/** Kiçik məhsul vizualı — kartın aşağı atmosferi */
 const mini = (t: T): Record<string, React.ReactNode> => ({
   'veb-saytlar': (
     <div className="mini-web" aria-hidden="true">
-      {['Performans', 'Əlçatanlıq', 'SEO'].map((l) => <span key={l}><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" /><circle cx="18" cy="18" r="15" className="v" /></svg><b>90+</b><small>{t(l)}</small></span>)}
+      {['Performans', 'Əlçatanlıq', 'SEO'].map((l) => (
+        <span key={l}>
+          <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" /><circle cx="18" cy="18" r="15" className="v" /></svg>
+          <b>90+</b><small>{t(l)}</small>
+        </span>
+      ))}
     </div>
   ),
   seo: (
     <div className="mini-seo" aria-hidden="true">
-      {[['sirketiniz.az', 1], ['rəqib-1.az', 2], ['kataloq.az', 3]].map(([d, n]) => <span key={d as string} className={n === 1 ? 'me' : ''}><em>{n}</em><b>{d}</b></span>)}
+      {([['sirketiniz.az', 1], ['rəqib-1.az', 2], ['kataloq.az', 3]] as const).map(([d, n]) => (
+        <span key={d} className={n === 1 ? 'me' : ''}><em>{n}</em><b>{d}</b></span>
+      ))}
     </div>
   ),
   reklam: (
@@ -24,7 +31,9 @@ const mini = (t: T): Record<string, React.ReactNode> => ({
   ),
   'email-marketinq': (
     <div className="mini-mail" aria-hidden="true">
-      {['Trigger: səbət tərk edildi', 'Gözləmə: 1 saat', 'Email: "Səbətiniz gözləyir"'].map((x, k) => <span key={x} style={{ ['--k' as string]: k } as React.CSSProperties}>{t(x)}</span>)}
+      {['Trigger: səbət tərk edildi', 'Gözləmə: 1 saat', 'Email: "Səbətiniz gözləyir"'].map((x, k) => (
+        <span key={x} style={{ ['--k' as string]: k } as React.CSSProperties}>{t(x)}</span>
+      ))}
     </div>
   ),
   'ai-avtomatlasdirma': (
@@ -40,23 +49,58 @@ const mini = (t: T): Record<string, React.ReactNode> => ({
     </div>
   ),
 });
-const BIG = ['veb-saytlar', 'reklam', 'email-marketinq', 'ai-avtomatlasdirma'];
+
+const FEATURED: Record<string, boolean> = {
+  'veb-saytlar': true,
+  reklam: true,
+  'email-marketinq': true,
+  'ai-avtomatlasdirma': true,
+};
+
+const groupTitle = (g: ServiceGroup, t: T) => {
+  const row = GROUPS.find((x) => x.key === g);
+  return row ? t(row.title) : g;
+};
 
 export default function Bento() {
   const t = useServerT();
   const L = useLocalize();
   const MINI = mini(t);
+  const list = L(services);
+
   return (
-    <div className="bento">
-      {L(services).map((s) => (
-        <Link key={s.slug} href={`/xidmetler/${s.slug}`} className={`bn-card${BIG.includes(s.slug) ? ' big' : ''}`}>
-          <div className="bc-top"><span className="ic"><Icon name={s.icon} /></span>{s.isNew && <em className="new">{t('Yeni')}</em>}</div>
-          <h3>{s.title}</h3>
-          <p>{s.homeDesc}</p>
-          {MINI[s.slug]}
-          <span className="bc-more">{t('Ətraflı')} <Arrow /></span>
-        </Link>
-      ))}
+    <div className="svc-board">
+      <div className="bento" data-services-grid>
+        {list.map((s, i) => (
+          <Link
+            key={s.slug}
+            href={`/xidmetler/${s.slug}`}
+            className={`bn-card${FEATURED[s.slug] ? ' big' : ''}`}
+            data-service={s.slug}
+            data-group={s.group}
+          >
+            <div className="bc-top">
+              <span className="bc-idx" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <span className="ic"><Icon name={s.icon} /></span>
+              {s.isNew && <em className="new">{t('Yeni')}</em>}
+            </div>
+            <span className="bc-group">{groupTitle(s.group, t)}</span>
+            <h3>{s.title}</h3>
+            <p>{s.homeDesc}</p>
+            {s.chips?.length > 0 && (
+              <ul className="bc-chips">
+                {s.chips.slice(0, 3).map((c) => <li key={c}>{c}</li>)}
+              </ul>
+            )}
+            {MINI[s.slug]}
+            <span className="bc-more">{t('Ətraflı')} <Arrow /></span>
+          </Link>
+        ))}
+      </div>
+      <div className="svc-board-foot">
+        <p>{t('Strategiyadan icraya — bütün kanallar bir komandada.')}</p>
+        <Link className="btn btn-ghost" href="/xidmetler">{t('Bütün xidmətlər')} <Arrow /></Link>
+      </div>
     </div>
   );
 }

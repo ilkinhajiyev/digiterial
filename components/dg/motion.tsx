@@ -33,7 +33,7 @@ export default function Motion({ locale }: { locale: string }) {
     const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
     const vh = window.innerHeight;
     const off: (() => void)[] = [];
-    const inHero = (el: Element) => !!el.closest('.hero,.sp-hero,.mega,header');
+    const inHero = (el: Element) => !!el.closest('.hero,.shero,.sp-hero,.mega,header');
 
     // 1) Görünmə: aşağıdan qalxma, şəkil pərdəsi, etiket hərfləri, footer yazısı
     const io = new IntersectionObserver((es) => {

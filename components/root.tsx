@@ -1,19 +1,31 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Manrope, Unbounded, JetBrains_Mono } from 'next/font/google';
 import { getSettings } from '@/lib/data/settings';
 
-// Sayt ([locale]) və admin ayrı kök layout-lardır: hər biri <html lang> dəyərini özü təyin edir.
-// Şriftlər build zamanı yüklənir və saytın öz domenindən verilir (Google-a sorğu getmir).
-// Geist Azərbaycan hərflərini (ə, ğ, ı, ş, ç, ö, ü) və kiril əlifbasını dəstəkləyir.
-const sans = Geist({ subsets: ['latin', 'latin-ext', 'cyrillic'], variable: '--font-sans', display: 'swap' });
-const mono = Geist_Mono({ subsets: ['latin', 'latin-ext', 'cyrillic'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' });
-export const fontVars = `${sans.variable} ${mono.variable}`;
+// Public marketing fonts (latin-ext + cyrillic for AZ/RU). Admin keeps its own CSS tokens.
+const display = Unbounded({
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  variable: '--font-display',
+  display: 'swap',
+});
+const sans = Manrope({
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+const mono = JetBrains_Mono({
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+  display: 'swap',
+});
+export const fontVars = `${display.variable} ${sans.variable} ${mono.variable}`;
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: [{ color: '#0F282F' }],
+  themeColor: [{ color: '#E8EEEC' }],
 };
 
 export async function baseMetadata(): Promise<Metadata> {

@@ -1,7 +1,7 @@
 'use server';
 import { requireStaff } from '@/lib/auth-guard';
 import { revalidatePath } from 'next/cache';
-import { createServiceClient } from '@/lib/supabase/service';
+import { createStaffClient } from '@/lib/supabase/service';
 
 export async function savePage(
   key: string,
@@ -11,7 +11,7 @@ export async function savePage(
 ) {
   await requireStaff();
   try {
-    const sb = createServiceClient();
+    const sb = (await createStaffClient());
     const { error } = await sb.from('pages').upsert(
       { key, locale, blocks, ...seo, status: 'published', updated_at: new Date().toISOString() },
       { onConflict: 'key,locale' }
@@ -29,7 +29,7 @@ export async function savePage(
 export async function getPageData(key: string, locale: string) {
   await requireStaff();
   try {
-    const sb = createServiceClient();
+    const sb = (await createStaffClient());
     const { data } = await sb.from('pages').select('*').eq('key', key).eq('locale', locale).maybeSingle();
     return data;
   } catch { return null; }

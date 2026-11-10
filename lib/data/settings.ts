@@ -1,4 +1,5 @@
 import { createServiceClient } from '@/lib/supabase/service';
+import { markSupabaseUnavailable, supabaseLikelyDown, withSupabaseTimeout, isTransientSupabaseFailure } from '@/lib/supabase/soft';
 
 export type SiteSettings = {
   brand: string;
@@ -52,19 +53,17 @@ export const defaultSettings: SiteSettings = {
 };
 
 export async function getSettings(): Promise<SiteSettings> {
+  if (supabaseLikelyDown()) return defaultSettings;
   try {
-    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    if (!key || !url) return defaultSettings;
-
     const sb = createServiceClient();
-    const { data, error } = await sb
-      .from('site_settings')
-      .select('data')
-      .eq('id', 1)
-      .maybeSingle();
+    const { data, error } = await withSupabaseTimeout(
+      sb.from('site_settings').select('data').eq('id', 1).maybeSingle(),
+    );
 
-    if (error || !data) return defaultSettings;
+    if (error || !data) {
+      if (error && isTransientSupabaseFailure((error as { message?: string }).message)) markSupabaseUnavailable();
+      return defaultSettings;
+    }
 
     const d = (data.data || {}) as any;
     return {
@@ -77,7 +76,8 @@ export async function getSettings(): Promise<SiteSettings> {
       social:   { ...defaultSettings.social,    ...(d.social || {}) },
       analytics:{ ...defaultSettings.analytics, ...(d.analytics || {}) },
     };
-  } catch {
+  } catch (e: any) {
+    if (isTransientSupabaseFailure(e?.message)) markSupabaseUnavailable();
     return defaultSettings;
   }
 }

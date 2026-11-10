@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { createServiceClient } from '@/lib/supabase/service';
+import { createStaffClient } from '@/lib/supabase/service';
 import { NextIntlClientProvider } from 'next-intl';
 import AdminShell, { type ShellCounts, type ShellUser } from '@/components/admin/shell';
 
@@ -14,13 +14,13 @@ export default async function ProtectedLayout({ children }: { children: React.Re
     const sb = await createClient();
     const { data: { user: u } } = await sb.auth.getUser();
     if (u) {
-      const { data: p } = await createServiceClient().from('profiles').select('full_name,role').eq('id', u.id).maybeSingle();
+      const { data: p } = await (await createStaffClient()).from('profiles').select('full_name,role').eq('id', u.id).maybeSingle();
       user = { name: p?.full_name || u.email?.split('@')[0] || 'İstifadəçi', email: u.email || '', role: p?.role || 'specialist' };
     }
   } catch { /* aşağıda yönləndirilir */ }
   if (!user) redirect('/admin/login');
 
-  const svc = createServiceClient();
+  const svc = (await createStaffClient());
   const counts: ShellCounts = {
     leads: await headCount(svc.from('leads').select('id', { count: 'exact', head: true }).eq('stage', 'new')),
     tickets: await headCount(svc.from('tickets').select('id', { count: 'exact', head: true }).in('status', ['open', 'in_progress'])),
