@@ -2369,3 +2369,20 @@ section#xidmetler > .wrap{position:relative; z-index:1}
   }
 }
 
+
+/* ===== UX: mobil üfüqi karusellər, footer ===== */
+@media (max-width:759px){
+  .bento,.rgrid,.posts.snap{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut);scroll-padding-inline:var(--gut);scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding-bottom:4px}
+  .bento::-webkit-scrollbar,.rgrid::-webkit-scrollbar,.posts.snap::-webkit-scrollbar{display:none}
+  .bento>*,.rgrid>*,.posts.snap>*{flex:0 0 84%;min-width:0;scroll-snap-align:start}
+  .bento>.pre,.rgrid>.pre,.posts.snap>.pre{opacity:1;transform:none}
+  .nfoot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 20px}
+  .nfoot-brand{grid-column:1/-1}
+  .nfoot nav a{padding-block:4px}
+}
+
+/* Mobil header: masaüstü menyu yalnız 1000px-dən yuxarı (yoxsa səhifə yana daşır) */
+@media (max-width:999px){
+  .nav>ul{display:none!important}
+  .nav{grid-template-columns:minmax(0,1fr) auto!important}
+}

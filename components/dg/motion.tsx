@@ -41,12 +41,16 @@ export default function Motion({ locale }: { locale: string }) {
         if (!e.isIntersecting) return;
         const t = e.target as HTMLElement;
         t.classList.remove('pre', 'clip-pre', 'wm-pre');
+        clips.get(t)?.forEach((c) => c.classList.remove('clip-pre'));
+        clips.delete(t);
         t.classList.add('lit');
         if (t.classList.contains('label')) scramble(t);
         io.unobserve(t);
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0.01, rootMargin: '0px 0px 12% 0px' });
 
+    // Tam kəsilmiş (clip-path) element IntersectionObserver üçün görünməzdir, ona görə valideyni izlənir
+    const clips = new Map<Element, HTMLElement[]>();
     const groups = new Map<Element, number>();
     document.querySelectorAll<HTMLElement>(REVEAL).forEach((t) => {
       if (inHero(t)) return;
@@ -61,7 +65,9 @@ export default function Motion({ locale }: { locale: string }) {
     document.querySelectorAll<HTMLElement>(CLIP).forEach((t) => {
       if (inHero(t) || t.getBoundingClientRect().top < vh) return;
       t.classList.add('clip-pre');
-      io.observe(t);
+      const host = t.parentElement!;
+      clips.set(host, [...(clips.get(host) || []), t]);
+      io.observe(host);
     });
     document.querySelectorAll<HTMLElement>('main section:not(.hero):not(.sp-hero) .label').forEach((t) => {
       if (t.getBoundingClientRect().top < vh || t.closest('.board,.panel,.case-meta,.post,.wcard')) return;

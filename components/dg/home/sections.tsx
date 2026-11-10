@@ -152,7 +152,7 @@ export function BlogSection() {
     <section id="bloq">
       <div className="wrap">
         <SecHead label={t('Bloq')} title={t('Rəqəmsal marketinq, praktik dildə.')} lead={t('SEO, reklam və veb dizayn haqqında tətbiq edə biləcəyiniz addımlar.')} />
-        <div className="posts">{posts.slice(0, 3).map((p) => <PostCard key={p.slug} p={p} />)}</div>
+        <div className="posts snap">{posts.slice(0, 3).map((p) => <PostCard key={p.slug} p={p} />)}</div>
       </div>
     </section>
   );
