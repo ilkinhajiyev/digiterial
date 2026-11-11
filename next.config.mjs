@@ -11,10 +11,23 @@ const nextConfig = {
   outputFileTracingRoot: root,
   poweredByHeader: false,
   compress: true,
-  eslint:     { ignoreDuringBuilds: true },
-  typescript: { ignoreBuildErrors: true },
+  async redirects() {
+    const rules = [
+      ['/istilikvesesizolyasiyasi', '/kataloq/istilik-ses'],
+      ['/berkizolyasixps', '/kataloq/xps'],
+      ['/berkizolyasiyaxps', '/kataloq/xps'],
+      ['/suizolyasiyasi', '/kataloq/bitum-rulon'],
+      ['/mayeizolyasiyaveaksesuarlar', '/kataloq/maye-aksesuar'],
+      ['/services01', '/xidmetler'],
+      ['/services02', '/xidmetler'],
+      ['/sertifkat', '/sertifikatlar'],
+      ['/appeal', '/contact'],
+      ['/mehsullar', '/kataloq'],
+    ];
+    return rules.map(([source, destination]) => ({ source, destination, statusCode: 301 }));
+  },
   experimental: {
-    serverActions: { bodySizeLimit: '2mb' },
+    serverActions: { bodySizeLimit: '8mb' },
   },
   images: {
     formats: ['image/avif', 'image/webp'],

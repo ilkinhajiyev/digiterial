@@ -103,8 +103,8 @@ export default function Header({ brand = 'digiterial', logoUrl, phone, email, la
                 <Flag code={locale} /><span>{locale.toUpperCase()}</span><Chevron />
               </button>
               <div className="lang-menu" id="langMenu" role="menu" hidden={!lang}>
-                {LANGS.map((l) => (
-                  <Link key={l.code} href={pathname} locale={l.code} className="lang-opt" role="menuitemradio" aria-checked={locale === l.code} onClick={() => setLang(false)}>
+                {LANGS.filter((l) => l.code !== 'de').map((l) => (
+                  <Link key={l.code} href={pathname} locale={l.code === 'de' ? 'az' : l.code} className="lang-opt" role="menuitemradio" aria-checked={locale === l.code} onClick={() => setLang(false)}>
                     <Flag code={l.code} size="lg" /><span><b>{l.label}</b><small>{l.code.toUpperCase()}</small></span><span className="tick"><Check w={3} /></span>
                   </Link>
                 ))}
@@ -209,7 +209,7 @@ export default function Header({ brand = 'digiterial', logoUrl, phone, email, la
           ))}
           <Link href="/isler">{t('İşlər')}</Link><Link href="/haqqimizda">{t('Haqqımızda')}</Link><Link href="/elaqe">{t('Əlaqə')}</Link>
           <div className="mm-langs" role="radiogroup" aria-label={t('Dil')}>
-            {LANGS.map((l) => <Link key={l.code} href={pathname} locale={l.code} role="radio" aria-checked={locale === l.code}><Flag code={l.code} />{l.code.toUpperCase()}</Link>)}
+            {LANGS.filter((l) => l.code !== 'de').map((l) => <Link key={l.code} href={pathname} locale={l.code === 'de' ? 'az' : l.code} role="radio" aria-checked={locale === l.code}><Flag code={l.code} />{l.code.toUpperCase()}</Link>)}
           </div>
         </div>
       </header>

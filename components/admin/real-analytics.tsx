@@ -28,7 +28,7 @@ function Ga4Section({ ga4, leads, clients }: { ga4: Ga4Data; leads: number; clie
           <h3 className="font-display font-bold text-lg mb-3 text-brand">GA4 real statistikanı necə qoşmalı?</h3>
           <ol className="text-sm text-white/70 space-y-2.5 list-decimal pl-5">
             <li><b className="text-white">GA4 property yaradın:</b> analytics.google.com → property → Measurement ID (G-XXXX) alın və <b>Tənzimləmələr → Analitika</b> bölməsinə yazın.</li>
-            <li><b className="text-white">Service Account yaradın:</b> console.cloud.google.com → yeni layihə → "Google Analytics Data API"-ni aktiv edin.</li>
+            <li><b className="text-white">Service Account yaradın:</b> console.cloud.google.com → yeni layihə → «Google Analytics Data API»-ni aktiv edin.</li>
             <li>IAM → Service Accounts → yeni account → JSON açar endirin.</li>
             <li><b className="text-white">GA4-ə giriş verin:</b> GA4 Admin → Property Access → service account emailini <b>Viewer</b> kimi əlavə edin.</li>
             <li><b className="text-white">Hostinger-də 3 env dəyişəni əlavə edin:</b>
@@ -162,8 +162,8 @@ function YandexSection({ yandex }: { yandex: YandexData }) {
       <div className="bg-panel border border-line rounded-2xl p-6 max-w-2xl">
         <h3 className="font-display font-bold text-lg mb-3 text-brand">Yandex Metrica statistikasını necə qoşmalı?</h3>
         <ol className="text-sm text-white/70 space-y-2.5 list-decimal pl-5">
-          <li>Bu sayt üçün <b className="text-white">Tənzimləmələr → Analitika</b> bölməsində "Yandex Metrica (sayğac ID)" sahəsinin dolu olduğuna əmin olun.</li>
-          <li><b className="text-white">OAuth token yaradın:</b> oauth.yandex.com → yeni tətbiq → "Yandex.Metrica" icazələrindən <b>metrika:read</b> seçin → tokeni alın.</li>
+          <li>Bu sayt üçün <b className="text-white">Tənzimləmələr → Analitika</b> bölməsində «Yandex Metrica (sayğac ID)» sahəsinin dolu olduğuna əmin olun.</li>
+          <li><b className="text-white">OAuth token yaradın:</b> oauth.yandex.com → yeni tətbiq → «Yandex.Metrica» icazələrindən <b>metrika:read</b> seçin → tokeni alın.</li>
           <li><b className="text-white">Hostinger-də env dəyişəni əlavə edin:</b>
             <div className="font-mono text-[.7rem] bg-black/40 rounded-lg p-3 mt-2 text-white/60">
               YANDEX_OAUTH_TOKEN = <span className="text-brand">y0_xxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>

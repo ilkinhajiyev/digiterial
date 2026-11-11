@@ -1,0 +1,3373 @@
+{
+  "version": 1,
+  "source": {
+    "site": "https://sochi.az/",
+    "extracted": "2026-11-10",
+    "note": "Names, descriptions, and photos come from the public sochi.az catalog. Prices, SKUs, stock, warranties, and technical PDFs were not published and stay unknown."
+  },
+  "settings": {
+    "whatsappE164": "994502042031",
+    "whatsappDisplay": "+994 50 204 20 31",
+    "whatsappConfirmed": false,
+    "phoneDisplay": "+994 55 977 01 01",
+    "phoneE164": "994559770101",
+    "email": "Office@sochi.az",
+    "city": {
+      "az": "Bakı",
+      "en": "Baku",
+      "ru": "Баку"
+    },
+    "addressLine": null
+  },
+  "banners": [
+    {
+      "id": "hero-materials",
+      "status": "published",
+      "image": "/media/products/TexnonikolCarbonECO.webp",
+      "href": "/kataloq",
+      "title": {
+        "az": "Dam, fasad və təməl üçün izolyasiya materialları",
+        "en": "Insulation materials for roofs, facades, and foundations",
+        "ru": "Изоляционные материалы для кровли, фасада и фундамента"
+      },
+      "subtitle": {
+        "az": "Yüksək istilik izolyasiyası, mexaniki möhkəmlik və nəmə davamlılıq təmin edən XPS lövhələri və Texnonikol Carbon ECO məhsulları. Təməl, dam və fasad izolyasiyası üçün ideal seçimlər.",
+        "en": "XPS boards and Technonicol Carbon ECO products providing high thermal insulation, mechanical strength, and moisture resistance. Ideal choices for foundation, roof, and facade insulation.",
+        "ru": "Плиты XPS и продукция ТехноНИКОЛЬ Carbon ECO, обеспечивающие высокую теплоизоляцию, механическую прочность и влагостойкость. Идеальный выбор для изоляции фундамента, кровли и фасада."
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "istilik-ses",
+      "name": {
+        "az": "İstilik və səs izolyasiyası",
+        "en": "Heat and sound insulation",
+        "ru": "Тепло- и звукоизоляция"
+      },
+      "summary": {
+        "az": "Enerji sərfiyyatını azaldan və səs izolyasiyası təmin edən peşəkar material növləri: Rulonlu daş yunları İZOBOKS, fasad üçün Texnofas, ventilyasiya olunan fasadlar üçün Texnovent və universal Roklait daş yunları.",
+        "en": "Professional material types that reduce energy consumption and provide sound insulation: IZOBOX rolled stone wools, Technofas for facades, Technovent for ventilated facades, and universal Roklait stone wools.",
+        "ru": "Профессиональные виды материалов, снижающие энергопотребление и обеспечивающие звукоизоляцию: рулонная каменная вата ИЗОБОКС, Технофас для фасадов, Техновент для вентилируемых фасадов и универсальная каменная вата Роклайт."
+      },
+      "subs": [
+        {
+          "id": "rulon-das-yunu",
+          "name": {
+            "az": "Rulonlu Daş Yunları və Döşəklər (İZOBOKS)",
+            "en": "Rolled Stone Wool and Mats (IZOBOKS)",
+            "ru": "Рулонная каменная вата и маты (ИЗОБОКС)"
+          }
+        },
+        {
+          "id": "fasad-das-yunu",
+          "name": {
+            "az": "Fasad Üçün Daş Yunları (Texnofas)",
+            "en": "Stone Wool for Facades (Texnofas)",
+            "ru": "Каменная вата для фасадов (Технофас)"
+          }
+        },
+        {
+          "id": "vent-fasad",
+          "name": {
+            "az": "Ventilyasiya Olunan Fasadlar Üçün (Texnovent)",
+            "en": "For Ventilated Facades (Texnovent)",
+            "ru": "Для вентилируемых фасадов (Техновент)"
+          }
+        },
+        {
+          "id": "akustik-divar",
+          "name": {
+            "az": "Akustik və Divar Üçün (Səs və İstilik)",
+            "en": "For Acoustics and Walls (Sound and Thermal)",
+            "ru": "Для акустики и стен (Звуко- и теплоизоляция)"
+          }
+        },
+        {
+          "id": "universal",
+          "name": {
+            "az": "Universal izolyasiya (Roklait)",
+            "en": "Universal insulation (Roklait)",
+            "ru": "Универсальная изоляция (Роклайт)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "xps",
+      "name": {
+        "az": "XPS lövhələr",
+        "en": "XPS boards",
+        "ru": "Плиты XPS"
+      },
+      "summary": {
+        "az": "Yüksək istilik izolyasiyası, mexaniki möhkəmlik və nəmə davamlılıq təmin edən XPS lövhələri və Texnonikol Carbon ECO məhsulları. Təməl, dam və fasad izolyasiyası üçün ideal seçimlər.",
+        "en": "XPS boards and Technonicol Carbon ECO products providing high thermal insulation, mechanical strength, and moisture resistance. Ideal choices for foundation, roof, and facade insulation.",
+        "ru": "Плиты XPS и продукция ТехноНИКОЛЬ Carbon ECO, обеспечивающие высокую теплоизоляцию, механическую прочность и влагостойкость. Идеальный выбор для изоляции фундамента, кровли и фасада."
+      },
+      "subs": [
+        {
+          "id": "carbon-eco",
+          "name": {
+            "az": "Texnonikol Carbon ECO",
+            "en": "Technonicol Carbon ECO",
+            "ru": "ТехноНИКОЛЬ CARBON ECO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bitum-rulon",
+      "name": {
+        "az": "Dam və hidroizolyasiya üçün bitum rulon materialları",
+        "en": "Bitumen roll materials for roof and waterproofing",
+        "ru": "Битумные рулонные материалы для кровли и гидроизоляции"
+      },
+      "summary": {
+        "az": "Binaların təməlini və divarlarını rütubətdən qoruyan, su sızmalarının qarşısını alan Stekloizol XPP, Bikrost TKP, Linokrom EPP, Unifleks EPP və Texnoelast TKP hidroizolyasiya sistemləri.",
+        "en": "Stekloizol XPP, Bikrost TKP, Linokrom EPP, Unifleks EPP, and Technoelast TKP waterproofing systems protecting building foundations and walls from moisture and preventing water leaks.",
+        "ru": "Системы гидроизоляции Стеклоизол ХПП, Бикрост ТКП, Линокром ЭПП, Унифлекс ЭПП и Техноэласт ТКП, защищающие фундамент и стены зданий от сырости и предотвращающие протечки воды."
+      },
+      "subs": [
+        {
+          "id": "stekloizol",
+          "name": {
+            "az": "Stekloizol",
+            "en": "Stekloizol",
+            "ru": "Стеклоизол"
+          }
+        },
+        {
+          "id": "bikrost",
+          "name": {
+            "az": "Bikrost",
+            "en": "Bikrost",
+            "ru": "Бикрост"
+          }
+        },
+        {
+          "id": "linokrom",
+          "name": {
+            "az": "Linokrom",
+            "en": "Linokrom",
+            "ru": "Линокром"
+          }
+        },
+        {
+          "id": "unifleks",
+          "name": {
+            "az": "Unifleks",
+            "en": "Unifleks",
+            "ru": "Унифлекс"
+          }
+        },
+        {
+          "id": "texnoelast",
+          "name": {
+            "az": "Texnoelast",
+            "en": "Texnoelast",
+            "ru": "Техноэласт"
+          }
+        }
+      ]
+    },
+    {
+      "id": "maye-aksesuar",
+      "name": {
+        "az": "Maye izolyasiya və aksesuarlar",
+        "en": "Liquid insulation and accessories",
+        "ru": "Жидкая изоляция и аксессуары"
+      },
+      "summary": {
+        "az": "Çətin tətbiq olunan səthlərdə mükəmməl qoruma təmin edən maye izolyasiya məhsulları, AquaMast bitumlu mastikalar (3 kq) və MBK-Q kraf-meşok (30 kq) hidroizolyasiya materialları.",
+        "en": "Liquid insulation products providing excellent protection on hard-to-apply surfaces, AquaMast bitumen mastics (3 kg), and MBK-G craft-bag (30 kg) waterproofing materials.",
+        "ru": "Материалы жидкой изоляции, обеспечивающие превосходную защиту на сложных в нанесении поверхностях, битумные мастики AquaMast (3 кг) и крафт-мешки МБК-Г (30 кг) для гидроизоляции."
+      },
+      "subs": [
+        {
+          "id": "maye-bitum",
+          "name": {
+            "az": "Maye bitum və mastikalar",
+            "en": "Liquid bitumen and mastics",
+            "ru": "Жидкий битум и мастики"
+          }
+        },
+        {
+          "id": "aksesuar",
+          "name": {
+            "az": "Montaj və köməkçi materiallar",
+            "en": "Installation and accessories",
+            "ru": "Монтажные и вспомогательные материалы"
+          }
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "izoboks-44-r",
+      "slug": "izoboks-44-r",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "rulon-das-yunu",
+      "family": "İZOBOKS",
+      "brand": null,
+      "featured": true,
+      "name": {
+        "az": "İZOBOKS 44 R Teplozaşita",
+        "en": "IZOBOKS 44 R Teplozashita",
+        "ru": "ИЗОБОКС 44 Р Теплозащита"
+      },
+      "variants": [
+        {
+          "id": "izoboks_44r_teplozasita_5800_1220_50",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "İZOBOKS 44 R Teplozaşita (5800x1220x50 mm)",
+            "en": "IZOBOKS 44 R Teplozashita (5800x1220x50 mm)",
+            "ru": "ИЗОБОКС 44 Р Теплозащита (5800х1220х50 мм)"
+          },
+          "description": {
+            "az": "İZOBOKS 44 R Teplozaşita (5800x1220x50 mm / Fito) yüngül karkas konstruksiyalarda, tavanlarda və üfüqi səthlərdə səs və istilik izolyasiyasını təmin etmək üçün xüsusi olaraq hazırlanmış rulon formalı mineral pambıq (şüşəlif) məhsuludur. Quraşdırma rahatlığı və yüksək izolyasiya qabiliyyəti ilə seçilir.",
+            "en": "IZOBOKS 44 R Teplozashita (5800x1220x50 mm / Fito) is a roll-shaped mineral wool (fiberglass) product specifically designed to provide sound and thermal insulation in lightweight frame structures, ceilings, and horizontal surfaces. It is distinguished by ease of installation and high insulation capacity.",
+            "ru": "ИЗОБОКС 44 Р Теплозащита (5800х1220х50 мм / Fito) представляет собой рулонный продукт из минеральной ваты (стекловолокна), созданный специально для обеспечения звуко- и теплоизоляции в легких каркасных конструкциях, перекрытиях и на горизонтальных поверхностях. Отличается удобством монтажа и высокими изоляционными свойствами."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 50,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "5800×1220×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəlif",
+                "en": "Glass tissue",
+                "ru": "Стеклохолст"
+              }
+            }
+          ],
+          "image": "/media/products/istises01.webp"
+        },
+        {
+          "id": "izoboks_44r_teplozasita_6250_1220_50",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "İZOBOKS 44 R Teplozaşita (6250x1220x50 mm)",
+            "en": "IZOBOKS 44 R Teplozashita (6250x1220x50 mm)",
+            "ru": "ИЗОБОКС 44 Р Теплозащита (6250х1220х50 мм)"
+          },
+          "description": {
+            "az": "İZOBOKS 44 R Teplozaşita 6250x1220x50 mm ölçülü rulon izolyasiya döşəyi geniş sahələrdə daha az birləşmə yeri yaratmaqla sürətli və effektiv istilik-səs qorunması təmin edir. Ekoloji təmiz struktura malikdir.",
+            "en": "IZOBOKS 44 R Teplozashita 6250x1220x50 mm rolled insulation mat provides fast and effective thermal-sound protection by creating fewer joint locations over large areas. It has an eco-friendly structure.",
+            "ru": "ИЗОБОКС 44 Р Теплозащита размером 6250х1220х50 мм обеспечивает быстрое и эффективное теплозвукозащитное покрытие на больших площадях с минимальным количеством стыков. Обладает экологически чистой структурой."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 50,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "6250×1220×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/istises01.webp"
+        },
+        {
+          "id": "izoboks_44r_teplozasita_mini",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "İZOBOKS 44 R Teplozaşita MİNİ (6560x610x50 mm)",
+            "en": "IZOBOKS 44 R Teplozashita MINI (6560x610x50 mm)",
+            "ru": "ИЗОБОКС 44 Р Теплозащита МИНИ (6560х610х50 мм)"
+          },
+          "description": {
+            "az": "İZOBOKS 44 R Teplozaşita MİNİ (6560x610x50 mm / Fito) kompakt en ölçüsü sayəsində məhdud məkanlarda, dar karkas aralarında və xüsusi təmir işlərində rahat tətbiq olunmaq üçün dizayn edilmiş səs və istilik izolyasiya materialıdır.",
+            "en": "IZOBOKS 44 R Teplozashita MINI (6560x610x50 mm / Fito) is a sound and thermal insulation material designed to be comfortably applied in confined spaces, narrow frame gaps, and special repair works thanks to its compact width dimension.",
+            "ru": "ИЗОБОКС 44 Р Теплозащита МИНИ (6560х610х50 мм / Fito) — это материал для звуко- и теплоизоляции, разработанный для комфортного применения в ограниченных пространствах, узких каркасных проемах и при специальных ремонтных работах благодаря компактной ширине."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 50,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "6560×610×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/istises03.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "istises01",
+          "src": "/media/products/istises01.webp",
+          "alt": {
+            "az": "İZOBOKS 44 R Teplozaşita",
+            "en": "IZOBOKS 44 R Teplozashita",
+            "ru": "ИЗОБОКС 44 Р Теплозащита"
+          }
+        },
+        {
+          "id": "istises03",
+          "src": "/media/products/istises03.webp",
+          "alt": {
+            "az": "İZOBOKS 44 R Teplozaşita",
+            "en": "IZOBOKS 44 R Teplozashita",
+            "ru": "ИЗОБОКС 44 Р Теплозащита"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "teplaya-daca",
+      "slug": "teplaya-daca",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "rulon-das-yunu",
+      "family": "Teplaya Daça",
+      "brand": "ТЕХНОНИКОЛЬ",
+      "featured": false,
+      "name": {
+        "az": "Texnonikol 44 RN Teplaya Daça",
+        "en": "Technonicol 44 RN Teplaya Dacha",
+        "ru": "ТехноНИКОЛЬ 44 РН Теплая Дача"
+      },
+      "variants": [
+        {
+          "id": "texnonikol_44rn_teplaya_daca",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnonikol 44 RN Teplaya Daça (6250x1220x50 mm)",
+            "en": "Technonicol 44 RN Teplaya Dacha (6250x1220x50 mm)",
+            "ru": "ТехноНИКОЛЬ 44 РН Теплая Дача (6250х1220х50 мм)"
+          },
+          "description": {
+            "az": "Texnonikol 44 RN Teplaya Daça (6250x1220x50 mm / Fito / 1 rulon = 15.25 m²) xüsusi olaraq bağ evləri, mansardlar və yüngül karkaslı tikililər üçün nəzərdə tutulmuşdur. Səthlərdə ideal istilik baryeri yaradaraq enerji itkisinin qarşısını alır.",
+            "en": "Technonicol 44 RN Teplaya Dacha (6250x1220x50 mm / Fito / 1 roll = 15.25 m²) is specifically intended for country houses, mansards, and lightweight framed structures. It prevents energy loss by creating an ideal thermal barrier on surfaces.",
+            "ru": "ТехноНИКОЛЬ 44 РН Теплая Дача (6250х1220х50 мм / Fito / 1 рулон = 15.25 м²) разработана специально для дачных домов, мансард и легких каркасных сооружений. Создает идеальный тепловой барьер на поверхностях, предотвращая потери энергии."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "6250×1220×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            },
+            {
+              "key": "area",
+              "value": "15.25 m²"
+            }
+          ],
+          "image": "/media/products/istises02.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "istises02",
+          "src": "/media/products/istises02.webp",
+          "alt": {
+            "az": "Texnonikol 44 RN Teplaya Daça",
+            "en": "Technonicol 44 RN Teplaya Dacha",
+            "ru": "ТехноНИКОЛЬ 44 РН Теплая Дача"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "ralu-banya",
+      "slug": "ralu-banya",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "rulon-das-yunu",
+      "family": "40 RAlu",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "40 RAlu Banya i Sauna",
+        "en": "40 RAlu Banya i Sauna",
+        "ru": "40 RAlu Баня и Сауна"
+      },
+      "variants": [
+        {
+          "id": "ralu_banya_i_sauna",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "40 RAlu Banya i Sauna (12500x1200x50 mm)",
+            "en": "40 RAlu Banya i Sauna (12500x1200x50 mm)",
+            "ru": "40 RAlu Баня и Сауна (12500х1200х50 мм)"
+          },
+          "description": {
+            "az": "40 RAlu Banya i Sauna (12500x1200x50 mm / Fito / 1 rulon = 15.0 m²) bir üzü alüminium folqa ilə örtülmüş xüsusi izolyasiya döşəyidir. Hamam, sauna və yüksək rütubətli otaqlarda istiliyin geri əks olunmasını və nəmə qarşı tam qorunmanı eyni vaxtda təmin edir.",
+            "en": "40 RAlu Banya i Sauna (12500x1200x50 mm / Fito / 1 roll = 15.0 m²) is a special insulation mat coated on one side with aluminum foil. It simultaneously ensures the reflection of heat back and complete protection against moisture in baths, saunas, and high-humidity rooms.",
+            "ru": "40 RAlu Баня и Сауна (12500х1200х50 мм / Fito / 1 рулон = 15.0 м²) — специальный изоляционный мат, покрытый с одной стороны алюминиевой фольгой. Одновременно обеспечивает отражение тепла обратно и полную защиту от влаги в банях, саунах и помещениях с высокой влажностью."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 50,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "12500×1200×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            },
+            {
+              "key": "area",
+              "value": "15.0 m²"
+            }
+          ],
+          "image": "/media/products/istises04.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "istises04",
+          "src": "/media/products/istises04.webp",
+          "alt": {
+            "az": "40 RAlu Banya i Sauna",
+            "en": "40 RAlu Banya i Sauna",
+            "ru": "40 RAlu Баня и Сауна"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "izoboks-extralayt",
+      "slug": "izoboks-extralayt",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "rulon-das-yunu",
+      "family": "İZOBOKS",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "İZOBOKS EXTRALAYT",
+        "en": "IZOBOKS EXTRALIGHT",
+        "ru": "ИЗОБОКС ЭКСТРАЛАЙТ"
+      },
+      "variants": [
+        {
+          "id": "izoboks_extralayt_100mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "İZOBOKS EXTRALAYT (100 mm)",
+            "en": "IZOBOKS EXTRALIGHT (100 mm)",
+            "ru": "ИЗОБОКС ЭКСТРАЛАЙТ (100 мм)"
+          },
+          "description": {
+            "az": "İZOBOKS EXTRALAYT 100 mm (3.84 m²) karkas divarlar, tavanlar və yüklənməyən horizontal konstruksiyalar üçün nəzərdə tutulmuş yüksək keyfiyyətli mineral pambıq lövhəsidir. Əla səs udma və istilik saxlama xüsusiyyətləri ilə seçilir.",
+            "en": "IZOBOKS EXTRALIGHT 100 mm (3.84 m²) is a high-quality mineral wool board intended for frame walls, ceilings, and non-load-bearing horizontal structures. It stands out with excellent sound absorption and heat retention properties.",
+            "ru": "ИЗОБОКС ЭКСТРАЛАЙТ 100 мм (3.84 м²) — это высококачественная плита из минеральной ваты, предназначенная для каркасных стен, перекрытий и ненагружаемых горизонтальных конструкций. Отличается превосходными свойствами звукопоглощения и удержания тепла."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 100,
+          "applicationAreas": [
+            "daxili"
+          ],
+          "specs": [
+            {
+              "key": "thickness",
+              "value": "100 mm"
+            },
+            {
+              "key": "area",
+              "value": "3.84 m²"
+            }
+          ],
+          "image": "/media/products/istises05.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "istises05",
+          "src": "/media/products/istises05.webp",
+          "alt": {
+            "az": "İZOBOKS EXTRALAYT",
+            "en": "IZOBOKS EXTRALIGHT",
+            "ru": "ИЗОБОКС ЭКСТРАЛАЙТ"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "texnofas",
+      "slug": "texnofas",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "fasad-das-yunu",
+      "family": "Texnofas",
+      "brand": null,
+      "featured": true,
+      "name": {
+        "az": "Texnofas",
+        "en": "Texnofas",
+        "ru": "Технофас"
+      },
+      "variants": [
+        {
+          "id": "texnofas_1200_600_100mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas (1200x600x100 mm)",
+            "en": "Texnofas (1200x600x100 mm)",
+            "ru": "Технофас (1200х600х100 мм)"
+          },
+          "description": {
+            "az": "Texnofas 1200x600x100 mm ölçülü daş yunu plitəsi xarici fasadların suvaqlı sistemlərlə (İXTİS) izolyasiyası üçün xüsusi olaraq hazırlanmışdır. Yüksək istilik və səs izolyasiyası xüsusiyyətləri ilə yanaşı, qeyri-yanıcılığı sayəsində binalarda yanğın təhlükəsizliyini maksimum səviyyədə təmin edir.",
+            "en": "The Texnofas 1200x600x100 mm stone wool board is specifically designed for external facade insulation using ETICS (plastered facade systems). Alongside high thermal and sound insulation properties, its non-combustibility ensures maximum fire safety in buildings.",
+            "ru": "Плита из каменной ваты Технофас 1200х600х100 мм разработана специально для внешней изоляции фасадов с штукатурными системами (СФТК). Наряду с высокими характеристиками тепло- и звукоизоляции, благодаря своей негорючести она обеспечивает максимальную пожарную безопасность зданий."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 100,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×100 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "100 mm"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        },
+        {
+          "id": "texnofas_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas (1200x600x50 mm)",
+            "en": "Texnofas (1200x600x50 mm)",
+            "ru": "Технофас (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnofas 1200x600x50 mm plitələri xarici divarların istilik izolyasiya təbəqəsi üçün ideal seçimdir. Optimal sıxlığı sayəsində üzərinə çəkilən suvaq və boya qatlarını mükəmməl şəkildə dəstəkləyir, binanın istilikitkki göstəricilərini əhəmiyyətli dərəcədə azaldır.",
+            "en": "Texnofas 1200x600x50 mm boards are an ideal choice for the thermal insulation layer of external walls. Thanks to its optimal density, it perfectly supports applied plaster and paint layers, significantly reducing the building's heat loss indicators.",
+            "ru": "Плиты Технофас 1200х600х50 мм являются идеальным выбором для слоя теплоизоляции наружных стен. Благодаря оптимальной плотности они отлично поддерживают наносимые слои штукатурки и краски, значительно снижая показатели теплопотерь здания."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        },
+        {
+          "id": "texnofas_1200_600_30mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas (1200x600x30 mm)",
+            "en": "Texnofas (1200x600x30 mm)",
+            "ru": "Технофас (1200х600х30 мм)"
+          },
+          "description": {
+            "az": "Texnofas 30 mm qalınlığındakı daş yunu lövhəsi məhdud məkanlarda və ya əlavə izolyasiya tələb olunan xüsusi memarlıq detallarında ağırlıq yaratmadan effektiv istilik və səs qorunması təmin edir.",
+            "en": "The Texnofas 30 mm thick stone wool board provides effective thermal and sound protection without adding weight in confined spaces or special architectural details requiring additional insulation.",
+            "ru": "Плита из каменной ваты Технофас толщиной 30 мм обеспечивает эффективную защиту от тепла и шума в ограниченных пространствах или особых архитектурных деталях, требующих дополнительной изоляции, не создавая лишнего веса."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 30,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×30 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "30 mm"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        },
+        {
+          "id": "texnofas_dekor_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas Dekor (1200x600x50 mm)",
+            "en": "Texnofas Dekor (1200x600x50 mm)",
+            "ru": "Технофас Декор (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnofas Dekor 1200x600x50 mm fasadların pəncərə ətrafı, karniz və digər memarlıq elementlərinin izolyasiyası zamanı rahat işlənilməsi və estetik detalların tətbiqi üçün xüsusi olaraq optimallaşdırılmışdır.",
+            "en": "Texnofas Dekor 1200x600x50 mm is specially optimized for easy handling and the application of aesthetic details during the insulation of windowsills, cornices, and other architectural elements of facades.",
+            "ru": "Технофас Декор 1200х600х50 мм специально оптимизирован для удобства работы и нанесения эстетичных деталей при изоляции оконных обрамлений, карнизов и других архитектурных элементов фасадов."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        },
+        {
+          "id": "texnofas_ekstra_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas Ekstra (1200x600x50 mm)",
+            "en": "Texnofas Ekstra (1200x600x50 mm)",
+            "ru": "Технофас Экстра (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnofas Ekstra 1200x600x50 mm artırılmış fiziki-mexaniki göstəricilərə malikdir. Yüksək səviyyəli dartılma və sıxılma müqaviməti sayəsində hündür mərtəbəli binaların ağır rejimli fasad izolyasiya sistemlərində qüsursuz nəticə verir.",
+            "en": "Texnofas Ekstra 1200x600x50 mm features enhanced physical and mechanical indicators. Due to its high level of tensile and compressive resistance, it delivers flawless results in heavy-duty facade insulation systems of high-rise buildings.",
+            "ru": "Технофас Экстра 1200х600х50 мм обладает улучшенными физико-механическими показателями. Благодаря высокому сопротивлению растяжению и сжатию она дает безупречный результат в тяжелых системах фасадной изоляции высотных зданий."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        },
+        {
+          "id": "texnofas_optima_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas Optima (1200x600x50 mm)",
+            "en": "Texnofas Optima (1200x600x50 mm)",
+            "ru": "Технофас Оптима (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnofas Optima 1200x600x50 mm qiymət və keyfiyyət balansını qoruyan, standart mülki tikinti layihələri üçün nəzərdə tutulmuş etibarlı istilik və səs izolyasiya materialıdır. Fasad səthlərində uzunömürlü performans təmin edir.",
+            "en": "Texnofas Optima 1200x600x50 mm is a reliable thermal and sound insulation material designed for standard civil construction projects, maintaining a balance between price and quality. It ensures long-lasting performance on facade surfaces.",
+            "ru": "Технофас Оптима 1200х600х50 мм — это надежный материал для тепло- и звукоизоляции, сохраняющий баланс цены и качества, предназначенный для стандартных проектов гражданского строительства. Обеспечивает долговечные эксплуатационные характеристики на поверхностях фасадов."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        },
+        {
+          "id": "texnofas_optima_1200_600_80mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas Optima (1200x600x80 mm)",
+            "en": "Texnofas Optima (1200x600x80 mm)",
+            "ru": "Технофас Оптима (1200х600х80 мм)"
+          },
+          "description": {
+            "az": "Texnofas Optima 80 mm qalınlığı ilə enerji səmərəliliyi tələblərinə cavab verən, büdcəyə uyğun və effektiv istilik baryeri yaradan daş yunu həllidir. Xarici divarların soyuq hava axınlarından qorunmasında mühüm rol oynayır.",
+            "en": "Texnofas Optima with its 80 mm thickness is a stone wool solution that meets energy efficiency requirements, creating a budget-friendly and effective thermal barrier. It plays a crucial role in protecting exterior walls from cold air currents.",
+            "ru": "Технофас Оптима толщиной 80 мм представляет собой решение из каменной ваты, отвечающее требованиям энергоэффективности, создающее бюджетный и эффективный тепловой барьер. Играет важную роль в защите наружных стен от холодных воздушных потоков."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 80,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×80 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "80 mm"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        },
+        {
+          "id": "texnofas_effekt_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas Effekt (1200x600x50 mm)",
+            "en": "Texnofas Effekt (1200x600x50 mm)",
+            "ru": "Технофас Эффект (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnofas Effekt 1200x600x50 mm xüsusi lif strukturu sayəsində aşağı istilikkeçirmə əmsalına və gücləndirilmiş nəmə qarşı dayanıqlığa malikdir. Müasir tikinti standartlarına tam cavab verərək fasadların ömrünü uzadır.",
+            "en": "Texnofas Effekt 1200x600x50 mm possesses a low thermal conductivity coefficient and enhanced moisture resistance thanks to its special fiber structure. Fully meeting modern construction standards, it extends the lifespan of facades.",
+            "ru": "Технофас Эффект 1200х600х50 мм благодаря особой волокнистой структуре обладает низким коэффициентом теплопроводности и повышенной влагостойкостью. Полностью отвечает современным строительным стандартам, продлевая срок службы фасадов."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        },
+        {
+          "id": "texnofas_optima_1200_600_80mm_6806100000",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnofas Optima (1200x600x80 mm) · 6806100000",
+            "en": "Texnofas Optima (1200x600x80 mm) · 6806100000",
+            "ru": "Технофас Оптима (1200х600х80 мм) · 6806100000"
+          },
+          "description": {
+            "az": "Texnofas Optima 80 mm qalınlığında (Kod: 6806100000) xarici fasadların istilik izolyasiyası üçün nəzərdə tutulmuş balanslı və sərfəli daş yunu materialıdır. Tikililərdə istilik itkisini azaldaraq enerji effektivliyini artırır.",
+            "en": "Texnofas Optima 80 mm thickness (Code: 6806100000) is a balanced and affordable stone wool material intended for external facade thermal insulation. It increases energy efficiency by reducing heat loss in buildings.",
+            "ru": "Технофас Оптима толщиной 80 мм (Код: 6806100000) — это сбалансированный и доступный материал из каменной ваты, предназначенный для теплоизоляции наружных фасадов. Повышает энергоэффективность за счет снижения теплопотерь в зданиях."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 80,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×80 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "80 mm"
+            },
+            {
+              "key": "publishedCode",
+              "value": "6806100000"
+            }
+          ],
+          "image": "/media/products/texnofasdekor.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "texnofasdekor",
+          "src": "/media/products/texnofasdekor.webp",
+          "alt": {
+            "az": "Texnofas",
+            "en": "Texnofas",
+            "ru": "Технофас"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "texnovent",
+      "slug": "texnovent",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "vent-fasad",
+      "family": "Texnovent",
+      "brand": null,
+      "featured": true,
+      "name": {
+        "az": "Texnovent",
+        "en": "Texnovent",
+        "ru": "Техновент"
+      },
+      "variants": [
+        {
+          "id": "texnovent_ekstra_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnovent Ekstra (1200x600x50 mm)",
+            "en": "Texnovent Ekstra (1200x600x50 mm)",
+            "ru": "Техновент Экстра (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnovent Ekstra 1200x600x50 mm asma və ventilasiya olunan fasad sistemləri üçün xüsusi olaraq hazırlanmışdır. Hava axınına qarşı dayanıqlı səthi və yüksək sıxlığı ilə fərqlənir.",
+            "en": "Texnovent Ekstra 1200x600x50 mm is specifically developed for suspended and ventilated facade systems. It stands out with its air-flow resistant surface and high density.",
+            "ru": "Техновент Экстра 1200х600х50 мм разработана специально для навесных и вентилируемых фасадных систем. Отличается устойчивой к воздушным потокам поверхностью и высокой плотностью."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/Texnoventekstra.webp"
+        },
+        {
+          "id": "texnovent_ekstra_1200_600_100mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnovent Ekstra (1200x600x100 mm)",
+            "en": "Texnovent Ekstra (1200x600x100 mm)",
+            "ru": "Техновент Экстра (1200х600х100 мм)"
+          },
+          "description": {
+            "az": "Texnovent Ekstra 1200x600x100 mm havalandırmalı fasadlarda binanın istilik itkisini minimuma endirən, yanğına qarşı tam təhlükəsiz və ağır rejimli sənaye tipli daş yünüdür.",
+            "en": "Texnovent Ekstra 1200x600x100 mm is a heavy-duty, industrial-type stone wool that minimizes building heat loss in ventilated facades and is completely fire-safe.",
+            "ru": "Техновент Экстра 1200х600х100 мм — это тяжелая индустриальная каменная вата, которая сводит к минимуму потери тепла в вентилируемых фасадах, полностью пожаробезопасна."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 100,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×100 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "100 mm"
+            }
+          ],
+          "image": "/media/products/Texnoventekstra.webp"
+        },
+        {
+          "id": "texnovent_optima_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnovent Optima (1200x600x50 mm)",
+            "en": "Texnovent Optima (1200x600x50 mm)",
+            "ru": "Техновент Оптима (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnovent Optima 1200x600x50 mm havalandırmalı fasad sistemləri üçün nəzərdə tutulmuş sərfəli və balanslaşdırılmış istilik izolyasiya məhsuludur.",
+            "en": "Texnovent Optima 1200x600x50 mm is a cost-effective and balanced thermal insulation product intended for ventilated facade systems.",
+            "ru": "Техновент Оптима 1200х600х50 мм — это выгодный и сбалансированный продукт теплоизоляции, предназначенный для систем вентилируемых фасадов."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/Texnoventekstra.webp"
+        },
+        {
+          "id": "texnovent_optima_1200_600_80mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnovent Optima (1200x600x80 mm)",
+            "en": "Texnovent Optima (1200x600x80 mm)",
+            "ru": "Техновент Оптима (1200х600х80 мм)"
+          },
+          "description": {
+            "az": "Texnovent Optima 1200x600x80 mm havalandırmalı fasadlarda optimal istilik qorunması və büdcəyə uyğun həll təmin edən etibarlı daş yunu lövhəsidir.",
+            "en": "Texnovent Optima 1200x600x80 mm is a reliable stone wool board providing optimal thermal protection and a budget-friendly solution in ventilated facades.",
+            "ru": "Техновент Оптима 1200х600х80 мм — это надежная плита из каменной ваты, обеспечивающая оптимальную защиту от тепла и бюджетное решение в вентилируемых фасадах."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 80,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×80 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "80 mm"
+            }
+          ],
+          "image": "/media/products/Texnoventekstra.webp"
+        },
+        {
+          "id": "texnovent_optima_1200_600_100mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnovent Optima (1200x600x100 mm)",
+            "en": "Texnovent Optima (1200x600x100 mm)",
+            "ru": "Техновент Оптима (1200х600х100 мм)"
+          },
+          "description": {
+            "az": "Texnovent Optima 1200x600x100 mm havalandırmalı fasad layihələrində istilik izolyasiyası tələblərini tam ödəyən, uzunömürlü və dayanıqlı daş yünü plitəsidir.",
+            "en": "Texnovent Optima 1200x600x100 mm is a long-lasting and durable stone wool plate fully meeting thermal insulation requirements in ventilated facade projects.",
+            "ru": "Техновент Оптима 1200х600х100 мм — это долговечная и прочная плита из каменной ваты, полностью удовлетворяющая требованиям к теплоизоляции в проектах вентилируемых фасадов."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 100,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×100 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "100 mm"
+            }
+          ],
+          "image": "/media/products/Texnoventekstra.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "Texnoventekstra",
+          "src": "/media/products/Texnoventekstra.webp",
+          "alt": {
+            "az": "Texnovent",
+            "en": "Texnovent",
+            "ru": "Техновент"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "texnoakustik",
+      "slug": "texnoakustik",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "akustik-divar",
+      "family": "Texnoakustik",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Texnoakustik",
+        "en": "Texnoakustik",
+        "ru": "Техноакустик"
+      },
+      "variants": [
+        {
+          "id": "texnoakustik_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnoakustik (1200x600x50 mm)",
+            "en": "Texnoakustik (1200x600x50 mm)",
+            "ru": "Техноакустик (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnoakustik 1200x600x50 mm plitələri daxili divarların, ara kəsmələrin və tavanların səs izolyasiyasını maksimum səviyyəyə qaldırmaq üçün xüsusi lif strukturunda hazırlanmışdır. Evlərdə və ofislərdə kənar səslərin qarşısını alaraq rahat akustik mühit yaradır.",
+            "en": "Texnoakustik 1200x600x50 mm boards are prepared in a special fiber structure to maximize the sound insulation of internal walls, partitions, and ceilings. It creates a comfortable acoustic environment by preventing external noises in homes and offices.",
+            "ru": "Плиты Техноакустик 1200х600х50 мм изготовлены со специальной волокнистой структурой для максимального повышения звукоизоляции внутренних стен, перегородок и потолков. Создает комфортную акустическую среду в домах и офисах, предотвращая проникновение посторонних шумов."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "daxili"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/Texnoakustik.webp"
+        },
+        {
+          "id": "texnoakustik_1200_600_100mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnoakustik (1200x600x100 mm)",
+            "en": "Texnoakustik (1200x600x100 mm)",
+            "ru": "Техноакустик (1200х600х100 мм)"
+          },
+          "description": {
+            "az": "Texnoakustik 1200x600x100 mm artırılmış qalınlığı sayəsində səs-küyün çox olduğu mühitlərdə səsin udulmasını və izolyasiyasını qüsursuz şəkildə təmin edir. Həmçinin əlavə istilik izolyasiya qatı kimi də yüksək performans göstərir.",
+            "en": "Texnoakustik 1200x600x100 mm flawlessly ensures sound absorption and insulation in noisy environments thanks to its increased thickness. It also exhibits high performance as an additional thermal insulation layer.",
+            "ru": "Техноакустик 1200х600х100 мм благодаря увеличенной толщине безупречно обеспечивает поглощение звука и изоляцию в условиях повышенного шума. Также демонстрирует высокую эффективность в качестве дополнительного слоя теплоизоляции."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 100,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×100 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "100 mm"
+            }
+          ],
+          "image": "/media/products/Texnoakustik.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "Texnoakustik",
+          "src": "/media/products/Texnoakustik.webp",
+          "alt": {
+            "az": "Texnoakustik",
+            "en": "Texnoakustik",
+            "ru": "Техноакустик"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "texnoblok",
+      "slug": "texnoblok",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "akustik-divar",
+      "family": "Texnoblok",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Texnoblok Standart",
+        "en": "Texnoblok Standart",
+        "ru": "Техноблок Стандарт"
+      },
+      "variants": [
+        {
+          "id": "texnoblok_standart_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnoblok Standart (1200x600x50 mm)",
+            "en": "Texnoblok Standart (1200x600x50 mm)",
+            "ru": "Техноблок Стандарт (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Texnoblok Standart 1200x600x50 mm karkas konstruksiyalarda, mansardlarda və üçtərəfli divar sistemlərində istilik və səs izolyasiyası məqsədilə istifadə olunan universal və etibarlı izolyasiya materialıdır.",
+            "en": "Texnoblok Standart 1200x600x50 mm is a universal and reliable insulation material used for thermal and sound insulation purposes in frame structures, mansards, and triple-sided wall systems.",
+            "ru": "Техноблок Стандарт 1200х600х50 мм — это универсальный и надежный изоляционный материал, используемый для тепло- и звукоизоляции в каркасных конструкциях, мансардах и трехслойных стеновых системах."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "dam",
+            "daxili"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/TexnoblokStandart.webp"
+        },
+        {
+          "id": "texnoblok_standart_1200_600_100mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnoblok Standart (1200x600x100 mm)",
+            "en": "Texnoblok Standart (1200x600x100 mm)",
+            "ru": "Техноблок Стандарт (1200х600х100 мм)"
+          },
+          "description": {
+            "az": "Texnoblok Standart 1200x600x100 mm plitələri yüksək istilik müqaviməti tələb olunan tikinti sahələrində, o cümlədən çardaq və daxili divar izolyasiyalarında maksimum qorunma təmin edir.",
+            "en": "Texnoblok Standart 1200x600x100 mm boards provide maximum protection in construction areas requiring high thermal resistance, including attic and interior wall insulation.",
+            "ru": "Плиты Техноблок Стандарт 1200х600х100 мм обеспечивают максимальную защиту на строительных участках, требующих высокого сопротивления теплопередаче, включая изоляцию мансард и внутренних стен."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 100,
+          "applicationAreas": [
+            "dam",
+            "daxili"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×100 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "100 mm"
+            }
+          ],
+          "image": "/media/products/TexnoblokStandart.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "TexnoblokStandart",
+          "src": "/media/products/TexnoblokStandart.webp",
+          "alt": {
+            "az": "Texnoblok Standart",
+            "en": "Texnoblok Standart",
+            "ru": "Техноблок Стандарт"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "roklait",
+      "slug": "roklait",
+      "status": "published",
+      "categoryId": "istilik-ses",
+      "subcategoryId": "universal",
+      "family": "Roklait",
+      "brand": null,
+      "featured": true,
+      "name": {
+        "az": "Roklait (Rosklite)",
+        "en": "Roklait (Rosklite)",
+        "ru": "Роклайт (Rosklite)"
+      },
+      "variants": [
+        {
+          "id": "roklait_rosklite_1200_600_50mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Roklait (Rosklite) (1200x600x50 mm)",
+            "en": "Roklait (Rosklite) (1200x600x50 mm)",
+            "ru": "Роклайт (Росклайт) (1200х600х50 мм)"
+          },
+          "description": {
+            "az": "Roklait (Rosklite) 1200x600x50 mm özəl evlər, çardaqlar, karkas divarlar və yüklənməyən yatay səthlər üçün ideal olan yüngül, ekoloji təmiz və səmərəli istilik-səs izolyasiya materialıdır.",
+            "en": "Roklait (Rosklite) 1200x600x50 mm is a lightweight, eco-friendly, and efficient thermal-sound insulation material ideal for private houses, attics, frame walls, and non-load-bearing horizontal surfaces.",
+            "ru": "Роклайт (Росклайт) 1200х600х50 мм — это легкий, экологически чистый и эффективный тепло- и звукоизоляционный материал, идеально подходящий для частных домов, мансард, каркасных стен и ненагружаемых горизонтальных поверхностей."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [
+            "dam",
+            "daxili"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            }
+          ],
+          "image": "/media/products/Roklait(Rosklite).webp"
+        },
+        {
+          "id": "roklait_rosklite_1200_600_100mm",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Roklait (Rosklite) (1200x600x100 mm)",
+            "en": "Roklait (Rosklite) (1200x600x100 mm)",
+            "ru": "Роклайт (Росклайт) (1200х600х100 мм)"
+          },
+          "description": {
+            "az": "Roklait (Rosklite) 1200x600x100 mm artırılmış qalınlığı sayəsində yaşayış evlərində və digər yüngül tikinti konstruksiyalarında soyuq hava axınlarına qarşı güclü istilik baryeri yaradır.",
+            "en": "Roklait (Rosklite) 1200x600x100 mm creates a strong thermal barrier against cold air currents in residential houses and other lightweight construction structures due to its increased thickness.",
+            "ru": "Роклайт (Росклайт) 1200х600х100 мм благодаря увеличенной толщине создает мощный тепловой барьер против холодных воздушных потоков в жилых домах и других легких строительных конструкциях."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 100,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×100 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "100 mm"
+            }
+          ],
+          "image": "/media/products/Roklait(Rosklite).webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "Roklait(Rosklite)",
+          "src": "/media/products/Roklait(Rosklite).webp",
+          "alt": {
+            "az": "Roklait (Rosklite)",
+            "en": "Roklait (Rosklite)",
+            "ru": "Роклайт (Rosklite)"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "carbon-eco",
+      "slug": "carbon-eco",
+      "status": "published",
+      "categoryId": "xps",
+      "subcategoryId": "carbon-eco",
+      "family": "Carbon ECO",
+      "brand": "ТЕХНОНИКОЛЬ",
+      "featured": true,
+      "name": {
+        "az": "Texnonikol Carbon ECO",
+        "en": "Technonicol Carbon ECO",
+        "ru": "ТехноНИКОЛЬ CARBON ECO"
+      },
+      "variants": [
+        {
+          "id": "texnonikol_carbon_eco_1200_600_20l",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnonikol Carbon ECO (1200x600x20 mm, L)",
+            "en": "Technonicol Carbon ECO (1200x600x20 mm, L)",
+            "ru": "ТехноНИКОЛЬ CARBON ECO (1200х600х20 мм, L)"
+          },
+          "description": {
+            "az": "Texnonikol Carbon ECO 1200x600x20 mm (L qıfıllı / Kod: 3921110000) yüksək möhkəmliyə və minimal su udma qabiliyyətinə malik ekstrudə edilmiş polistirol (XPS) lövhəsidir. Nazik profilin tələb olunduğu döşəmə, balkon və müxtəlif səth izolyasiyalarında istilik itkisinin qarşısını almaq üçün tətbiq edilir.",
+            "en": "Technonicol Carbon ECO 1200x600x20 mm (L-edge / Code: 3921110000) is an extruded polystyrene (XPS) board with high strength and minimal water absorption capacity. It is applied to prevent heat loss in flooring, balconies, and various surface insulations where a thin profile is required.",
+            "ru": "ТехноНИКОЛЬ CARBON ECO 1200х600х20 мм (L-кромей / Код: 3921110000) — это плита из экструдированного пенополистирола (XPS) с высокой прочностью и минимальным водопоглощением. Применяется для предотвращения теплопотерь в полах, на балконах и при изоляции различных поверхностей, где требуется тонкий профиль."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 20,
+          "applicationAreas": [
+            "doseme"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1200×600×20 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "20 mm"
+            },
+            {
+              "key": "edge",
+              "value": "L"
+            },
+            {
+              "key": "publishedCode",
+              "value": "3921110000"
+            }
+          ],
+          "image": "/media/products/TexnonikolCarbonECO.webp"
+        },
+        {
+          "id": "texnonikol_carbon_eco_1180_580_30l",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnonikol Carbon ECO (1180x580x30 mm, L)",
+            "en": "Technonicol Carbon ECO (1180x580x30 mm, L)",
+            "ru": "ТехноНИКОЛЬ CARBON ECO (1180х580х30 мм, L)"
+          },
+          "description": {
+            "az": "Texnonikol Carbon ECO 1180x580x30 mm kənar qıfıl (L) birləşməsi sayəsində quraşdırma zamanı tikişlərdən istilik körpülərinin yaranmasını tamamilə aradan qaldırır. Xüsusilə döşəmə, təməl və fasadaltı izolyasiyalarda yüksək effektivlik göstərir.",
+            "en": "Technonicol Carbon ECO 1180x580x30 mm completely eliminates the formation of thermal bridges from joints during installation thanks to its edge lock (L) connection. It demonstrates high effectiveness especially in floor, foundation, and sub-facade insulations.",
+            "ru": "ТехноНИКОЛЬ CARBON ECO 1180х580х30 мм благодаря соединению с краевым замком (L) полностью устраняет образование мостиков холода из стыков во время монтажа. Проявляет высокую эффективность особенно при изоляции полов, фундаментов и подфасадных систем."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 30,
+          "applicationAreas": [
+            "fasad",
+            "temel",
+            "doseme"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1180×580×30 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "30 mm"
+            },
+            {
+              "key": "edge",
+              "value": "L"
+            }
+          ],
+          "image": "/media/products/TexnonikolCarbonECO.webp"
+        },
+        {
+          "id": "texnonikol_carbon_eco_1180_580_40l",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnonikol Carbon ECO (1180x580x40 mm, L)",
+            "en": "Technonicol Carbon ECO (1180x580x40 mm, L)",
+            "ru": "ТехноНИКОЛЬ CARBON ECO (1180х580х40 мм, L)"
+          },
+          "description": {
+            "az": "Texnonikol Carbon ECO 1180x580x40 mm lövhələri artırılmış sıxılma möhkəmliyi və əla istilik izolyasiya parametrləri ilə seçilir. Kənar L-qıfıl profili montaj sürətini artırır və səthin bütövlüyünü qoruyaraq nəmə qarşı etibarlı baryer yaradır.",
+            "en": "Technonicol Carbon ECO 1180x580x40 mm boards feature increased compressive strength and excellent thermal insulation parameters. The side L-lock profile increases installation speed and creates a reliable barrier against moisture by preserving surface integrity.",
+            "ru": "Плиты ТехноНИКОЛЬ CARBON ECO 1180х580х40 мм отличаются повышенной прочностью на сжатие и отличными параметрами теплоизоляции. Боковой L-профиль ускоряет монтаж и создает надежный барьер против влаги, сохраняя целостность поверхности."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 40,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1180×580×40 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "40 mm"
+            },
+            {
+              "key": "edge",
+              "value": "L"
+            }
+          ],
+          "image": "/media/products/TexnonikolCarbonECO.webp"
+        },
+        {
+          "id": "texnonikol_carbon_eco_1180_580_50l",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnonikol Carbon ECO (1180x580x50 mm, L)",
+            "en": "Technonicol Carbon ECO (1180x580x50 mm, L)",
+            "ru": "ТехноНИКОЛЬ CARBON ECO (1180х580х50 мм, L)"
+          },
+          "description": {
+            "az": "Texnonikol Carbon ECO 1180x580x50 mm tikintidə geniş istifadə olunan optimal qalınlıqlı XPS materialıdır. Ağır mexaniki yüklərə və şaxtaya qarşı müstəsna dayanıqlığı ilə fərqlənir, binaların istilik effektivliyini uzun illər qoruyur.",
+            "en": "Technonicol Carbon ECO 1180x580x50 mm is an optimally thick XPS material widely used in construction. It stands out with exceptional resistance to heavy mechanical loads and frost, preserving buildings' thermal efficiency for many years.",
+            "ru": "ТехноНИКОЛЬ CARBON ECO 1180х580х50 мм — это материал XPS оптимальной толщины, широко используемый в строительстве. Выделяется исключительной устойчивостью к тяжелым механическим нагрузкам и морозам, на долгие годы сохраняя теплоэффективность зданий."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 50,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1180×580×50 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "50 mm"
+            },
+            {
+              "key": "edge",
+              "value": "L"
+            }
+          ],
+          "image": "/media/products/TexnonikolCarbonECO.webp"
+        },
+        {
+          "id": "texnonikol_carbon_eco_1180_580_80l",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnonikol Carbon ECO (1180x580x80 mm, L)",
+            "en": "Technonicol Carbon ECO (1180x580x80 mm, L)",
+            "ru": "ТехноНИКОЛЬ CARBON ECO (1180х580х80 мм, L)"
+          },
+          "description": {
+            "az": "Texnonikol Carbon ECO 1180x580x80 mm artırılmış qalınlığı sayəsində sərt iqlim şəraitində və güclü istilik izolyasiya tələb olunan yeraltı konstruksiyalarda, təməllərdə və düz damlarda maksimum enerji qənaəti təmin edir.",
+            "en": "Technonicol Carbon ECO 1180x580x80 mm provides maximum energy saving in harsh climatic conditions and underground structures, foundations, and flat roofs requiring strong thermal insulation due to its increased thickness.",
+            "ru": "ТехноНИКОЛЬ CARBON ECO 1180х580х80 мм благодаря увеличенной толщине обеспечивает максимальное энергосбережение в суровых климатических условиях, в подземных конструкциях, фундаментах и на плоских кровлях, требующих мощной теплоизоляции."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 80,
+          "applicationAreas": [
+            "dam",
+            "temel"
+          ],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1180×580×80 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "80 mm"
+            },
+            {
+              "key": "edge",
+              "value": "L"
+            }
+          ],
+          "image": "/media/products/TexnonikolCarbonECO.webp"
+        },
+        {
+          "id": "texnonikol_carbon_eco_1180_580_100l",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnonikol Carbon ECO (1180x580x100 mm, L)",
+            "en": "Technonicol Carbon ECO (1180x580x100 mm, L)",
+            "ru": "ТехноНИКОЛЬ CARBON ECO (1180х580х100 мм, L)"
+          },
+          "description": {
+            "az": "Texnonikol Carbon ECO 1180x580x100 mm (L qıfırlı) ən ağır istismar şərtləri və yüksək enerji səmərəliliyi standartları üçün nəzərdə tutulmuşdur. Sıxılmayan quruluşu və unikal istilikkeçirməməzliyi ilə mülki və sənaye tikintilərində əvəzsizdir.",
+            "en": "Technonicol Carbon ECO 1180x580x100 mm (with L-lock) is designed for the heaviest operating conditions and high energy efficiency standards. With its non-compressible structure and unique thermal impermeability, it is indispensable in civil and industrial construction.",
+            "ru": "ТехноНИКОЛЬ CARBON ECO 1180х580х100 мм (с L-замком) предназначен для тяжелейших условий эксплуатации и высоких стандартов энергоэффективности. Благодаря несжимаемой структуре и уникальной теплонепроницаемости он незаменим в гражданском и промышленном строительстве."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": 100,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "size",
+              "value": "1180×580×100 mm"
+            },
+            {
+              "key": "thickness",
+              "value": "100 mm"
+            },
+            {
+              "key": "edge",
+              "value": "L"
+            }
+          ],
+          "image": "/media/products/TexnonikolCarbonECO.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "TexnonikolCarbonECO",
+          "src": "/media/products/TexnonikolCarbonECO.webp",
+          "alt": {
+            "az": "Texnonikol Carbon ECO",
+            "en": "Technonicol Carbon ECO",
+            "ru": "ТехноНИКОЛЬ CARBON ECO"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "stekloizol",
+      "slug": "stekloizol",
+      "status": "published",
+      "categoryId": "bitum-rulon",
+      "subcategoryId": "stekloizol",
+      "family": "Stekloizol",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Stekloizol",
+        "en": "Stekloizol",
+        "ru": "Стеклоизол"
+      },
+      "variants": [
+        {
+          "id": "stekloizol_xpp_2-1mm_9m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Stekloizol XPP (2.1 mm, 9m)",
+            "en": "Stekloizol XPP (2.1 mm, 9m)",
+            "ru": "Стеклоизол ХПП (2.1 мм, 9м)"
+          },
+          "description": {
+            "az": "Stekloizol XPP 2.1 mm şüşəlif baza üzərində quraşdırılmış oksidləşdirilmiş bitum tərkibli, qənaətcil qiymət-keyfiyyət nisbətinə malik alt qat materialıdır. 9 metr uzunluğundakı bu yüngül rulon dam konstruksiyalarında və bünövrə altı izolyasiya işlərində əsas buxar baryeri kimi səmərəli istifadə olunur.",
+            "en": "Stekloizol XPP 2.1 mm is an oxidized bitumen-composed underlayer material with an economical price-quality ratio, installed on a fiberglass base. This light 9-meter roll is effectively used as a primary vapor barrier in roofing structures and sub-foundation insulation works.",
+            "ru": "Стеклоизол ХПП 2.1 мм представляет собой материал нижнего слоя на базе окисленного битума на стеклохолсте с экономичным соотношением цены и качества. Этот легкий рулон длиной 9 метров эффективно используется в качестве основного пароизоляционного барьера в кровельных конструкциях и подфундаментных изоляционных работах."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 2.1,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "thickness",
+              "value": "2.1 mm"
+            },
+            {
+              "key": "length",
+              "value": "9 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəlif",
+                "en": "Glass tissue",
+                "ru": "Стеклохолст"
+              }
+            }
+          ],
+          "image": "/media/products/Stekloizol_HPP.webp"
+        },
+        {
+          "id": "stekloizol_tpp_2-1mm_9m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Stekloizol TPP (2.1 mm, 9m)",
+            "en": "Stekloizol TPP (2.1 mm, 9m)",
+            "ru": "Стеклоизол ТПП (2.1 мм, 9м)"
+          },
+          "description": {
+            "az": "Stekloizol TPP 2.1 mm karkas şüşəparça əsası sayəsində standart izolyasiya materiallarına nisbətən cırılma və dartılma qüvvələrinə qarşı daha yüksək dayanıqlıq göstərir. 9 metrlik rulon formatı ilə mülki və sənaye tikintilərində çoxqatlı dam örtüklərinin təməl qoruyucu təbəqəsi olaraq mükəmməl uyğunlaşır.",
+            "en": "Stekloizol TPP 2.1 mm shows higher resistance to tearing and tensile forces compared to standard insulation materials, thanks to its fiberglass fabric framework base. With its 9-meter roll format, it perfectly adapts as a foundational protective layer for multilayer roof coverings in civil and industrial construction.",
+            "ru": "Стеклоизол ТПП 2.1 мм благодаря своей каркасной стеклотканевой основе обладает более высокой стойкостью к усилиям на разрыв и растяжение по сравнению со стандартными изоляционными материалами. С 9-метровым форматом рулона он идеально подходит в качестве базового защитного слоя многослойных кровельных покрытий в гражданском и промышленном строительстве."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 2.1,
+          "applicationAreas": [
+            "dam",
+            "temel"
+          ],
+          "specs": [
+            {
+              "key": "thickness",
+              "value": "2.1 mm"
+            },
+            {
+              "key": "length",
+              "value": "9 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/Stekloizol_TPP.webp"
+        },
+        {
+          "id": "stekloizol_xpp_2-5mm_9m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Stekloizol XPP (2.5 mm, 9m)",
+            "en": "Stekloizol XPP (2.5 mm, 9m)",
+            "ru": "Стеклоизол ХПП (2.5 мм, 9м)"
+          },
+          "description": {
+            "az": "Stekloizol XPP 2.5 mm modeli daha qalın bitum təbəqəsinə malik olaraq səthlərin nəmə və suya qarşı müqavimətini əhəmiyyətli dərəcədə gücləndirir. Şüşəlif əsası materiala sabitlik qazandırır, 9 metrlik ölçüsü isə tikinti meydançalarında rahat daşınma və tətbiq asanlığı təmin edir.",
+            "en": "Stekloizol XPP 2.5 mm model features a thicker bitumen layer, significantly strengthening the surface's resistance to moisture and water. Its fiberglass base gives stability to the material, while its 9-meter size ensures comfortable transport and ease of application at construction sites.",
+            "ru": "Модель Стеклоизол ХПП 2.5 мм имеет более толстый слой битума, что значительно усиливает устойчивость поверхности к влаге и воде. Основа из стеклохолста придает материалу стабильность, а 9-метровый размер обеспечивает удобную транспортировку и простоту применения на строительных площадках."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 2.5,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "thickness",
+              "value": "2.5 mm"
+            },
+            {
+              "key": "length",
+              "value": "9 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəlif",
+                "en": "Glass tissue",
+                "ru": "Стеклохолст"
+              }
+            }
+          ],
+          "image": "/media/products/Stekloizol_HPP.webp"
+        },
+        {
+          "id": "stekloizol_tpp_2-5mm_9m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Stekloizol TPP (2.5 mm, 9m)",
+            "en": "Stekloizol TPP (2.5 mm, 9m)",
+            "ru": "Стеклоизол ТПП (2.5 мм, 9м)"
+          },
+          "description": {
+            "az": "Stekloizol TPP 2.5 mm şüşəparça bazasının verdiyi mexaniki möhkəmliyi və artırılmış 2.5 mm qalınlığın yaratdığı etibarlı sızdırmazlığı özündə birləşdirir. Orta və ağır dərəcəli yükə məruz qalan dam səthlərində, həmçinin yeraltı tikililərin izolyasiyasında etibarlı alt qat kimi çıxış edir.",
+            "en": "Stekloizol TPP 2.5 mm combines the mechanical strength provided by its fiberglass fabric base and the reliable sealing created by its increased 2.5 mm thickness. It acts as a reliable underlayer on roof surfaces exposed to medium and heavy loads, as well as in the insulation of underground structures.",
+            "ru": "Стеклоизол ТПП 2.5 мм объединяет в себе механическую прочность, обеспечиваемую стеклотканевой основой, и надежную герметичность, создаваемую увеличенной толщиной 2.5 мм. Служит надежным нижним слоем на кровельных поверхностях, подвергающихся средним и тяжелым нагрузкам, а также при изоляции подземных сооружений."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 2.5,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "thickness",
+              "value": "2.5 mm"
+            },
+            {
+              "key": "length",
+              "value": "9 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/Stekloizol_TPP.webp"
+        },
+        {
+          "id": "stekloizol_r_tpp_3-0_15m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Stekloizol R TPP (3.0 mm, 15m)",
+            "en": "Stekloizol R TPP (3.0 mm, 15m)",
+            "ru": "Стеклоизол Р ТПП (3.0 мм, 15м)"
+          },
+          "description": {
+            "az": "Stekloizol R TPP 3.0 xüsusi olaraq 15 metr uzunluqda istehsal olunmuş, geniş sahəli layihələrdə birləşmə yerlərini minimuma endirən yüksək məhsuldar materialdır. 3 mm qalınlığı və möhkəm şüşəparça karkası sayəsində sənaye obyektlərində sürətli, qənaətcil və etibarlı izolyasiya prosesini təmin edir.",
+            "en": "Stekloizol R TPP 3.0 is a high-performance material manufactured specifically in a 15-meter length, minimizing joint locations in large-area projects. Thanks to its 3 mm thickness and strong fiberglass framework, it ensures a fast, cost-effective, and reliable insulation process in industrial facilities.",
+            "ru": "Стеклоизол Р ТПП 3.0 — это высокопроизводительный материал, специально изготовленный длиной 15 метров, сводящий к минимуму места стыков на крупногабаритных проектах. Благодаря толщине 3 мм и прочному стеклотканевому каркасу он обеспечивает быстрый, экономичный и надежный процесс изоляции на промышленных объектах."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 3,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "thickness",
+              "value": "3 mm"
+            },
+            {
+              "key": "length",
+              "value": "15 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/Stekloizol_TPP.webp"
+        },
+        {
+          "id": "stekloizol_r_xpp_3-0_15m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Stekloizol R XPP (3.0 mm, 15m)",
+            "en": "Stekloizol R XPP (3.0 mm, 15m)",
+            "ru": "Стеклоизол Р ХПП (3.0 мм, 15м)"
+          },
+          "description": {
+            "az": "Stekloizol R XPP 3.0 geniş həcmli tikinti və təmir işlərində vaxta və materiala qənaət etməyə imkan verən 15 metrlik uzun formata malikdir. Şüşəlif əsaslı strukturu və optimal 3 mm bitum qalınlığı ilə böyük damların buxar və nəm izolyasiyası üçün əlverişli və uzunömürlü həlldir.",
+            "en": "Stekloizol R XPP 3.0 features a long 15-meter format that allows saving time and material in large-scale construction and repair works. With its fiberglass-based structure and optimal 3 mm bitumen thickness, it is an advantageous and long-lasting solution for vapor and moisture insulation of large roofs.",
+            "ru": "Стеклоизол Р ХПП 3.0 имеет длинный 15-метровый формат, позволяющий экономить время и материал при масштабных строительных и ремонтных работах. Благодаря стеклохолстовой структуре и оптимальной толщине битума 3 мм это выгодное и долговечное решение для паро- и влагоизоляции больших кровель."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": 3,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "thickness",
+              "value": "3 mm"
+            },
+            {
+              "key": "length",
+              "value": "15 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəlif",
+                "en": "Glass tissue",
+                "ru": "Стеклохолст"
+              }
+            }
+          ],
+          "image": "/media/products/Stekloizol_HPP.webp"
+        },
+        {
+          "id": "stekloizol_tkp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Stekloizol TKP (10m)",
+            "en": "Stekloizol TKP (10m)",
+            "ru": "Стеклоизол ТКП (10м)"
+          },
+          "description": {
+            "az": "Stekloizol TKP səthi iridənəli qranul (qum) qatı ilə örtülmüş, şüşəparça karkas əsaslı etibarlı üst qat izolyasiya materialıdır. Günəş şüalarının mənfi təsirlərinə və atmosfer çöküntülərinə qarşı yüksək müqavimət göstərərək dam örtüyünün ömrünü uzadır və qənaətcil büdcə ilə maksimum qorunma təmin edir.",
+            "en": "Stekloizol TKP is a reliable top-layer insulation material with a fiberglass framework base, whose surface is covered with a layer of coarse-grained granules (sand). By showing high resistance to negative effects of solar rays and atmospheric precipitation, it extends the lifespan of the roofing and provides maximum protection with an economical budget.",
+            "ru": "Стеклоизол ТКП — это надежный изоляционный материал верхнего слоя на основе стеклотканевого каркаса, поверхность которого покрыта слоем крупнозернистого гранулята (песка). Проявляя высокую стойкость к негативным воздействиям солнечных лучей и атмосферных осадков, он продлевает срок службы кровли и обеспечивает максимальную защиту при экономном бюджете."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/stekloizol_tkp.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "Stekloizol_HPP",
+          "src": "/media/products/Stekloizol_HPP.webp",
+          "alt": {
+            "az": "Stekloizol",
+            "en": "Stekloizol",
+            "ru": "Стеклоизол"
+          }
+        },
+        {
+          "id": "Stekloizol_TPP",
+          "src": "/media/products/Stekloizol_TPP.webp",
+          "alt": {
+            "az": "Stekloizol",
+            "en": "Stekloizol",
+            "ru": "Стеклоизол"
+          }
+        },
+        {
+          "id": "stekloizol_tkp",
+          "src": "/media/products/stekloizol_tkp.webp",
+          "alt": {
+            "az": "Stekloizol",
+            "en": "Stekloizol",
+            "ru": "Стеклоизол"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "bikrost",
+      "slug": "bikrost",
+      "status": "published",
+      "categoryId": "bitum-rulon",
+      "subcategoryId": "bikrost",
+      "family": "Bikrost",
+      "brand": null,
+      "featured": true,
+      "name": {
+        "az": "Bikrost",
+        "en": "Bikrost",
+        "ru": "Бикрост"
+      },
+      "variants": [
+        {
+          "id": "bikrost_xpp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Bikrost XPP (10m)",
+            "en": "Bikrost XPP (10m)",
+            "ru": "Бикрост ХПП (10м)"
+          },
+          "description": {
+            "az": "Bikrost XPP şüşəlif əsas üzərində iki tərəfli bitum örtүктən ibarət olub, əsasən dam örtüklərinin alt qatı və buxar izolyasiyası məqsədilə nəzərdə tutulmuşdur. 10 metr uzunluğundakı bu rulon materialı qaz alovu ilə qızdırılaraq səthə asanlıqla quraşdırılır və mexaniki təsirlərə qarşı davamlılığı təmin edir.",
+            "en": "Bikrost XPP consists of a double-sided bitumen coating on a fiberglass base, primarily intended as an underlayer for roofing and as a vapor barrier. This 10-meter roll material is easily installed on the surface by heating with a gas torch and ensures resistance to mechanical impacts.",
+            "ru": "Бикрост ХПП состоит из двухстороннего битумного покрытия на основе стеклохолста и предназначен в основном в качестве нижнего слоя кровельных ковров и пароизоляции. Данный рулонный материал длиной 10 метров легко монтируется на поверхность путем нагрева газовой горелкой и обеспечивает устойчивость к механическим воздействиям."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəlif",
+                "en": "Glass tissue",
+                "ru": "Стеклохолст"
+              }
+            }
+          ],
+          "image": "/media/products/BikrostXPP10m.webp"
+        },
+        {
+          "id": "bikrost_xpp_15m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Bikrost XPP (15m)",
+            "en": "Bikrost XPP (15m)",
+            "ru": "Бикрост ХПП (15м)"
+          },
+          "description": {
+            "az": "15 metrlik uzunluğa malik Bikrost XPP böyük sahəli tikililərdə sərfəli və fasiləsiz quraşdırma üstünlüyü yaradır. Şüşəlif baza materiala optimal yüngüllük və əla buxar izolyasiya xüsusiyyətləri qazandıraraq, sənaye və mülki tikintilərdə geniş tətbiq olunmasına imkan verir.",
+            "en": "Bikrost XPP with a length of 15 meters provides the advantage of cost-effective and continuous installation in large-scale buildings. The fiberglass base gives the material optimal lightness and excellent vapor barrier properties, allowing it to be widely used in industrial and civil construction.",
+            "ru": "Бикрост ХПП длиной 15 метров обеспечивает преимущество экономичного и беспрерывного монтажа на зданиях с большой площадью. Стеклохолстовая основа придает материалу оптимальную легкость и отличные пароизоляционные свойства, позволяя широко применять его в промышленном и гражданском строительстве."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "length",
+              "value": "15 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəlif",
+                "en": "Glass tissue",
+                "ru": "Стеклохолст"
+              }
+            }
+          ],
+          "image": "/media/products/BikrostXPP10m.webp"
+        },
+        {
+          "id": "bikrost_xpp_tpp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Bikrost TPP (10m)",
+            "en": "Bikrost TPP (10m)",
+            "ru": "Бикрост ТПП (10м)"
+          },
+          "description": {
+            "az": "Bikrost TPP karkas şüşəparça əsasında hazırlanaraq dartılma və cırılma qüvvələrinə qarşı yüksək dözümlülük göstərir. Kod 6807100000 ilə təsnif edilən bu 10 metrlik rulon, dam örtüyü sistemlərində və bünövrə izolyasiyasında etibarlı alt qat qoruyucusu kimi istifadə olunur.",
+            "en": "Bikrost TPP is prepared on a reinforced fiberglass fabric base, showing high resistance to tensile and tearing forces. Classified under code 6807100000, this 10-meter roll is used as a reliable underlayer protector in roofing systems and foundation insulation.",
+            "ru": "Бикрост ТПП изготавливается на каркасной основе из стеклоткани, обладая высокой устойчивостью к усилиям на разрыв и растяжение. Классифицируемый под кодом 6807100000, этот 10-метровый рулон используется в качестве надежного защитного нижнего слоя в кровельных системах и при изоляции фундамента."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            },
+            {
+              "key": "publishedCode",
+              "value": "6807100000"
+            }
+          ],
+          "image": "/media/products/BikrostXPP10m.webp"
+        },
+        {
+          "id": "bikrost_tkp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Bikrost TKP (10m)",
+            "en": "Bikrost TKP (10m)",
+            "ru": "Бикрост ТКП (10м)"
+          },
+          "description": {
+            "az": "Bikrost TKP materialının üst səthi iridənəli qranul (qum) qatı ilə örtüldüyü üçün günəşin ultrabənövşəyi şüalarına və birbaşa atmosfer təsirlərinə qarşı mükəmməl müqavimət göstərir. Şüşəparça əsası sayəsində uzunömürlüdür və çətin hava şəraitində belə damın üzlük qatını etibarlı qoruyur.",
+            "en": "Since the upper surface of the Bikrost TKP material is covered with a layer of coarse-grained granules (sand), it offers excellent resistance to ultraviolet solar rays and direct atmospheric influences. Thanks to its fiberglass fabric base, it is long-lasting and reliably protects the top coating of the roof even in harsh weather conditions.",
+            "ru": "Поскольку верхняя поверхность материала Бикрост ТКП покрыта слоем крупнозернистого гранулята (песка), он обладает великолепной устойчивостью к ультрафиолетовым лучам солнца и прямым атмосферным воздействиям. Благодаря стеклотканевой основе он долговечен и надежно защищает верхнее покрытие кровли даже в сложных погодных условиях."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/BikrostXPP10m.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "BikrostXPP10m",
+          "src": "/media/products/BikrostXPP10m.webp",
+          "alt": {
+            "az": "Bikrost",
+            "en": "Bikrost",
+            "ru": "Бикрост"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "linokrom",
+      "slug": "linokrom",
+      "status": "published",
+      "categoryId": "bitum-rulon",
+      "subcategoryId": "linokrom",
+      "family": "Linokrom",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Linokrom",
+        "en": "Linokrom",
+        "ru": "Линокром"
+      },
+      "variants": [
+        {
+          "id": "linokrom_tpp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Linokrom TPP (10m)",
+            "en": "Linokrom TPP (10m)",
+            "ru": "Линокром ТПП (10м)"
+          },
+          "description": {
+            "az": "Linokrom TPP yüksək keyfiyyətli bitum-polimer tərkibi və möhkəm şüşəparça bazası ilə seçilən premium sinif izolyasiya materialıdır. 10 metrlik bu rulon tikinti konstruksiyalarını nəm və sudan qorumaq üçün sərt iqlim şəraitində maksimum performans və uzun xidmət müddəti təmin edir.",
+            "en": "Linokrom TPP is a premium-class insulation material distinguished by its high-quality bitumen-polymer composition and strong fiberglass fabric base. This 10-meter roll ensures maximum performance and a long service life under harsh climatic conditions to protect building structures from moisture and water.",
+            "ru": "Линокром ТПП — это изоляционный материал премиум-класса, отличающийся высококачественным битумно-полимерным составом и прочной стеклотканевой базой. Этот 10-метровый рулон обеспечивает максимальную производительность и долгий срок службы в суровых климатических условиях для защиты строительных конструкций от влаги и воды."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/linokrom.webp"
+        },
+        {
+          "id": "linokrom_epp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Linokrom EPP (10m)",
+            "en": "Linokrom EPP (10m)",
+            "ru": "Линокром ЭПП (10м)"
+          },
+          "description": {
+            "az": "Linokrom EPP əsasını təşkil edən elastik poliester lifi sayəsində müxtəlif səviyyəli deformasiyalara və bina hərəkətlərinə qarşı yüksək elastiklik nümayiş etdirir. Hər iki tərəfi qoruyucu plyonka ilə örtülmüş bu 10 metrlik material mürəkkəb formalı səthlərdə belə mükəmməl yapışma və sızdırmazlıq yaradır.",
+            "en": "Linokrom EPP demonstrates high flexibility against various levels of deformations and building movements thanks to the elastic polyester fiber forming its base. Covered with protective film on both sides, this 10-meter material creates perfect adhesion and sealing even on complex-shaped surfaces.",
+            "ru": "Линокром ЭПП демонстрирует высокую гибкость при различных уровнях деформаций и подвижках здания благодаря эластичному полиэфирному волокну в своей основе. Покрытый с обеих сторон защитной пленкой, этот 10-метровый материал создает идеальную адгезию и герметичность даже на поверхностях сложной формы."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Poliester",
+                "en": "Polyester",
+                "ru": "Полиэстер"
+              }
+            }
+          ],
+          "image": "/media/products/linokrom.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "linokrom",
+          "src": "/media/products/linokrom.webp",
+          "alt": {
+            "az": "Linokrom",
+            "en": "Linokrom",
+            "ru": "Линокром"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "unifleks",
+      "slug": "unifleks",
+      "status": "published",
+      "categoryId": "bitum-rulon",
+      "subcategoryId": "unifleks",
+      "family": "Unifleks",
+      "brand": null,
+      "featured": true,
+      "name": {
+        "az": "Unifleks",
+        "en": "Unifleks",
+        "ru": "Унифлекс"
+      },
+      "variants": [
+        {
+          "id": "unifleks_tpp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Unifleks TPP (10m)",
+            "en": "Unifleks TPP (10m)",
+            "ru": "Унифлекс ТПП (10м)"
+          },
+          "description": {
+            "az": "Unifleks TPP yüksək keyfiyyətli SBS (stirol-butadien-stirol) elastomer modifikatorlu bitum tərkibi və möhkəm şüşəparça əsası sayəsində sərt iqlim şəraitində belə elastikliyini qoruyur. 10 metrlik bu rulon materialı mürəkkəb temperaturlarda belə asan quraşdırılır və dam örtüyü sistemlərində, həmçinin bünövrələrdə etibarlı alt qat qorunması təmin edir.",
+            "en": "Unifleks TPP maintains its flexibility even in harsh climatic conditions thanks to its high-quality SBS (styrene-butadiene-styrene) elastomer-modified bitumen composition and strong fiberglass base. This 10-meter roll material is easily installed even at challenging temperatures and provides reliable underlayer protection in roofing systems and foundations.",
+            "ru": "Унифлекс ТПП сохраняет свою эластичность даже в суровых климатических условиях благодаря высококачественному битумному составу, модифицированному эластомером СБС (стирол-бутадиен-стирол), и прочной стеклотканевой основе. Этот 10-метровый рулонный материал легко монтируется даже при сложных температурах и обеспечивает надежную защиту нижнего слоя в кровельных системах и на фундаментах."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/unifleks.webp"
+        },
+        {
+          "id": "unifleks_epp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Unifleks EPP (10m)",
+            "en": "Unifleks EPP (10m)",
+            "ru": "Унифлекс ЭПП (10м)"
+          },
+          "description": {
+            "az": "Unifleks EPP materialının əsasını təşkil edən möhkəm poliester toru binanın konstruksiyasında baş verə biləcək hərəkətlərə və gərilmələrə qarşı yüksək dartılma müqaviməti və elastiklik bəxş edir. Hər iki üzü polimer plyonka ilə örtülmüş bu 10 metrlik rulon istənilən mürəkkəb səthə mükəmməl uyğunlaşaraq uzunömürlü sızdırmazlıq yaradır.",
+            "en": "The strong polyester mesh forming the base of the Unifleks EPP material grants high tensile resistance and flexibility against movements and stresses that may occur in building structures. Covered with polymer film on both sides, this 10-meter roll perfectly adapts to any complex surface, creating long-lasting waterproofing.",
+            "ru": "Прочная полиэфирная сетка, составляющая основу материала Унифлекс ЭПП, придает высокую прочность на разрыв и гибкость против нагрузок и напряжений, которые могут возникнуть в строительной конструкции. Покрытый с обеих сторон полимерной пленкой, этот 10-метровый рулон идеально адаптируется к любой сложной поверхности, создавая долговечную герметичность."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Poliester",
+                "en": "Polyester",
+                "ru": "Полиэстер"
+              }
+            }
+          ],
+          "image": "/media/products/unifleks.webp"
+        },
+        {
+          "id": "unifleks_tkp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Unifleks TKP (10m)",
+            "en": "Unifleks TKP (10m)",
+            "ru": "Унифлекс ТКП (10м)"
+          },
+          "description": {
+            "az": "Unifleks TKP günəşin ultrabənövşəyi şüalarına və atmosfer təsirlərinə qarşı xüsusi iridənəli qranul (qum) səthə malikdir. Şüşəparça karkas üzərində quraşdırılan bu 10 metrlik üst qat materialı binanın damını mexaniki zədələrdən və rütubətdən qoruyaraq uzun illər problemsiz istismar təmin edir.",
+            "en": "Unifleks TKP features a special coarse-grained granule (sand) surface resistant to ultraviolet solar rays and atmospheric effects. Installed on a fiberglass fabric framework, this 10-meter top-layer material protects the building roof from mechanical damage and moisture, ensuring trouble-free operation for many years.",
+            "ru": "Унифлекс ТКП имеет специальную поверхность из крупнозернистого гранулята (песка), устойчивую к ультрафиолетовым лучам солнца и атмосферным воздействиям. Установленный на стеклотканевом каркасе, этот 10-метровый материал верхнего слоя защищает крышу здания от механических повреждений и влаги, обеспечивая бесперебойную эксплуатацию на долгие годы."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/unifleks.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "unifleks",
+          "src": "/media/products/unifleks.webp",
+          "alt": {
+            "az": "Unifleks",
+            "en": "Unifleks",
+            "ru": "Унифлекс"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "texnoelast",
+      "slug": "texnoelast",
+      "status": "published",
+      "categoryId": "bitum-rulon",
+      "subcategoryId": "texnoelast",
+      "family": "Texnoelast",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Texnoelast",
+        "en": "Texnoelast",
+        "ru": "Техноэласт"
+      },
+      "variants": [
+        {
+          "id": "texnoelast_ekp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnoelast EKP (10m)",
+            "en": "Texnoelast EKP (10m)",
+            "ru": "Техноэласт ЭКП (10м)"
+          },
+          "description": {
+            "az": "Texnoelast EKP ən ağır istismar şərtləri və şaxtalı iqlimlər üçün nəzərdə tutulmuş premium sinif bitum-polimer materialıdır. Yüksək elastikliyə malik poliester əsası və qoruyucu səth qranulları sayəsində ən hündür və mürəkkəb sənaye binalarının damlarında belə maksimum dözümlülük və ömür uzunluğu nümayiş etdirir.",
+            "en": "Texnoelast EKP is a premium-class bitumen-polymer material designed for the most severe operating conditions and freezing climates. Thanks to its highly flexible polyester base and protective surface granules, it exhibits maximum durability and lifespan even on the highest and most complex industrial building roofs.",
+            "ru": "Техноэласт ЭКП — это битумно-полимерный материал премиум-класса, предназначенный для самых тяжелых условий эксплуатации и морозного климата. Благодаря высокоэластичной полиэстерной основе и защитным поверхностным гранулам он демонстрирует максимальную прочность и долговечность даже на кровлях самых высоких и сложных промышленных зданий."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Poliester",
+                "en": "Polyester",
+                "ru": "Полиэстер"
+              }
+            }
+          ],
+          "image": "/media/products/technoelast_thermo.webp"
+        },
+        {
+          "id": "texnoelast_tkp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnoelast TKP (10m)",
+            "en": "Texnoelast TKP (10m)",
+            "ru": "Техноэласт ТКП (10м)"
+          },
+          "description": {
+            "az": "Texnoelast TKP materialı möhkəm şüşəparça karkası və xüsusi modifikasiya olunmuş bitum tərkibi sayəsində cırılma qüvvələrinə və mexaniki yüklərə qarşı müstəsna dözümlülüyə malikdir. 10 metrlik rulon formatı və qoruyucu səth qatı ilə ən tələbkar tikinti layihələrinin izolyasiya ehtiyaclarını tam qarşılayır.",
+            "en": "Texnoelast TKP material possesses exceptional resistance to tearing forces and mechanical loads thanks to its strong fiberglass fabric framework and specially modified bitumen composition. With its 10-meter roll format and protective surface layer, it fully meets the insulation needs of the most demanding construction projects.",
+            "ru": "Материал Техноэласт ТКП обладает исключительной устойчивостью к силам разрыва и механическим нагрузкам благодаря прочному стеклотканевому каркасу и специально модифицированному битумному составу. Благодаря 10-метровому формату рулона и защитному поверхностному слою он полностью удовлетворяет потребности в изоляции самых требовательных строительных проектов."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəparça",
+                "en": "Fiberglass fabric",
+                "ru": "Стеклоткань"
+              }
+            }
+          ],
+          "image": "/media/products/technoelast_thermo.webp"
+        },
+        {
+          "id": "texnoelast_epp_10m",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Texnoelast EPP (10m)",
+            "en": "Texnoelast EPP (10m)",
+            "ru": "Техноэласт ЭПП (10м)"
+          },
+          "description": {
+            "az": "Texnoelast EPP yüksək dartılma qabiliyyətinə malik poliester əsası ilə fərqlənir və binanın konstruktiv elementlərindəki dinamik yükləri mükəmməl şəkildə udur. Çoxqatlı izolyasiya sistemlərində etibarlı alt və ya aralıq qat kimi çıxış edərək suya və nəmə qarşı keçilməz baryer yaradır.",
+            "en": "Texnoelast EPP stands out with its high tensile capacity polyester base and perfectly absorbs dynamic loads in building structural elements. Acting as a reliable under or intermediate layer in multilayer insulation systems, it creates an impermeable barrier against water and moisture.",
+            "ru": "Техноэласт ЭПП выделяется своей полиэстерной основой с высокой способностью к растяжению и отлично поглощает динамические нагрузки в конструктивных элементах здания. Выступая в качестве надежного нижнего или промежуточного слоя в многослойных изоляционных системах, он создает непроницаемый барьер против воды и сырости."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "rulon",
+          "thicknessMm": null,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "length",
+              "value": "10 m"
+            },
+            {
+              "key": "basis",
+              "value": {
+                "az": "Poliester",
+                "en": "Polyester",
+                "ru": "Полиэстер"
+              }
+            }
+          ],
+          "image": "/media/products/technoelast_thermo.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "technoelast_thermo",
+          "src": "/media/products/technoelast_thermo.webp",
+          "alt": {
+            "az": "Texnoelast",
+            "en": "Texnoelast",
+            "ru": "Техноэласт"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "aquamast-praymer",
+      "slug": "aquamast-praymer",
+      "status": "published",
+      "categoryId": "maye-aksesuar",
+      "subcategoryId": "maye-bitum",
+      "family": "AquaMast",
+      "brand": null,
+      "featured": true,
+      "name": {
+        "az": "Praymer Bitumlu AquaMast",
+        "en": "Bituminous Primer AquaMast",
+        "ru": "Праймер битумный AquaMast"
+      },
+      "variants": [
+        {
+          "id": "praymer_bitumniy_aquamast_18l",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Praymer Bitumlu AquaMast (18 Litr)",
+            "en": "Bituminous Primer AquaMast (18 Liters)",
+            "ru": "Праймер битумный AquaMast (18 литров)"
+          },
+          "description": {
+            "az": "AquaMast bitumlu praymeri (18 l / Kod: 2715000000) yüksək keyfiyyətli neft bitumlarının Üzvi həlledicilərdə məhlulundan ibarətdir. Beton səthlərin, sement-qum haşiyələrinin və dam örtüklərinin izolyasiya materialları ilə yapışma (adgeziya) qabiliyyətini maksimum səviyyəyə qaldırmaq üçün səthə tətbiq edilir, tez quruyur və tozlanmanın qarşısını alır.",
+            "en": "AquaMast bituminous primer (18 l / Code: 2715000000) consists of a solution of high-quality petroleum bitumens in organic solvents. It is applied to the surface to maximize the adhesion capacity of concrete surfaces, cement-sand screeds, and roofing materials with insulation materials, dries quickly, and prevents dust formation.",
+            "ru": "Битумный праймер AquaMast (18 л / Код: 2715000000) состоит из раствора высококачественных нефтяных битумов в органических растворителях. Наносится на поверхность для максимального повышения адгезии (сцепления) бетонных поверхностей, цементно-песчаных стяжек и кровельных материалов с изоляционными материалами, быстро сохнет и предотвращает пыление."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "litr",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "publishedCode",
+              "value": "2715000000"
+            },
+            {
+              "key": "package",
+              "value": "18 litr"
+            }
+          ],
+          "image": "/media/products/PraymerBitumniyAquaMast.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "PraymerBitumniyAquaMast",
+          "src": "/media/products/PraymerBitumniyAquaMast.webp",
+          "alt": {
+            "az": "Praymer Bitumlu AquaMast",
+            "en": "Bituminous Primer AquaMast",
+            "ru": "Праймер битумный AquaMast"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "aquamast-mastika",
+      "slug": "aquamast-mastika",
+      "status": "published",
+      "categoryId": "maye-aksesuar",
+      "subcategoryId": "maye-bitum",
+      "family": "AquaMast",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Mastika Bitumlu AquaMast",
+        "en": "Bituminous Mastic AquaMast",
+        "ru": "Мастика битумная AquaMast"
+      },
+      "variants": [
+        {
+          "id": "mastika_bitumniya_aquamast_3kg",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Mastika Bitumlu AquaMast (3 kq)",
+            "en": "Bituminous Mastic AquaMast (3 kg)",
+            "ru": "Мастика битумная AquaMast (3 кг)"
+          },
+          "description": {
+            "az": "AquaMast bitumlu mastika (3 kq / Kod: 2715000000) dam örtüklərinin təmiri, kiçik yarıqların doldurulması və müxtəlif tikinti elementlərinin su izolyasiyası üçün nəzərdə tutulmuşdur. Əla yapışma gücünə malikdir, elastikliyini qoruyur və nəmə qarşı etibarlı maneə yaradır.",
+            "en": "AquaMast bituminous mastic (3 kg / Code: 2715000000) is intended for roof repair, filling small cracks, and waterproofing various building elements. It has excellent adhesion strength, maintains its flexibility, and creates a reliable barrier against moisture.",
+            "ru": "Битумная мастика AquaMast (3 кг / Код: 2715000000) предназначена для ремонта кровель, заполнения небольших трещин и гидроизоляции различных строительных элементов. Обладает отличной прочностью сцепления, сохраняет эластичность и создает надежный барьер против влаги."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "kq",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "publishedCode",
+              "value": "2715000000"
+            },
+            {
+              "key": "package",
+              "value": "3 kq"
+            }
+          ],
+          "image": "/media/products/MastikaBitumnyaAquaMast.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "MastikaBitumnyaAquaMast",
+          "src": "/media/products/MastikaBitumnyaAquaMast.webp",
+          "alt": {
+            "az": "Mastika Bitumlu AquaMast",
+            "en": "Bituminous Mastic AquaMast",
+            "ru": "Мастика битумная AquaMast"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "praymer-ekonom",
+      "slug": "praymer-ekonom",
+      "status": "published",
+      "categoryId": "maye-aksesuar",
+      "subcategoryId": "maye-bitum",
+      "family": "Praymer Ekonom",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Praymer Ekonom",
+        "en": "Primer Econom",
+        "ru": "Праймер Эконом"
+      },
+      "variants": [
+        {
+          "id": "praymer_ekonom_21-5l",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Praymer Ekonom (21.5 Litr)",
+            "en": "Primer Econom (21.5 Liters)",
+            "ru": "Праймер Эконом (21.5 литр)"
+          },
+          "description": {
+            "az": "Ekonom sinif bitumlu praymer (21.5 l) böyük sahəli səthlərin hidroizolyasiyaqabağı hazırlanması prosesində xərclərin optimallaşdırılması üçün ideal həlldir. Beton və digər məsaməli səthlərə dərindən nüfuz edərək növbəti izolyasiya qatlarının alt baza ilə möhkəm şəkildə birləşməsini təmin edir.",
+            "en": "Econom class bituminous primer (21.5 l) is an ideal solution for optimizing costs during the pre-waterproofing preparation process of large-area surfaces. By deeply penetrating concrete and other porous surfaces, it ensures that subsequent insulation layers bind firmly with the bottom base.",
+            "ru": "Битумный праймер эконом-класса (21.5 л) — идеальное решение для оптимизации затрат в процессе подготовки поверхностей большой площади перед гидроизоляцией. Глубоко проникая в бетон и другие пористые поверхности, он обеспечивает прочное соединение последующих изоляционных слоев с базовым основанием."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "litr",
+          "thicknessMm": null,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "package",
+              "value": "21.5 litr"
+            }
+          ],
+          "image": "/media/products/Praymerekonom.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "Praymerekonom",
+          "src": "/media/products/Praymerekonom.webp",
+          "alt": {
+            "az": "Praymer Ekonom",
+            "en": "Primer Econom",
+            "ru": "Праймер Эконом"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "samarskiy-praymer",
+      "slug": "samarskiy-praymer",
+      "status": "published",
+      "categoryId": "maye-aksesuar",
+      "subcategoryId": "maye-bitum",
+      "family": "Samarskiy",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Samarskiy Bitumlu Praymer",
+        "en": "Samara Bituminous Primer",
+        "ru": "Праймер битумный Самарский"
+      },
+      "variants": [
+        {
+          "id": "samarskiy_praymer_bitumniy_15kg",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Samarskiy Bitumlu Praymer (15 kq)",
+            "en": "Samara Bituminous Primer (15 kg)",
+            "ru": "Праймер битумный Самарский (15 кг)"
+          },
+          "description": {
+            "az": "Samarskiy bitumlu praymeri (15 kq / Kod: 2715000000) sənaye və mülki tikintilərdə sübut olunmuş keyfiyyəti ilə seçilən etibarlı astar materialıdır. Səthin hazırlanmasında istifadə edilərək yapışma keyfiyyətini artırır, dam və bünövrə izolyasiya sistemlərinin ümumi dayanıqlığına güclü təkan verir.",
+            "en": "Samarskiy bituminous primer (15 kg / Code: 2715000000) is a reliable primer material distinguished by its proven quality in industrial and civil construction. Used in surface preparation, it increases adhesion quality and gives a strong boost to the overall durability of roof and foundation insulation systems.",
+            "ru": "Самарский битумный праймер (15 кг / Код: 2715000000) — это надежный грунтовочный материал, отличающийся проверенным качеством в промышленном и гражданском строительстве. Используется при подготовке поверхности, повышает качество сцепления и придает мощный импульс общей долговечности кровельных и фундаментных изоляционных систем."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "kq",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "publishedCode",
+              "value": "2715000000"
+            },
+            {
+              "key": "package",
+              "value": "15 kq"
+            }
+          ],
+          "image": null
+        }
+      ],
+      "images": [],
+      "pdfs": []
+    },
+    {
+      "id": "mbk-q",
+      "slug": "mbk-q",
+      "status": "published",
+      "categoryId": "maye-aksesuar",
+      "subcategoryId": "maye-bitum",
+      "family": "MBK-Q",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Mastika MBK-Q kraf-meşok",
+        "en": "Mastic MBK-G Kraft Bag",
+        "ru": "Мастика МБК-Г в крафт-мешке"
+      },
+      "variants": [
+        {
+          "id": "mastika_mbk_q_30kg",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Mastika MBK-Q kraf-meşok (30 kq)",
+            "en": "Mastic MBK-G Kraft Bag (30 kg)",
+            "ru": "Мастика МБК-Г в крафт-мешке (30 кг)"
+          },
+          "description": {
+            "az": "MBK-Q tipli bitum mastikası (30 kq kraf-meşok / Kod: 2715000000) əsasən qızdırılaraq tətbiq olunan, ağır rejimli hidroizolyasiya və dam işləri üçün istifadə edilən ənənəvi və güclü materialdır. Sərt hava şəraitinə və mexaniki təsirlərə qarşı dözümlü monolit qoruyucu təbəqə formalaşdırır.",
+            "en": "MBK-G type bitumen mastic (30 kg kraft bag / Code: 2715000000) is a traditional and strong material applied primarily by heating, used for heavy-duty waterproofing and roofing work. It forms a monolithic protective layer resistant to harsh weather conditions and mechanical impacts.",
+            "ru": "Битумная мастика типа МБК-Г (30 кг крафт-мешок / Код: 2715000000) — традиционный и прочный материал, применяемый преимущественно путем нагрева, используемый для тяжелых гидроизоляционных и кровельных работ. Образует монолитный защитный слой, устойчивый к суровым погодным условиям и механическим воздействиям."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "kq",
+          "thicknessMm": null,
+          "applicationAreas": [
+            "dam"
+          ],
+          "specs": [
+            {
+              "key": "publishedCode",
+              "value": "2715000000"
+            },
+            {
+              "key": "package",
+              "value": "30 kq"
+            }
+          ],
+          "image": "/media/products/MastikaMBK.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "MastikaMBK",
+          "src": "/media/products/MastikaMBK.webp",
+          "alt": {
+            "az": "Mastika MBK-Q kraf-meşok",
+            "en": "Mastic MBK-G Kraft Bag",
+            "ru": "Мастика МБК-Г в крафт-мешке"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "isomax",
+      "slug": "isomax",
+      "status": "published",
+      "categoryId": "maye-aksesuar",
+      "subcategoryId": "aksesuar",
+      "family": "İSOMAX",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Yanmaz Membran İSOMAX",
+        "en": "Fireproof Membrane ISOMAX",
+        "ru": "Огнестойкая мембрана ISOMAX"
+      },
+      "variants": [
+        {
+          "id": "yanmaz_menbran_isomax",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Yanmaz Membran İSOMAX (m²)",
+            "en": "Fireproof Membrane ISOMAX (m²)",
+            "ru": "Огнестойкая мембрана ISOMAX (м²)"
+          },
+          "description": {
+            "az": "İSOMAX yanmaz membranı (m² / Kod: 7019590000) xüsusi texnologiya ilə istehsal olunmuş, alova və yüksək temperatura qarşı müqavimət göstərən müasir izolyasiya məhsuludur. Tikililərdə yanğın təhlükəsizliyini artırmaqla yanaşı, hava axınına və nəmə qarşı effektiv baryer rolu oynayır.",
+            "en": "ISOMAX fireproof membrane (m² / Code: 7019590000) is a modern insulation product produced with special technology, resistant to flame and high temperature. In addition to increasing fire safety in buildings, it acts as an effective barrier against airflow and moisture.",
+            "ru": "Огнестойкая мембрана ISOMAX (м² / Код: 7019590000) — это современный изоляционный продукт, произведенный по специальной технологии, устойчивый к пламени и высоким температурам. Помимо повышения пожарной безопасности в зданиях, она служит эффективным барьером против воздушных потоков и влаги."
+          },
+          "price": null,
+          "stock": null,
+          "unit": "m2",
+          "thicknessMm": null,
+          "applicationAreas": [],
+          "specs": [
+            {
+              "key": "publishedCode",
+              "value": "7019590000"
+            }
+          ],
+          "image": "/media/products/isoboxyanmaz.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "isoboxyanmaz",
+          "src": "/media/products/isoboxyanmaz.webp",
+          "alt": {
+            "az": "Yanmaz Membran İSOMAX",
+            "en": "Fireproof Membrane ISOMAX",
+            "ru": "Огнестойкая мембрана ISOMAX"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "suse-setka",
+      "slug": "suse-setka",
+      "status": "published",
+      "categoryId": "maye-aksesuar",
+      "subcategoryId": "aksesuar",
+      "family": "Şüşə setka",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Şüşə Setka PSV",
+        "en": "Fiberglass Mesh PSV",
+        "ru": "Стеклосетка ПСВ"
+      },
+      "variants": [
+        {
+          "id": "suse_setka_psv_160gr",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Şüşə Setka PSV (160 gr)",
+            "en": "Fiberglass Mesh PSV (160 gr)",
+            "ru": "Стеклосетка ПСВ (160 г)"
+          },
+          "description": {
+            "az": "PSV markalı 160 qramlıq şüşə setka (m² / Kod: 7019590000) xarici fasad izolyasiya sistemlərində (İXTİS) və suvaq işlərində çatlar yaranmasının qarşısını almaq üçün tətbiq olunan gücləndirici elementdir. Qələvi mühitə qarşı davamlıdır və səthin mexaniki möhkəmliyini əhəmiyyətli dərəcədə artırır.",
+            "en": "PSV brand 160-gram fiberglass mesh (m² / Code: 7019590000) is a reinforcing element applied in exterior facade insulation systems (ETICS) and plastering works to prevent the formation of cracks. It is resistant to alkaline environments and significantly increases the mechanical strength of the surface.",
+            "ru": "Стеклосетка марки ПСВ плотностью 160 грамм (м² / Код: 7019590000) — армирующий элемент, применяемый в системах внешней фасадной изоляции (СФТК) и штукатурных работах для предотвращения образования трещин. Устойчива к щелочной среде и существенно увеличивает механическую прочность поверхности."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": null,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "basis",
+              "value": {
+                "az": "Şüşəlif",
+                "en": "Glass tissue",
+                "ru": "Стеклохолст"
+              }
+            },
+            {
+              "key": "publishedCode",
+              "value": "7019590000"
+            }
+          ],
+          "image": "/media/products/shushesetka.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "shushesetka",
+          "src": "/media/products/shushesetka.webp",
+          "alt": {
+            "az": "Şüşə Setka PSV",
+            "en": "Fiberglass Mesh PSV",
+            "ru": "Стеклосетка ПСВ"
+          }
+        }
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "metal-dubel",
+      "slug": "metal-dubel",
+      "status": "published",
+      "categoryId": "maye-aksesuar",
+      "subcategoryId": "aksesuar",
+      "family": "Metal dubel",
+      "brand": null,
+      "featured": false,
+      "name": {
+        "az": "Metal Dubel İzm",
+        "en": "Metal Dowel IZM",
+        "ru": "Дюбель металлический ИЗМ"
+      },
+      "variants": [
+        {
+          "id": "metal_dubel_izm_10x160",
+          "sku": null,
+          "status": "published",
+          "name": {
+            "az": "Metal Dubel İzm (10x160)",
+            "en": "Metal Dowel IZM (10x160)",
+            "ru": "Дюбель металлический ИЗМ (10х160)"
+          },
+          "description": {
+            "az": "10x160 ölçülü metal dubel (İzm / Kod: 7317001000) izolyasiya plitələrini (daş yunu, penopolistirol və s.) müxtəlif divar səthlərinə (beton, kərpic) mexaniki olaraq etibarlı şəkildə bərkitmək üçün istifadə olunur. Metal mismar ucluğu sayəsində ağır yüklərə qarşı maksimum dayanıqlıq və sabit bərkitmə təmin edir.",
+            "en": "10x160 size metal dowel (IZM / Code: 7317001000) is used to mechanically and securely fasten insulation boards (stone wool, expanded polystyrene, etc.) to various wall surfaces (concrete, brick). Thanks to its metal nail tip, it ensures maximum durability against heavy loads and stable fastening.",
+            "ru": "Металлический дюбель размером 10х160 (ИЗМ / Код: 7317001000) используется для механического и надежного крепления изоляционных плит (каменная вата, пенополистирол и др.) к различным стеновым поверхностям (бетон, кирпич). Благодаря металлическому наконечнику гвоздя обеспечивает максимальную устойчивость к тяжелым нагрузкам и стабильную фиксацию."
+          },
+          "price": null,
+          "stock": null,
+          "unit": null,
+          "thicknessMm": null,
+          "applicationAreas": [
+            "fasad"
+          ],
+          "specs": [
+            {
+              "key": "publishedCode",
+              "value": "7317001000"
+            }
+          ],
+          "image": "/media/products/metaldubel.webp"
+        }
+      ],
+      "images": [
+        {
+          "id": "metaldubel",
+          "src": "/media/products/metaldubel.webp",
+          "alt": {
+            "az": "Metal Dubel İzm",
+            "en": "Metal Dowel IZM",
+            "ru": "Дюбель металлический ИЗМ"
+          }
+        }
+      ],
+      "pdfs": []
+    }
+  ],
+  "pages": {
+    "about": {
+      "title": {
+        "az": "25 İllik Təcrübə ilə Binaların Gələcəyini Keyfiyyətlə Qoruyuruq",
+        "en": "Protecting the Future of Buildings with Quality and 25 Years of Experience",
+        "ru": "Защищаем будущее зданий с гарантией качества и 25-летним опытом"
+      },
+      "lead": {
+        "az": "25 ildir ki, tikililərinizi rütubətdən, səsdən və enerji itkisindən ən yüksək mühəndislik standartları ilə qoruyan peşəkar izolyasiya sistemləri təklif edirik.",
+        "en": "For 25 years, we have been offering professional insulation systems that protect your structures from moisture, noise, and energy loss according to the highest engineering standards.",
+        "ru": "Уже 25 лет мы предлагаем профессиональные системы изоляции, защищающие ваши строения от влаги, шума и потерь энергии по высочайшим инженерным стандартам."
+      },
+      "why": {
+        "az": "25 illik zəngin təcrübəmiz və sertifikatlaşdırılmış keyfiyyətli izolyasiya materiallarımızla məkanlarınızda daimi komfort və enerji səmərəliliyini təmin edirik.",
+        "en": "With our 25 years of rich experience and certified quality insulation materials, we ensure lasting comfort and energy efficiency in your spaces.",
+        "ru": "Благодаря нашему 25-летнему богатому опыту и сертифицированным качественным изоляционным материалам мы обеспечиваем постоянный комфорт и энергоэффективность в ваших помещениях."
+      }
+    },
+    "services": [
+      {
+        "id": "qurasdirma",
+        "title": {
+          "az": "Peşəkar Quraşdırma Partnyorluğu",
+          "en": "Professional Installation Partnership",
+          "ru": "Партнерство по профессиональному монтажу"
+        },
+        "description": {
+          "az": "Məhsullarımızın yüksək keyfiyyətlə tətbiqi üçün sizi təcrübəli və etibarlı podratçı şirkətlərlə əlaqələndiririk.",
+          "en": "We connect you with experienced and reliable contractor companies for the high-quality application of our products.",
+          "ru": "Мы связываем вас с опытными и надежными подрядными организациями для качественного нанесения нашей продукции."
+        },
+        "items": [
+          {
+            "id": "title_rulon_dam_qur",
+            "title": {
+              "az": "Rulonlu Materiallarla Dam Örtüyü",
+              "en": "Roofing with Rolled Materials",
+              "ru": "Кровельное покрытие рулонными материалами"
+            },
+            "description": {
+              "az": "Bikrost, Linokrom, Unifleks və Texnoelast materialları ilə horizontal və mürəkkəb damların peşəkar quraşdırılması.",
+              "en": "Professional installation of horizontal and complex roofs using Bikrost, Linokrom, Unifleks, and Technoelast materials.",
+              "ru": "Профессиональный монтаж горизонтальных и сложных кровель материалами Бикрост, Линокром, Унифлекс и Техноэласт."
+            }
+          },
+          {
+            "id": "title_fundament_izolyasiya",
+            "title": {
+              "az": "Təməl və Zirzəmi Hidroizolyasiyası",
+              "en": "Foundation and Basement Waterproofing",
+              "ru": "Гидроизоляция фундамента и подвала"
+            },
+            "description": {
+              "az": "Binaların təməl hissələrinin sudan qorunması məqsədilə qat-qat izolyasiya quraşdırma xidməti.",
+              "en": "Multi-layer insulation installation service to protect the foundation parts of buildings from water.",
+              "ru": "Услуга многослойного монтажа изоляции для защиты фундаментных частей зданий от воды."
+            }
+          },
+          {
+            "id": "title_maye_bitum_tetbiq",
+            "title": {
+              "az": "Maye Bitum və Mastika Hazırlığı",
+              "en": "Liquid Bitumen and Mastic Application",
+              "ru": "Применение жидкого битума и мастики"
+            },
+            "description": {
+              "az": "Səthlərin izolyasiyaya uyğunlaşdırılması üçün maye bitum və köməkçi materialların peşəkar tətbiqi.",
+              "en": "Professional application of liquid bitumen and auxiliary materials to prepare surfaces for insulation.",
+              "ru": "Профессиональное нанесение жидкого битума и вспомогательных материалов для подготовки поверхностей к изоляции."
+            }
+          },
+          {
+            "id": "title_das_yunu_montaj",
+            "title": {
+              "az": "Daş Yunu ilə İstilik İzolyasiyası",
+              "en": "Thermal Insulation with Stone Wool",
+              "ru": "Теплоизоляция каменной ватой"
+            },
+            "description": {
+              "az": "Texnofas, Texnovent, İzoboks və Roklait məhsullarının fasad və daxili divarlara montajı.",
+              "en": "Assembly of Technofas, Technovent, Izobox, and Roklait products onto facades and interior walls.",
+              "ru": "Монтаж продукции Технофас, Техновент, Изобокс и Роклайт на фасады и внутренние стены."
+            }
+          },
+          {
+            "id": "title_vent_fasad_qur",
+            "title": {
+              "az": "Havalandırılan Fasad Sistemləri",
+              "en": "Ventilated Facade Systems",
+              "ru": "Вентилируемые фасадные системы"
+            },
+            "description": {
+              "az": "Asma fasadlar üçün xüsusi izolyasiya və daş yunu qatlarının mühəndislik tələblərinə uyğun quraşdırılması.",
+              "en": "Installation of special insulation and stone wool layers for suspended facades in accordance with engineering requirements.",
+              "ru": "Монтаж специальной изоляции и слоев каменной ваты для навесных фасадов в соответствии с инженерными требованиями."
+            }
+          },
+          {
+            "id": "title_ekstrusiya_doseme",
+            "title": {
+              "az": "Carbon ECO Döşəmə İzolyasiyası",
+              "en": "Carbon ECO Floor Insulation",
+              "ru": "Изоляция полов Carbon ECO"
+            },
+            "description": {
+              "az": "Yüksək yükə davamlı ekstrudirovka olunmuş penopolistirol lövhələrinin təməl və döşəmələrə döşənməsi.",
+              "en": "Laying high-load-resistant extruded polystyrene boards on foundations and floors.",
+              "ru": "Укладка высокопрочных экструдированных пенополистирольных плит на фундаменты и полы."
+            }
+          },
+          {
+            "id": "title_birge_tikinti_partnyor",
+            "title": {
+              "az": "Tikinti Şirkətləri ilə Tərəfdaşlıq",
+              "en": "Partnership with Construction Companies",
+              "ru": "Партнерство со строительными компаниями"
+            },
+            "description": {
+              "az": "Mütəxəssis briqadalarımızla böyük layihələrdə quraşdırma və montaj tərəfdaşlığının həyata keçirilməsi.",
+              "en": "Implementation of installation and assembly partnerships in large projects with our specialized teams.",
+              "ru": "Реализация партнерства по установке и монтажу в крупных проектах с нашими бригадами специалистов."
+            }
+          },
+          {
+            "id": "title_texniki_nezaret_audit",
+            "title": {
+              "az": "Keyfiyyətə Nəzarət və Audit",
+              "en": "Quality Control and Audit",
+              "ru": "Контроль качества и аудит"
+            },
+            "description": {
+              "az": "Quraşdırma prosesinin hər mərhələsində texniki nəzarət və zəmanətli təhvil-təslim xidməti.",
+              "en": "Technical control at every stage of the installation process and guaranteed handover service.",
+              "ru": "Технический контроль на каждом этапе монтажного процесса и услуга гарантийной сдачи-приемки."
+            }
+          }
+        ]
+      },
+      {
+        "id": "meslehet",
+        "title": {
+          "az": "Texniki Məsləhət və Layihələndirmə",
+          "en": "Technical Consulting and Engineering",
+          "ru": "Технические консультации и проектирование"
+        },
+        "description": {
+          "az": "Obyektiniz üçün doğru izolyasiya materialının seçilməsi, sərfiyyatın hesablanması və tərəfdaşlarımızla birlikdə ilkin texniki qiymətləndirmənin aparılması.",
+          "en": "Selection of the right insulation material for your facility, calculation of consumption, and preliminary technical evaluation together with our partners.",
+          "ru": "Подбор правильного изоляционного материала для вашего объекта, расчет расхода и проведение предварительной технической оценки совместно с нашими партнерами."
+        },
+        "items": [
+          {
+            "id": "title_dogru_material",
+            "title": {
+              "az": "Doğru Material Seçimi",
+              "en": "Correct Material Selection",
+              "ru": "Правильный выбор материалов"
+            },
+            "description": {
+              "az": "Obyektin növündən asılı olaraq Bikrost, Unifleks, Texnoelast və ya daş yunu məhsullarının düzgün təyin edilməsi.",
+              "en": "Proper determination of Bikrost, Unifleks, Technoelast, or stone wool products depending on the type of facility.",
+              "ru": "Правильное определение продукции Бикрост, Унифлекс, Техноэласт или каменной ваты в зависимости от типа объекта."
+            }
+          },
+          {
+            "id": "title_texniki_meslehet",
+            "title": {
+              "az": "Mühəndis Konsultasiyası",
+              "en": "Engineering Consultation",
+              "ru": "Инженерная консультация"
+            },
+            "description": {
+              "az": "İzolyasiya qatlarının tətbiqi və texniki xüsusiyyətləri barədə mütəxəssis məsləhəti.",
+              "en": "Expert advice on the application and technical characteristics of insulation layers.",
+              "ru": "Консультация специалистов по применению и техническим характеристикам изоляционных слоев."
+            }
+          },
+          {
+            "id": "title_metraj_hesab",
+            "title": {
+              "az": "Metraj və Sərfiyyat Hesablaması",
+              "en": "Measurement and Consumption Calculation",
+              "ru": "Расчет метража и расхода"
+            },
+            "description": {
+              "az": "Dam, təməl və fasad sahələrinə uyğun olaraq material miqdarının dəqiq hesablanması.",
+              "en": "Accurate calculation of material quantities according to roof, foundation, and facade areas.",
+              "ru": "Точный расчет количества материалов в соответствии с площадями кровли, фундамента и фасада."
+            }
+          },
+          {
+            "id": "title_budce_optimizasiya",
+            "title": {
+              "az": "Büdcə Optimizasiyası",
+              "en": "Budget Optimization",
+              "ru": "Оптимизация бюджета"
+            },
+            "description": {
+              "az": "Keyfiyyətdən ödün vermədən ən sərfəli izolyasiya və montaj materialları büdcəsinin qurulması.",
+              "en": "Establishing a budget for the most cost-effective insulation and installation materials without compromising quality.",
+              "ru": "Формирование бюджета на самые выгодные изоляционные и монтажные материалы без ущерба для качества."
+            }
+          },
+          {
+            "id": "title_ilkin_qiymet",
+            "title": {
+              "az": "İlkin Texniki Qiymətləndirmə",
+              "en": "Initial Technical Evaluation",
+              "ru": "Первичная техническая оценка"
+            },
+            "description": {
+              "az": "Partnyorlar və mühəndislərimiz tərəfindən layihənin ilkin dəyərləndirilməsi.",
+              "en": "Initial assessment of the project by our partners and engineers.",
+              "ru": "Первичная оценка проекта нашими партнерами и инженерами."
+            }
+          },
+          {
+            "id": "title_standart_uygunluq",
+            "title": {
+              "az": "Normativ və Standart Uyğunluğu",
+              "en": "Norm and Standard Compliance",
+              "ru": "Соответствие нормам и стандартам"
+            },
+            "description": {
+              "az": "Tikinti normalarına və texniki tələblərə tam uyğun layihə dəstəyi.",
+              "en": "Project support fully compliant with construction norms and technical requirements.",
+              "ru": "Проектная поддержка, полностью соответствующая строительным нормам и техническим требованиям."
+            }
+          },
+          {
+            "id": "title_sertifikat_analiz",
+            "title": {
+              "az": "Material Uyğunluğu və Sertifikat Analizi",
+              "en": "Material Compliance and Certificate Analysis",
+              "ru": "Соответствие материалов и анализ сертификатов"
+            },
+            "description": {
+              "az": "Təqdim olunan Bikrost, Unifleks və daş yunu məhsullarının keyfiyyət və standart sertifikatlarının yoxlanılması.",
+              "en": "Verification of quality and standard certificates of supplied Bikrost, Unifleks, and stone wool products.",
+              "ru": "Проверка сертификатов качества и стандартов поставляемой продукции Бикрост, Унифлекс и каменной ваты."
+            }
+          },
+          {
+            "id": "title_material_smeta",
+            "title": {
+              "az": "Detallı Material Smetasının Hazırlanması",
+              "en": "Preparation of Detailed Material Estimate",
+              "ru": "Составление детальной сметы материалов"
+            },
+            "description": {
+              "az": "Obyektin quraşdırma işləri üçün tələb olunan bütün əsas və köməkçi materialların smeta hesabatı.",
+              "en": "Estimate calculation of all main and auxiliary materials required for the installation works of the facility.",
+              "ru": "Сметный расчет всех основных и вспомогательных материалов, необходимых для монтажных работ на объекте."
+            }
+          },
+          {
+            "id": "title_obyekt_qiymetlendirme",
+            "title": {
+              "az": "Obyekt Üzrə İlkin Baxış və Qiymətləndirmə",
+              "en": "Initial Inspection and Evaluation of the Facility",
+              "ru": "Первичный осмотр и оценка объекта"
+            },
+            "description": {
+              "az": "Mütəxəssislərimiz tərəfindən tikinti sahəsinə baxış keçirilərək texniki vəziyyətin qiymətləndirilməsi.",
+              "en": "Inspection of the construction site by our specialists and evaluation of the technical condition.",
+              "ru": "Осмотр строительной площадки нашими специалистами и оценка технического состояния."
+            }
+          }
+        ]
+      }
+    ],
+    "certificates": [
+      {
+        "id": "cert-1",
+        "title": {
+          "az": "ТЕХНОНИКОЛЬ Şirkətdən rəsmi tərəfdaşlıq sertifikatı",
+          "en": "Official Partnership Certificate from TECHONICOL Company",
+          "ru": "Официальный партнерский сертификат от компании ТЕХНОНИКОЛЬ"
+        },
+        "description": {
+          "az": "SOÇİ MMC şirkətinə təqdim olunmuş rəsmi səlahiyyət və tərəfdaşlıq sənədi.",
+          "en": "Official authority and partnership document presented to SOCHI LLC.",
+          "ru": "Официальный документ о полномочиях и партнерстве, предоставленный ООО СОЧИ."
+        },
+        "image": "/media/certificates/Ser01.webp",
+        "pdf": null
+      },
+      {
+        "id": "cert-2",
+        "title": {
+          "az": "SOÇİ MMC Şirkətin Udduğu mükafat",
+          "en": "Award Won by SOCHI LLC",
+          "ru": "Награда, полученная ООО СОЧИ"
+        },
+        "description": {
+          "az": "Yüksək göstəricilərə və səmərəli fəaliyyətə görə SOÇİ MMC-yə verilən mükafat.",
+          "en": "Award presented to SOCHI LLC for high performance and efficient activities.",
+          "ru": "Награда, врученная ООО СОЧИ за высокие показатели и эффективную деятельность."
+        },
+        "image": "/media/certificates/Ser02.webp",
+        "pdf": null
+      },
+      {
+        "id": "cert-3",
+        "title": {
+          "az": "SOÇİ MMC Şirkətin Udduğu mükafat",
+          "en": "Award Won by SOCHI LLC",
+          "ru": "Награда, полученная ООО СОЧИ"
+        },
+        "description": {
+          "az": "Sektor üzrə əldə edilən mühüm nailiyyətlərə görə SOÇİ MMC-nin layiq görüldüyü mükafat.",
+          "en": "Award bestowed upon SOCHI LLC for significant achievements in the sector.",
+          "ru": "Награда, которой удостоено ООО СОЧИ за важные достижения в секторе."
+        },
+        "image": "/media/certificates/Ser03.webp",
+        "pdf": null
+      },
+      {
+        "id": "cert-4",
+        "title": {
+          "az": "BAKUBUİLD tədbirin sertifikat",
+          "en": "BAKUBUILD Event Certificate",
+          "ru": "Сертификат мероприятия BAKUBUILD"
+        },
+        "description": {
+          "az": "BakuBuild sərgisində SOÇİ MMC-nin fəal iştirak və təqdimat sənədi.",
+          "en": "Active participation and presentation document of SOCHI LLC at the BakuBuild exhibition.",
+          "ru": "Документ об активном участии и презентации ООО СОЧИ на выставке BakuBuild."
+        },
+        "image": "/media/certificates/Ser04.webp",
+        "pdf": null
+      },
+      {
+        "id": "cert-5",
+        "title": {
+          "az": "BAKUBUİLD tədbirin sertifikat",
+          "en": "BAKUBUILD Event Certificate",
+          "ru": "Сертификат мероприятия BAKUBUILD"
+        },
+        "description": {
+          "az": "Sərgi çərçivəsində SOÇİ MMC-yə təqdim olunan xüsusi iştirak sənədi.",
+          "en": "Special participation document presented to SOCHI LLC within the framework of the exhibition.",
+          "ru": "Специальный документ об участии, предоставленный ООО СОЧИ в рамках выставки."
+        },
+        "image": "/media/certificates/Ser05.webp",
+        "pdf": null
+      },
+      {
+        "id": "cert-6",
+        "title": {
+          "az": "ТЕХНОНИКОЛЬ Rəsmi Ticari Tərəfdaşlıq Sertifikatı",
+          "en": "TECHNONICOL Official Trade Partnership Certificate",
+          "ru": "Официальный сертификат торгового партнера ТЕХНОНИКОЛЬ"
+        },
+        "description": {
+          "az": "ТЕХНОНИКОЛЬ Korporasiyası tərəfindən SOÇİ MMC-yə verilmiş rəsmi satış tərəfdaşı sənədi.",
+          "en": "Official document issued by TECHNONICOL Corporation certifying SOCHI LLC as an authorized trade partner.",
+          "ru": "Официальный документ, подтверждающий статус торгового партнера ООО СОЧИ корпорации ТЕХНОНИКОЛЬ."
+        },
+        "image": "/media/certificates/Ser06.webp",
+        "pdf": null
+      }
+    ],
+    "blog": {
+      "az": {
+        "badge": "MÜASİR TƏCRÜBƏ",
+        "mainTitle": "BLOQ VƏ YENİLİKLƏR",
+        "subtitle": "İzolyasiya texnologiyaları, material seçimi və faydalı məsləhətlər",
+        "triggerText": "İzolyasiya məhsulları",
+        "item1": {
+          "title": "İSTİLİK İZOLYASİYASI",
+          "desc": "Evlərdə enerji itkisinin qarşısını almaq üçün effektiv izolyasiya üsulları."
+        },
+        "item2": {
+          "title": "MATERİAL SEÇİMİ",
+          "desc": "Su və səs izolyasiyası üçün düzgün materialların seçilməsi və tətbiqi."
+        },
+        "item3": {
+          "title": "RÜTUBƏTDƏN QORUNMA",
+          "desc": "Divar və təməllərdə nəmişliyin qarşısını alan qabaqcıl həllər."
+        }
+      },
+      "en": {
+        "badge": "MODERN PRACTICE",
+        "mainTitle": "BLOG AND NEWS",
+        "subtitle": "Insulation technologies, material selection, and useful tips",
+        "triggerText": "Insulation products",
+        "item1": {
+          "title": "THERMAL INSULATION",
+          "desc": "Effective insulation methods to prevent energy loss in homes."
+        },
+        "item2": {
+          "title": "MATERIAL SELECTION",
+          "desc": "Proper selection and application of materials for water and sound insulation."
+        },
+        "item3": {
+          "title": "PROTECTION FROM MOISTURE",
+          "desc": "Advanced solutions preventing dampness in walls and foundations."
+        }
+      },
+      "ru": {
+        "badge": "СОВРЕМЕННЫЙ ОПЫТ",
+        "mainTitle": "БЛОГ И НОВОСТИ",
+        "subtitle": "Изоляционные технологии, выбор материалов и полезные советы",
+        "triggerText": "Изоляционные материалы",
+        "item1": {
+          "title": "ТЕПЛОИЗОЛЯЦИЯ",
+          "desc": "Эффективные методы изоляции для предотвращения потери энергии в домах."
+        },
+        "item2": {
+          "title": "ВЫБОР МАТЕРИАЛОВ",
+          "desc": "Правильный выбор и применение материалов для гидро- и звукоизоляции."
+        },
+        "item3": {
+          "title": "ЗАЩИТА ОТ ВЛАГИ",
+          "desc": "Передовые решения для предотвращения сырости в стенах и фундаменте."
+        }
+      }
+    }
+  },
+  "users": []
+}

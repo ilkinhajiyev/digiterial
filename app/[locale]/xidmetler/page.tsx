@@ -1,39 +1,39 @@
-import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
-import { PageHero, CtaBand, FaqSection } from '@/components/dg/ui';
-import { ServicesSection, ProcessSection } from '@/components/dg/home/sections';
-import { Arrow } from '@/components/dg/icons';
-import { FAQ } from '@/lib/content/services';
-import { alternates, localePath } from '@/lib/seo';
-import { getT, localize, OG_LOCALE } from '@/lib/i18n/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { pageMeta } from '@/lib/catalog/meta';
+import { readCatalog } from '@/lib/catalog/store';
+import { pick, isLocale } from '@/lib/catalog/types';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = getT(locale);
-  const title = t('Rəqəmsal marketinq xidmətləri — veb sayt, SEO, reklam, email');
-  const description = t('Veb sayt hazırlanması, SEO, Google və Meta reklamı, brendinq, SMM, email marketinq, korporativ email və AI avtomatlaşdırma. Bir komanda, bir hədəf.');
-  return {
-    title, description, alternates: alternates('/xidmetler', locale),
-    openGraph: { title, description, url: localePath('/xidmetler', locale), locale: OG_LOCALE[locale], type: 'website' },
-  };
+  const title = locale === 'en' ? 'Services' : locale === 'ru' ? 'Услуги' : 'Xidmətlər';
+  return pageMeta(locale, '/xidmetler', title, 'SOCHİ MMC quraşdırma partnyorluğu və texniki məsləhət.');
 }
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  if (!isLocale(locale)) return null;
   setRequestLocale(locale);
-  const t = getT(locale);
+  const t = await getTranslations('services');
+  const groups = readCatalog().pages.services;
   return (
-    <>
-      <PageHero crumbs={[{ href: '/', label: t('Ana səhifə') }, { label: t('Xidmətlər') }]}
-        h1={<>{t('Biznesinizi böyüdən')} <em>{t('rəqəmsal')}</em> {t('xidmətlər.')}</>}
-        lead={t('Ayrı-ayrı podratçılar arasında vaxt itirməyin. Strategiyadan icraya qədər bütün rəqəmsal kanallarınızı bir komanda idarə edir.')}>
-        <Link className="btn btn-accent" href="/elaqe">{t('Layihəni müzakirə edək')} <Arrow /></Link>
-      </PageHero>
-      <ServicesSection />
-      <ProcessSection />
-      <FaqSection items={localize([FAQ.price, FAQ.one, FAQ.time, FAQ.seo], locale)} />
-      <CtaBand title={t('Növbəti addımı birlikdə planlayaq.')} text={t('30 dəqiqəlik tanışlıq görüşündə hədəflərinizi dinləyək və ən sürətli böyümə yolunu birlikdə müəyyənləşdirək.')} />
-    </>
+    <div>
+      <h1 className="text-3xl font-semibold">{t('title')}</h1>
+      <div className="mt-8 space-y-10">
+        {groups.map((group) => (
+          <section key={group.id} id={group.id}>
+            <h2 className="text-2xl font-semibold text-[#0A286E]">{pick(group.title, locale)}</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-6">{pick(group.description, locale)}</p>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {group.items.map((item) => (
+                <article key={item.id} className="rounded-2xl border border-[#E4E7EB] bg-white p-4">
+                  <h3 className="font-semibold">{pick(item.title, locale)}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#374151]">{pick(item.description, locale)}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
   );
 }

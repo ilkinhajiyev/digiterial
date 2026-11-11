@@ -2,4 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+:root {
+  --font-sans: 'Geist Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; background: #F3F4F6; color: #1A1A1A; }
+:focus-visible { outline: 2px solid #0A286E; outline-offset: 2px; }
+.shelf { scrollbar-width: none; }
+.shelf::-webkit-scrollbar { display: none; }
