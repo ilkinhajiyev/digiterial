@@ -31,11 +31,16 @@ export function Filters({
 
   useEffect(() => {
     if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setOpen(false);
     };
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener('keydown', onKey);
+    };
   }, [open]);
 
   const form = (
@@ -78,7 +83,7 @@ export function Filters({
       {subs.length > 0 && (
         <Field label={t('sub')} name="alt" value={filters.sub} anyLabel={t('any')} options={subs.map((sub) => ({ value: sub.id, label: sub.name }))} />
       )}
-      <button type="submit" className="h-10 rounded-lg bg-[#0A286E] text-sm font-semibold text-white">
+      <button type="submit" className="h-12 rounded-lg bg-[#0A286E] text-sm font-semibold text-white">
         {t('apply')}
       </button>
       <a href={clear} className="text-center text-sm font-medium text-[#0A286E] underline">
@@ -89,22 +94,22 @@ export function Filters({
 
   return (
     <div>
-      <div className="mb-3 flex items-center justify-between gap-3">
+      <div className="mb-3 flex items-center justify-between gap-3 lg:block">
         <p className="text-sm text-[#374151]">{t('count', { count: total })}</p>
-        <button type="button" className="h-10 rounded-lg border border-[#E6E8EC] bg-white px-4 text-sm font-medium lg:hidden" onClick={() => setOpen(true)}>
+        <button type="button" className="h-12 min-w-28 rounded-lg border border-[#E6E8EC] bg-white px-4 text-sm font-semibold lg:hidden" onClick={() => setOpen(true)}>
           {t('open')}
         </button>
       </div>
       <div className="hidden rounded-xl border border-[#ECEEF2] bg-white p-4 lg:block">{form}</div>
       {open && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden" role="dialog" aria-modal="true" aria-label={t('open')}>
-          <div className="flex items-center justify-between border-b border-[#E4E7EB] px-4 py-3">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-white lg:hidden" role="dialog" aria-modal="true" aria-label={t('open')}>
+          <div className="flex h-14 shrink-0 items-center justify-between border-b border-[#E6E8EC] px-4">
             <p className="font-semibold">{t('open')}</p>
-            <button type="button" className="h-11 px-3" onClick={() => setOpen(false)}>
+            <button type="button" className="h-12 px-3 text-sm font-semibold text-[#0A286E]" onClick={() => setOpen(false)}>
               {t('close')}
             </button>
           </div>
-          <div className="overflow-auto px-4 py-4">{form}</div>
+          <div className="overflow-auto px-4 py-4 pb-8">{form}</div>
         </div>
       )}
     </div>
@@ -127,7 +132,7 @@ function Field({
   return (
     <label className="block text-sm">
       <span className="mb-1 block font-medium text-[#1C1F24]">{label}</span>
-      <select name={name} defaultValue={value} className="h-10 w-full rounded-lg border border-[#E6E8EC] bg-[#F7F8FA] px-2">
+      <select name={name} defaultValue={value} className="h-12 w-full rounded-lg border border-[#E6E8EC] bg-[#F7F8FA] px-2 text-base">
         <option value="">{anyLabel}</option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>

@@ -46,7 +46,7 @@ export function ProductCard({
   if (!variant) return null;
 
   return (
-    <article className="flex h-full flex-col rounded-xl border border-[#ECEEF2] bg-white p-3 transition-shadow hover:shadow-[0_8px_24px_rgba(16,24,40,0.08)]">
+    <article className="flex h-full flex-col rounded-xl border border-[#ECEEF2] bg-white p-2.5 transition-shadow hover:shadow-[0_8px_24px_rgba(16,24,40,0.08)] sm:p-3">
       <Link href={`/mehsul/${product.slug}`} className="relative block aspect-square overflow-hidden bg-white">
         <Picture src={image} alt={name} locale={locale} />
       </Link>
@@ -61,7 +61,7 @@ export function ProductCard({
             <select
               value={variant.id}
               onChange={(event) => setId(event.target.value)}
-              className="h-9 w-full rounded-lg border border-[#E6E8EC] bg-white px-2 text-sm"
+              className="h-11 w-full rounded-lg border border-[#E6E8EC] bg-white px-2 text-sm"
             >
               {variants.map((item) => (
                 <option key={item.id} value={item.id}>
@@ -73,10 +73,10 @@ export function ProductCard({
         ) : (
           <p className="mt-2 line-clamp-1 text-xs text-[#5C6570]">{pick(variant.name, locale)}</p>
         )}
-        <p className="mt-2 text-xs text-[#5C6570]">
+        <p className="mt-2 hidden text-xs text-[#5C6570] sm:block">
           {t('sku')}: {skuLabel(variant.sku, locale)}
         </p>
-        <ul className="mt-1 text-xs text-[#5C6570]">
+        <ul className="mt-1 hidden text-xs text-[#5C6570] sm:block">
           {specs.map((spec) => (
             <li key={spec.key} className="line-clamp-1">
               {SPEC_LABELS[spec.key]?.[locale] || spec.key}: {specValue(spec.value, locale)}
@@ -84,11 +84,12 @@ export function ProductCard({
           ))}
         </ul>
         <p className="mt-1 text-xs text-[#5C6570]">{unitLabel(variant.unit, locale) || unitUnknown(locale)}</p>
-        <p className="mt-2 text-base font-bold text-[#0A286E]">{priceLabel(variant.price, variant.unit, locale)}</p>
+        <p className="mt-2 text-sm font-bold leading-5 text-[#0A286E]">{priceLabel(variant.price, variant.unit, locale)}</p>
         <p className="mt-0.5 text-xs text-[#5C6570]">{stockLabel(variant.stock, locale)}</p>
         {href ? (
-          <a href={href} className="mt-3 inline-flex min-h-10 items-center justify-center rounded-lg bg-[#1FA855] px-2 py-2 text-center text-xs font-semibold leading-4 text-white sm:text-sm">
-            {t('whatsapp')}
+          <a href={href} className="relative z-0 mt-3 inline-flex h-12 items-center justify-center rounded-lg bg-[#1FA855] px-2 text-center text-sm font-semibold text-white">
+            <span className="sm:hidden">{t('whatsappShort')}</span>
+            <span className="hidden sm:inline">{t('whatsapp')}</span>
           </a>
         ) : (
           <p className="mt-3 text-xs text-[#6B7280]">{t('waUnavailable')}</p>

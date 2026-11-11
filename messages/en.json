@@ -11,7 +11,8 @@
     "certificates": "Certificates",
     "blog": "Blog",
     "order": "Order list",
-    "orderShort": "Order"
+    "orderShort": "Order",
+    "searchSubmit": "Search"
   },
   "home": {
     "lead": "SOCHİ MMC sells heat, waterproofing, and sound insulation materials in Baku. Price and availability are confirmed on WhatsApp for each product.",
@@ -36,6 +37,7 @@
     "variant": "Variant",
     "sku": "SKU",
     "whatsapp": "Order on WhatsApp",
+    "whatsappShort": "WhatsApp",
     "waUnavailable": "WhatsApp link is not ready."
   },
   "filters": {

@@ -11,7 +11,8 @@
     "certificates": "Sertifikatlar",
     "blog": "Bloq",
     "order": "Sifariş siyahısı",
-    "orderShort": "Sifariş"
+    "orderShort": "Sifariş",
+    "searchSubmit": "Axtar"
   },
   "home": {
     "lead": "SOCHİ MMC Bakıda istilik, su və səs izolyasiya materiallarının satışını təqdim edir. Qiymət və mövcudluq hər məhsul üçün WhatsApp ilə dəqiqləşdirilir.",
@@ -41,6 +42,7 @@
     "variant": "Variant",
     "sku": "Artikul",
     "whatsapp": "WhatsApp-da sifariş et",
+    "whatsappShort": "WhatsApp",
     "waUnavailable": "WhatsApp keçidi hazır deyil."
   },
   "filters": {

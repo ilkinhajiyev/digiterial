@@ -47,12 +47,15 @@ export function Header({
     if (!open) return;
     const place = () => setMenuTop(headerRef.current?.getBoundingClientRect().bottom || 0);
     place();
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setOpen(false);
     };
     window.addEventListener('keydown', onKey);
     window.addEventListener('resize', place);
     return () => {
+      document.body.style.overflow = previous;
       window.removeEventListener('keydown', onKey);
       window.removeEventListener('resize', place);
     };
@@ -60,7 +63,7 @@ export function Header({
 
   return (
     <>
-    <header ref={headerRef} className="sticky top-0 z-40 border-b border-[#E6E8EC] bg-white">
+    <header ref={headerRef} className="sticky top-0 z-50 border-b border-[#E6E8EC] bg-white">
       <div className="mx-auto flex max-w-[1280px] items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="SOCHİ MMC">
           <Image src="/media/brand/sochi-logo.png" alt="" width={40} height={40} className="h-10 w-10" />
@@ -109,15 +112,15 @@ export function Header({
           {t('contact')}
         </a>
 
-        <Link href="/sifaris" aria-label={orderLabel} className="relative inline-flex h-10 shrink-0 items-center rounded-lg bg-[#0A286E] px-3 text-sm font-semibold text-white">
-          <span className="sm:hidden">{t('orderShort')}</span>
-          <span className="hidden sm:inline">{orderLabel}</span>
-          <span className="ml-2 inline-flex min-w-5 justify-center rounded-md bg-white px-1.5 text-xs font-bold text-[#0A286E]">{count}</span>
+        <Link href="/sifaris" aria-label={orderLabel} className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#0A286E] text-white sm:h-10 sm:w-auto sm:gap-2 sm:px-3">
+          <svg viewBox="0 0 24 24" className="h-5 w-5 sm:hidden" aria-hidden fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6h15l-1.5 9h-12z" /><path d="M6 6 5 3H2" /><circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" /></svg>
+          <span className="hidden text-sm font-semibold sm:inline">{orderLabel}</span>
+          <span className="absolute -right-1 -top-1 inline-flex min-h-5 min-w-5 items-center justify-center rounded-md bg-white px-1 text-xs font-bold text-[#0A286E] sm:static">{count}</span>
         </Link>
 
         <button
           type="button"
-          className="inline-flex h-10 shrink-0 items-center rounded-lg border border-[#E6E8EC] bg-white px-3 text-sm font-medium lg:hidden"
+          className="inline-flex h-12 shrink-0 items-center rounded-lg border border-[#E6E8EC] bg-white px-3 text-sm font-semibold lg:hidden"
           aria-expanded={open}
           aria-controls="category-menu"
           onClick={() => setOpen((value) => !value)}
@@ -126,11 +129,12 @@ export function Header({
         </button>
       </div>
 
-      <form action={searchAction} className="mx-auto max-w-[1280px] px-3 pb-2.5 md:hidden" role="search">
+      <form action={searchAction} className="mx-auto flex max-w-[1280px] gap-2 px-3 pb-2.5 md:hidden" role="search">
         <label className="sr-only" htmlFor="q-mobile">
           {t('search')}
         </label>
-        <input id="q-mobile" name="q" placeholder={t('search')} className="h-11 w-full rounded-lg border border-transparent bg-[#F3F4F6] px-4 text-base text-[#1A1A1A] outline-none focus:border-[#0A286E]" />
+        <input id="q-mobile" name="q" placeholder={t('search')} className="h-12 min-w-0 flex-1 rounded-lg border border-transparent bg-[#F3F4F6] px-4 text-base text-[#1A1A1A] outline-none focus:border-[#0A286E]" />
+        <button type="submit" className="h-12 shrink-0 rounded-lg bg-[#0A286E] px-4 text-sm font-semibold text-white">{t('searchSubmit')}</button>
       </form>
 
       <nav aria-label={t('categories')} className="border-t border-[#F0F1F3]">
@@ -139,7 +143,7 @@ export function Header({
             <Link
               key={category.id}
               href={`/kataloq/${category.id}`}
-              className="shrink-0 px-3 py-2.5 text-[13px] font-medium text-[#2B2F36] hover:text-[#0A286E]"
+              className="inline-flex min-h-12 shrink-0 items-center px-3 text-[13px] font-medium text-[#2B2F36] hover:text-[#0A286E]"
             >
               {category.name}
             </Link>
@@ -149,17 +153,17 @@ export function Header({
     </header>
 
       {open && (
-        <div id="category-menu" className="fixed inset-x-0 bottom-0 z-40 overflow-auto border-t border-[#E6E8EC] bg-white shadow-[0_16px_40px_rgba(16,24,40,0.08)]" style={{ top: menuTop }}>
-          <div className="mx-auto grid max-w-[1280px] gap-6 px-4 py-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div id="category-menu" className="fixed inset-x-0 bottom-0 z-40 overflow-auto border-t border-[#E6E8EC] bg-white" style={{ top: menuTop }}>
+          <div className="mx-auto grid max-w-[1280px] gap-5 px-4 py-4 sm:grid-cols-2 lg:grid-cols-4">
             {categories.map((category) => (
               <div key={category.id}>
-                <Link href={`/kataloq/${category.id}`} className="text-sm font-semibold text-[#0A286E]">
+                <Link href={`/kataloq/${category.id}`} className="flex min-h-12 items-center text-base font-semibold text-[#0A286E]">
                   {category.name}
                 </Link>
-                <ul className="mt-2 space-y-1">
+                <ul>
                   {category.subs.map((sub) => (
                     <li key={sub.id}>
-                      <Link href={`/kataloq/${category.id}?alt=${sub.id}`} className="text-sm text-[#3A3F47] hover:text-[#0A286E]">
+                      <Link href={`/kataloq/${category.id}?alt=${sub.id}`} className="flex min-h-11 items-center text-sm text-[#3A3F47] hover:text-[#0A286E]">
                         {sub.name}
                       </Link>
                     </li>

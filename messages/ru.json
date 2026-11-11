@@ -11,7 +11,8 @@
     "certificates": "Сертификаты",
     "blog": "Блог",
     "order": "Список заказа",
-    "orderShort": "Заказ"
+    "orderShort": "Заказ",
+    "searchSubmit": "Найти"
   },
   "home": {
     "lead": "SOCHİ MMC продаёт материалы для тепло-, гидро- и звукоизоляции в Баку. Цену и наличие каждого товара уточняют в WhatsApp.",
@@ -36,6 +37,7 @@
     "variant": "Вариант",
     "sku": "Артикул",
     "whatsapp": "Заказать в WhatsApp",
+    "whatsappShort": "WhatsApp",
     "waUnavailable": "Ссылка WhatsApp не готова."
   },
   "filters": {

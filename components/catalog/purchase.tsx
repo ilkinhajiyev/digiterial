@@ -83,11 +83,11 @@ export function Purchase({
           <legend className="text-sm font-medium">{t('variant')}</legend>
           <div className="mt-2 grid gap-2">
             {variants.map((item) => (
-              <label key={item.id} className={`flex cursor-pointer items-start gap-3 rounded-lg border px-3 py-2.5 ${item.id === variant.id ? 'border-[#0A286E] bg-[#F4F7FC]' : 'border-[#E6E8EC]'}`}>
+              <label key={item.id} className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-lg border px-3 py-2 ${item.id === variant.id ? 'border-[#0A286E] bg-[#F4F7FC]' : 'border-[#E6E8EC]'}`}>
                 <input
                   type="radio"
                   name="variant"
-                  className="mt-1"
+                  className="h-5 w-5 shrink-0"
                   checked={item.id === variant.id}
                   onChange={() => {
                     setVariantId(item.id);
@@ -105,23 +105,27 @@ export function Purchase({
           <div className="flex justify-between gap-4"><dt>{t('price')}</dt><dd className="text-right text-lg font-bold text-[#0A286E]">{priceLabel(variant.price, variant.unit, locale)}</dd></div>
           <div className="flex justify-between gap-4"><dt>{t('stock')}</dt><dd>{stockLabel(variant.stock, locale)}</dd></div>
         </dl>
-        <label className="mt-4 block text-sm font-medium">
-          {t('qty')}
-          <input
-            type="number"
-            min={1}
-            max={9999}
-            value={qty}
-            onChange={(event) => {
-              setQty(clampQty(Number(event.target.value)));
-              setAdded(false);
-            }}
-            className="mt-1 h-10 w-28 rounded-lg border border-[#E6E8EC] bg-[#F7F8FA] px-3"
-          />
-        </label>
+        <div className="mt-4">
+          <p className="text-sm font-medium">{t('qty')}</p>
+          <div className="mt-1 flex items-center gap-2">
+            <button type="button" className="h-12 w-12 rounded-lg border border-[#E6E8EC] text-lg" onClick={() => { setQty(clampQty(qty - 1)); setAdded(false); }} aria-label="-">−</button>
+            <input
+              type="number"
+              min={1}
+              max={9999}
+              value={qty}
+              onChange={(event) => {
+                setQty(clampQty(Number(event.target.value)));
+                setAdded(false);
+              }}
+              className="h-12 w-20 rounded-lg border border-[#E6E8EC] bg-[#F7F8FA] text-center text-base"
+            />
+            <button type="button" className="h-12 w-12 rounded-lg border border-[#E6E8EC] text-lg" onClick={() => { setQty(clampQty(qty + 1)); setAdded(false); }} aria-label="+">+</button>
+          </div>
+        </div>
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
           {href ? (
-            <a href={href} className="inline-flex h-11 flex-1 items-center justify-center rounded-lg bg-[#1FA855] px-5 text-sm font-semibold text-white">
+            <a href={href} className="inline-flex h-12 flex-1 items-center justify-center rounded-lg bg-[#1FA855] px-5 text-sm font-semibold text-white">
               {t('whatsapp')}
             </a>
           ) : (
@@ -129,7 +133,7 @@ export function Purchase({
           )}
           <button
             type="button"
-            className="inline-flex h-11 flex-1 items-center justify-center rounded-lg border border-[#0A286E] px-5 text-sm font-semibold text-[#0A286E]"
+            className="inline-flex h-12 flex-1 items-center justify-center rounded-lg border border-[#0A286E] px-5 text-sm font-semibold text-[#0A286E]"
             onClick={() => {
               addToOrder(product.id, variant.id, qty);
               setAdded(true);

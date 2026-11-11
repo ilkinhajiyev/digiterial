@@ -51,11 +51,11 @@ export function OrderList({ products, origin, whatsappE164 }: { products: Produc
   const href = resolved.some((item) => item.product && item.variant) ? whatsappLink(whatsappE164, message) : null;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
+    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <div className="space-y-3">
-        {resolved.length === 0 && <p className="rounded-2xl border border-dashed border-[#D5DAE1] bg-white p-6 text-sm">{t('empty')}</p>}
+        {resolved.length === 0 && <p className="rounded-xl border border-dashed border-[#E6E8EC] bg-white p-6 text-sm">{t('empty')}</p>}
         {resolved.map(({ line, product, variant }) => (
-          <article key={`${line.productId}-${line.variantId}`} className="rounded-2xl border border-[#E4E7EB] bg-white p-4">
+          <article key={`${line.productId}-${line.variantId}`} className="rounded-xl border border-[#ECEEF2] bg-white p-4">
             {!product || !variant ? (
               <p className="text-sm">{t('missing')}</p>
             ) : (
@@ -68,23 +68,23 @@ export function OrderList({ products, origin, whatsappE164 }: { products: Produc
                 <p className="text-sm">{t('unit')}: {unitLabel(variant.unit, locale) || t('unitUnknown')}</p>
               </>
             )}
-            <div className="mt-3 flex items-center gap-3">
-              <label className="text-sm">
-                {t('qty')}
-                <input
-                  type="number"
-                  min={1}
-                  max={9999}
-                  value={line.qty}
-                  onChange={(event) => {
-                    commit(lines.map((item) => (item === line ? { ...item, qty: clampQty(Number(event.target.value)) } : item)));
-                  }}
-                  className="ml-2 h-11 w-24 rounded-lg border border-[#D5DAE1] px-2"
-                />
-              </label>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className="text-sm font-medium">{t('qty')}</span>
+              <button type="button" className="h-12 w-12 rounded-lg border border-[#E6E8EC] text-lg" aria-label="-" onClick={() => commit(lines.map((item) => (item === line ? { ...item, qty: clampQty(item.qty - 1) } : item)))}>−</button>
+              <input
+                type="number"
+                min={1}
+                max={9999}
+                value={line.qty}
+                onChange={(event) => {
+                  commit(lines.map((item) => (item === line ? { ...item, qty: clampQty(Number(event.target.value)) } : item)));
+                }}
+                className="h-12 w-20 rounded-lg border border-[#E6E8EC] text-center text-base"
+              />
+              <button type="button" className="h-12 w-12 rounded-lg border border-[#E6E8EC] text-lg" aria-label="+" onClick={() => commit(lines.map((item) => (item === line ? { ...item, qty: clampQty(item.qty + 1) } : item)))}>+</button>
               <button
                 type="button"
-                className="h-11 rounded-full border border-[#D5DAE1] px-4 text-sm"
+                className="h-12 rounded-lg border border-[#E6E8EC] px-4 text-sm"
                 onClick={() => commit(lines.filter((item) => item !== line))}
               >
                 {t('remove')}
@@ -93,12 +93,12 @@ export function OrderList({ products, origin, whatsappE164 }: { products: Produc
           </article>
         ))}
       </div>
-      <aside className="h-fit rounded-2xl border border-[#E4E7EB] bg-white p-4">
+      <aside className="h-fit rounded-xl border border-[#ECEEF2] bg-white p-4">
         <h2 className="font-semibold">{t('preview')}</h2>
         <pre className="mt-3 whitespace-pre-wrap rounded-xl bg-[#F7F8FA] p-3 text-sm leading-6">{message}</pre>
         <button
           type="button"
-          className="mt-3 h-11 w-full rounded-full border border-[#0A286E] text-sm font-semibold text-[#0A286E]"
+          className="mt-3 h-12 w-full rounded-lg border border-[#0A286E] text-sm font-semibold text-[#0A286E]"
           onClick={async () => {
             try {
               await navigator.clipboard.writeText(message);
@@ -111,7 +111,7 @@ export function OrderList({ products, origin, whatsappE164 }: { products: Produc
           {copied ? t('copied') : t('copy')}
         </button>
         {href ? (
-          <a href={href} className="mt-2 inline-flex h-12 w-full items-center justify-center rounded-full bg-[#1FA855] font-semibold text-white">
+          <a href={href} className="mt-2 inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#1FA855] text-sm font-semibold text-white">
             {t('whatsapp')}
           </a>
         ) : (
