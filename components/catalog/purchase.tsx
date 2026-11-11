@@ -52,9 +52,9 @@ export function Purchase({
   const gallery = product.images.length > 1 ? product.images : [];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-2">
-      <div>
-        <div className="relative aspect-square overflow-hidden rounded-2xl border border-[#E4E7EB] bg-[#F4F5F7]">
+    <div className="grid gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+      <div className="rounded-xl border border-[#ECEEF2] bg-white p-3">
+        <div className="relative aspect-square overflow-hidden bg-white">
           <Picture src={image} alt={name} locale={locale} priority />
         </div>
         {gallery.length > 1 && (
@@ -63,7 +63,7 @@ export function Purchase({
               <button
                 key={item.id}
                 type="button"
-                className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-[#E4E7EB]"
+                className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-[#E6E8EC] bg-white"
                 onClick={() => {
                   const match = variants.find((entry) => entry.image === item.src);
                   if (match) setVariantId(match.id);
@@ -75,15 +75,15 @@ export function Purchase({
           </div>
         )}
       </div>
-      <div>
-        <p className="text-sm text-[#6B7280]">{categoryName} · {product.family}</p>
-        <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#1C1F24]">{name}</h1>
+      <div className="rounded-xl border border-[#ECEEF2] bg-white p-4 sm:p-5">
+        <p className="text-xs font-medium uppercase tracking-wide text-[#8A9099]">{categoryName} · {product.family}</p>
+        <h1 className="mt-1 text-2xl font-bold tracking-tight text-[#1A1A1A] sm:text-3xl">{name}</h1>
         {product.brand && <p className="mt-2 text-sm">{t('brand')}: {product.brand}</p>}
         <fieldset className="mt-5">
           <legend className="text-sm font-medium">{t('variant')}</legend>
           <div className="mt-2 grid gap-2">
             {variants.map((item) => (
-              <label key={item.id} className={`flex cursor-pointer items-start gap-3 rounded-xl border px-3 py-3 ${item.id === variant.id ? 'border-[#0A286E] bg-[#F3F6FB]' : 'border-[#E4E7EB]'}`}>
+              <label key={item.id} className={`flex cursor-pointer items-start gap-3 rounded-lg border px-3 py-2.5 ${item.id === variant.id ? 'border-[#0A286E] bg-[#F4F7FC]' : 'border-[#E6E8EC]'}`}>
                 <input
                   type="radio"
                   name="variant"
@@ -102,7 +102,7 @@ export function Purchase({
         <dl className="mt-4 grid gap-1 text-sm">
           <div className="flex justify-between gap-4"><dt>{t('sku')}</dt><dd>{skuLabel(variant.sku, locale)}</dd></div>
           <div className="flex justify-between gap-4"><dt>{t('unit')}</dt><dd>{unitLabel(variant.unit, locale) || unitUnknown(locale)}</dd></div>
-          <div className="flex justify-between gap-4"><dt>{t('price')}</dt><dd className="text-right font-medium text-[#0A286E]">{priceLabel(variant.price, variant.unit, locale)}</dd></div>
+          <div className="flex justify-between gap-4"><dt>{t('price')}</dt><dd className="text-right text-lg font-bold text-[#0A286E]">{priceLabel(variant.price, variant.unit, locale)}</dd></div>
           <div className="flex justify-between gap-4"><dt>{t('stock')}</dt><dd>{stockLabel(variant.stock, locale)}</dd></div>
         </dl>
         <label className="mt-4 block text-sm font-medium">
@@ -116,12 +116,12 @@ export function Purchase({
               setQty(clampQty(Number(event.target.value)));
               setAdded(false);
             }}
-            className="mt-1 h-11 w-28 rounded-lg border border-[#D5DAE1] px-3"
+            className="mt-1 h-10 w-28 rounded-lg border border-[#E6E8EC] bg-[#F7F8FA] px-3"
           />
         </label>
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
           {href ? (
-            <a href={href} className="inline-flex h-12 items-center justify-center rounded-full bg-[#1FA855] px-5 font-semibold text-white">
+            <a href={href} className="inline-flex h-11 flex-1 items-center justify-center rounded-lg bg-[#1FA855] px-5 text-sm font-semibold text-white">
               {t('whatsapp')}
             </a>
           ) : (
@@ -129,7 +129,7 @@ export function Purchase({
           )}
           <button
             type="button"
-            className="inline-flex h-12 items-center justify-center rounded-full border border-[#0A286E] px-5 font-semibold text-[#0A286E]"
+            className="inline-flex h-11 flex-1 items-center justify-center rounded-lg border border-[#0A286E] px-5 text-sm font-semibold text-[#0A286E]"
             onClick={() => {
               addToOrder(product.id, variant.id, qty);
               setAdded(true);
@@ -150,7 +150,7 @@ export function Purchase({
           <table className="mt-2 w-full text-left text-sm">
             <tbody>
               {variant.specs.map((spec) => (
-                <tr key={spec.key} className="border-t border-[#E4E7EB]">
+                <tr key={spec.key} className="border-t border-[#F0F1F3]">
                   <th className="py-2 pr-3 font-medium">{SPEC_LABELS[spec.key]?.[locale] || spec.key}</th>
                   <td className="py-2">{specValue(spec.value, locale)}</td>
                 </tr>
@@ -166,7 +166,7 @@ export function Purchase({
           <ul className="mt-2 flex flex-wrap gap-2">
             {variant.applicationAreas.map((area) => (
               <li key={area}>
-                <Link href={`/kataloq?sahe=${area}`} className="inline-flex h-10 items-center rounded-full bg-[#F3F6FB] px-3 text-sm text-[#0A286E]">
+                <Link href={`/kataloq?sahe=${area}`} className="inline-flex h-9 items-center rounded-lg bg-[#F4F7FC] px-3 text-sm font-medium text-[#0A286E]">
                   {areas(area as 'dam')}
                 </Link>
               </li>

@@ -60,20 +60,21 @@ export function Header({
 
   return (
     <>
-    <header ref={headerRef} className="sticky top-0 z-40 border-b border-[#E4E7EB] bg-white">
-      <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-3 sm:gap-3 sm:px-4">
+    <header ref={headerRef} className="sticky top-0 z-40 border-b border-[#E6E8EC] bg-white">
+      <div className="mx-auto flex max-w-[1280px] items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="SOCHİ MMC">
-          <Image src="/media/brand/sochi-logo.png" alt="" width={44} height={44} className="h-11 w-11" />
-          <span className="text-sm font-semibold tracking-wide text-[#0A286E]">SOCHİ MMC</span>
+          <Image src="/media/brand/sochi-logo.png" alt="" width={40} height={40} className="h-10 w-10" />
+          <span className="text-[15px] font-bold tracking-tight text-[#0A286E]">SOCHİ MMC</span>
         </Link>
 
         <button
           type="button"
-          className="hidden h-11 items-center rounded-full border border-[#D5DAE1] px-4 text-sm font-medium text-[#1C1F24] lg:inline-flex"
+          className="hidden h-10 shrink-0 items-center gap-2 rounded-lg bg-[#0A286E] px-3.5 text-sm font-semibold text-white lg:inline-flex"
           aria-expanded={open}
           aria-controls="category-menu"
           onClick={() => setOpen((value) => !value)}
         >
+          <span aria-hidden className="text-base leading-none">☰</span>
           {t('categories')}
         </button>
 
@@ -85,18 +86,18 @@ export function Header({
             id="q-desktop"
             name="q"
             placeholder={t('search')}
-            className="h-11 w-full rounded-full border border-[#D5DAE1] bg-[#F7F8FA] px-4 text-base text-[#1C1F24] outline-none"
+            className="h-10 w-full rounded-lg border border-transparent bg-[#F3F4F6] px-4 text-sm text-[#1A1A1A] outline-none focus:border-[#0A286E]"
           />
         </form>
 
-        <nav aria-label={t('languages')} className="hidden items-center gap-1 text-sm font-medium sm:flex">
+        <nav aria-label={t('languages')} className="hidden items-center text-[13px] font-semibold sm:flex">
           {(['az', 'en', 'ru'] as const).map((code) => (
             <Link
               key={code}
               href={pathname}
               locale={code}
               hrefLang={code}
-              className={`rounded px-1.5 py-1 uppercase ${code === locale ? 'text-[#0A286E]' : 'text-[#6B7280]'}`}
+              className={`px-1.5 py-1 uppercase ${code === locale ? 'text-[#0A286E]' : 'text-[#8A9099]'}`}
               aria-current={code === locale ? 'page' : undefined}
             >
               {code}
@@ -104,19 +105,19 @@ export function Header({
           ))}
         </nav>
 
-        <a href={`tel:+${phone.replace(/\D/g, '')}`} className="hidden text-sm font-medium text-[#1C1F24] xl:inline">
+        <a href={`tel:+${phone.replace(/\D/g, '')}`} className="hidden text-sm font-medium text-[#1A1A1A] xl:inline">
           {t('contact')}
         </a>
 
-        <Link href="/sifaris" aria-label={orderLabel} className="relative inline-flex h-11 shrink-0 items-center rounded-full bg-[#0A286E] px-3 text-sm font-medium text-white">
+        <Link href="/sifaris" aria-label={orderLabel} className="relative inline-flex h-10 shrink-0 items-center rounded-lg bg-[#0A286E] px-3 text-sm font-semibold text-white">
           <span className="sm:hidden">{t('orderShort')}</span>
           <span className="hidden sm:inline">{orderLabel}</span>
-          <span className="ml-2 inline-flex min-w-6 justify-center rounded-full bg-white px-1.5 text-xs font-semibold text-[#0A286E]">{count}</span>
+          <span className="ml-2 inline-flex min-w-5 justify-center rounded-md bg-white px-1.5 text-xs font-bold text-[#0A286E]">{count}</span>
         </Link>
 
         <button
           type="button"
-          className="inline-flex h-11 shrink-0 items-center rounded-full border border-[#D5DAE1] px-3 text-sm lg:hidden"
+          className="inline-flex h-10 shrink-0 items-center rounded-lg border border-[#E6E8EC] bg-white px-3 text-sm font-medium lg:hidden"
           aria-expanded={open}
           aria-controls="category-menu"
           onClick={() => setOpen((value) => !value)}
@@ -125,26 +126,40 @@ export function Header({
         </button>
       </div>
 
-      <form action={searchAction} className="mx-auto max-w-6xl px-4 pb-3 md:hidden" role="search">
+      <form action={searchAction} className="mx-auto max-w-[1280px] px-3 pb-2.5 md:hidden" role="search">
         <label className="sr-only" htmlFor="q-mobile">
           {t('search')}
         </label>
-        <input id="q-mobile" name="q" placeholder={t('search')} className="h-12 w-full rounded-xl border border-[#D5DAE1] bg-[#F7F8FA] px-4 text-base" />
-        </form>
+        <input id="q-mobile" name="q" placeholder={t('search')} className="h-11 w-full rounded-lg border border-transparent bg-[#F3F4F6] px-4 text-base text-[#1A1A1A] outline-none focus:border-[#0A286E]" />
+      </form>
+
+      <nav aria-label={t('categories')} className="border-t border-[#F0F1F3]">
+        <div className="shelf mx-auto flex max-w-[1280px] gap-1 overflow-x-auto px-2">
+          {categories.map((category) => (
+            <Link
+              key={category.id}
+              href={`/kataloq/${category.id}`}
+              className="shrink-0 px-3 py-2.5 text-[13px] font-medium text-[#2B2F36] hover:text-[#0A286E]"
+            >
+              {category.name}
+            </Link>
+          ))}
+        </div>
+      </nav>
     </header>
 
       {open && (
-        <div id="category-menu" className="fixed inset-x-0 bottom-0 z-40 overflow-auto border-t border-[#E4E7EB] bg-white" style={{ top: menuTop }}>
-          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div id="category-menu" className="fixed inset-x-0 bottom-0 z-40 overflow-auto border-t border-[#E6E8EC] bg-white shadow-[0_16px_40px_rgba(16,24,40,0.08)]" style={{ top: menuTop }}>
+          <div className="mx-auto grid max-w-[1280px] gap-6 px-4 py-5 sm:grid-cols-2 lg:grid-cols-4">
             {categories.map((category) => (
               <div key={category.id}>
-                <Link href={`/kataloq/${category.id}`} className="font-semibold text-[#0A286E]">
+                <Link href={`/kataloq/${category.id}`} className="text-sm font-semibold text-[#0A286E]">
                   {category.name}
                 </Link>
                 <ul className="mt-2 space-y-1">
                   {category.subs.map((sub) => (
                     <li key={sub.id}>
-                      <Link href={`/kataloq/${category.id}?alt=${sub.id}`} className="text-sm text-[#374151] hover:text-[#0A286E]">
+                      <Link href={`/kataloq/${category.id}?alt=${sub.id}`} className="text-sm text-[#3A3F47] hover:text-[#0A286E]">
                         {sub.name}
                       </Link>
                     </li>
@@ -152,26 +167,28 @@ export function Header({
                 </ul>
               </div>
             ))}
-            <div className="space-y-2 text-sm sm:col-span-2 lg:col-span-4">
-              <nav aria-label={t('languages')} className="mb-3 flex gap-2 sm:hidden">
+            <div className="space-y-3 text-sm sm:col-span-2 lg:col-span-4">
+              <nav aria-label={t('languages')} className="flex gap-2 sm:hidden">
                 {(['az', 'en', 'ru'] as const).map((code) => (
                   <Link
                     key={code}
                     href={pathname}
                     locale={code}
                     hrefLang={code}
-                    className={`inline-flex h-11 items-center rounded-full border px-4 uppercase ${code === locale ? 'border-[#0A286E] text-[#0A286E]' : 'border-[#D5DAE1] text-[#374151]'}`}
+                    className={`inline-flex h-10 items-center rounded-lg border px-3 uppercase ${code === locale ? 'border-[#0A286E] font-semibold text-[#0A286E]' : 'border-[#E6E8EC] text-[#3A3F47]'}`}
                     aria-current={code === locale ? 'page' : undefined}
                   >
                     {code}
                   </Link>
                 ))}
               </nav>
-              <Link href="/xidmetler" className="mr-4 inline-block font-medium">{t('services')}</Link>
-              <Link href="/about" className="mr-4 inline-block font-medium">{t('about')}</Link>
-              <Link href="/contact" className="mr-4 inline-block font-medium">{t('contact')}</Link>
-              <Link href="/sertifikatlar" className="mr-4 inline-block font-medium">{t('certificates')}</Link>
-              <Link href="/blog" className="inline-block font-medium">{t('blog')}</Link>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-[#F0F1F3] pt-3">
+                <Link href="/xidmetler" className="font-medium">{t('services')}</Link>
+                <Link href="/about" className="font-medium">{t('about')}</Link>
+                <Link href="/contact" className="font-medium">{t('contact')}</Link>
+                <Link href="/sertifikatlar" className="font-medium">{t('certificates')}</Link>
+                <Link href="/blog" className="font-medium">{t('blog')}</Link>
+              </div>
             </div>
           </div>
         </div>

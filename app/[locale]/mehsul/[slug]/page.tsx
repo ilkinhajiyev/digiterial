@@ -56,18 +56,18 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
   if (variant.sku) schema.sku = variant.sku;
   return (
     <div>
-      <nav className="mb-4 text-sm text-[#4B5563]" aria-label="Breadcrumb">
-        <Link href="/" className="underline">SOCHİ</Link>
+      <nav className="mb-3 text-xs text-[#8A9099]" aria-label="Breadcrumb">
+        <Link href="/" className="hover:text-[#0A286E]">SOCHİ</Link>
         <span> / </span>
-        <Link href="/kataloq" className="underline">{locale === 'en' ? 'Catalog' : locale === 'ru' ? 'Каталог' : 'Kataloq'}</Link>
+        <Link href="/kataloq" className="hover:text-[#0A286E]">{locale === 'en' ? 'Catalog' : locale === 'ru' ? 'Каталог' : 'Kataloq'}</Link>
         {category && (
           <>
             <span> / </span>
-            <Link href={`/kataloq/${category.id}`} className="underline">{pick(category.name, locale)}</Link>
+            <Link href={`/kataloq/${category.id}`} className="hover:text-[#0A286E]">{pick(category.name, locale)}</Link>
           </>
         )}
         <span> / </span>
-        <span>{pick(product.name, locale)}</span>
+        <span className="text-[#1A1A1A]">{pick(product.name, locale)}</span>
       </nav>
       <JsonLd
         data={{
@@ -87,8 +87,8 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
       <Purchase product={product} origin={origin} whatsappE164={catalog.settings.whatsappE164} categoryName={category ? pick(category.name, locale) : ''} />
       {related.length > 0 && (
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold">{t('related')}</h2>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <h2 className="text-xl font-bold text-[#1A1A1A]">{t('related')}</h2>
+          <div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
             {related.map((item) => (
               <ProductCard
                 key={item.id}

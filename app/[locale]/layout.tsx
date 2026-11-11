@@ -38,7 +38,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   const loc = locale as Locale;
   return (
     <html lang={locale} className={fontVars}>
-      <body className="bg-[#F6F7F9] text-[#1C1F24]">
+      <body className="bg-[#F3F4F6] text-[#1A1A1A]">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:bg-white focus:px-3 focus:py-2">
             {locale === 'en' ? 'Skip to content' : locale === 'ru' ? 'К содержанию' : 'Məzmuna keç'}
@@ -52,7 +52,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
               subs: category.subs.map((sub) => ({ id: sub.id, name: pick(sub.name, loc) })),
             }))}
           />
-          <main id="main" className="mx-auto min-h-[70vh] max-w-6xl px-4 py-8">
+          <main id="main" className="mx-auto min-h-[70vh] max-w-[1280px] px-3 py-5 sm:px-4 sm:py-6">
             {children}
           </main>
           <Footer settings={catalog.settings} locale={loc} />

@@ -7,8 +7,8 @@ export function Footer({ settings, locale }: { settings: Settings; locale: Local
   const t = useTranslations('footer');
   const advice = whatsappLink(settings.whatsappE164, adviceMessage(locale));
   return (
-    <footer className="mt-16 border-t border-[#E4E7EB] bg-white">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3">
+    <footer className="mt-10 border-t border-[#E8EAED] bg-white">
+      <div className="mx-auto grid max-w-[1280px] gap-8 px-4 py-8 sm:grid-cols-3">
         <div>
           <p className="font-semibold text-[#0A286E]">SOCHİ MMC</p>
           <p className="mt-2 text-sm text-[#4B5563]">{t('blurb')}</p>
@@ -31,7 +31,7 @@ export function Footer({ settings, locale }: { settings: Settings; locale: Local
           <Link href="/xidmetler">{t('services')}</Link>
           <Link href="/sifaris">{t('order')}</Link>
           {advice ? (
-            <a href={advice} className="inline-flex h-11 items-center rounded-full bg-[#1FA855] px-4 font-medium text-white">
+            <a href={advice} className="inline-flex h-10 items-center rounded-lg bg-[#1FA855] px-4 text-sm font-semibold text-white">
               {t('advice')}
             </a>
           ) : (

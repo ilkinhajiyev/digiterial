@@ -78,7 +78,7 @@ export function Filters({
       {subs.length > 0 && (
         <Field label={t('sub')} name="alt" value={filters.sub} anyLabel={t('any')} options={subs.map((sub) => ({ value: sub.id, label: sub.name }))} />
       )}
-      <button type="submit" className="h-11 rounded-full bg-[#0A286E] text-sm font-semibold text-white">
+      <button type="submit" className="h-10 rounded-lg bg-[#0A286E] text-sm font-semibold text-white">
         {t('apply')}
       </button>
       <a href={clear} className="text-center text-sm font-medium text-[#0A286E] underline">
@@ -91,11 +91,11 @@ export function Filters({
     <div>
       <div className="mb-3 flex items-center justify-between gap-3">
         <p className="text-sm text-[#374151]">{t('count', { count: total })}</p>
-        <button type="button" className="h-11 rounded-full border border-[#D5DAE1] px-4 text-sm lg:hidden" onClick={() => setOpen(true)}>
+        <button type="button" className="h-10 rounded-lg border border-[#E6E8EC] bg-white px-4 text-sm font-medium lg:hidden" onClick={() => setOpen(true)}>
           {t('open')}
         </button>
       </div>
-      <div className="hidden rounded-2xl border border-[#E4E7EB] bg-white p-4 lg:block">{form}</div>
+      <div className="hidden rounded-xl border border-[#ECEEF2] bg-white p-4 lg:block">{form}</div>
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden" role="dialog" aria-modal="true" aria-label={t('open')}>
           <div className="flex items-center justify-between border-b border-[#E4E7EB] px-4 py-3">
@@ -127,7 +127,7 @@ function Field({
   return (
     <label className="block text-sm">
       <span className="mb-1 block font-medium text-[#1C1F24]">{label}</span>
-      <select name={name} defaultValue={value} className="h-11 w-full rounded-lg border border-[#D5DAE1] bg-white px-2">
+      <select name={name} defaultValue={value} className="h-10 w-full rounded-lg border border-[#E6E8EC] bg-[#F7F8FA] px-2">
         <option value="">{anyLabel}</option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
