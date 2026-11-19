@@ -64,7 +64,7 @@ export default function Hero({ serviceCount, showcase }: { serviceCount: number;
           </p>
         )}
         <figure className="shero-mascot">
-          <MascotFigure className="shero-mascot-fig" width={220} height={300} alt="" priority={false} />
+          <MascotFigure className="shero-mascot-fig" width={246} height={303} alt="" priority={false} />
         </figure>
       </div>
     </section>

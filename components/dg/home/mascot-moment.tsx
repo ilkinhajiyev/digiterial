@@ -12,8 +12,8 @@ export default function MascotMoment() {
         <figure className="mascot-moment-fig">
           <MascotFigure
             className="mascot-moment-fig-inner"
-            width={380}
-            height={520}
+            width={410}
+            height={505}
             alt={t('Digiterial maskotu — ağ robot, firuzəyi ürək gözlər')}
             priority={false}
           />

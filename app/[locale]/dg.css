@@ -2386,3 +2386,28 @@ section#xidmetler > .wrap{position:relative; z-index:1}
   .nav>ul{display:none!important}
   .nav{grid-template-columns:minmax(0,1fr) auto!important}
 }
+
+/* ===== UX cilası: sticky header üçün hero ölçüləri, hero oxunaqlığı ===== */
+/* Header artıq axında (sticky, 72px) olduğu üçün köhnə "fixed header" boşluğu artıqdır */
+.sp-hero{padding-top:clamp(44px,6vw,88px)}
+.shero{min-height:min(calc(100svh - 72px),848px)}
+.shero-media img{filter:saturate(.6) contrast(1.04) brightness(.98) blur(7px)}
+@media (min-width:760px){
+  .shero-veil{
+    background:
+      linear-gradient(105deg, rgba(232,238,236,.99) 0%, rgba(232,238,236,.97) 46%, rgba(232,238,236,.7) 64%, rgba(232,238,236,.3) 82%, rgba(11,31,36,.2) 100%),
+      radial-gradient(980px 560px at 88% 18%, rgba(15,143,136,.26), transparent 62%),
+      linear-gradient(180deg, transparent 48%, rgba(232,238,236,.55) 78%, rgba(232,238,236,.92) 100%);
+  }
+}
+@media (max-width:759px){.shero{min-height:calc(100svh - 72px)}}
+.shero-in{padding-block:clamp(40px,7vh,88px) clamp(32px,5vh,64px)}
+@media (min-width:760px){
+  .shero-mascot{margin-top:clamp(20px,3vh,40px)}
+  .shero-veil{
+    background:
+      linear-gradient(105deg, rgba(232,238,236,.99) 0%, rgba(232,238,236,.98) 54%, rgba(232,238,236,.72) 70%, rgba(232,238,236,.3) 86%, rgba(11,31,36,.2) 100%),
+      radial-gradient(980px 560px at 88% 18%, rgba(15,143,136,.26), transparent 62%),
+      linear-gradient(180deg, transparent 48%, rgba(232,238,236,.55) 78%, rgba(232,238,236,.92) 100%);
+  }
+}

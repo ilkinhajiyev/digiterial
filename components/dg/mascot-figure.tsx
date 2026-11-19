@@ -15,9 +15,9 @@ type Props = {
 /** Interactive Digiterial mascot — hover bounce / heart glow, optional look-at. */
 export default function MascotFigure({
   className = '',
-  src = '/brand/mascot/digiterial-mascot-front-cutout.png',
+  src = '/brand/mascot/digiterial-mascot-front-full.webp',
   alt = '',
-  width = 220,
+  width = 246,
   height = 300,
   look = true,
   priority = false,
