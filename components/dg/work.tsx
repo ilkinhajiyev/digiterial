@@ -10,7 +10,7 @@ export function WorkGrid({ items: raw }: { items: PItem[] }) {
   return (
     <div className="work-grid">
       {items.map((it) => (
-        <Link key={it.id} className="wcard" href={`/isler/${it.slug || it.id}`}>
+        <article key={it.id} className="wcard">
           <div className="img">
             {(it.image_url || SHOTS[it.slug || '']?.desktop) ? <img src={it.image_url || SHOTS[it.slug || '']!.desktop} alt={it.title} loading="lazy" /> : (
               <div className="case-visual" style={{ height: '100%', aspectRatio: 'auto' }}>
@@ -21,10 +21,15 @@ export function WorkGrid({ items: raw }: { items: PItem[] }) {
           </div>
           <div className="meta">
             <span className="label">{it.category === 'smm' ? t('SMM') : t('Veb sayt')}{it.client ? ` · ${it.client}` : ''}</span>
-            <h3>{it.title}</h3>
+            <h3><Link className="wcard-link" href={`/isler/${it.slug || it.id}`}>{it.title}</Link></h3>
             {it.description && <p style={{ margin: 0, color: 'var(--muted)' }}>{it.description}</p>}
+            {it.url && it.url !== '#' && (
+              <a className="wcard-visit" href={it.url} target="_blank" rel="noopener noreferrer" aria-label={`${t('Sayta keçin')} — ${it.client || it.title}`}>
+                {t('Sayta keçin')} <span aria-hidden="true">↗</span>
+              </a>
+            )}
           </div>
-        </Link>
+        </article>
       ))}
     </div>
   );

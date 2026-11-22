@@ -2567,3 +2567,12 @@ header.top.solid,header.top:has(.mega.open),header.top:has(.mobile-menu:not([hid
 .logos.ember-dark .logos-row a:hover{opacity:1}
 .logos.ember-dark .logos-row img{height:34px;width:auto;max-width:170px;object-fit:contain;display:block}
 @media (max-width:759px){.logos.ember-dark .logos-row img{height:28px}.logos.ember-dark .logos-row a{padding-right:44px!important}}
+
+/* Portfolio kartı: bütün kart layihə səhifəsinə, ayrıca düymə canlı sayta aparır */
+.wcard{position:relative}
+.wcard-link{color:inherit;text-decoration:none}
+.wcard-link::after{content:"";position:absolute;inset:0;z-index:1}
+.wcard-visit{position:relative;z-index:2;justify-self:start;margin-top:8px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line-2,var(--line));font:600 14px/1 var(--f-body,inherit);color:var(--ink);text-decoration:none;transition:background .2s,border-color .2s,color .2s}
+.wcard-visit:hover,.wcard-visit:focus-visible{background:var(--accent);border-color:var(--accent);color:#fff}
+.wcard-visit span{transition:transform .2s}
+.wcard-visit:hover span{transform:translate(2px,-2px)}
