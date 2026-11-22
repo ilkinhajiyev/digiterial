@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from 'next';
-import { Manrope, Unbounded, JetBrains_Mono } from 'next/font/google';
+import { Onest, Geologica, JetBrains_Mono } from 'next/font/google';
 import { getSettings } from '@/lib/data/settings';
 
 // Public marketing fonts (latin-ext + cyrillic for AZ/RU). Admin keeps its own CSS tokens.
-const display = Unbounded({
+const display = Geologica({
   subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-display',
   display: 'swap',
 });
-const sans = Manrope({
+const sans = Onest({
   subsets: ['latin', 'latin-ext', 'cyrillic'],
   variable: '--font-sans',
   display: 'swap',
@@ -25,7 +25,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: [{ color: '#E8EEEC' }],
+  themeColor: [{ color: '#08080A' }],
 };
 
 export async function baseMetadata(): Promise<Metadata> {

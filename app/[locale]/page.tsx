@@ -4,7 +4,6 @@ import Hero from '@/components/dg/home/hero';
 import Bento from '@/components/dg/home/bento';
 import GlobalStrip from '@/components/dg/home/global';
 import Manifesto from '@/components/dg/home/manifesto';
-import MascotMoment from '@/components/dg/home/mascot-moment';
 import Quiz from '@/components/dg/home/quiz';
 import { WorkSection, ProcessSection, StackSection, BlogSection, ContactSection } from '@/components/dg/home/sections';
 import { FaqSection, SecHead } from '@/components/dg/ui';
@@ -52,15 +51,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <Hero serviceCount={svc.length} showcase={items.filter((w) => w.slug && SHOTS[w.slug]).slice(0, 5).map((w) => ({ slug: w.slug!, client: w.client || w.title, url: w.url, desktop: SHOTS[w.slug!]!.desktop }))} />
-      <GlobalStrip />
-      <section className="logos" aria-label={t('Müştərilər')}>
+      <section className="logos ember-dark" aria-label={t('Müştərilər')}>
         <div className="wrap">
           <p>{t('Bizə etibar edən şirkətlər')}</p>
           <div className="logos-row">{items.map((w) => <Link key={w.id} href={`/isler/${w.slug || w.id}`}>{w.client || w.title}</Link>)}</div>
         </div>
       </section>
+      <GlobalStrip />
       <Manifesto />
-      <MascotMoment />
       <section id="xidmetler">
         <div className="wrap">
           <SecHead label={t('Xidmətlər')} title={t('Böyümək üçün lazım olan hər şey.')} lead={t('Ayrı-ayrı podratçılar arasında vaxt itirməyin. Strategiyadan icraya qədər bütün rəqəmsal kanallarınızı bir komanda idarə edir.')} />
