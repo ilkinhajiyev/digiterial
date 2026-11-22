@@ -226,7 +226,7 @@ export default function CrudTable({ title, subtitle, rows, cols, fields, upsert,
                       <textarea id={`f-${f.name}`} name={f.name} defaultValue={edit?.[f.name] ?? ''} rows={4} disabled={loading} placeholder={f.placeholder} className={`${input} resize-y`} />
                     ) : f.type === 'checkbox' ? (
                       <label className="flex items-center gap-2.5 h-[42px] cursor-pointer select-none">
-                        <input type="checkbox" id={`f-${f.name}`} name={f.name} defaultChecked={!!edit?.[f.name]} disabled={loading} className="w-4 h-4 accent-[#F1B43A]" />
+                        <input type="checkbox" id={`f-${f.name}`} name={f.name} defaultChecked={!!edit?.[f.name]} disabled={loading} className="w-4 h-4 accent-[#FF5A1F]" />
                         <span className="text-sm text-mut-d">Bəli</span>
                       </label>
                     ) : f.type === 'image' ? (

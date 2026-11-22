@@ -16,6 +16,13 @@ import { getT, localize, OG_LOCALE } from '@/lib/i18n/server';
 
 export const revalidate = 300;
 
+// Müştəri loqoları (public/clients/<slug>.webp): [en, hündürlük]. Loqosu olmayan müştəri mətnlə göstərilir.
+const CLIENT_LOGOS: Record<string, [number, number]> = {
+  'xayal-travel': [357, 96], 'naftalan-life': [250, 96], 'griffin-education': [113, 96], eventorg: [420, 66],
+  'ramoil-company-mmc': [220, 96], 'samir-photography': [330, 96], 'gelecege-korpu': [118, 96], zaurmarcom: [153, 96],
+  olerni: [271, 96], 'gal-restaurant': [147, 96],
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = getT(locale);
@@ -55,7 +62,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <p className="sr-only">{t('Bizə etibar edən şirkətlər')}</p>
         <div className="logos-row">
           {[0, 1].map((k) => items.map((w) => (
-            <Link key={`${k}-${w.id}`} href={`/isler/${w.slug || w.id}`} aria-hidden={k === 1 || undefined} tabIndex={k === 1 ? -1 : undefined}>{w.client || w.title}</Link>
+            <Link key={`${k}-${w.id}`} href={`/isler/${w.slug || w.id}`} aria-hidden={k === 1 || undefined} tabIndex={k === 1 ? -1 : undefined} aria-label={w.client || w.title}>
+              {w.slug && CLIENT_LOGOS[w.slug]
+                ? <img src={`/clients/${w.slug}.webp`} alt={w.client || w.title} width={CLIENT_LOGOS[w.slug][0]} height={CLIENT_LOGOS[w.slug][1]} loading="lazy" decoding="async" />
+                : (w.client || w.title)}
+            </Link>
           )))}
         </div>
       </section>

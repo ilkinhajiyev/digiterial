@@ -20,9 +20,9 @@ function Spark({ data }: { data: number[] }) {
   const d = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' ');
   return (
     <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true" className="overflow-visible">
-      <path d={`${d} L${w},${h} L0,${h} Z`} fill="rgba(162,255,203,.12)" />
-      <path d={d} fill="none" stroke="#A2FFCB" strokeWidth="1.6" strokeLinejoin="round" />
-      <circle cx={pts.at(-1)![0]} cy={pts.at(-1)![1]} r="2.6" fill="#A2FFCB" />
+      <path d={`${d} L${w},${h} L0,${h} Z`} fill="rgba(255,90,31,.12)" />
+      <path d={d} fill="none" stroke="#FF8A2B" strokeWidth="1.6" strokeLinejoin="round" />
+      <circle cx={pts.at(-1)![0]} cy={pts.at(-1)![1]} r="2.6" fill="#FF8A2B" />
     </svg>
   );
 }
@@ -68,7 +68,7 @@ export default function Dashboard({ d, now = Date.now() }: { d: DashData; now?: 
   const maxStage = Math.max(1, ...byStage.map((x) => x.n));
   const sources = Object.entries(d.leads.reduce<Record<string, number>>((m, l) => { const k = l.source || 'direct'; m[k] = (m[k] || 0) + 1; return m; }, {})).sort((a, b) => b[1] - a[1]);
   const srcTotal = Math.max(1, d.leads.length);
-  const SRC_COLORS = ['#F1B43A', '#A2FFCB', '#7CB8FF', '#C9A2FF', '#8B919C'];
+  const SRC_COLORS = ['#FF5A1F', '#FF8A2B', '#7CB8FF', '#C9A2FF', '#8B919C'];
 
   const hour = nowD.getHours();
   const greet = hour < 6 ? 'Gecəniz xeyir' : hour < 12 ? 'Sabahınız xeyir' : hour < 18 ? 'Günortanız xeyir' : 'Axşamınız xeyir';

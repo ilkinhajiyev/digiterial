@@ -7,7 +7,7 @@ import type { Ga4Data } from '@/lib/actions/ga4';
 import type { YandexData } from '@/lib/actions/yandex';
 import type { SearchConsoleData } from '@/lib/actions/search-console';
 
-const COLORS = ['#F1B43A', '#c9c400', '#9a9a93', '#6b6b64', '#44443f', '#2e2e2b'];
+const COLORS = ['#FF5A1F', '#c9c400', '#9a9a93', '#6b6b64', '#44443f', '#2e2e2b'];
 const card = 'bg-panel border border-line rounded-2xl p-5';
 
 function Ga4Section({ ga4, leads, clients }: { ga4: Ga4Data; leads: number; clients: number }) {
@@ -85,14 +85,14 @@ function Ga4Section({ ga4, leads, clients }: { ga4: Ga4Data; leads: number; clie
         <ResponsiveContainer width="100%" height={220}>
           <AreaChart data={ga4.daily}>
             <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#F1B43A" stopOpacity={0.4} />
-              <stop offset="100%" stopColor="#F1B43A" stopOpacity={0} />
+              <stop offset="0%" stopColor="#FF5A1F" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#FF5A1F" stopOpacity={0} />
             </linearGradient></defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" />
             <XAxis dataKey="date" stroke="#8A8A85" fontSize={11} />
             <YAxis stroke="#8A8A85" fontSize={11} />
             <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-            <Area type="monotone" dataKey="users" stroke="#F1B43A" strokeWidth={2} fill="url(#g)" />
+            <Area type="monotone" dataKey="users" stroke="#FF5A1F" strokeWidth={2} fill="url(#g)" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -106,7 +106,7 @@ function Ga4Section({ ga4, leads, clients }: { ga4: Ga4Data; leads: number; clie
               <XAxis type="number" stroke="#8A8A85" fontSize={11} />
               <YAxis type="category" dataKey="name" stroke="#8A8A85" fontSize={11} width={80} />
               <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-              <Bar dataKey="users" fill="#F1B43A" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="users" fill="#FF5A1F" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -208,14 +208,14 @@ function YandexSection({ yandex }: { yandex: YandexData }) {
         <ResponsiveContainer width="100%" height={220}>
           <AreaChart data={yandex.daily}>
             <defs><linearGradient id="yg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#F1B43A" stopOpacity={0.4} />
-              <stop offset="100%" stopColor="#F1B43A" stopOpacity={0} />
+              <stop offset="0%" stopColor="#FF5A1F" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#FF5A1F" stopOpacity={0} />
             </linearGradient></defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" />
             <XAxis dataKey="date" stroke="#8A8A85" fontSize={11} />
             <YAxis stroke="#8A8A85" fontSize={11} />
             <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-            <Area type="monotone" dataKey="users" stroke="#F1B43A" strokeWidth={2} fill="url(#yg)" />
+            <Area type="monotone" dataKey="users" stroke="#FF5A1F" strokeWidth={2} fill="url(#yg)" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -228,7 +228,7 @@ function YandexSection({ yandex }: { yandex: YandexData }) {
               <XAxis type="number" stroke="#8A8A85" fontSize={11} />
               <YAxis type="category" dataKey="name" stroke="#8A8A85" fontSize={11} width={80} />
               <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-              <Bar dataKey="users" fill="#F1B43A" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="users" fill="#FF5A1F" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -322,14 +322,14 @@ function SearchConsoleSection({ sc }: { sc: SearchConsoleData }) {
         <ResponsiveContainer width="100%" height={220}>
           <AreaChart data={sc.daily}>
             <defs><linearGradient id="scg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#F1B43A" stopOpacity={0.4} />
-              <stop offset="100%" stopColor="#F1B43A" stopOpacity={0} />
+              <stop offset="0%" stopColor="#FF5A1F" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#FF5A1F" stopOpacity={0} />
             </linearGradient></defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" />
             <XAxis dataKey="date" stroke="#8A8A85" fontSize={11} />
             <YAxis stroke="#8A8A85" fontSize={11} />
             <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-            <Area type="monotone" dataKey="clicks" stroke="#F1B43A" strokeWidth={2} fill="url(#scg)" />
+            <Area type="monotone" dataKey="clicks" stroke="#FF5A1F" strokeWidth={2} fill="url(#scg)" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -367,7 +367,7 @@ function SearchConsoleSection({ sc }: { sc: SearchConsoleData }) {
             <XAxis type="number" stroke="#8A8A85" fontSize={11} />
             <YAxis type="category" dataKey="name" stroke="#8A8A85" fontSize={11} width={80} />
             <Tooltip contentStyle={{ background: '#0b0b0b', border: '1px solid #333', borderRadius: 8 }} />
-            <Bar dataKey="clicks" fill="#F1B43A" radius={[0, 4, 4, 0]} />
+            <Bar dataKey="clicks" fill="#FF5A1F" radius={[0, 4, 4, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -2559,3 +2559,11 @@ header.top.solid,header.top:has(.mega.open),header.top:has(.mobile-menu:not([hid
 .bn-shot{width:min(270px,56%);right:-24px;bottom:-22px}
 .bn-card[data-service="veb-saytlar"] p,.bn-card[data-service="reklam"] p{max-width:26ch}
 @media (max-width:759px){.eh-stage{overflow:visible;max-height:none}.eh-orb{top:300px}.eh-orb-cut{top:470px}}
+/* Müştəri zolağı: loqolar */
+.logos.ember-dark{padding-block:22px!important}
+.logos.ember-dark .logos-row{align-items:center}
+.logos.ember-dark .logos-row a{padding-right:64px!important;gap:0!important;height:40px;opacity:.72;transition:opacity .25s}
+.logos.ember-dark .logos-row a::before{display:none!important}
+.logos.ember-dark .logos-row a:hover{opacity:1}
+.logos.ember-dark .logos-row img{height:34px;width:auto;max-width:170px;object-fit:contain;display:block}
+@media (max-width:759px){.logos.ember-dark .logos-row img{height:28px}.logos.ember-dark .logos-row a{padding-right:44px!important}}
