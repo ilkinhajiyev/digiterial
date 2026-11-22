@@ -14,12 +14,19 @@ export function translate(dict: Dict | undefined, s: string, vars?: Vars) {
 const SKIP = new Set(['slug', 'icon', 'group', 'service', 'date', 'url', 'href', 'id', 'image_url', 'gallery', 'industry', 't', 'key', 'locale']);
 export function localizeWith<V>(dict: Dict | undefined, v: V): V {
   if (!dict) return v;
-  const walk = (x: unknown): unknown => {
-    if (typeof x === 'string') return dict[x] || x;
-    if (Array.isArray(x)) return x.map(walk);
+  // Tam mətn lüğətdə yoxdursa: çoxsətirli mətn (layihə təsviri) sətir-sətir, teqlər vergüllə ayrılaraq tərcümə olunur
+  const str = (x: string, key?: string): string => {
+    if (dict[x]) return dict[x];
+    if (/\n/.test(x)) return x.split(/\r?\n/).map((l) => dict[l.trim()] || l).join('\n');
+    if (key === 'tags' && x.includes(',')) return x.split(',').map((p) => dict[p.trim()] || p.trim()).join(', ');
+    return dict[x.trim()] || x;
+  };
+  const walk = (x: unknown, key?: string): unknown => {
+    if (typeof x === 'string') return str(x, key);
+    if (Array.isArray(x)) return x.map((v) => walk(v, key));
     if (x && typeof x === 'object') {
       const o: Record<string, unknown> = {};
-      for (const [k, val] of Object.entries(x)) o[k] = SKIP.has(k) ? val : walk(val);
+      for (const [k, val] of Object.entries(x)) o[k] = SKIP.has(k) ? val : walk(val, k);
       return o;
     }
     return x;

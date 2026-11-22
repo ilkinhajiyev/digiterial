@@ -87,7 +87,7 @@ export function SeoVisual() {
           const target = order.indexOf(r.me ? 'ME' : r.d);
           return (
             <div key={r.d} ref={i === 0 ? first : undefined} className={`r${r.me ? ' me' : ''}`} style={{ transform: `translateY(${(target - i) * (rowH.current || 62)}px)` }}>
-              <em>{target + 1}</em><div><small>{r.d}</small><b>{k} | {r.me ? t('Sirketiniz') : r.d}</b><i /></div>
+              <em>{target + 1}</em><div><small>{t(r.d)}</small><b>{k} | {r.me ? t('Sirketiniz') : t(r.d)}</b><i /></div>
             </div>
           );
         })}
@@ -292,7 +292,7 @@ export function CorpVisual() {
         </div></div>
       <div><label htmlFor="domIn">{t('Şirkətinizin domeni')}</label>
         <div className="dom-in"><span>@</span><input id="domIn" value={raw} onChange={(e) => { setRaw(e.target.value); reset(); }} autoComplete="off" spellCheck={false} maxLength={60} /></div></div>
-      <div className="addrs">{['info', 'satis', 'ad.soyad', 'destek'].map((a, i) => <span key={a + dom} style={{ animationDelay: `${i * 60}ms` }}>{a}@{dom}</span>)}</div>
+      <div className="addrs">{['info', 'satis', 'ad.soyad', 'destek'].map((a, i) => <span key={a + dom} style={{ animationDelay: `${i * 60}ms` }}>{t(a)}@{dom}</span>)}</div>
       <div className="dns">
         {rows.map(([k, v], i) => (
           <div key={k} className={`dns-row${i < ok ? ' ok' : ''}${running === i ? ' run' : ''}`}><b>{k}</b><code>{v}</code><span className="st"><Check w={3} /></span></div>

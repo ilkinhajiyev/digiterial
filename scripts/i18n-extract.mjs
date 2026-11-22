@@ -91,6 +91,9 @@ for (const f of files) {
   visit(sf);
 }
 
+// 3) Əlavə açarlar: AST-in tutmadığı tək sözlər və admin paneldən (Supabase) daxil edilən mətnlər
+for (const s of JSON.parse(fs.readFileSync(path.join(root, 'lib/i18n/extra-source.json'), 'utf8'))) { add('extra', s); client.add(s); }
+
 const src = Object.fromEntries(Object.entries(out).map(([k, v]) => [k, [...v]]));
 fs.writeFileSync(path.join(root, 'lib/i18n/source.json'), JSON.stringify(src, null, 1));
 fs.writeFileSync(path.join(root, 'lib/i18n/client-keys.json'), JSON.stringify([...client].sort(), null, 1));

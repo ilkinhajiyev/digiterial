@@ -19,7 +19,7 @@ const mini = (t: T): Record<string, React.ReactNode> => ({
   seo: (
     <div className="mini-seo" aria-hidden="true">
       {([['sirketiniz.az', 1], ['rəqib-1.az', 2], ['kataloq.az', 3]] as const).map(([d, n]) => (
-        <span key={d} className={n === 1 ? 'me' : ''}><em>{n}</em><b>{d}</b></span>
+        <span key={d} className={n === 1 ? 'me' : ''}><em>{n}</em><b>{t(d)}</b></span>
       ))}
     </div>
   ),
