@@ -32,7 +32,7 @@ export default function Hero({ serviceCount, showcase }: { serviceCount: number;
           {t('Qlobal standartda')} <em>{t('rəqəmsal böyümə')}</em>
         </h1>
         <p className="lead">
-          {t('Sayt, SEO, reklam, brendinq və avtomatlaşdırma bir komandada. Bakıda 2018-dən bəri {n} xidmət, çoxdilli saytlar və beynəlxalq bazarlar üçün kampaniyalar. Bir hədəf: ölçülə bilən nəticə.', { n: serviceCount })}
+          {t('Sayt, SEO, reklam, brendinq və avtomatlaşdırma bir komandada. Bakıda 2018-dən bəri. Bir hədəf: ölçülə bilən nəticə.')}
         </p>
         <div className="ctas">
           <Link className="btn btn-primary" href="/elaqe">{t('Layihəni müzakirə et')} <Arrow /></Link>

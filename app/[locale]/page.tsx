@@ -52,19 +52,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <Hero serviceCount={svc.length} showcase={items.filter((w) => w.slug && SHOTS[w.slug]).slice(0, 5).map((w) => ({ slug: w.slug!, client: w.client || w.title, url: w.url, desktop: SHOTS[w.slug!]!.desktop }))} />
       <section className="logos ember-dark" aria-label={t('Müştərilər')}>
-        <div className="wrap">
-          <p>{t('Bizə etibar edən şirkətlər')}</p>
-          <div className="logos-row">{items.map((w) => <Link key={w.id} href={`/isler/${w.slug || w.id}`}>{w.client || w.title}</Link>)}</div>
+        <p className="sr-only">{t('Bizə etibar edən şirkətlər')}</p>
+        <div className="logos-row">
+          {[0, 1].map((k) => items.map((w) => (
+            <Link key={`${k}-${w.id}`} href={`/isler/${w.slug || w.id}`} aria-hidden={k === 1 || undefined} tabIndex={k === 1 ? -1 : undefined}>{w.client || w.title}</Link>
+          )))}
         </div>
       </section>
-      <GlobalStrip />
-      <Manifesto />
       <section id="xidmetler">
         <div className="wrap">
-          <SecHead label={t('Xidmətlər')} title={t('Böyümək üçün lazım olan hər şey.')} lead={t('Ayrı-ayrı podratçılar arasında vaxt itirməyin. Strategiyadan icraya qədər bütün rəqəmsal kanallarınızı bir komanda idarə edir.')} />
+          <div className="sec-head ek-head">
+            <div><div className="ek-eyebrow">— {t('Xidmətlər')}</div><h2 className="display">{t('Böyümək üçün lazım olan')} <span>{t('hər şey.')}</span></h2></div>
+            <p className="lead">{t('Ayrı-ayrı podratçılar arasında vaxt itirməyin. Strategiyadan icraya qədər bütün rəqəmsal kanallarınızı bir komanda idarə edir.')}</p>
+          </div>
           <Bento />
         </div>
       </section>
+      <Manifesto />
       <section id="test">
         <div className="wrap">
           <SecHead label={t('Niyə Digiterial')} title={t('Gözəl görünmək azdır. Sayt satmalıdır.')} lead={t('Hər qərarı dörd sualla yoxlayırıq. Öz saytınızı da indi yoxlayın: hansı suala “bəli” deyə bilirsiniz?')} />
@@ -76,6 +80,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <StackSection />
       <BlogSection />
       <FaqSection items={[faq.time, faq.price, faq.one, faq.seo, faq.support]} />
+      <GlobalStrip />
       <ContactSection st={st} />
     </>
   );

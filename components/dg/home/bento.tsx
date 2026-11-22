@@ -93,6 +93,8 @@ export default function Bento() {
               </ul>
             )}
             {MINI[s.slug]}
+            {s.slug === 'veb-saytlar' && <img className="bn-shot" src="/work/ramoil-desktop.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />}
+            {s.slug === 'reklam' && <img className="bn-bot" src="/brand/mascot/digiterial-mascot-front-full.webp" alt="" aria-hidden="true" width={410} height={505} loading="lazy" decoding="async" />}
             <span className="bc-more">{t('Ətraflı')} <Arrow /></span>
           </Link>
         ))}
